@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://water_mat_shader.tres" type="Material" id=1]
+[ext_resource path="res://planet.dae" type="PackedScene" id=2]
+[ext_resource path="res://planet.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://main.gd" type="Script" id=4]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.5
+fog_height_min = 0.0
+fog_height_max = 100.0
+ssao_quality = 0
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/4 = true
+glow_levels/6 = true
+glow_levels/7 = true
+glow_intensity = 0.4
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[sub_resource type="MultiMesh" id=2]
+transform_format = 1
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0 ), 0.0, 1.4, 0, 0, Vector2( 0.495625, 0.94043 ), 0.0, 0.0, 0, 0, Vector2( 0.999427, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 1.2
+spread = 177.87
+gravity = Vector3( 0, 0, 0 )
+radial_accel = -0.2
+tangential_accel = 3.0
+tangential_accel_random = 1.0
+damping = 1.5
+scale = 0.2
+scale_curve = SubResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.558594, 0.558594, 0.558594, 0.502745 )
+
+[sub_resource type="SphereMesh" id=7]
+material = SubResource( 6 )
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[node name="main" type="WorldEnvironment"]
+environment = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.605002, 0.796224, 0, -0.796224, 0.605002, 0, 0, 0 )
+light_energy = 3.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_contact = 0.2
+directional_shadow_max_distance = 200.0
+
+[node name="planet" parent="." instance=ExtResource( 2 )]
+
+[node name="Planet" parent="planet" index="0"]
+use_in_baked_light = true
+generate_lightmap = false
+
+[node name="trees" type="MultiMeshInstance" parent="planet"]
+multimesh = SubResource( 2 )
+
+[node name="cam_root" type="Spatial" parent="."]
+
+[node name="cam" type="Camera" parent="cam_root"]
+transform = Transform( 0.148708, 0.521799, -0.840007, 0, 0.849452, 0.527666, 0.988881, -0.0784684, 0.126321, -3.35726, 2.10892, 0.504866 )
+fov = 49.4
+
+[node name="water" type="MeshInstance" parent="."]
+mesh = ExtResource( 3 )
+material/0 = ExtResource( 1 )
+
+[node name="clouds" type="Particles" parent="."]
+visible = false
+cast_shadow = 0
+amount = 800
+lifetime = 4.0
+speed_scale = 0.3
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="progress" type="ProgressBar" parent="container"]
+margin_left = 387.0
+margin_top = 285.0
+margin_right = 637.0
+margin_bottom = 315.0
+rect_min_size = Vector2( 250, 30 )
+size_flags_vertical = 3
+step = 1.0
+value = 30.0
+
+[node name="label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -86.0
+text = "Press [space] to generate planet."
+align = 1
+valign = 1
+
+[editable path="planet"]

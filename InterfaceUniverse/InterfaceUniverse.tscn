@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resourses/Coin.png" type="Texture" id=3]
+[ext_resource path="res://HappyFall/Interface/GameInterface.cs" type="Script" id=4]
+[ext_resource path="res://HappyFall/Interface/RewardRenderer.cs" type="Script" id=5]
+[ext_resource path="res://Resourses/gemcoin.png" type="Texture" id=7]
+
+[node name="Interface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="TopUI" type="Control" parent="."]
+anchor_right = 1.0
+margin_bottom = 200.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="TopUI/HBoxContainer"]
+margin_right = 338.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TopUI/HBoxContainer"]
+margin_left = 342.0
+margin_right = 681.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+valign = 1
+
+[node name="RewardRender" type="HBoxContainer" parent="TopUI/HBoxContainer"]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 5 )
+
+[node name="Control" type="Control" parent="TopUI/HBoxContainer/RewardRender"]
+margin_right = 110.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Coin" type="NinePatchRect" parent="TopUI/HBoxContainer/RewardRender"]
+margin_left = 114.0
+margin_right = 224.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="TopUI/HBoxContainer/RewardRender/Coin"]
+margin_left = -107.0
+margin_top = 33.0
+margin_right = -47.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TopUI/HBoxContainer/RewardRender/Coin/TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 36.0
+margin_right = 107.0
+text = "1000"
+align = 1
+valign = 1
+
+[node name="Gemcoin" type="NinePatchRect" parent="TopUI/HBoxContainer/RewardRender"]
+margin_left = 228.0
+margin_right = 339.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect2" type="TextureRect" parent="TopUI/HBoxContainer/RewardRender/Gemcoin"]
+anchor_left = -0.973
+anchor_right = -0.973
+margin_left = 39.003
+margin_top = 33.0
+margin_right = 99.003
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TopUI/HBoxContainer/RewardRender/Gemcoin/TextureRect2"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 33.0
+margin_right = 104.0
+text = "1000"
+align = 1
+valign = 1
