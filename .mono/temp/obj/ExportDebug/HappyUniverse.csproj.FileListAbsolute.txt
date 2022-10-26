@@ -9,3 +9,10 @@ C:\PROGECTS\HappyUniverse C#\.mono\temp\obj\ExportDebug\HappyUniverse.csproj.Cor
 C:\PROGECTS\HappyUniverse C#\.mono\temp\obj\ExportDebug\HappyUniverse.csproj.CopyComplete
 C:\PROGECTS\HappyUniverse C#\.mono\temp\obj\ExportDebug\HappyUniverse.dll
 C:\PROGECTS\HappyUniverse C#\.mono\temp\obj\ExportDebug\HappyUniverse.pdb
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\ExportDebug\HappyUniverse.csproj.AssemblyReference.cache
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\ExportDebug\HappyUniverse.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\ExportDebug\HappyUniverse.AssemblyInfoInputs.cache
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\ExportDebug\HappyUniverse.AssemblyInfo.cs
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\ExportDebug\HappyUniverse.csproj.CoreCompileInputs.cache
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\ExportDebug\HappyUniverse.dll
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\ExportDebug\HappyUniverse.pdb
