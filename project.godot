@@ -12,32 +12,32 @@ _global_script_classes=[ {
 "base": "Obstacle",
 "class": "CircleObtacle",
 "language": "GDScript",
-"path": "res://HappyFall/Objects/Obstacles/Saw/CircleObstacle.gd"
+"path": "res://HappyFall/Sourse/Objects/Obstacles/Saw/CircleObstacle.gd"
 }, {
 "base": "Collectable",
 "class": "CollectableChest",
 "language": "GDScript",
-"path": "res://HappyFall/Objects/Collectable/Rewards/Chest/CollectableChest.gd"
+"path": "res://HappyFall/Sourse/Objects/Collectable/Rewards/Chest/CollectableChest.gd"
 }, {
 "base": "Collectable",
 "class": "CollectableCoin",
 "language": "GDScript",
-"path": "res://HappyFall/Objects/Collectable/Rewards/Coin/CollectableCoin.gd"
+"path": "res://HappyFall/Sourse/Objects/Collectable/Rewards/Coin/CollectableCoin.gd"
 }, {
 "base": "Collectable",
 "class": "CollectableGemcoin",
 "language": "GDScript",
-"path": "res://HappyFall/Objects/Collectable/Rewards/Gemcoin/CollectableGemcoin.gd"
+"path": "res://HappyFall/Sourse/Objects/Collectable/Rewards/Gemcoin/CollectableGemcoin.gd"
 }, {
 "base": "Tunnel",
 "class": "Gate",
 "language": "GDScript",
-"path": "res://HappyFall/Objects/Obstacles/Gate/Gate.gd"
+"path": "res://HappyFall/Sourse/Objects/Obstacles/Gate/Gate.gd"
 }, {
 "base": "Obstacle",
 "class": "PinPongObtacle",
 "language": "GDScript",
-"path": "res://HappyFall/Objects/Obstacles/PingPong/PinPongObstacle.gd"
+"path": "res://HappyFall/Sourse/Objects/Obstacles/PingPong/PinPongObstacle.gd"
 } ]
 _global_script_class_icons={
 "CircleObtacle": "",
@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="HappyUniverse"
-run/main_scene="res://HippieUniverse/MainSphere/MainSphere.tscn"
+run/main_scene="res://HippieUniverse/Sourse/MainSphere/MainSphere.tscn"
 config/use_hidden_project_data_directory=false
 config/icon="res://icon.png"
 config/auto_accept_quit=false

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Global Used Sourse/Data/Character System/CharacterInterface.cs" type="Script" id=1]
+[ext_resource path="res://HappyFall/Sourse/Characters/Character1/AbilityInterface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Global Used Sourse/Data/Character System/AbilityPreset.tscn" type="PackedScene" id=3]
+
+
+[node name="CharacterInterface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 1 )
+AbilityButtonsController = ExtResource( 2 )
+
+[node name="Abilities" parent="." instance=ExtResource( 3 )]
