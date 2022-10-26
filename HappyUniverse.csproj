@@ -14,7 +14,6 @@
         <Folder Include="Global Used Scripts\Constants\Textures Path" />
         <Folder Include="HappyFall\Characters\Character1\Effects" />
         <Folder Include="HappyFall\Characters\Character2\Buttons" />
-        <Folder Include="HappyFall\Models" />
         <Folder Include="Models\ImportedModels\Cyber_Biome\Fan" />
         <Folder Include="Models\ImportedModels\Cyber_Biome\Lasers" />
     </ItemGroup>
@@ -65,11 +64,6 @@
       <Content Include="HappyFall\Objects\Collectable\Chest\CollectableChest.tscn" />
       <Content Include="HappyFall\Objects\Collectable\Coin\CollectableCoin.tscn" />
       <Content Include="HappyFall\Objects\Collectable\Gemcoin\CollectableGemcoin.tscn" />
-      <Content Include="HappyFall\Objects\Joystick\Button.png" />
-      <Content Include="HappyFall\Objects\Joystick\Button.png.import" />
-      <Content Include="HappyFall\Objects\Joystick\Joystick.tscn" />
-      <Content Include="HappyFall\Objects\Joystick\Radius.png" />
-      <Content Include="HappyFall\Objects\Joystick\Radius.png.import" />
       <Content Include="HappyFall\Objects\Player\Items\Magnet.tscn" />
       <Content Include="HappyFall\Objects\Player\Player.tscn" />
       <Content Include="HappyFall\Objects\Tunnel\Obstacles\ChangePosition\Tunnel_change_position.tscn" />

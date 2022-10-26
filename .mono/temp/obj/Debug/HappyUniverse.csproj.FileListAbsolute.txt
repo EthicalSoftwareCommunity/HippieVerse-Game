@@ -9,3 +9,14 @@ C:\PROGECTS\HappyUniverse C#\.mono\temp\obj\Debug\HappyUniverse.dll
 C:\PROGECTS\HappyUniverse C#\.mono\temp\obj\Debug\HappyUniverse.pdb
 C:\PROGECTS\HappyUniverse C#\.mono\temp\bin\Debug\Newtonsoft.Json.dll
 C:\PROGECTS\HappyUniverse C#\.mono\temp\obj\Debug\HappyUniverse.csproj.CopyComplete
+C:\PROGECTS\HippieUniverse\.mono\temp\bin\Debug\HappyUniverse.dll
+C:\PROGECTS\HippieUniverse\.mono\temp\bin\Debug\HappyUniverse.pdb
+C:\PROGECTS\HippieUniverse\.mono\temp\bin\Debug\Newtonsoft.Json.dll
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\Debug\HappyUniverse.csproj.AssemblyReference.cache
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\Debug\HappyUniverse.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\Debug\HappyUniverse.AssemblyInfoInputs.cache
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\Debug\HappyUniverse.AssemblyInfo.cs
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\Debug\HappyUniverse.csproj.CoreCompileInputs.cache
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\Debug\HappyUniverse.csproj.CopyComplete
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\Debug\HappyUniverse.dll
+C:\PROGECTS\HippieUniverse\.mono\temp\obj\Debug\HappyUniverse.pdb
