@@ -1,9 +1,8 @@
-# Rider
-.idea/
-
-# Visual Studio Code
-.vscode/
+### Godot ###
 # Godot-specific ignores
+.import/
+import/
+.idea/
 export.cfg
 export_presets.cfg
 
@@ -11,7 +10,7 @@ export_presets.cfg
 *.translation
 
 # Mono-specific ignores
-.mono/*
+.mono/
 data_*/
 
-import
+# End of https://www.toptal.com/developers/gitignore/api/godot

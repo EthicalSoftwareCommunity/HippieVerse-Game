@@ -19,7 +19,7 @@ namespace HippieUniverse
 		[Export] private Vector3 max_speed = new Vector3(1.0f, 1.0f, 1.0f);
 		
 		Vector2 _mouse_offset = new Vector2();
-		Vector2 _rotation_offset = new Vector2();
+
 		private float _yaw = 0.0f;
 		private float _pitch = 0.0f;
 		private float _total_yaw = 0.0f;
@@ -92,7 +92,7 @@ namespace HippieUniverse
 			}
 		}
 
-		public override void _Process(float delta)
+		public override void _PhysicsProcess(float delta)
 		{
 			UpdateMovement(delta);
 			UpdateRotation(delta);

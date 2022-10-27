@@ -15,7 +15,6 @@
 [ext_resource path="res://HippieUniverse/Sourse/InterfaceUniverse/RewardRenderer.cs" type="Script" id=13]
 [ext_resource path="res://HippieUniverse/Sourse/InterfaceUniverse/GameInterface.cs" type="Script" id=14]
 
-
 [sub_resource type="PhysicsMaterial" id=11]
 
 [sub_resource type="ProceduralSky" id=18]
@@ -195,9 +194,9 @@ script = ExtResource( 6 )
 transform = Transform( 0.73127, -0.682088, 0, 0.682088, 0.73127, 0, 0, 0, 1, 4.31609, -7.99147, -1.91836 )
 
 [node name="UniversePlayer" type="KinematicBody" parent="World"]
-transform = Transform( 0.321394, -0.246202, 0.293412, 0, 0.383022, 0.321394, -0.383022, -0.206588, 0.246202, 7.11955, -0.607148, 6.03315 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.395, -7.242, 6.701 )
 script = ExtResource( 5 )
-max_speed = Vector3( 7, 7, 7 )
+max_speed = Vector3( 200, 200, 200 )
 
 [node name="InputController" parent="World/UniversePlayer" instance=ExtResource( 9 )]
 

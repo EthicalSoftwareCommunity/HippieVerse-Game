@@ -8,46 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Obstacle",
-"class": "CircleObtacle",
-"language": "GDScript",
-"path": "res://HappyFall/Sourse/Objects/Obstacles/Saw/CircleObstacle.gd"
-}, {
-"base": "Collectable",
-"class": "CollectableChest",
-"language": "GDScript",
-"path": "res://HappyFall/Sourse/Objects/Collectable/Rewards/Chest/CollectableChest.gd"
-}, {
-"base": "Collectable",
-"class": "CollectableCoin",
-"language": "GDScript",
-"path": "res://HappyFall/Sourse/Objects/Collectable/Rewards/Coin/CollectableCoin.gd"
-}, {
-"base": "Collectable",
-"class": "CollectableGemcoin",
-"language": "GDScript",
-"path": "res://HappyFall/Sourse/Objects/Collectable/Rewards/Gemcoin/CollectableGemcoin.gd"
-}, {
-"base": "Tunnel",
-"class": "Gate",
-"language": "GDScript",
-"path": "res://HappyFall/Sourse/Objects/Obstacles/Gate/Gate.gd"
-}, {
-"base": "Obstacle",
-"class": "PinPongObtacle",
-"language": "GDScript",
-"path": "res://HappyFall/Sourse/Objects/Obstacles/PingPong/PinPongObstacle.gd"
-} ]
-_global_script_class_icons={
-"CircleObtacle": "",
-"CollectableChest": "",
-"CollectableCoin": "",
-"CollectableGemcoin": "",
-"Gate": "",
-"PinPongObtacle": ""
-}
-
 [application]
 
 config/name="HappyUniverse"
@@ -110,6 +70,8 @@ file_logging/max_log_files=50
 
 runtime/unhandled_exception_policy=1
 project/assembly_name="HappyUniverse"
+debugger_agent/wait_for_debugger=true
+debugger_agent/wait_timeout=8216
 
 [physics]
 

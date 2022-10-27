@@ -55,7 +55,7 @@ namespace HippieUniverse
 				{
 					_points[eventTouch.Index].State = eventTouch.Pressed;
 					_points[eventTouch.Index].Position = eventTouch.Position;
-					if (eventTouch.Pressed)
+					if (eventTouch.Pressed == false)
 					{
 						if (_zoomStarted && _countStates == 0)
 						{
