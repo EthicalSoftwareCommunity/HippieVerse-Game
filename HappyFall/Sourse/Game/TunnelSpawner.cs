@@ -20,7 +20,7 @@ namespace HippieFall
         private CollectableController _collectableController;
         private ObstaclesController _obstaclesController;
         private readonly Biome _cyberBiome = new Biome(C_BiomeTypes.CYBER);
-        private readonly Biome _bikerBiome = new Biome(C_BiomeTypes.BIKER);
+        private readonly Biome _bikerBiome;//= new Biome(C_BiomeTypes.BIKER);
         private List<Biome> _biomes;
         private List<Spatial> _cashTunnels;
         private List<PackedScene> _obstacleOrder;
