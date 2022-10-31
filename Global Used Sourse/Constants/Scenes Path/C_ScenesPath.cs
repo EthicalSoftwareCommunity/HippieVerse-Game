@@ -5,6 +5,6 @@ namespace Global.Constants
         //Scenes;
         public const string MAIN_SPHERE = "res://HippieUniverse/Sourse/MainSphere/MainSphere.tscn";
         public const string CHOOSE_CHARACTER = "res://HippieUniverse/Sourse/ChooseCharacter/ChooseCharacter.tscn";
-        public const string HIPPIE_FALL = "res://HappyFall/Sourse/HappyFall.tscn";
+        public const string HIPPIE_FALL = "res://HippieFall/Sourse/HippieFall.tscn";
     }
 }

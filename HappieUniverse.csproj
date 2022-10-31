@@ -1,0 +1,11 @@
+<Project Sdk="Godot.NET.Sdk/3.3.0">
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>..\..\Users\mailf\Desktop\Godot_v3.5.1-stable_mono_win64\GodotSharp\Tools\Newtonsoft.Json.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+</Project>

@@ -3,6 +3,7 @@
 .idea/
 .gradle/
 .vs/
+.import/
 export.cfg
 export_presets.cfg
 

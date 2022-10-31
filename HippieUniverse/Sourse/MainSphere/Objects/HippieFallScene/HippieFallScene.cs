@@ -1,7 +1,7 @@
 ﻿using Global;
 using Global.Constants;
 
-namespace HappyUniverse
+namespace HappieUniverse
 {
     public class HippieFallScene : InteractionController
     {

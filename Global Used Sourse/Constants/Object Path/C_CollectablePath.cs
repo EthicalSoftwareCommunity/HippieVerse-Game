@@ -2,8 +2,8 @@ namespace Global.Constants
 {
     public class C_CollectablePath
     {
-        private const string PATH_TO_REWARDS = "res://HappyFall/Sourse/Objects/Collectable/Rewards/";
-        private const string PATH_TO_BONUSES = "res://HappyFall/Sourse/Objects/Collectable/Bonuses/";
+        private const string PATH_TO_REWARDS = "res://HippieFall/Sourse/Objects/Collectable/Rewards/";
+        private const string PATH_TO_BONUSES = "res://HippieFall/Sourse/Objects/Collectable/Bonuses/";
         
         //Rewards
         public const string COIN = PATH_TO_REWARDS + "Coin/CollectableCoin.tscn";

@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="HappyUniverse"
-run/main_scene="res://HappyFall/Sourse/HappyFall.tscn"
+config/name="HippieUniverse"
+run/main_scene="res://HippieFall/Sourse/HippieFall.tscn"
 config/use_hidden_project_data_directory=false
 config/icon="res://icon.png"
 config/auto_accept_quit=false
@@ -69,7 +69,7 @@ file_logging/max_log_files=50
 [mono]
 
 runtime/unhandled_exception_policy=1
-project/assembly_name="HappyUniverse"
+project/assembly_name="HippieUniverse"
 debugger_agent/wait_timeout=8216
 
 [physics]
