@@ -70,7 +70,6 @@ file_logging/max_log_files=50
 
 runtime/unhandled_exception_policy=1
 project/assembly_name="HappyUniverse"
-debugger_agent/wait_for_debugger=true
 debugger_agent/wait_timeout=8216
 
 [physics]

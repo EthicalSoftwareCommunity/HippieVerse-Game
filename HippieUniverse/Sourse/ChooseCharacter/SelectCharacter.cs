@@ -9,16 +9,14 @@ namespace HippieUniverse
     {
         private File _file;
         private Directory _directory;
-        private string _pathToSaveFolder = C_SaveFolderFile.FOLDER_CHARACTER_SAVES;
-        private string _pathToSaveFile = C_SaveFolderFile.FILE_CHARACTER;
-		
+
         public override void _Ready()
         {
             _file = new File();
             _directory = new Directory();
-            if (!_directory.DirExists(_pathToSaveFolder))
+            if (!_directory.DirExists(C_SaveFolderFile.FOLDER_CHARACTER_SAVES))
             {
-                _directory.MakeDir(_pathToSaveFolder);
+                _directory.MakeDir(C_SaveFolderFile.FOLDER_CHARACTER_SAVES);
             }
         }
 
@@ -35,7 +33,7 @@ namespace HippieUniverse
             {
                 name = GetParent().Name
             };
-            _file.Open(_pathToSaveFile, File.ModeFlags.Write);
+            _file.Open(C_SaveFolderFile.FILE_CHARACTER, File.ModeFlags.Write);
             _file.StoreString(JsonConvert.SerializeObject(character));
             _file.Close();
         }

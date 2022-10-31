@@ -62,8 +62,10 @@ namespace HippieUniverse
 					if (obj != null)
 					{
 						InteractionController controller = null;
-						if (obj.HasNode("InteractionController"))
-							controller = obj.GetNode<InteractionController>("InteractionController");
+						if (obj.GetNodeOrNull<InteractionController>("InteractionController") is InteractionController nodeController)
+							controller = nodeController;
+						else if (obj.GetOwnerOrNull<InteractionController>() is InteractionController ownerController)
+							controller = ownerController;
 						inputController.ResetInput();
 						controller?.Interact(C_InputTouchEventType.HOLD_TOUCH_DOWN);
 					}
