@@ -1,7 +1,5 @@
 ### Godot ###
 # Godot-specific ignores
-.import/
-import/
 .idea/
 .gradle/
 .vs/
