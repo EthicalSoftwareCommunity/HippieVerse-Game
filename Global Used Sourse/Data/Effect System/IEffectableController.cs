@@ -1,10 +1,12 @@
 ﻿using Global.Data.EffectSystem;
 
-namespace Global.GameSystem;
-
-public interface IEffectableController
+namespace Global.GameSystem
 {
-    void ApplyDynamicEffects();
 
-    public void ApplyConstantEffect(Effect effect);
+    public interface IEffectableController
+    {
+        void ApplyDynamicEffects();
+
+        public void ApplyConstantEffect(Effect effect);
+    }
 }

@@ -12,7 +12,7 @@ albedo_texture = ExtResource( 1 )
 extents = Vector3( 0.5, 0.5, 0.5 )
 
 [node name="GoToMainScene" type="StaticBody"]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.117591, 2.71208, -2.18139 )
+transform = Transform( -1, 0, 0, 2, 0, 0, 0, 0, 1, 0.117591, 2.71208, -2.18139 )
 
 [node name="GoBack" type="CSGBox" parent="."]
 material_override = SubResource( 13 )

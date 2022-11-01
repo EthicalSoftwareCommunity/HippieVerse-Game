@@ -1,15 +1,21 @@
 ﻿using System.Dynamic;
 using Global.Data;
 
-namespace HippieFall.Tunnels;
-
-public class PerforatedWallConfig : Config
+namespace HippieFall.Tunnels
 {
-    public float RotationSpeed { get; set; } = 1;
-    public PerforatedWallConfig(PerforatedWallConfig perforatedWall)
+
+    public class PerforatedWallConfig : Config
     {
-        RotationSpeed = perforatedWall.RotationSpeed;
+        public float RotationSpeed { get; set; } = 1;
+
+        public PerforatedWallConfig(PerforatedWallConfig perforatedWall)
+        {
+            RotationSpeed = perforatedWall.RotationSpeed;
+        }
+
+        public PerforatedWallConfig()
+        {
+        }
+
     }
-    public PerforatedWallConfig(){}
-    
 }
