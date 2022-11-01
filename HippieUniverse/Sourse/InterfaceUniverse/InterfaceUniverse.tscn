@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Images/Coin.png" type="Texture" id=3]
-[ext_resource path="res://HappyFall/Sourse/Interface/GameInterface.cs" type="Script" id=4]
-[ext_resource path="res://HappyFall/Sourse/Interface/RewardRenderer.cs" type="Script" id=5]
+[ext_resource path="res://HippieFall/Sourse/Interface/GameInterface.cs" type="Script" id=4]
+[ext_resource path="res://HippieFall/Sourse/Interface/RewardRenderer.cs" type="Script" id=5]
 [ext_resource path="res://Images/gemcoin.png" type="Texture" id=7]
+
 
 
 [node name="Interface" type="Control"]

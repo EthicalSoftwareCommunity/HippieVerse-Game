@@ -4,7 +4,7 @@ using Global.Data.Reward;
 using HippieUniverse;
 using Newtonsoft.Json;
 
-namespace HappyUniverse
+namespace HappieUniverse
 {
     public class MainSphere : Spatial
     {
