@@ -48,4 +48,7 @@ shape = SubResource( 6 )
 [node name="GameEffectController" type="Node" parent="."]
 script = ExtResource( 2 )
 
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.31757, 0.948235, 0, -0.948235, -0.31757, 0, 11.4139, -2 )
+
 [connection signal="area_entered" from="Level/DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]
