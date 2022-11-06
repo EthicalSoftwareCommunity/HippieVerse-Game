@@ -30,12 +30,11 @@ namespace HippieFall
         {
             _move.x = _joystick.GetButtonPosition().x;
             _move.z = _joystick.GetButtonPosition().y;
-            
+
             Vector2 move2d = new Vector2(_move.x, _move.y);
             if (move2d.Length() > 0)
             {
-                _move *= +_speed * delta * Mathf.Sqrt(move2d.Length() / 100) /
-                         100; //provides more movement depending on the position of the joystick
+                _move *= +_speed * delta * GetMovementCoefficient(move2d.Normalized().Length());
                 if (CheckMoveOnBorderRadiusOut())
                     _player.Translation += _move;
                 else
@@ -43,19 +42,25 @@ namespace HippieFall
                     _nextMove = _player.Translation;
                     if (Mathf.Abs(_move.x) > Mathf.Abs(_move.z))
                     {
-                        _nextMove.x = Mathf.Clamp(_nextMove.x + _move.x, -_radius, _radius);
+                        _nextMove.x = Mathf.Clamp(_nextMove.x + _move.x/5, -_radius, _radius);
                         _nextMove.z = Mathf.Sqrt(_radius * _radius - _nextMove.x * _nextMove.x) *
                                       Mathf.Sign(_nextMove.z);
                     }
                     else
                     {
-                        _nextMove.z = Mathf.Clamp(_nextMove.z + _move.z, -_radius, _radius);
+                        _nextMove.z = Mathf.Clamp(_nextMove.z + _move.z/5, -_radius, _radius);
                         _nextMove.x = Mathf.Sqrt(_radius * _radius - _nextMove.z * _nextMove.z) *
                                       Mathf.Sign(_nextMove.x);
                     }
+
                     _player.Translation = _nextMove;
                 }
             }
+        }
+
+        private float GetMovementCoefficient(float x)
+        {
+            return Mathf.Log(x*5) / 200;
         }
 
         private bool CheckMoveOnBorderRadiusOut()
