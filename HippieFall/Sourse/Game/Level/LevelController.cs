@@ -14,7 +14,8 @@ namespace HippieFall.Game
     {
         public event Action<Config> ConfigChanged;
         public event Action<List<Effect>> OnLevelEffectAdded;
-        private System.Timers.Timer timer;
+        private System.Timers.Timer _setConstantEffectTimer;
+        private System.Timers.Timer _deepChangeTimer;
         [Export] private float _deep;
         [Export] private float _deepIncrease;
         [Export] private float _speed;
@@ -39,7 +40,6 @@ namespace HippieFall.Game
             _effectController = new EffectsController(Effect.EffectsTarget.Level);
             GetNode("/root").GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
         }
-
         public void Init(GameController game)
         {
             _interface = game.GameInterface;
@@ -47,10 +47,28 @@ namespace HippieFall.Game
             _effectController.DynamicEffectAdded += ApplyDynamicEffects;
             _effectController.ConstantEffectAdded += ApplyConstantEffect;
 
-            timer = new System.Timers.Timer(1000);
-            timer.Elapsed += ConstantEffects;
-            timer.AutoReset = true;
-            timer.Start();
+            _setConstantEffectTimer = new System.Timers.Timer(1000);
+            _setConstantEffectTimer.Elapsed += ConstantEffects;
+            _setConstantEffectTimer.AutoReset = true;
+            _setConstantEffectTimer.Start();
+
+            _deepChangeTimer = new System.Timers.Timer(1000 / _speed);
+            _deepChangeTimer.Elapsed += DeepMovementChange;
+            _deepChangeTimer.AutoReset = true;
+            _deepChangeTimer.Start();
+            
+        }
+        public override void _ExitTree()
+        {
+            _deepChangeTimer.Dispose();
+            _setConstantEffectTimer.Dispose();
+        }
+
+        private void DeepMovementChange(object sender, ElapsedEventArgs e)
+        {
+            _deep += _deepIncrease;
+            _interface.GameScore.Text = _deep.ToString(CultureInfo.InvariantCulture);
+            _deepChangeTimer.Interval = 1000 / (_speed/2+1);
         }
 
         private void ConstantEffects(object sender, ElapsedEventArgs e)
@@ -81,8 +99,6 @@ namespace HippieFall.Game
         {
             _spawner.RemoveTunnel(area.GetParentOrNull<Tunnel>());
             SpawnTunnelAgain();
-            _deep += _deepIncrease;
-            _interface.GameScore.Text = _deep.ToString(CultureInfo.InvariantCulture);
         }
 
         private void SpawnTunnelAgain()
