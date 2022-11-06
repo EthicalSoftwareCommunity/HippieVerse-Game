@@ -47,6 +47,7 @@ flat = true
 expand_icon = true
 script = ExtResource( 9 )
 _pauseOverlayPath = NodePath("../../../../PauseOverlay")
+_isPaused = true
 
 [node name="Label" type="Label" parent="TopUI/HBoxContainer"]
 margin_left = 342.0
