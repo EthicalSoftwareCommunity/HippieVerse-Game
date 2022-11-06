@@ -5,26 +5,18 @@ namespace HippieFall.Game
 	public class PauseButton : Button
 	{
 		[Export] private NodePath _pauseOverlayPath;
+		[Export] private bool _isPaused; //Set toggle on editor
 		private Control _pauseOverlay;
-		public bool IsPaused { get; set; }
 		public override void _Ready()
 		{
-
 			_pauseOverlay = GetNode<Control>(_pauseOverlayPath);
-			IsPaused = false;
-			Connect("pressed", this, nameof(ChangePauseState));
+			Connect("pressed", this, nameof(SetPause));
 		}
 
-		public void ChangePauseState()
-		{
-			IsPaused = !IsPaused;
-			SetPause(IsPaused);
-		}
-
-		private void SetPause(bool pause)
+		private void SetPause()
 		{	
-			_pauseOverlay.Visible = pause;
-			GetTree().Paused = pause;
+			_pauseOverlay.Visible = _isPaused;
+			GetTree().Paused = _isPaused;
 		}
 	}
 }

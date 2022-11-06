@@ -4,9 +4,7 @@ namespace HippieFall.Game
 {
 	public class HomeButton : Button
 	{
-		
 		[Export] private PackedScene _scene;
-		
 		
 		public override void _Ready()
 		{
@@ -17,6 +15,5 @@ namespace HippieFall.Game
 		{	
 			GetTree().ChangeScene(_scene.ResourcePath);
 		}
-	
 	}
 }

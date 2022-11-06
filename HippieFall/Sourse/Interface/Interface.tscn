@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Radius.png" type="Texture" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Button.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://HippieFall/Sourse/Interface/PauseButton.cs" type="Script" id=9]
 [ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Images/Play.png" type="Texture" id=11]
-[ext_resource path="res://HippieFall/Sourse/Interface/ResumeButton.cs" type="Script" id=12]
 [ext_resource path="res://HippieFall/Sourse/Interface/HomeButton.cs" type="Script" id=13]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/MainSphere.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Images/back.png" type="Texture" id=15]
@@ -55,6 +54,7 @@ icon = ExtResource( 8 )
 flat = true
 expand_icon = true
 script = ExtResource( 9 )
+IsPaused = true
 _pauseOverlayPath = NodePath("../../../../PauseOverlay")
 
 [node name="Label" type="Label" parent="TopUI/HBoxContainer"]
@@ -196,7 +196,7 @@ margin_bottom = 408.0
 icon = ExtResource( 11 )
 flat = true
 expand_icon = true
-script = ExtResource( 12 )
+script = ExtResource( 9 )
 _pauseOverlayPath = NodePath("..")
 
 [node name="HomeButton" type="Button" parent="PauseOverlay"]
