@@ -2,7 +2,6 @@
 
 [ext_resource path="res://HippieUniverse/Materials/Models/ImportedModels/Material.material" type="Material" id=1]
 
-
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cube"
 surfaces/0 = {

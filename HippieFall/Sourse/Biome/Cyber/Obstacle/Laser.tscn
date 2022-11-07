@@ -3,7 +3,6 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Lasers/Laser.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/Lasers/images/laser_txt_Round_corridor_cyberpunk_Traps_v5_BaseColor.png" type="Texture" id=2]
 
-
 [sub_resource type="SpatialMaterial" id=14]
 albedo_texture = ExtResource( 2 )
 
