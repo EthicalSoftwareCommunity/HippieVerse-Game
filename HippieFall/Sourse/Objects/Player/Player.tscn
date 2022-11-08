@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerRewardController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/PlayerControls.cs" type="Script" id=2]
@@ -11,36 +11,15 @@
 [ext_resource path="res://HippieFall/Sourse/Characters/CharacterModel.cs" type="Script" id=9]
 [ext_resource path="res://HippieFall/Sourse/Characters/Character1/Buttons/ChangeCollectableWeightsButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Global Used Sourse/Data/Character System/CharacterInterface.cs" type="Script" id=11]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Items/Magnet/Magnet.cs" type="Script" id=12]
+[ext_resource path="res://HippieFall/Sourse/Objects/Player/Items/Magnet/Magnet.cs" type="Script" id=12]
 [ext_resource path="res://HippieFall/Sourse/Characters/Character1/Buttons/SlowObstaclesButton.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Global Used Sourse/Data/Character System/AbilityButtonsController.cs" type="Script" id=14]
-[ext_resource path="res://HippieFall/Sourse/Interface/HomeButton.cs" type="Script" id=15]
-[ext_resource path="res://Images/Re-spawn.png" type="Texture" id=16]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Re_SpawnButton.cs" type="Script" id=17]
-[ext_resource path="res://Images/back.png" type="Texture" id=18]
-[ext_resource path="res://Images/gemcoin.png" type="Texture" id=19]
-[ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=20]
-[ext_resource path="res://HippieUniverse/Sourse/MainSphere/MainSphere.tscn" type="PackedScene" id=21]
 
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 1.50538, 1.16077, 0.455022 )
 
 [sub_resource type="SphereShape" id=9]
 radius = 3.0
-
-[sub_resource type="Theme" id=10]
-
-[sub_resource type="DynamicFont" id=11]
-size = 40
-font_data = ExtResource( 20 )
-
-[sub_resource type="DynamicFont" id=12]
-size = 35
-font_data = ExtResource( 20 )
-
-[sub_resource type="DynamicFont" id=13]
-size = 40
-font_data = ExtResource( 20 )
 
 [sub_resource type="CapsuleShape" id=7]
 height = 0.002
@@ -52,7 +31,6 @@ collision_mask = 524441
 script = ExtResource( 3 )
 _playerControlsPath = NodePath("PlayerControls")
 _characterPath = NodePath("Character")
-_re_spawnOverlayPath = NodePath("Character/Re_spawnOverlay")
 _isPaused = true
 
 [node name="Area" type="Area" parent="."]
@@ -78,125 +56,6 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 script = ExtResource( 8 )
 _characterInterfacePath = NodePath("CharacterInterface")
 _characterModelPath = NodePath("CharacterModel")
-
-[node name="Re_spawnOverlay" type="Control" parent="Character"]
-process_priority = 1
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( -325, 241 )
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="Character/Re_spawnOverlay"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 259.0
-margin_top = 163.0
-margin_right = -251.0
-margin_bottom = -163.0
-color = Color( 0.2, 0.2, 0.2, 0.929412 )
-
-[node name="Label" type="Label" parent="Character/Re_spawnOverlay/ColorRect"]
-margin_left = 42.0
-margin_top = -39.0
-margin_right = 501.0
-margin_bottom = 111.0
-rect_pivot_offset = Vector2( 681, 60 )
-theme = SubResource( 10 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 11 )
-text = "Continue?"
-align = 1
-valign = 1
-
-[node name="Re_SpawnButton" type="Button" parent="Character/Re_spawnOverlay"]
-margin_left = 410.0
-margin_top = 318.0
-margin_right = 494.0
-margin_bottom = 408.0
-icon = ExtResource( 16 )
-flat = true
-expand_icon = true
-script = ExtResource( 17 )
-_re_spawnOverlayPath = NodePath("..")
-
-[node name="HomeButton" type="Button" parent="Character/Re_spawnOverlay"]
-margin_left = 696.0
-margin_top = 163.0
-margin_right = 1220.0
-margin_bottom = 681.0
-rect_scale = Vector2( 0.15, 0.15 )
-custom_fonts/font = SubResource( 12 )
-icon = ExtResource( 18 )
-flat = true
-script = ExtResource( 15 )
-_scene = ExtResource( 21 )
-
-[node name="GemcoinRemain" type="NinePatchRect" parent="Character/Re_spawnOverlay"]
-margin_left = 653.0
-margin_top = 223.0
-margin_right = 764.0
-margin_bottom = 423.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TextureRect2" type="TextureRect" parent="Character/Re_spawnOverlay/GemcoinRemain"]
-anchor_left = -0.973
-anchor_right = -0.973
-margin_left = -98.997
-margin_top = 18.0
-margin_right = -38.997
-margin_bottom = 78.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 19 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="Character/Re_spawnOverlay/GemcoinRemain/TextureRect2"]
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 33.0
-margin_right = 104.0
-custom_fonts/font = SubResource( 13 )
-text = "1000"
-align = 1
-valign = 1
-
-[node name="GemcoinCost" type="NinePatchRect" parent="Character/Re_spawnOverlay"]
-margin_left = 870.0
-margin_top = 305.0
-margin_right = 981.0
-margin_bottom = 505.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TextureRect2" type="TextureRect" parent="Character/Re_spawnOverlay/GemcoinCost"]
-anchor_left = -0.973
-anchor_right = -0.973
-margin_left = -173.997
-margin_top = 25.0
-margin_right = -113.997
-margin_bottom = 85.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 19 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="Character/Re_spawnOverlay/GemcoinCost/TextureRect2"]
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -124.0
-margin_top = 2.0
-margin_right = -33.0
-margin_bottom = 37.0
-custom_fonts/font = SubResource( 13 )
-text = "-1
-"
-align = 1
-valign = 1
 
 [node name="CharacterModel" type="Spatial" parent="Character"]
 script = ExtResource( 9 )

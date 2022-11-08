@@ -1,4 +1,7 @@
 using System;
+using Global.Data.GameSystem;
+using Godot;
+using Array = Godot.Collections.Array;
 
 namespace Global
 {
@@ -36,6 +39,31 @@ namespace Global
 				}
 			}
 			return number;
+		}
+		
+		/// <summary>
+		/// Pause mode = TRUE - node is PAUSED. <br/>
+		/// Pause mode = FALSE - node is UNPAUSED
+		/// </summary>
+		public static void SetNodePause(Node node, bool isNodeNeedToPause = true, bool needPauseChildren = false)
+		{
+			node.SetProcess(!isNodeNeedToPause);
+			node.SetPhysicsProcess(!isNodeNeedToPause);
+			node.SetProcessInput(!isNodeNeedToPause);
+			node.SetProcessUnhandledInput(!isNodeNeedToPause);
+			node.SetProcessUnhandledKeyInput(!isNodeNeedToPause);
+			node.SetBlockSignals(isNodeNeedToPause);
+			
+			if(node is IPauseable pauseable)
+				pauseable.SetPause(isNodeNeedToPause);
+			
+			if (needPauseChildren)
+			{
+				foreach (Node child in node.GetChildren())
+				{
+					SetNodePause(child, isNodeNeedToPause, needPauseChildren);
+				}
+			}
 		}
 	}
 }

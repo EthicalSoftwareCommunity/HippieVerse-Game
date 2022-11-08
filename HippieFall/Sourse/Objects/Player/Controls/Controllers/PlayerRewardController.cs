@@ -9,11 +9,11 @@ namespace HippieFall
 	{
 		public event Action<RewardData> OnRewardsDataChanged;
 
-		private RewardController _rewardController;
+		public RewardController RewardController { get; private set;}
 
 		public override void _Ready()
 		{
-			_rewardController = new RewardController();
+			RewardController = new RewardController();
 		}
 
 		private void OnAreaEntered(Area area)
@@ -21,21 +21,21 @@ namespace HippieFall
 			if (area.GetOwnerOrNull<Collectable>() is Collectable reward)
 			{
 				if (reward is CollectableCoin)
-					_rewardController.RewardData.AddCoin(new RewardCoin(1));
+					RewardController.RewardData.AddCoin(new RewardCoin(1));
 				else if (reward is CollectableGemcoin)
-					_rewardController.RewardData.AddGemcoin(new RewardGemcoin(1));
+					RewardController.RewardData.AddGemcoin(new RewardGemcoin(1));
 				else if (reward is CollectableChest)
 					//var chest = (reward as CollectableChest).CastToRewardChest();
-					//_rewardController.RewardData.add_chest(RewardChest.new(chest.chest_type, chest.chest_rarity))
-					_rewardController.RewardData.AddChest(new RewardChest());
+					//RewardController.RewardData.add_chest(RewardChest.new(chest.chest_type, chest.chest_rarity))
+					RewardController.RewardData.AddChest(new RewardChest());
 
-				OnRewardsDataChanged?.Invoke(_rewardController.RewardData);
+				OnRewardsDataChanged?.Invoke(RewardController.RewardData);
 			}
 		}
 
 		public void LoseGame()
 		{
-			_rewardController.RewardSaveLoadSystem.SaveRewards(_rewardController.RewardData);
+			RewardController.RewardSaveLoadSystem.SaveRewards(RewardController.RewardData);
 		}
 	}
 }

@@ -6,11 +6,12 @@ using System.Timers;
 using Global.Data;
 using Godot;
 using Global.Data.EffectSystem;
+using Global.Data.GameSystem;
 using HippieFall.Tunnels;
 
 namespace HippieFall.Game
 {
-    public class LevelController : Spatial, IEffectable
+    public class LevelController : Spatial, IEffectable, IPauseable
     {
         public event Action<Config> ConfigChanged;
         public event Action<List<Effect>> OnLevelEffectAdded;
@@ -112,6 +113,20 @@ namespace HippieFall.Game
              if (!(config is LevelConfig levelConfig)) return;
             _deepIncrease = levelConfig.DeepIncrease;
             _speed = levelConfig.Speed;
+        }
+
+        public void SetPause(bool pause)
+        {
+            if (pause)
+            {
+                _setConstantEffectTimer.Stop();
+                _deepChangeTimer.Stop();
+            }
+            else
+            {
+                _setConstantEffectTimer.Start();
+                _deepChangeTimer.Start();
+            }
         }
     }
 }

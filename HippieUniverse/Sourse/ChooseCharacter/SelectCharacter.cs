@@ -33,7 +33,7 @@ namespace HippieUniverse
             {
                 name = GetParent().Name
             };
-            _file.Open(C_SaveFolderFile.FILE_CHARACTER, File.ModeFlags.Write);
+            _file.Open(C_SaveFolderFile.FILE_CHARACTER, File.ModeFlags.WriteRead);
             _file.StoreString(JsonConvert.SerializeObject(character));
             _file.Close();
         }
