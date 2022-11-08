@@ -11,7 +11,14 @@ namespace Global.Data.Reward
         public RewardSaveLoadSystem()
         {
             _file = new File();
-            new Directory().MakeDir(C_RewardFolderFile.FOLDER_REWARDS_SAVES);
+            Directory directory = new Directory();
+            if (directory.DirExists(C_RewardFolderFile.FOLDER_REWARDS_SAVES) == false)
+                directory.MakeDir(C_RewardFolderFile.FOLDER_REWARDS_SAVES);
+            if (_file.FileExists(C_RewardFolderFile.FILE_REWARDS) == false)
+            {
+                _file.Open(C_RewardFolderFile.FILE_REWARDS, File.ModeFlags.Write);
+                _file.Close();
+            }
         }
 
         public RewardData LoadRewards()
@@ -22,13 +29,15 @@ namespace Global.Data.Reward
             return data ?? new RewardData();
         }
 
-        public void SaveRewards(RewardData data)
+        public void SaveRewards(RewardData data, bool needOverwrite = false)
         {
             RewardData previousData = LoadRewards();
-            data += previousData;
+            if(needOverwrite == false)
+                data += previousData;
             _file.Open(C_RewardFolderFile.FILE_REWARDS, File.ModeFlags.Write);
             _file.StoreString(JsonConvert.SerializeObject(data));
             _file.Close();
         }
+        
     }
 }

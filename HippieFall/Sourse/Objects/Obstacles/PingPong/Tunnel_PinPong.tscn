@@ -3,8 +3,6 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/PingPong/PinPongObstacle.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Tunnel/Tunnel.cs" type="Script" id=2]
 
-
-
 [sub_resource type="BoxShape" id=4]
 
 [sub_resource type="CylinderMesh" id=5]
@@ -13,8 +11,6 @@
 
 [node name="Tunnel_PinPong" type="Spatial"]
 script = ExtResource( 2 )
-TunnelPath = "tunnel"
-ObstaclePath = "CircleObstacle"
 
 [node name="tunnel" type="Spatial" parent="."]
 

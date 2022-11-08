@@ -22,7 +22,11 @@ namespace HappieUniverse
 		private void LoadCharacter()
 		{
 			File file = new File();
-			var error = file.Open(_pathToCharacterSave, File.ModeFlags.Read);
+			if(file.FileExists(_pathToCharacterSave) == false)
+			{
+				file.Open(_pathToCharacterSave, File.ModeFlags.Write);
+			}
+			var error = file.Open(_pathToCharacterSave, File.ModeFlags.ReadWrite);
 			if (error == Error.Ok)
 			{
 				SaveCharacterData saveData = JsonConvert.DeserializeObject<SaveCharacterData>(file.GetAsText());

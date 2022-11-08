@@ -4,8 +4,6 @@
 [ext_resource path="res://HippieUniverse/Materials/Models/ImportedModels/Red.material" type="Material" id=2]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Items/Magnet/Magnet.cs" type="Script" id=3]
 
-
-
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Circle.010"
 surfaces/0 = {

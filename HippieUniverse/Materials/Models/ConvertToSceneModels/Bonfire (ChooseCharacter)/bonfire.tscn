@@ -5,7 +5,6 @@
 [ext_resource path="res://HippieUniverse/Materials/Models/ConvertToSceneModels/Bonfire (ChooseCharacter)/flame_01.png" type="Texture" id=3]
 [ext_resource path="res://HippieUniverse/Materials/Models/ConvertToSceneModels/Bonfire (ChooseCharacter)/hogueraLP_sueloSG_BaseColor.png" type="Texture" id=4]
 
-
 [sub_resource type="SpatialMaterial" id=13]
 albedo_texture = ExtResource( 4 )
 

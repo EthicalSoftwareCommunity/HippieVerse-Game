@@ -31,6 +31,7 @@ collision_mask = 524441
 script = ExtResource( 3 )
 _playerControlsPath = NodePath("PlayerControls")
 _characterPath = NodePath("Character")
+_isPaused = true
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )

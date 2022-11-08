@@ -4,8 +4,6 @@
 [ext_resource path="res://HippieFall/Sourse/Characters/Character1/Abilities/ChangeCollectableWeight.cs" type="Script" id=2]
 [ext_resource path="res://Images/CoinIcon.png" type="Texture" id=3]
 
-
-
 [node name="ChangeCollectableWeightsButton" type="Button"]
 margin_left = 71.0
 margin_top = 59.0
