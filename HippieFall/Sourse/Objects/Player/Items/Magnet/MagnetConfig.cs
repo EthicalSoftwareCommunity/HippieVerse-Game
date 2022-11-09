@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing.Printing;
 using Global.Data;
 
 namespace HippieFall.Items
@@ -19,6 +20,17 @@ namespace HippieFall.Items
             Force = magnetConfig.Force;
             SpeedForceCorrection = magnetConfig.SpeedForceCorrection;
             IsMagnetActivated = magnetConfig.IsMagnetActivated;
+        }
+
+        public static bool operator ==(MagnetConfig a, MagnetConfig b)
+        {
+            return (a.IsMagnetActivated == b.IsMagnetActivated && Math.Abs(a.Force - b.Force) < 0.01 &&
+                    Math.Abs(a.SpeedForceCorrection - b.SpeedForceCorrection) < 0.01);
+        }
+
+        public static bool operator !=(MagnetConfig a, MagnetConfig b)
+        {
+            return !(a == b);
         }
     }
 }

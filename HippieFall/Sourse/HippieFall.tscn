@@ -216,6 +216,8 @@ margin_bottom = 408.0
 icon = ExtResource( 15 )
 flat = true
 expand_icon = true
+script = ExtResource( 21 )
+_pauseOverlayPath = NodePath("..")
 
 [node name="HomeButton" type="Button" parent="Interface/PauseOverlay"]
 margin_left = 584.0
@@ -379,7 +381,7 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-_isPaused = false
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 7, 0 )
 
 [node name="GameEffectController" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -389,7 +391,8 @@ script = ExtResource( 7 )
 _gameOverScreenPath = NodePath("../Interface/GameOverScreen")
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.31757, 0.948235, 0, -0.948235, -0.31757, 0, 11.4139, -2 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.605, -0.091 )
+fov = 90.0
 
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
 [connection signal="area_entered" from="Level/DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]

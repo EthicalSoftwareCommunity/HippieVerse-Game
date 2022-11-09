@@ -2,8 +2,6 @@
 
 [ext_resource path="res://HippieFall/Sourse/Biome/Biker/Tunnel/Biker.png" type="Texture" id=1]
 
-
-
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 1 )
 

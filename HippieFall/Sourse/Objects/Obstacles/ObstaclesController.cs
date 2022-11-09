@@ -98,6 +98,7 @@ namespace HippieFall.Tunnels
                 if (obstacleObject.Obstacle == obstacle)
                 {
                     ObstacleObjects.Remove(obstacleObject);
+                    return;
                 }
             }
         }

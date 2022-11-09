@@ -45,23 +45,43 @@ namespace Global
 		/// Pause mode = TRUE - node is PAUSED. <br/>
 		/// Pause mode = FALSE - node is UNPAUSED
 		/// </summary>
-		public static void SetNodePause(Node node, bool isNodeNeedToPause = true, bool needPauseChildren = false)
+		public static void PauseNode(Node node, bool needPauseChildren = false)
 		{
-			node.SetProcess(!isNodeNeedToPause);
-			node.SetPhysicsProcess(!isNodeNeedToPause);
-			node.SetProcessInput(!isNodeNeedToPause);
-			node.SetProcessUnhandledInput(!isNodeNeedToPause);
-			node.SetProcessUnhandledKeyInput(!isNodeNeedToPause);
-			node.SetBlockSignals(isNodeNeedToPause);
+			node.SetProcess(false);
+			node.SetPhysicsProcess(false);
+			node.SetProcessInput(false);
+			node.SetProcessUnhandledInput(false);
+			node.SetProcessUnhandledKeyInput(false);
+			node.SetBlockSignals(true);
 			
 			if(node is IPauseable pauseable)
-				pauseable.SetPause(isNodeNeedToPause);
+				pauseable.Pause();
 			
 			if (needPauseChildren)
 			{
 				foreach (Node child in node.GetChildren())
 				{
-					SetNodePause(child, isNodeNeedToPause, needPauseChildren);
+					PauseNode(child, needPauseChildren);
+				}
+			}
+		}
+		public static void ResumeNode(Node node, bool needResumeChildren = false)
+		{
+			node.SetProcess(true);
+			node.SetPhysicsProcess(true);
+			node.SetProcessInput(true);
+			node.SetProcessUnhandledInput(true);
+			node.SetProcessUnhandledKeyInput(true);
+			node.SetBlockSignals(false);
+			
+			if(node is IPauseable pauseable)
+				pauseable.Resume();
+			
+			if (needResumeChildren)
+			{
+				foreach (Node child in node.GetChildren())
+				{
+					ResumeNode(child, needResumeChildren);
 				}
 			}
 		}

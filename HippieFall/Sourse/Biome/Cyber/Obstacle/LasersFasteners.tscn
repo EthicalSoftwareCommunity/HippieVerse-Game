@@ -215,8 +215,8 @@ skeleton = NodePath("../../..")
 
 [node name="Area" type="Area" parent="Main Fastener"]
 transform = Transform( 2.5, -2.68008e-27, 2.49373e-34, 0, 4.6978, -4.37115e-07, 0, 8.21391e-07, 2.5, -0.003, 0, -15.2864 )
-collision_layer = 16
-collision_mask = 16
+collision_layer = 24
+collision_mask = 24
 
 [node name="CollisionShape" type="CollisionShape" parent="Main Fastener/Area"]
 shape = SubResource( 14 )

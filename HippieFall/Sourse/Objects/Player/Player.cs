@@ -13,7 +13,6 @@ namespace HippieFall
 	{
 		[Export] private NodePath _playerControlsPath;
 		[Export] private NodePath _characterPath;
-		[Export] private bool _isPaused;
 
 		public event Action OnPlayerEndedGame; 
 		public Character Character { get; private set; }

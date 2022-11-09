@@ -77,13 +77,13 @@ namespace HippieFall.Game
             ApplyConstantEffect(new ChangeLevelSpeed(0.1f));
         }
 
-        public void ApplyDynamicEffects()
+        private void ApplyDynamicEffects()
         {
             Config = _effectController.ApplyEffectsOnConfig(Config);
             ConfigChanged?.Invoke(Config);
         }
 
-        public void ApplyConstantEffect(Effect effect)
+        private void ApplyConstantEffect(Effect effect)
         {
             _config = effect.Apply(_config);
             Config = _config;
@@ -114,19 +114,17 @@ namespace HippieFall.Game
             _deepIncrease = levelConfig.DeepIncrease;
             _speed = levelConfig.Speed;
         }
-
-        public void SetPause(bool pause)
+        
+        public void Pause()
         {
-            if (pause)
-            {
-                _setConstantEffectTimer.Stop();
-                _deepChangeTimer.Stop();
-            }
-            else
-            {
-                _setConstantEffectTimer.Start();
-                _deepChangeTimer.Start();
-            }
+            _setConstantEffectTimer.Stop();
+            _deepChangeTimer.Stop();
+        }
+
+        public void Resume()
+        {
+            _setConstantEffectTimer.Start();
+            _deepChangeTimer.Start();
         }
     }
 }

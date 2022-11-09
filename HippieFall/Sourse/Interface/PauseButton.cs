@@ -1,3 +1,4 @@
+using Global;
 using Godot;
 
 namespace HippieFall.Game
@@ -17,6 +18,10 @@ namespace HippieFall.Game
 		{	
 			_pauseOverlay.Visible = _isPaused;
 			GetTree().Paused = _isPaused;
+			if (_isPaused)
+				HippieFallUtilities.PauseGame();
+			else
+				HippieFallUtilities.ResumeGame();
 		}
 	}
 }

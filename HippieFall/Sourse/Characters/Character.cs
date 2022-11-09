@@ -23,6 +23,5 @@ namespace HippieFall.Characters
             RemoveChild(_characterInterface);
             game.GameInterface.BottomUI.AddChild(_characterInterface);
         }
-
     }
 }

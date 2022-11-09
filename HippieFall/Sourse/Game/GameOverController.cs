@@ -5,7 +5,7 @@ using Godot;
 using HippieFall;
 using HippieFall.Game;
 
-namespace HippieUniverse.HippieFall.Sourse.Interface
+namespace HippieFall.Game.Interface
 {
     public class GameOverController : Node
     {
@@ -36,17 +36,15 @@ namespace HippieUniverse.HippieFall.Sourse.Interface
 
         private void ShowGameOverScreen()
         {
+            HippieFallUtilities.PauseGame();
             _gameOverScreen.Show(_rewardData, paymentGemcoinCount);
-            Utilities.SetNodePause(_player, needPauseChildren: true);
-            Utilities.SetNodePause(_levelController);
         }
 
         private void ContinueGame()
         {
             SpendGemCoins();
+            HippieFallUtilities.ResumeGame();
             _gameOverScreen.Hide();
-            Utilities.SetNodePause(_player, isNodeNeedToPause:false, needPauseChildren: true);
-            Utilities.SetNodePause(_levelController, isNodeNeedToPause:false);
             paymentGemcoinCount *= 2;
         }
 
