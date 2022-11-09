@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Global Used Sourse/Data/Character System/AbilityButtonsController.cs" type="Script" id=1]
+[ext_resource path="res://HippieFall/Sourse/Characters/CharacterModel.cs" type="Script" id=2]
+[ext_resource path="res://HippieFall/Sourse/Characters/Character.cs" type="Script" id=3]
+[ext_resource path="res://HippieFall/Materials/Models/ConvertedToSceneModels/Characters/Biker/hippie_biker.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Global Used Sourse/Data/Character System/CharacterInterface.cs" type="Script" id=5]
+[ext_resource path="res://HippieFall/Sourse/Characters/Character1/Buttons/SlowObstaclesButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HippieFall/Sourse/Characters/Character1/Buttons/ChangeCollectableWeightsButton.tscn" type="PackedScene" id=7]
+
+[node name="Character" type="Spatial"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+script = ExtResource( 3 )
+_characterInterfacePath = NodePath("CharacterInterface")
+_characterModelPath = NodePath("hippie_biker")
+
+[node name="Magnet" type="Spatial" parent="."]
+transform = Transform( -1, 1.50996e-07, -8.74228e-08, -1.50996e-07, -1, -8.74228e-08, -8.74228e-08, -8.74228e-08, 1, 0.645556, -0.149469, -0.373218 )
+
+[node name="hippie_biker" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0.861784 )
+script = ExtResource( 2 )
+MagnetPath = NodePath("../Magnet")
+
+[node name="CharacterInterface" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+AbilityButtonsControllerPath = NodePath("AbilitiesButtonsController")
+
+[node name="AbilitiesButtonsController" type="Control" parent="CharacterInterface"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -370.0
+margin_top = -201.0
+margin_right = 4.0
+script = ExtResource( 1 )
+_abilityButtonsPaths = [ NodePath("SlowObstaclesButton"), NodePath("ChangeCollectableWeightsButton") ]
+
+[node name="SlowObstaclesButton" parent="CharacterInterface/AbilitiesButtonsController" instance=ExtResource( 6 )]
+
+[node name="ChangeCollectableWeightsButton" parent="CharacterInterface/AbilitiesButtonsController" instance=ExtResource( 7 )]

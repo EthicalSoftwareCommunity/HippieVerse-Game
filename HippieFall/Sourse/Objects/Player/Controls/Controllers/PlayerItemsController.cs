@@ -52,6 +52,7 @@ namespace HippieFall.Items
         public void Init(GameController game)
         {
             _characterModel = game.Player.Character.CharacterModel;
+            _itemConfig = new ItemConfig();
             
             ItemObjects = new List<ItemObject>();
             Item item = GD.Load<PackedScene>(C_PlayerItemsPath.MAGNET).Instance<Magnet>();
@@ -61,9 +62,9 @@ namespace HippieFall.Items
 
         public void ChangeConfigData(Config config)
         {
-            ItemConfig itemConfig = ((PlayerConfig)config).ItemConfig;
+            _itemConfig = ((PlayerConfig)config).ItemConfig;
             foreach (ItemObject itemObject in ItemObjects)
-                itemObject.Config = itemConfig;
+                itemObject.Config = _itemConfig;
         }
 
         private Config GetConfigByType(Item item)

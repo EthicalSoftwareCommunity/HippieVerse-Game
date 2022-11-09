@@ -3,8 +3,6 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Bonuses/SlowObstacles/SlowObstacles.cs" type="Script" id=1]
 [ext_resource path="res://Images/IceWaterOne.png" type="Texture" id=2]
 
-
-
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.956863, 0.956863, 0.956863, 1 )
 albedo_texture = ExtResource( 2 )

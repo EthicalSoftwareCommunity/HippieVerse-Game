@@ -36,6 +36,7 @@ namespace Global.Data.CharacterSystem
 		private void OnButtonPressed(int idx)
 		{
 			OnAbilityActivated?.Invoke(_abilityButtons[idx].Ability);
+			_abilityButtons[idx].Ability.Activate();
 		}
 	}
 }

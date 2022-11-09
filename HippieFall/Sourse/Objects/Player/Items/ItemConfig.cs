@@ -15,5 +15,15 @@ namespace HippieFall.Items
         {
             MagnetConfig = new MagnetConfig(configItemConfig.MagnetConfig);
         }
+        
+        public static bool operator == (ItemConfig a, ItemConfig b)
+        {
+            return (a.MagnetConfig == b.MagnetConfig);
+        }
+
+        public static bool operator !=(ItemConfig a, ItemConfig b)
+        {
+            return !(a == b);
+        }
     }
 }

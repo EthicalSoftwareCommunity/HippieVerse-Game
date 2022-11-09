@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Images/boomIcon.png" type="Texture" id=1]
+[ext_resource path="res://Images/2xRewards.png" type="Texture" id=2]
+[ext_resource path="res://HippieFall/Sourse/Characters/Character.cs" type="Script" id=3]
+[ext_resource path="res://Global Used Sourse/Data/Character System/AbilityButtonsController.cs" type="Script" id=4]
+[ext_resource path="res://HippieFall/Sourse/Characters/Character2/Abilities/DestroyObstaclesAbility.cs" type="Script" id=5]
+[ext_resource path="res://HippieFall/Sourse/Characters/Character2/Abilities/DoubleRewardIncreaseAbility.cs" type="Script" id=6]
+[ext_resource path="res://Global Used Sourse/Data/Character System/CharacterInterface.cs" type="Script" id=7]
+[ext_resource path="res://HippieFall/Sourse/Characters/CharacterModel.cs" type="Script" id=8]
+[ext_resource path="res://Global Used Sourse/Data/Character System/AbilityButton.cs" type="Script" id=9]
+[ext_resource path="res://HippieFall/Sourse/Characters/Character2/hippie_girl.tscn" type="PackedScene" id=10]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 30, 75, 30 )
+
+[node name="Character2" type="Spatial"]
+script = ExtResource( 3 )
+_characterInterfacePath = NodePath("CharacterInterface")
+_characterModelPath = NodePath("hippie_girl")
+
+[node name="Magnet" type="Spatial" parent="."]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0.645556, 0.07095, -0.59612 )
+
+[node name="hippie_girl" parent="." instance=ExtResource( 10 )]
+transform = Transform( -1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0, 0, 0.888 )
+script = ExtResource( 8 )
+MagnetPath = NodePath("../Magnet")
+
+[node name="DestroyObstaclesAbility" type="Node" parent="."]
+script = ExtResource( 5 )
+_destroyAreaPath = NodePath("../Area/CollisionShape")
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -46.975, 0 )
+collision_layer = 8
+collision_mask = 8
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45.9942, 0 )
+shape = SubResource( 1 )
+
+[node name="CharacterInterface" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+AbilityButtonsControllerPath = NodePath("AbilitiesButtonsController")
+
+[node name="AbilitiesButtonsController" type="Control" parent="CharacterInterface"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -370.0
+margin_top = -201.0
+margin_right = 4.0
+script = ExtResource( 4 )
+_abilityButtonsPaths = [ NodePath("DestroyObstaclesButton"), NodePath("DoubleRewardIncreaseButton") ]
+
+[node name="DestroyObstaclesButton" type="Button" parent="CharacterInterface/AbilitiesButtonsController"]
+margin_left = 220.0
+margin_top = 5.0
+margin_right = 320.0
+margin_bottom = 105.0
+rect_pivot_offset = Vector2( 50, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource( 1 )
+expand_icon = true
+script = ExtResource( 9 )
+AbilityPath = NodePath("../../../DestroyObstaclesAbility")
+
+[node name="Label" type="Label" parent="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton"]
+margin_left = 3.0
+margin_top = -36.0
+margin_right = 124.0
+margin_bottom = 4.0
+text = "Destroy obstacles on forward"
+autowrap = true
+
+[node name="DoubleRewardIncreaseButton" type="Button" parent="CharacterInterface/AbilitiesButtonsController"]
+margin_left = 71.0
+margin_top = 59.0
+margin_right = 171.0
+margin_bottom = 159.0
+rect_pivot_offset = Vector2( 50, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+action_mode = 0
+icon = ExtResource( 2 )
+icon_align = 1
+expand_icon = true
+script = ExtResource( 9 )
+AbilityPath = NodePath("DoubleRewardIncreaseAbility")
+
+[node name="DoubleRewardIncreaseAbility" type="Node" parent="CharacterInterface/AbilitiesButtonsController/DoubleRewardIncreaseButton"]
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="CharacterInterface/AbilitiesButtonsController/DoubleRewardIncreaseButton"]
+margin_left = -1.0
+margin_top = -40.0
+margin_right = 137.0
+margin_bottom = 8.0
+text = "Incresing twice rewards count"
+autowrap = true
+
+[connection signal="area_entered" from="Area" to="DestroyObstaclesAbility" method="OnAreaEntered"]
+[connection signal="area_exited" from="Area" to="DestroyObstaclesAbility" method="OnAreaExited"]

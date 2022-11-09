@@ -2,14 +2,10 @@
 
 [ext_resource path="res://HippieFall/Sourse/Objects/Tunnel/Tunnel.cs" type="Script" id=1]
 
-
-
 [sub_resource type="BoxShape" id=4]
 
 [node name="PerforatedWall" type="Spatial"]
 script = ExtResource( 1 )
-TunnelPath = NodePath("Tunnel")
-ObstaclePath = NodePath("CircleObstacle")
 
 [node name="Tunnel" type="Spatial" parent="."]
 

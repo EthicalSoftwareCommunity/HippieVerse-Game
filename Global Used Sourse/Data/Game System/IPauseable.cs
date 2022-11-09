@@ -2,5 +2,7 @@
 
 public interface IPauseable
 {
-    void SetPause(bool pause);
+    void Pause();
+    void Resume();
+    
 }

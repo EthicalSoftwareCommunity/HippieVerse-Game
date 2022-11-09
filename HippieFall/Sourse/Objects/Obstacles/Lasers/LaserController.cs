@@ -37,7 +37,7 @@ namespace HippieFall.Tunnels
 			if (area.GetOwnerOrNull<Player>() != null)
 				HideLaserPreset();
 		}
-
+		
 		private void HideLaserPreset()
 		{
 			foreach (var direction in _currentPreset.Hideable)

@@ -24,6 +24,11 @@ namespace HippieFall.Biomes
             InitSpawnTunnels();
             Tunnel = GD.Load<PackedScene>(C_ObjectPath.TUNNEL).Instance<Tunnel>();
         }
+
+        public Biome()
+        {
+            
+        }
         
         private void InitConfig()
         {

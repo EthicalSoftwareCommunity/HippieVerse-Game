@@ -16,6 +16,7 @@ namespace HippieFall.Game
 			Player = GetNode<Player>("Player");
 			Level = GetNode<LevelController>("Level");
 			GameEffectController = GetNode<GameEffectController>("GameEffectController");
+			HippieFallUtilities.Game = this;
 			EmitSignal(nameof(GameIsReady), this);
 		}
 	}
