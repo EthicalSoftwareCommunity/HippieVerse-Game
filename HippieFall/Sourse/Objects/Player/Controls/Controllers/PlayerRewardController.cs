@@ -21,13 +21,13 @@ namespace HippieFall
 			if (area.GetOwnerOrNull<Collectable>() is Collectable reward)
 			{
 				if (reward is CollectableCoin)
-					RewardController.RewardData.AddCoin(new RewardCoin(1));
+					RewardController.RewardData.AddCoin(new RewardCoin(reward.Config as CollectableCoinConfig));
 				else if (reward is CollectableGemcoin)
-					RewardController.RewardData.AddGemcoin(new RewardGemcoin(1));
+					RewardController.RewardData.AddGemcoin(new RewardGemcoin(reward.Config as CollectableGemcoinConfig));
 				else if (reward is CollectableChest)
 					//var chest = (reward as CollectableChest).CastToRewardChest();
 					//RewardController.RewardData.add_chest(RewardChest.new(chest.chest_type, chest.chest_rarity))
-					RewardController.RewardData.AddChest(new RewardChest());
+					RewardController.RewardData.AddChest(new RewardChest(reward.Config as CollectableChestConfig));
 
 				OnRewardsDataChanged?.Invoke(RewardController.RewardData);
 			}

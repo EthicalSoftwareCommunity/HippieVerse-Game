@@ -44,7 +44,7 @@ namespace HippieFall.Characters
             obstacles.AddRange(_obstacles);
             foreach (Obstacle obstacle in obstacles)
             {
-                obstacle.Destroy();
+                obstacle?.Destroy();
             }
             _obstacles.Clear();
         }

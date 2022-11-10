@@ -1,15 +1,21 @@
+using HippieFall.Collectables;
 using Newtonsoft.Json;
 
 namespace Global.Data.Reward
 {
     public class RewardGemcoin : Reward
     {
-        public int Count { get; set; }
+        [JsonProperty] public int Count { get; set; }
+        [JsonConstructor]
         public RewardGemcoin(int count = 0)
         {
             Count = count;
         }
 
+        public RewardGemcoin(CollectableGemcoinConfig config)
+        {
+            Count = config.Value;
+        }
         public static RewardGemcoin operator +(RewardGemcoin left, RewardGemcoin right)
         {
             return new RewardGemcoin

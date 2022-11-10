@@ -45,7 +45,8 @@ namespace HippieFall.Tunnels
 			for (int i = 0; i < LasersTargets.Count; i++)
 				if (LasersTargets[i] == target)
 				{
-					Lasers[i].QueueFree();
+					if(IsInstanceValid(Lasers[i]))
+					   Lasers[i].QueueFree();
 					break;
 				}
 			

@@ -41,9 +41,11 @@ namespace Global.Data.EffectSystem
         public Config ApplyEffectsOnConfig(Config config)
         {
             Config _config = config;
-            foreach (var effect in Effects)
+            List<Effect> effects = new List<Effect>();
+            effects.AddRange(Effects);
+            foreach (var effect in effects)
             {
-                _config = effect.Apply(config);
+                _config = effect?.Apply(config);
             }
 
             return _config;

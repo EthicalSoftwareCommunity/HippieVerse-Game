@@ -22,9 +22,7 @@ namespace HippieFall.Tunnels
                         obstacle.ChangeConfigData(value);
                 }
             }
-
-            private Obstacle _obstacle;
-            public Obstacle Obstacle;
+            public Obstacle Obstacle  { get; set; }
         }
         
         public List<ObstacleObject> ObstacleObjects { get; set; }
@@ -32,9 +30,9 @@ namespace HippieFall.Tunnels
         private EffectsController _effectController;
         
         private Config _config;
-        private List<Config> _configs;
         private FanConfig _fan;
         private SawConfig _saw;
+        private List<Config> _configs;
         private PerforatedWallConfig _perforatedWall;
 
         public override void _Ready()
@@ -105,14 +103,13 @@ namespace HippieFall.Tunnels
 
         private Config GetConfigByType(Obstacle obstacle)
         {
-            Config config = null;
             if (obstacle is Fan)
-                config = new FanConfig(_fan);
-            else if (obstacle is Saw)
-                config = new SawConfig(_saw);
-            else if (obstacle is PerforatedWall)
-                config = new PerforatedWallConfig(_perforatedWall);
-            return config;
+                return new FanConfig(_fan);
+            if (obstacle is Saw)
+                return new SawConfig(_saw);
+            if (obstacle is PerforatedWall)
+                return  new PerforatedWallConfig(_perforatedWall);
+            return null;
         }
     }
 }

@@ -11,11 +11,12 @@ namespace HippieFall.Collectables
             SpawnOffsetX = 1f;
             SpawnOffsetZ = 1;
         }
-        public CollectableCoinConfig(CollectableConfig collectableConfig)
+        public CollectableCoinConfig(CollectableConfig collectableConfig) : base(collectableConfig)
         {
-            SpawnWeight = collectableConfig.SpawnWeight;
-            SpawnOffsetX = collectableConfig.SpawnOffsetX;
-            SpawnOffsetZ = collectableConfig.SpawnOffsetZ;
+            if (collectableConfig is CollectableCoinConfig config)
+            {
+                Value = config.Value;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Global.Data.CharacterSystem;
+using Global.Data.EffectSystem;
 using HippieFall.Tunnels;
 
 namespace HippieFall.Characters
@@ -7,7 +8,7 @@ namespace HippieFall.Characters
     {
         public override void _Ready()
         {
-            Effects.Add(new RewardIncrease(2));
+            Effects.Add(new DynamicEffect(new RewardIncrease(2),180));
         }
     }
 }

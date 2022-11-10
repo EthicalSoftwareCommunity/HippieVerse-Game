@@ -9,7 +9,7 @@ namespace HippieFall
     {
         [Export] private Vector3 _move;
         [Export] private float _radius = 2.6f;
-        [Export] private float _speed = 9f;
+        [Export] private float _speed = 4f;
         
         private Player _player;
         private Joystic _joystick;
