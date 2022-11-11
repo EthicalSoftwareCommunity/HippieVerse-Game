@@ -8,12 +8,12 @@ using HippieFall.Tunnels;
 
 public class MagnetBonus : Bonus
 {
-    public MagnetBonus()
-    {
-        Config = new CollectableConfig()
-        {
-            SpawnWeight = 300f
-        };
-        Effects.Add(new DynamicEffect(new Magnet(10f), 20f));
-    }
+	public MagnetBonus()
+	{
+		Config = new CollectableConfig()
+		{
+			SpawnWeight = 300f
+		};
+		Effects.Add(new DynamicEffect(new Magnet(10f), 20f));
+	}
 }
