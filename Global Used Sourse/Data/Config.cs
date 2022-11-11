@@ -1,7 +1,7 @@
-﻿namespace Global.Data
+namespace Global.Data
 {
-    public class Config
-    {
-        
-    }
+	public class Config
+	{
+		
+	}
 }
