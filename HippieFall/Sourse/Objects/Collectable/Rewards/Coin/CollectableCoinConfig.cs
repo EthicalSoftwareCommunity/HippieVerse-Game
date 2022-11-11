@@ -7,7 +7,7 @@ namespace HippieFall.Collectables
 		public int Value { get; set; } = 1;
 		public CollectableCoinConfig()
 		{
-			SpawnWeight = 800f;
+			SpawnWeight = 100f;
 			SpawnOffsetX = 1f;
 			SpawnOffsetZ = 1;
 		}
