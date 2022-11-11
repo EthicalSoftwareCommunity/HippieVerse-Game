@@ -66,9 +66,9 @@ margin_bottom = 200.0
 size_flags_horizontal = 3
 
 [node name="PauseButton" type="Button" parent="Interface/TopUI/HBoxContainer/Control"]
-margin_left = 17.0
+margin_left = 50.0
 margin_top = 16.0
-margin_right = 101.0
+margin_right = 134.0
 margin_bottom = 106.0
 icon = ExtResource( 12 )
 flat = true
@@ -391,7 +391,7 @@ script = ExtResource( 7 )
 _gameOverScreenPath = NodePath("../Interface/GameOverScreen")
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.605, -0.091 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.4, -0.091 )
 fov = 90.0
 
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
