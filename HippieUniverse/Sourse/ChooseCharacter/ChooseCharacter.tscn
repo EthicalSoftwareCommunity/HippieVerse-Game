@@ -75,3 +75,4 @@ shape = SubResource( 10 )
 [node name="sphere" parent="World" instance=ExtResource( 2 )]
 
 [node name="GoToMainScene" parent="World" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.117591, 2.71208, -2.18139 )
