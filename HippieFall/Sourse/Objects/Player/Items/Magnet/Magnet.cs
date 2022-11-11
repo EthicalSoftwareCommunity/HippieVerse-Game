@@ -35,20 +35,19 @@ namespace HippieFall.Items
 		}
 		private void OnAreaEntered(Area area)
 		{
-			if (area.Owner is Collectable collectable)
+			if (area.GetOwnerOrNull<CollectableCoin>() is Collectable collectable)
 				_collectablesInRange.Add(collectable);
 		}
 
 		private void OnAreaExited(Area area)
 		{
-			if (area.Owner is Collectable collectable)
+			if (area.GetOwnerOrNull<Collectable>() is Collectable collectable)
 				_collectablesInRange.Remove(collectable);
 		}
 
 		public void ChangeConfigData(Config config)
 		{
 			MagnetConfig magnetConfig = ((ItemConfig)config).MagnetConfig;
-			
 			_force = magnetConfig.Force;
 			_speedForceCorrection = magnetConfig.SpeedForceCorrection;
 			Visible = magnetConfig.IsMagnetActivated;
