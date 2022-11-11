@@ -12,7 +12,7 @@ public class MagnetBonus : Bonus
 	{
 		Config = new CollectableConfig()
 		{
-			SpawnWeight = 30f
+			SpawnWeight = 300f
 		};
 		Effects.Add(new DynamicEffect(new Magnet(10f), 20f));
 	}
