@@ -66,9 +66,9 @@ margin_bottom = 200.0
 size_flags_horizontal = 3
 
 [node name="PauseButton" type="Button" parent="Interface/TopUI/HBoxContainer/Control"]
-margin_left = 17.0
+margin_left = 50.0
 margin_top = 16.0
-margin_right = 101.0
+margin_right = 134.0
 margin_bottom = 106.0
 icon = ExtResource( 12 )
 flat = true
