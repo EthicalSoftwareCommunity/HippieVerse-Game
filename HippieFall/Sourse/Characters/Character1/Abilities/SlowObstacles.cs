@@ -1,8 +1,6 @@
-using Godot;
-using System;
 using Global.Data.CharacterSystem;
 using Global.Data.EffectSystem;
-using HippieFall.Tunnels;
+using HippieFall.Effects;
 
 namespace HippieFall.Characters
 {

@@ -3,7 +3,7 @@ using Global.Data.EffectSystem;
 using HippieFall.Game;
 using HippieFall.Items;
 
-namespace HippieFall.Tunnels
+namespace HippieFall.Effects
 {
     public class LevelDataChanged:Effect
     {
@@ -28,6 +28,7 @@ namespace HippieFall.Tunnels
 
         private void ApplyEffect(MovementConfig movementConfig)
         {
+            movementConfig.Speed+=0.05f;
         }
     }
 }

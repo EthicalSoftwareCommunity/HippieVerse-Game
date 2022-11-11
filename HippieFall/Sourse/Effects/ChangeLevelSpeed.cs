@@ -2,7 +2,7 @@
 using Global.Data.EffectSystem;
 using HippieFall.Game;
 
-namespace HippieFall.Tunnels
+namespace HippieFall.Effects
 {
     public class ChangeLevelSpeed:Effect
     {

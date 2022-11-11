@@ -1,10 +1,6 @@
-using Godot;
-using System;
-using System.Collections.Generic;
-using Global.Data;
 using Global.Data.EffectSystem;
 using HippieFall.Collectables;
-using HippieFall.Tunnels;
+using HippieFall.Effects;
 
 public class MagnetBonus : Bonus
 {

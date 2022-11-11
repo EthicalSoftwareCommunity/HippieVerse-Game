@@ -2,7 +2,7 @@
 using Global.Data.EffectSystem;
 using HippieFall.Collectables;
 
-namespace HippieFall.Characters
+namespace HippieFall.Effects
 {
     public class RewardIncrease:Effect
     {

@@ -16,8 +16,8 @@ extents = Vector3( 1.56232, 2.18686, 0.455022 )
 radius = 1.98403
 height = 9.45804
 
-[sub_resource type="CapsuleShape" id=7]
-height = 0.002
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0, 0, 0 )
 
 [node name="Player" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0 )
@@ -47,10 +47,6 @@ shape = SubResource( 9 )
 
 [node name="Character2" parent="." instance=ExtResource( 8 )]
 
-[node name="CSGSphere" type="CSGSphere" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-visible = false
-
 [node name="PlayerControls" type="Node" parent="."]
 script = ExtResource( 2 )
 _playerMovementPath = NodePath("PlayerMovement")
@@ -76,7 +72,7 @@ script = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 10 )
 disabled = true
 
 [connection signal="area_entered" from="Area" to="PlayerControls/PlayerCollectableController" method="OnAreaEntered"]

@@ -1,4 +1,4 @@
-﻿using HippieFall.Tunnels;
+﻿using HippieFall.Effects;
 
 namespace HippieFall.Collectables
 {

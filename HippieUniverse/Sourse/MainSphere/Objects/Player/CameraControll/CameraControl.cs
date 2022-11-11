@@ -1,4 +1,3 @@
-using System;
 using Global;
 using Global.Constants;
 using Godot;
@@ -29,7 +28,7 @@ namespace HippieUniverse
 		private Vector3 _speed = new Vector3(0.0f, 0.0f, 0.0f);
 
 		private InputController inputController;
-		private Camera camera;
+		private Camera _gameCamera;
 		
 
 		private const float ROTATION_MULTIPLIER = 0.01f;
@@ -37,7 +36,7 @@ namespace HippieUniverse
 		public override void _Ready()
 		{
 			inputController = (InputController)GetNode("InputController");
-			camera = (Camera)GetNode("UniverseCamera");
+			_gameCamera = (Camera)GetNode("UniverseCamera");
 
 			inputController.Connect("OnInputEventTypeActivated", this, "HandleIncomingInput");
 			Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -146,8 +145,8 @@ namespace HippieUniverse
 		{
 			var spaceState = GetWorld().DirectSpaceState;
 			var mousePosition = GetViewport().GetMousePosition();
-			var rayOrigin = camera.ProjectRayOrigin(mousePosition);
-			var rayEnd = rayOrigin + camera.ProjectRayNormal(mousePosition) * 2000;
+			var rayOrigin = _gameCamera.ProjectRayOrigin(mousePosition);
+			var rayEnd = rayOrigin + _gameCamera.ProjectRayNormal(mousePosition) * 2000;
 			var results = spaceState.IntersectRay(rayOrigin, rayEnd, new Array() { this });
 
 			Node result = new Node();

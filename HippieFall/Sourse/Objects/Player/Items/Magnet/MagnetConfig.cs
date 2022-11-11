@@ -16,10 +16,12 @@ namespace HippieFall.Items
 
 		public MagnetConfig(Config config)
 		{
-			MagnetConfig magnetConfig = (MagnetConfig)config;
-			Force = magnetConfig.Force;
-			SpeedForceCorrection = magnetConfig.SpeedForceCorrection;
-			IsMagnetActivated = magnetConfig.IsMagnetActivated;
+			if (config is MagnetConfig magnetConfig)
+			{
+				Force = magnetConfig.Force;
+				SpeedForceCorrection = magnetConfig.SpeedForceCorrection;
+				IsMagnetActivated = magnetConfig.IsMagnetActivated;
+			}
 		}
 
 		public static bool operator ==(MagnetConfig a, MagnetConfig b)
