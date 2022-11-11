@@ -1,11 +1,11 @@
 using System;
-using Global.Constants;
 using Godot;
 using Global.Data;
 using HippieFall.Game;
 using HippieFall.Items;
 using HippieFall.Tunnels;
 using HippieFall.Characters;
+using HippieFall.Effects;
 
 namespace HippieFall
 {

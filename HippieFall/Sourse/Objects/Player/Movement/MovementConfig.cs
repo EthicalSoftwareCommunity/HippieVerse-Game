@@ -4,7 +4,8 @@ namespace HippieFall
 {
 	public class MovementConfig : Config
 	{
-		public float Speed { get; private set; } = 10f;
+		public float Speed { get; set; } = 4f;
+		public float Radius { get; set; } = 2.6f;
 
 		public MovementConfig()
 		{
@@ -12,6 +13,7 @@ namespace HippieFall
 		public MovementConfig(MovementConfig movementConfig)
 		{
 			Speed = movementConfig.Speed;
+			Radius = movementConfig.Radius;
 		}
 	}
 }

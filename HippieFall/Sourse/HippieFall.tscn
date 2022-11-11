@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Images/back.png" type="Texture" id=23]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/MainSphere.tscn" type="PackedScene" id=24]
 [ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=25]
+[ext_resource path="res://HippieFall/Sourse/GameCamera.cs" type="Script" id=26]
 
 [sub_resource type="Theme" id=1]
 
@@ -391,8 +392,9 @@ script = ExtResource( 7 )
 _gameOverScreenPath = NodePath("../Interface/GameOverScreen")
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.4, -0.091 )
-fov = 90.0
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.846, -0.091 )
+fov = 100.0
+script = ExtResource( 26 )
 
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
 [connection signal="area_entered" from="Level/DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]

@@ -7,6 +7,7 @@ using Global.Data;
 using Godot;
 using Global.Data.EffectSystem;
 using Global.Data.GameSystem;
+using HippieFall.Effects;
 using HippieFall.Tunnels;
 
 namespace HippieFall.Game

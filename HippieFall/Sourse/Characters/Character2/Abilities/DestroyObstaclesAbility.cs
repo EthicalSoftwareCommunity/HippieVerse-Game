@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Timers;
-using Global;
 using Global.Data.CharacterSystem;
 using Godot;
 using HippieFall.Tunnels;

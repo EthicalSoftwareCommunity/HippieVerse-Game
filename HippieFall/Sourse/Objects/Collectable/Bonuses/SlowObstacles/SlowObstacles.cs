@@ -1,5 +1,5 @@
 using Global.Data.EffectSystem;
-using HippieFall.Tunnels;
+using HippieFall.Effects;
 
 namespace HippieFall.Collectables
 {

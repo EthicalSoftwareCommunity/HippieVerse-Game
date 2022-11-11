@@ -5,7 +5,7 @@ using Global.Data.EffectSystem;
 using HippieFall.Collectables;
 using HippieFall.Items;
 
-namespace HippieFall.Tunnels
+namespace HippieFall.Effects
 {
 	public class Magnet : Effect
 	{

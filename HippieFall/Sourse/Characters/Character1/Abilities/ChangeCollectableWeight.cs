@@ -9,7 +9,7 @@ namespace HippieFall.Characters
 		public ChangeCollectableWeight()
 		{
 			Effects.Add(new DynamicEffect(
-				new Tunnels.Effects.ChangeCollectableWeight(
+				new Effects.ChangeCollectableWeight(
 					new CollectableCoinConfig()
 					{
 						SpawnWeight = 100,

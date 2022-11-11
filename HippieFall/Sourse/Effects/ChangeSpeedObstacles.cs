@@ -1,7 +1,8 @@
 ﻿using Global.Data;
 using Global.Data.EffectSystem;
+using HippieFall.Tunnels;
 
-namespace HippieFall.Tunnels
+namespace HippieFall.Effects
 {
     public class ChangeSpeedObstacles:Effect
     {

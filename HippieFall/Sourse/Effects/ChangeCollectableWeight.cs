@@ -2,7 +2,7 @@
 using Global.Data.EffectSystem;
 using HippieFall.Collectables;
 
-namespace HippieFall.Tunnels.Effects
+namespace HippieFall.Effects
 {
     public class ChangeCollectableWeight : Effect
     {

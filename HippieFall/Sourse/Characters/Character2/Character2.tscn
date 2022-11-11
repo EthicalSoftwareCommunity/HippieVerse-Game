@@ -27,20 +27,6 @@ transform = Transform( -1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74
 script = ExtResource( 8 )
 MagnetPath = NodePath("../Magnet")
 
-[node name="DestroyObstaclesAbility" type="Node" parent="."]
-script = ExtResource( 5 )
-_destroyAreaPath = NodePath("../Area/CollisionShape")
-
-[node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -46.975, 0 )
-collision_layer = 8
-collision_mask = 8
-input_ray_pickable = false
-
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45.9942, 0 )
-shape = SubResource( 1 )
-
 [node name="CharacterInterface" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -69,7 +55,19 @@ size_flags_vertical = 0
 icon = ExtResource( 1 )
 expand_icon = true
 script = ExtResource( 9 )
-AbilityPath = NodePath("../../../DestroyObstaclesAbility")
+AbilityPath = NodePath("DestroyObstaclesAbility")
+
+[node name="Area" type="Area" parent="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton"]
+collision_layer = 8
+collision_mask = 8
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton/Area"]
+shape = SubResource( 1 )
+
+[node name="DestroyObstaclesAbility" type="Node" parent="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton"]
+script = ExtResource( 5 )
+_destroyAreaPath = NodePath("../Area/CollisionShape")
 
 [node name="Label" type="Label" parent="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton"]
 margin_left = 3.0
@@ -105,5 +103,5 @@ margin_bottom = 8.0
 text = "Incresing twice rewards count"
 autowrap = true
 
-[connection signal="area_entered" from="Area" to="DestroyObstaclesAbility" method="OnAreaEntered"]
-[connection signal="area_exited" from="Area" to="DestroyObstaclesAbility" method="OnAreaExited"]
+[connection signal="area_entered" from="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton/Area" to="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton/DestroyObstaclesAbility" method="OnAreaEntered"]
+[connection signal="area_exited" from="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton/Area" to="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton/DestroyObstaclesAbility" method="OnAreaExited"]
