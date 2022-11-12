@@ -4,18 +4,10 @@ namespace Global
 {
 	public abstract class InteractionController : Node
 	{
-		public virtual void TouchInteract()
-		{
-		}
+		public virtual void TouchInteract(){}
 
-		public virtual void HoldTouchInteract()
-		{
-		}
-
-		public virtual void SlideTouchInteract()
-		{
-		}
-
+		public virtual void HoldTouchInteract(){}
+		public virtual void SlideTouchInteract(){}
 		public virtual void Interact(int inputType)
 		{
 			switch (inputType)

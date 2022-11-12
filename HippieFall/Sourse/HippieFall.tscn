@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -18,14 +18,13 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Button.png" type="Texture" id=16]
 [ext_resource path="res://HippieFall/Sourse/Interface/GameInterface.cs" type="Script" id=17]
 [ext_resource path="res://HippieFall/Sourse/Interface/RewardRenderer.cs" type="Script" id=18]
-[ext_resource path="res://HippieFall/Sourse/Interface/HomeButton.cs" type="Script" id=19]
+[ext_resource path="res://Global Used Sourse/GoToSceneButton.cs" type="Script" id=19]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Joystic.cs" type="Script" id=20]
 [ext_resource path="res://HippieFall/Sourse/Interface/PauseButton.cs" type="Script" id=21]
 [ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://Images/back.png" type="Texture" id=23]
-[ext_resource path="res://HippieUniverse/Sourse/MainSphere/MainSphere.tscn" type="PackedScene" id=24]
 [ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=25]
-[ext_resource path="res://HippieFall/Sourse/GameCamera.cs" type="Script" id=26]
+[ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera.cs" type="Script" id=26]
 
 [sub_resource type="Theme" id=1]
 
@@ -230,7 +229,7 @@ custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 23 )
 flat = true
 script = ExtResource( 19 )
-_scene = ExtResource( 24 )
+scene = 2
 
 [node name="GameOverScreen" type="Control" parent="Interface"]
 process_priority = 1
@@ -286,7 +285,7 @@ custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 23 )
 flat = true
 script = ExtResource( 19 )
-_scene = ExtResource( 24 )
+scene = 2
 
 [node name="GemcoinRemain" type="NinePatchRect" parent="Interface/GameOverScreen"]
 margin_left = 653.0
