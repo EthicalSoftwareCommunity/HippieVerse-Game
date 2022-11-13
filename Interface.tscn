@@ -1,0 +1,356 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Images/Coin.png" type="Texture" id=1]
+[ext_resource path="res://Images/gemcoin.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Joystic.cs" type="Script" id=4]
+[ext_resource path="res://HippieFall/Sourse/Interface/RewardRenderer.cs" type="Script" id=5]
+[ext_resource path="res://Global Used Sourse/GoToSceneButton.cs" type="Script" id=6]
+[ext_resource path="res://HippieFall/Sourse/Interface/GameInterface.cs" type="Script" id=7]
+[ext_resource path="res://HippieFall/Sourse/Interface/PauseButton.cs" type="Script" id=8]
+[ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=9]
+[ext_resource path="res://Images/Pause.png" type="Texture" id=10]
+[ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Button.png" type="Texture" id=11]
+[ext_resource path="res://Images/Re-spawn.png" type="Texture" id=12]
+[ext_resource path="res://Images/back.png" type="Texture" id=13]
+[ext_resource path="res://Images/Play.png" type="Texture" id=14]
+[ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Radius.png" type="Texture" id=15]
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 120.0
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="Interface" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 7 )
+
+[node name="TopUI" type="Control" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+margin_bottom = 200.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="TopUI/HBoxContainer"]
+margin_right = 338.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+
+[node name="PauseButton" type="Button" parent="TopUI/HBoxContainer/Control"]
+margin_left = 50.0
+margin_top = 16.0
+margin_right = 134.0
+margin_bottom = 106.0
+icon = ExtResource( 10 )
+flat = true
+expand_icon = true
+script = ExtResource( 8 )
+_pauseOverlayPath = NodePath("../../../../PauseOverlay")
+_isPaused = true
+
+[node name="Label" type="Label" parent="TopUI/HBoxContainer"]
+margin_left = 342.0
+margin_right = 681.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "1000
+"
+align = 1
+valign = 1
+
+[node name="RewardRender" type="HBoxContainer" parent="TopUI/HBoxContainer"]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 5 )
+
+[node name="Control" type="Control" parent="TopUI/HBoxContainer/RewardRender"]
+margin_right = 110.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Coin" type="NinePatchRect" parent="TopUI/HBoxContainer/RewardRender"]
+margin_left = 114.0
+margin_right = 224.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="TopUI/HBoxContainer/RewardRender/Coin"]
+margin_left = -107.0
+margin_top = 33.0
+margin_right = -47.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TopUI/HBoxContainer/RewardRender/Coin/TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 36.0
+margin_right = 107.0
+text = "1000"
+align = 1
+valign = 1
+
+[node name="Gemcoin" type="NinePatchRect" parent="TopUI/HBoxContainer/RewardRender"]
+margin_left = 228.0
+margin_right = 339.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect2" type="TextureRect" parent="TopUI/HBoxContainer/RewardRender/Gemcoin"]
+anchor_left = -0.973
+anchor_right = -0.973
+margin_left = 39.003
+margin_top = 33.0
+margin_right = 99.003
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TopUI/HBoxContainer/RewardRender/Gemcoin/TextureRect2"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 33.0
+margin_right = 104.0
+text = "1000"
+align = 1
+valign = 1
+
+[node name="BottomUI" type="Control" parent="."]
+pause_mode = 1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -300.0
+mouse_filter = 2
+mouse_default_cursor_shape = 14
+
+[node name="Area2D" type="Area2D" parent="BottomUI"]
+position = Vector2( 176, 170 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomUI/Area2D"]
+shape = SubResource( 7 )
+
+[node name="Joystic" type="Sprite" parent="BottomUI"]
+position = Vector2( 176, 170 )
+scale = Vector2( 1.61667, 1.61667 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="BottomUI/Joystic"]
+position = Vector2( -26, -28 )
+normal = ExtResource( 11 )
+script = ExtResource( 4 )
+
+[node name="PauseOverlay" type="Control" parent="."]
+process_priority = 1
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="PauseOverlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 259.0
+margin_top = 163.0
+margin_right = -251.0
+margin_bottom = -163.0
+color = Color( 0.2, 0.2, 0.2, 0.929412 )
+
+[node name="Label" type="Label" parent="PauseOverlay/ColorRect"]
+margin_left = 28.0
+margin_top = 4.0
+margin_right = 487.0
+margin_bottom = 154.0
+theme = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Game Is Paused "
+align = 1
+valign = 1
+
+[node name="ResumeButton" type="Button" parent="PauseOverlay"]
+margin_left = 380.0
+margin_top = 318.0
+margin_right = 464.0
+margin_bottom = 408.0
+icon = ExtResource( 14 )
+flat = true
+expand_icon = true
+script = ExtResource( 8 )
+_pauseOverlayPath = NodePath("..")
+
+[node name="HomeButton" type="Button" parent="PauseOverlay"]
+margin_left = 584.0
+margin_top = 321.0
+margin_right = 1108.0
+margin_bottom = 839.0
+rect_scale = Vector2( 0.15, 0.15 )
+custom_fonts/font = SubResource( 3 )
+icon = ExtResource( 13 )
+flat = true
+script = ExtResource( 6 )
+scene = 2
+
+[node name="GameOverScreen" type="Control" parent="."]
+process_priority = 1
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -325, 241 )
+mouse_filter = 2
+script = ExtResource( 9 )
+_continueForFeeButtonPath = NodePath("CoutinueForFeeButton")
+_goHomeButtonPath = NodePath("HomeButton")
+_gameCoinsCountLabelPath = NodePath("GemcoinRemain/TextureRect2/GameCoinsCount")
+_paymentGameCoinsCountPath = NodePath("GemcoinCost/TextureRect2/PaymentGameCoinsCount")
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 259.0
+margin_top = 163.0
+margin_right = -251.0
+margin_bottom = -163.0
+color = Color( 0.2, 0.2, 0.2, 0.929412 )
+
+[node name="Label" type="Label" parent="GameOverScreen/ColorRect"]
+margin_left = 42.0
+margin_top = -39.0
+margin_right = 501.0
+margin_bottom = 111.0
+rect_pivot_offset = Vector2( 681, 60 )
+theme = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Continue?"
+align = 1
+valign = 1
+
+[node name="CoutinueForFeeButton" type="Button" parent="GameOverScreen"]
+margin_left = 410.0
+margin_top = 318.0
+margin_right = 494.0
+margin_bottom = 408.0
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
+
+[node name="HomeButton" type="Button" parent="GameOverScreen"]
+margin_left = 696.0
+margin_top = 163.0
+margin_right = 1220.0
+margin_bottom = 681.0
+rect_scale = Vector2( 0.15, 0.15 )
+custom_fonts/font = SubResource( 3 )
+icon = ExtResource( 13 )
+flat = true
+script = ExtResource( 6 )
+scene = 2
+
+[node name="GemcoinRemain" type="NinePatchRect" parent="GameOverScreen"]
+margin_left = 653.0
+margin_top = 223.0
+margin_right = 764.0
+margin_bottom = 423.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect2" type="TextureRect" parent="GameOverScreen/GemcoinRemain"]
+anchor_left = -0.973
+anchor_right = -0.973
+margin_left = -98.997
+margin_top = 18.0
+margin_right = -38.997
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="GameCoinsCount" type="Label" parent="GameOverScreen/GemcoinRemain/TextureRect2"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 33.0
+margin_right = 104.0
+custom_fonts/font = SubResource( 4 )
+text = "1000"
+align = 1
+valign = 1
+
+[node name="GemcoinCost" type="NinePatchRect" parent="GameOverScreen"]
+margin_left = 870.0
+margin_top = 305.0
+margin_right = 981.0
+margin_bottom = 505.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect2" type="TextureRect" parent="GameOverScreen/GemcoinCost"]
+anchor_left = -0.973
+anchor_right = -0.973
+margin_left = -173.997
+margin_top = 25.0
+margin_right = -113.997
+margin_bottom = 85.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="PaymentGameCoinsCount" type="Label" parent="GameOverScreen/GemcoinCost/TextureRect2"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -124.0
+margin_top = 2.0
+margin_right = -33.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 4 )
+text = "-1
+"
+align = 1
+valign = 1
+
+[connection signal="child_entered_tree" from="BottomUI" to="." method="OnBottomUIChildEnteredTree"]
+[connection signal="input_event" from="BottomUI/Area2D" to="BottomUI/Joystic/TouchScreenButton" method="OnArea2DInputEvent"]
+[connection signal="mouse_entered" from="BottomUI/Area2D" to="BottomUI/Joystic/TouchScreenButton" method="_on_Area2D_mouse_entered"]

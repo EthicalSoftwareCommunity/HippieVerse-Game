@@ -1,27 +1,40 @@
+using System;
+using System.Collections.Generic;
 using Global.Data;
 using Global.Data.EffectSystem;
 using Godot;
+using HippieFall.Effects;
 using HippieFall.Game;
 
 namespace HippieFall
 {
     public class PlayerMovementController : Node, IEffectable
     {
+        [Export] private NodePath _holdTapAreaPath;
+        public event Action<List<Effect>> OnMovementEffectAdded; 
         private Player _player;
         private Joystic _joystick;
         private Vector3 _nextMove;
         private Vector3 _move;
+        private IncreaseLevelSpeedByTapArea _holdTapArea;
 
         private MovementConfig _config = new MovementConfig();
         public override void _Ready()
         {
             GetTree().Root.GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
+            _holdTapArea = GetNode<IncreaseLevelSpeedByTapArea>(_holdTapAreaPath);
+        }
+        
+        private void AddMovementEffect(List<Effect> obj)
+        {
+            OnMovementEffectAdded?.Invoke(obj);
         }
 
         public void Init(GameController game)
         {
             _joystick = game.GameInterface.Joystic;
             _player = game.Player;
+            _holdTapArea.OnEffectAdded += AddMovementEffect;
         }
 
         public override void _PhysicsProcess(float delta)

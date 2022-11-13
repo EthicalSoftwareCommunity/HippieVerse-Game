@@ -10,6 +10,8 @@ namespace HippieFall
         private readonly float _threshold = 2;
         private int _onGoingDrag = -1;
 
+        private bool _canDraging = false;
+
         public override void _Process(float delta)
         {
             if (_onGoingDrag == -1)
@@ -19,30 +21,46 @@ namespace HippieFall
             }
         }
 
+        private void _on_Control_gui_input(InputEvent @event)
+        {
+            if (@event is InputEventScreenTouch inputEvent)
+            {
+                GD.Print("GUI");
+                if (inputEvent.Pressed)
+                    _canDraging = true;
+            }
+        }
         public override void _Input(InputEvent @event)
         {
-            if (@event is InputEventScreenDrag)
+            if (_canDraging)
             {
-                InputEventScreenDrag eventDrag = (InputEventScreenDrag)@event;
-                Vector2 parentGlobalPosition = new Vector2(GetParent<Node2D>().Position.x,
-                    GetParent<Node2D>().Position.y);
-                float eventDistantionFromCenter = (eventDrag.Position - parentGlobalPosition).Length();
-
-                if (eventDistantionFromCenter >= _boundary * GlobalScale.x || eventDrag.Index == _onGoingDrag)
+                if (@event is InputEventScreenDrag)
                 {
-                    GlobalPosition = eventDrag.Position - _radius * GlobalScale;
+                    InputEventScreenDrag eventDrag = (InputEventScreenDrag)@event;
+                    if(eventDrag.Index!=_onGoingDrag && _onGoingDrag != -1) return;
+                    Vector2 parentGlobalPosition = new Vector2(GetParent<Node2D>().Position.x,
+                        GetParent<Node2D>().Position.y);
+                    float eventDistantionFromCenter = (eventDrag.Position - parentGlobalPosition).Length();
 
-                    if (GetButtonPosition().Length() > _boundary) 
-                        Position = GetButtonPosition().Normalized() * _boundary - _radius;
-                    _onGoingDrag = eventDrag.Index;
+                    if (eventDistantionFromCenter >= _boundary * GlobalScale.x || eventDrag.Index == _onGoingDrag)
+                    {
+                        GlobalPosition = eventDrag.Position - _radius * GlobalScale;
+
+                        if (GetButtonPosition().Length() > _boundary)
+                            Position = GetButtonPosition().Normalized() * _boundary - _radius;
+                        _onGoingDrag = eventDrag.Index;
+                    }
+                }
+
+                if (@event is InputEventScreenTouch && !@event.IsPressed() &&
+                    ((InputEventScreenTouch)@event).Index == _onGoingDrag)
+                {
+                    _onGoingDrag = -1;
+                    _canDraging = false;
                 }
             }
-
-            if (@event is InputEventScreenTouch && !@event.IsPressed() &&
-                ((InputEventScreenTouch)@event).Index == _onGoingDrag) 
-                _onGoingDrag = -1;
         }
-        
+
         private Vector2 GetValue()
         {
             if (GetButtonPosition().Length() > _threshold)
