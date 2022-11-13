@@ -30,13 +30,19 @@ namespace Global.Data.CharacterSystem
 
 		private void AddAbility(AbilityButton button)
 		{
-			button.Connect("pressed", this, nameof(OnButtonPressed), new Array(button.GetIndex()));
+			button.Connect("gui_input", this, nameof(OnButtonPressed), new Array(button.GetIndex()));
 		}
 
-		private void OnButtonPressed(int idx)
+		private void OnButtonPressed(InputEvent @event,int idx)
 		{
-			OnAbilityActivated?.Invoke(_abilityButtons[idx].Ability);
-			_abilityButtons[idx].Ability.Activate();
+			if (@event is InputEventScreenTouch inputEvent)
+			{
+				if(inputEvent.Pressed)
+				{
+					OnAbilityActivated?.Invoke(_abilityButtons[idx].Ability);
+					_abilityButtons[idx].Ability.Activate();
+				}
+			}
 		}
 	}
 }

@@ -38,9 +38,14 @@ namespace Global.Data.EffectSystem
             return config;
         }
 
-        private void RemoveEffect(object sender, ElapsedEventArgs e)
+        public void RemoveEffect()
         {
             OnRemoveEffect?.Invoke(this);
+        }
+            
+        private void RemoveEffect(object sender, ElapsedEventArgs e)
+        {
+            RemoveEffect();
         }
     }
 }

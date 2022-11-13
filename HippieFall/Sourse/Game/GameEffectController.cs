@@ -24,6 +24,7 @@ namespace HippieFall
 			game.Player.PlayerCollectableController.OnBonusCollected += ResendEvent;
 			game.Level.OnLevelEffectAdded += ResendEvent;
 			game.Player.Character.OnCharacterEffectAdded += ResendEvent;
+			game.Player.PlayerMovementController.OnMovementEffectAdded += ResendEvent;
 		}
 
 		private void ResendEvent(List<Effect> effects)
