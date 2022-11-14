@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -33,12 +33,20 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Player.cs" type="Script" id=31]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerEffectController.cs" type="Script" id=32]
 [ext_resource path="res://HippieFall/Sourse/Characters/Character2/Character2.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Images/AD.png" type="Texture" id=34]
+[ext_resource path="res://Images/replay.png" type="Texture" id=35]
+[ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
+[ext_resource path="res://Fonts/Ubuntu-BoldItalic.ttf" type="DynamicFontData" id=37]
 
 [sub_resource type="Theme" id=1]
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
+size = 50
 font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 40
+font_data = ExtResource( 37 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 35
@@ -47,6 +55,10 @@ font_data = ExtResource( 22 )
 [sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 150
+font_data = ExtResource( 36 )
 
 [sub_resource type="BoxShape" id=6]
 
@@ -226,44 +238,82 @@ _continueForFeeButtonPath = NodePath("CoutinueForFeeButton")
 _goHomeButtonPath = NodePath("HomeButton")
 _gameCoinsCountLabelPath = NodePath("GemcoinRemain/TextureRect2/GameCoinsCount")
 _paymentGameCoinsCountPath = NodePath("GemcoinCost/TextureRect2/PaymentGameCoinsCount")
+_replayButtonPath = NodePath("ReplayButton")
 
 [node name="ColorRect" type="ColorRect" parent="Interface/GameOverScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 259.0
-margin_top = 163.0
-margin_right = -251.0
-margin_bottom = -163.0
+margin_left = 161.0
+margin_top = 119.0
+margin_right = -158.0
+margin_bottom = -93.0
 mouse_filter = 2
 color = Color( 0.2, 0.2, 0.2, 0.929412 )
 
-[node name="Label" type="Label" parent="Interface/GameOverScreen/ColorRect"]
-margin_left = 42.0
-margin_top = -39.0
-margin_right = 501.0
-margin_bottom = 111.0
+[node name="(text)NewHighScore!" type="Label" parent="Interface/GameOverScreen/ColorRect"]
+margin_left = 131.0
+margin_top = -38.0
+margin_right = 590.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 681, 60 )
+theme = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.364706, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "New High Score!"
+align = 1
+valign = 1
+
+[node name="(text)Continue\?" type="Label" parent="Interface/GameOverScreen/ColorRect"]
+margin_left = 139.0
+margin_top = 173.0
+margin_right = 332.0
+margin_bottom = 268.0
+custom_fonts/font = SubResource( 11 )
+text = "Continue?"
+
+[node name="(text)or" type="Label" parent="Interface/GameOverScreen/ColorRect"]
+margin_left = 354.0
+margin_top = 237.0
+margin_right = 408.0
+margin_bottom = 283.0
+custom_fonts/font = SubResource( 11 )
+text = "or"
+
+[node name="HighScore" type="Label" parent="Interface/GameOverScreen/ColorRect"]
+margin_left = 250.0
+margin_top = 73.0
+margin_right = 458.0
+margin_bottom = 190.0
 rect_pivot_offset = Vector2( 681, 60 )
 theme = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Continue?"
+text = "342
+"
 align = 1
 valign = 1
 
+[node name="Line2D" type="Line2D" parent="Interface/GameOverScreen/ColorRect"]
+position = Vector2( -60, -25 )
+points = PoolVector2Array( 157, 185, 681, 185 )
+width = 2.0
+default_color = Color( 1, 1, 1, 1 )
+
 [node name="CoutinueForFeeButton" type="Button" parent="Interface/GameOverScreen"]
-margin_left = 410.0
-margin_top = 318.0
-margin_right = 494.0
-margin_bottom = 408.0
+margin_left = 306.0
+margin_top = 341.0
+margin_right = 390.0
+margin_bottom = 431.0
 icon = ExtResource( 13 )
 flat = true
 expand_icon = true
 
 [node name="HomeButton" type="Button" parent="Interface/GameOverScreen"]
-margin_left = 696.0
-margin_top = 163.0
-margin_right = 1220.0
-margin_bottom = 681.0
+margin_left = 787.0
+margin_top = 117.0
+margin_right = 1311.0
+margin_bottom = 635.0
 rect_scale = Vector2( 0.15, 0.15 )
 custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 23 )
@@ -282,10 +332,10 @@ size_flags_vertical = 3
 [node name="TextureRect2" type="TextureRect" parent="Interface/GameOverScreen/GemcoinRemain"]
 anchor_left = -0.973
 anchor_right = -0.973
-margin_left = -98.997
-margin_top = 18.0
-margin_right = -38.997
-margin_bottom = 78.0
+margin_left = 8.003
+margin_top = 62.0
+margin_right = 68.003
+margin_bottom = 122.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 14 )
@@ -314,10 +364,10 @@ size_flags_vertical = 3
 [node name="TextureRect2" type="TextureRect" parent="Interface/GameOverScreen/GemcoinCost"]
 anchor_left = -0.973
 anchor_right = -0.973
-margin_left = -173.997
-margin_top = 25.0
-margin_right = -113.997
-margin_bottom = 85.0
+margin_left = -376.997
+margin_top = 48.0
+margin_right = -316.997
+margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 14 )
@@ -328,15 +378,35 @@ stretch_mode = 6
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -124.0
-margin_top = 2.0
-margin_right = -33.0
-margin_bottom = 37.0
+margin_left = 15.0
+margin_top = -43.0
+margin_right = 106.0
+margin_bottom = 40.0
 custom_fonts/font = SubResource( 4 )
 text = "-1
 "
 align = 1
 valign = 1
+
+[node name="ADButton" type="Button" parent="Interface/GameOverScreen"]
+margin_left = 594.0
+margin_top = 346.0
+margin_right = 1106.0
+margin_bottom = 852.0
+rect_scale = Vector2( 0.15, 0.15 )
+icon = ExtResource( 34 )
+flat = true
+
+[node name="ReplayButton" type="Button" parent="Interface/GameOverScreen"]
+margin_left = 447.0
+margin_top = 419.0
+margin_right = 1164.0
+margin_bottom = 837.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 12 )
+text = "Replay"
+icon = ExtResource( 35 )
+flat = true
 
 [node name="PauseOverlay" type="Control" parent="Interface"]
 process_priority = 1
