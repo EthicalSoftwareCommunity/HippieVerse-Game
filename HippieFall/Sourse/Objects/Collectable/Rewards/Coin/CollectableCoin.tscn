@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://HippieUniverse/Materials/Models/ImportedModels/Material_001.material" type="Material" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Coin/CollectableCoin.cs" type="Script" id=2]
@@ -23,6 +23,72 @@ surfaces/0 = {
 "vertex_count": 66
 }
 
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "rotate (x-axis)"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 360, 0, 0 ), Vector3( 1, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "rotate (y-axis)"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "rotate (z-axis) "
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 360 ) ]
+}
+
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 1.01112, 1, 0.577771 )
 
@@ -30,17 +96,23 @@ extents = Vector3( 1.01112, 1, 0.577771 )
 script = ExtResource( 2 )
 
 [node name="coin" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 material_override = SubResource( 2 )
 mesh = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "rotate (z-axis) "
+anims/RESET = SubResource( 6 )
+"anims/rotate (x-axis)" = SubResource( 7 )
+"anims/rotate (y-axis)" = SubResource( 8 )
+"anims/rotate (z-axis) " = SubResource( 9 )
 
 [node name="Area" type="Area" parent="."]
 collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
+visible = false
 shape = SubResource( 3 )
 
 [connection signal="area_entered" from="Area" to="." method="OnAreaEntered"]
