@@ -18,7 +18,6 @@ public static class HippieFallUtilities
 		public static void ReplayGame(Node node, string path)
 	{
 		Utilities.GoToScene(node,path);
-		
 	}
 }
 
