@@ -4,12 +4,16 @@ using Global.Data.Reward;
 using Godot;
 using HippieFall;
 using HippieFall.Game;
+using Global.Constants;
+
 
 namespace HippieFall.Game.Interface
 {
 	public class GameOverController : Node
 	{
 		[Export] private NodePath _gameOverScreenPath;
+		[Export] public C_ScenesPath.Scenes _restartGamePath;
+
 		private GameOverScreen _gameOverScreen;
 		private LevelController _levelController;
 		private Player _player;
@@ -32,6 +36,7 @@ namespace HippieFall.Game.Interface
 			
 			_gameOverScreen.OnGameContinue += ContinueGame;
 			_gameOverScreen.OnGameOver += GameOver;
+			_gameOverScreen.OnGameReplay += ReplayGame;
 		}
 
 		private void ShowGameOverScreen()
@@ -56,6 +61,11 @@ namespace HippieFall.Game.Interface
 		{
 			_rewardData.Gemcoin.Count -= paymentGemcoinCount;
 			new RewardController().RewardSaveLoadSystem.SaveRewards(_rewardData, true);
+		}
+		private void ReplayGame()
+		{
+			new RewardController().RewardSaveLoadSystem.SaveRewards(_player.PlayerRewardController.RewardController.RewardData);
+			HippieFallUtilities.ReplayGame(this,C_ScenesPath.GetScenePathByEnum(_restartGamePath));
 		}
 	}
 }

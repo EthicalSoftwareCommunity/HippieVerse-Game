@@ -1,5 +1,5 @@
 using Global;
-
+using Godot;
 namespace HippieFall.Game;
 
 public static class HippieFallUtilities
@@ -15,4 +15,9 @@ public static class HippieFallUtilities
 		Utilities.ResumeNode(Game.Player, true);
 		Utilities.ResumeNode(Game.Level);
 	}
+		public static void ReplayGame(Node node, string path)
+	{
+		Utilities.GoToScene(node,path);
+	}
 }
+
