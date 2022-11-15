@@ -8,6 +8,7 @@ namespace HippieFall
 	{
 		public Label GameScore;
 		public Joystic Joystic;
+		public IncreaseLevelSpeedByTapArea IncreaseLevelSpeedByTapArea;
 		public RewardRenderer RewardRenderer;
 		public CharacterInterface CharacterInterface;
 		public Control BottomUI;
@@ -17,6 +18,7 @@ namespace HippieFall
 		{
 			BottomUI = GetNode<Control>("BottomUI");
 			TopUI = GetNode<Control>("TopUI");
+			IncreaseLevelSpeedByTapArea = GetNode<IncreaseLevelSpeedByTapArea>("HoldTapArea");
 			Joystic = BottomUI.GetNode<Joystic>("Joystic/TouchScreenButton");
 			RewardRenderer = TopUI.GetNode<RewardRenderer>("HBoxContainer/RewardRender");
 			GameScore = TopUI.GetNode<Label>("HBoxContainer/Label");

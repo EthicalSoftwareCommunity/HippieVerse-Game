@@ -10,7 +10,6 @@ namespace HippieFall
 {
     public class PlayerMovementController : Node, IEffectable
     {
-        [Export] private NodePath _holdTapAreaPath;
         public event Action<List<Effect>> OnMovementEffectAdded; 
         private Player _player;
         private Joystic _joystick;
@@ -22,7 +21,6 @@ namespace HippieFall
         public override void _Ready()
         {
             GetTree().Root.GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
-            _holdTapArea = GetNode<IncreaseLevelSpeedByTapArea>(_holdTapAreaPath);
         }
         
         private void AddMovementEffect(List<Effect> obj)
@@ -34,6 +32,7 @@ namespace HippieFall
         {
             _joystick = game.GameInterface.Joystic;
             _player = game.Player;
+            _holdTapArea = game.GameInterface.IncreaseLevelSpeedByTapArea;
             _holdTapArea.OnEffectAdded += AddMovementEffect;
         }
 

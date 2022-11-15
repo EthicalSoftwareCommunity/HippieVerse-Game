@@ -12,15 +12,15 @@ namespace HippieFall
 	class TunnelSpawner : Spatial
 	{
 		[Export] public NodePath _collectableControllerPath;
-		[Export] public Vector3 TunnelsOffset = new Vector3(0, -7.938f * 2, 0); //Change to tunnel Size
+		[Export] public Vector3 TunnelsOffset = new(0, -7.938f * 2, 0); //Change to tunnel Size
 		[Export] private int _cashTunnelsSize = 15;
 		[Export] private int _countTunnels = 10;
 
 		private CollectableSpawner CollectableSpawner => _collectableController.CollectableSpawner;
 		private CollectableController _collectableController;
 		private ObstaclesController _obstaclesController;
-		private readonly Biome _cyberBiome = new Biome(C_BiomeTypes.CYBER);
-		private readonly Biome _bikerBiome;//= new Biome(C_BiomeTypes.BIKER);
+		private readonly Biome _cyberBiome = new(C_BiomeTypes.CYBER);
+		private readonly Biome _bikerBiome = null;//= new Biome(C_BiomeTypes.BIKER);
 		private List<Biome> _biomes;
 		private List<Spatial> _cashTunnels;
 		private List<PackedScene> _obstacleOrder;
