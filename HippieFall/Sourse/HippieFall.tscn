@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://HippieFall/Sourse/Game/TunnelSpawner.cs" type="Script" id=5]
 [ext_resource path="res://HippieFall/Sourse/Game/Collectable/CollectableController.cs" type="Script" id=6]
 [ext_resource path="res://HippieFall/Sourse/Game/GameOverController.cs" type="Script" id=7]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerItemsController.cs" type="Script" id=8]
+[ext_resource path="res://HippieFall/Sourse/Objects/Player/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://HippieFall/Sourse/Game/Collectable/CollectableSpawner.cs" type="Script" id=9]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Radius.png" type="Texture" id=10]
 [ext_resource path="res://Images/Coin.png" type="Texture" id=11]
@@ -26,13 +26,6 @@
 [ext_resource path="res://HippieFall/Sourse/IncreaseLevelSpeedByTapArea.cs" type="Script" id=24]
 [ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=25]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera.cs" type="Script" id=26]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerRewardController.cs" type="Script" id=27]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/PlayerControls.cs" type="Script" id=28]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerMovementController.cs" type="Script" id=29]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerCollectableController.cs" type="Script" id=30]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Player.cs" type="Script" id=31]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerEffectController.cs" type="Script" id=32]
-[ext_resource path="res://HippieFall/Sourse/Characters/Character2/Character2.tscn" type="PackedScene" id=33]
 
 [sub_resource type="Theme" id=1]
 
@@ -50,16 +43,6 @@ font_data = ExtResource( 22 )
 
 [sub_resource type="BoxShape" id=6]
 
-[sub_resource type="BoxShape" id=8]
-extents = Vector3( 1.56232, 2.18686, 0.455022 )
-
-[sub_resource type="CapsuleShape" id=9]
-radius = 1.98403
-height = 9.45804
-
-[sub_resource type="BoxShape" id=10]
-extents = Vector3( 0, 0, 0 )
-
 [node name="HippieFall" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -70,7 +53,7 @@ anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 17 )
 
-[node name="HolpTapArea" type="Control" parent="Interface"]
+[node name="HoldTapArea" type="Control" parent="Interface"]
 margin_left = 304.0
 margin_top = 168.0
 margin_right = 725.0
@@ -416,62 +399,7 @@ collision_mask = 256
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 shape = SubResource( 6 )
 
-[node name="Player" type="KinematicBody" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 7, 0 )
-collision_layer = 524441
-collision_mask = 524441
-script = ExtResource( 31 )
-_playerControlsPath = NodePath("PlayerControls")
-_characterPath = NodePath("Character2")
-
-[node name="Area" type="Area" parent="Player"]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0 )
-collision_layer = 144
-collision_mask = 144
-
-[node name="CollisionShape" type="CollisionShape" parent="Player/Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113656, -0.357106 )
-shape = SubResource( 8 )
-
-[node name="Destroy" type="Area" parent="Player"]
-transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0 )
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape" type="CollisionShape" parent="Player/Destroy"]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -0.0631667, 0.101547, -0.187923 )
-shape = SubResource( 9 )
-
-[node name="Character2" parent="Player" instance=ExtResource( 33 )]
-
-[node name="PlayerControls" type="Node" parent="Player"]
-script = ExtResource( 28 )
-_playerMovementPath = NodePath("PlayerMovement")
-_playerCollectableControllerPath = NodePath("PlayerCollectableController")
-_playerEffectControllerPath = NodePath("PlayerEffectController")
-_playerItemsControllerPath = NodePath("PlayerItemsController")
-
-[node name="PlayerMovement" type="Node" parent="Player/PlayerControls"]
-script = ExtResource( 29 )
-_holdTapAreaPath = NodePath("../../../Interface/HolpTapArea")
-
-[node name="PlayerCollectableController" type="Node" parent="Player/PlayerControls"]
-script = ExtResource( 30 )
-PlayerRewardControllerPath = NodePath("PlayerRewardController")
-
-[node name="PlayerRewardController" type="Node" parent="Player/PlayerControls/PlayerCollectableController"]
-script = ExtResource( 27 )
-
-[node name="PlayerEffectController" type="Node" parent="Player/PlayerControls"]
-script = ExtResource( 32 )
-
-[node name="PlayerItemsController" type="Node" parent="Player/PlayerControls"]
-script = ExtResource( 8 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Player"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-shape = SubResource( 10 )
-disabled = true
+[node name="Player" parent="." instance=ExtResource( 8 )]
 
 [node name="GameEffectController" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -485,10 +413,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.84
 fov = 100.0
 script = ExtResource( 26 )
 
-[connection signal="gui_input" from="Interface/HolpTapArea" to="Interface/HolpTapArea" method="_on_Control_gui_input"]
+[connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
 [connection signal="gui_input" from="Interface/BottomUI/Control" to="Interface/BottomUI/Joystic/TouchScreenButton" method="_on_Control_gui_input"]
 [connection signal="area_entered" from="Level/DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]
-[connection signal="area_entered" from="Player/Area" to="Player/PlayerControls/PlayerCollectableController" method="OnAreaEntered"]
-[connection signal="area_entered" from="Player/Area" to="Player/PlayerControls/PlayerCollectableController/PlayerRewardController" method="OnAreaEntered"]
-[connection signal="area_entered" from="Player/Destroy" to="Player" method="OnAreaEntered"]
