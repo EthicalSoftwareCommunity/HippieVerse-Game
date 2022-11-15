@@ -52,12 +52,12 @@ namespace HippieFall.Game
             _setConstantEffectTimer = new System.Timers.Timer(1000);
             _setConstantEffectTimer.Elapsed += ConstantEffects;
             _setConstantEffectTimer.AutoReset = true;
-           // _setConstantEffectTimer.Start();
+            _setConstantEffectTimer.Start();
 
             _deepChangeTimer = new System.Timers.Timer(1000 / _speed);
             _deepChangeTimer.Elapsed += DeepMovementChange;
             _deepChangeTimer.AutoReset = true;
-            //_deepChangeTimer.Start();
+            _deepChangeTimer.Start();
             
         }
         public override void _ExitTree()
@@ -86,8 +86,8 @@ namespace HippieFall.Game
 
         private void ApplyConstantEffect(Effect effect)
         {
-            //_config = effect.Apply(_config);
-            //Config = _config;
+            _config = effect.Apply(_config);
+            Config = _config;
             ApplyDynamicEffects();
         }
 
