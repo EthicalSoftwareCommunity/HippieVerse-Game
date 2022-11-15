@@ -5,6 +5,8 @@ using Godot;
 using HippieFall;
 using HippieFall.Game;
 using Global.Constants;
+using Global.Data.GameSystem;
+using Newtonsoft.Json;
 
 
 namespace HippieFall.Game.Interface
@@ -42,7 +44,7 @@ namespace HippieFall.Game.Interface
 		private void ShowGameOverScreen()
 		{
 			HippieFallUtilities.PauseGame();
-			_gameOverScreen.Show(_rewardData, paymentGemcoinCount);
+			_gameOverScreen.Show(_rewardData, paymentGemcoinCount, _levelController.Deep, CheckForHighScore());
 		}
 
 		private void ContinueGame()
@@ -53,6 +55,29 @@ namespace HippieFall.Game.Interface
 			paymentGemcoinCount *= 2;
 		}
 
+		private bool CheckForHighScore()
+		{
+			File file = new File();
+			Directory directory = new Directory();
+			if (directory.DirExists(C_SaveFolderFile.FOLDER_PLAYER_HIGH_SCORE) == false)
+				directory.MakeDir(C_SaveFolderFile.FOLDER_PLAYER_HIGH_SCORE);
+			if(file.FileExists(C_SaveFolderFile.FILE_PLAYER_HIGH_SCORE) == false)
+			{
+				file.Open(C_SaveFolderFile.FILE_PLAYER_HIGH_SCORE, File.ModeFlags.Write);
+				file.Close();
+			}
+			file.Open(C_SaveFolderFile.FILE_PLAYER_HIGH_SCORE, File.ModeFlags.ReadWrite);
+			GameData data = JsonConvert.DeserializeObject<GameData>(file.GetAsText()) ?? new GameData();
+			if (data.HighScore < _levelController.Deep)
+			{
+				data.HighScore = _levelController.Deep;
+				file.StoreString(JsonConvert.SerializeObject(data));
+				file.Close();
+				return true;
+			}
+			file.Close();
+			return false;
+		}
 		private void GameOver()
 		{
 			new RewardController().RewardSaveLoadSystem.SaveRewards(_player.PlayerRewardController.RewardController.RewardData);

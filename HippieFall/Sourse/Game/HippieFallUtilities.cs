@@ -15,7 +15,7 @@ public static class HippieFallUtilities
 		Utilities.ResumeNode(Game.Player, true);
 		Utilities.ResumeNode(Game.Level);
 	}
-		public static void ReplayGame(Node node, string path)
+	public static void ReplayGame(Node node, string path)
 	{
 		Utilities.GoToScene(node,path);
 	}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -26,13 +26,6 @@
 [ext_resource path="res://HippieFall/Sourse/IncreaseLevelSpeedByTapArea.cs" type="Script" id=24]
 [ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=25]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera.cs" type="Script" id=26]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerRewardController.cs" type="Script" id=27]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/PlayerControls.cs" type="Script" id=28]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerMovementController.cs" type="Script" id=29]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerCollectableController.cs" type="Script" id=30]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Player.cs" type="Script" id=31]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerEffectController.cs" type="Script" id=32]
-[ext_resource path="res://HippieFall/Sourse/Characters/Character2/Character2.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
@@ -217,7 +210,6 @@ normal = ExtResource( 16 )
 script = ExtResource( 20 )
 
 [node name="GameOverScreen" type="Control" parent="Interface"]
-process_priority = 1
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -229,6 +221,8 @@ _goHomeButtonPath = NodePath("HomeButton")
 _gameCoinsCountLabelPath = NodePath("GemcoinRemain/TextureRect2/GameCoinsCount")
 _paymentGameCoinsCountPath = NodePath("GemcoinCost/TextureRect2/PaymentGameCoinsCount")
 _replayButtonPath = NodePath("ReplayButton")
+_levelScoreLabelPath = NodePath("ColorRect/HighScore")
+_highScoreTextLabelPath = NodePath("ColorRect/(text)NewHighScore!")
 
 [node name="ColorRect" type="ColorRect" parent="Interface/GameOverScreen"]
 anchor_right = 1.0
@@ -241,6 +235,7 @@ mouse_filter = 2
 color = Color( 0.2, 0.2, 0.2, 0.929412 )
 
 [node name="(text)NewHighScore!" type="Label" parent="Interface/GameOverScreen/ColorRect"]
+visible = false
 margin_left = 131.0
 margin_top = -38.0
 margin_right = 590.0
@@ -274,13 +269,12 @@ text = "or"
 margin_left = 250.0
 margin_top = 73.0
 margin_right = 458.0
-margin_bottom = 190.0
+margin_bottom = 130.0
 rect_pivot_offset = Vector2( 681, 60 )
 theme = SubResource( 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "342
-"
+text = "342"
 align = 1
 valign = 1
 
@@ -368,13 +362,12 @@ stretch_mode = 6
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = -43.0
-margin_right = 106.0
-margin_bottom = 40.0
+margin_left = 14.0
+margin_top = 3.0
+margin_right = 105.0
+margin_bottom = -6.0
 custom_fonts/font = SubResource( 4 )
-text = "-1
-"
+text = "-1"
 align = 1
 valign = 1
 
