@@ -56,7 +56,6 @@ _playerItemsControllerPath = NodePath("PlayerItemsController")
 
 [node name="PlayerMovement" type="Node" parent="PlayerControls"]
 script = ExtResource( 6 )
-_holdTapAreaPath = NodePath("../../../Interface/HolpTapArea")
 
 [node name="PlayerCollectableController" type="Node" parent="PlayerControls"]
 script = ExtResource( 3 )

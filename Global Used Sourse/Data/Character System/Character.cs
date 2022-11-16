@@ -7,7 +7,7 @@ namespace Global.Data.CharacterSystem
 {
     public abstract class Character : Spatial
     {
-        public event Action<List<Effect>> OnCharacterEffectAdded;
+        public event Action<Ability> OnCharacterEffectAdded;
         protected CharacterInterface _characterInterface;
         [Export] protected NodePath _characterInterfacePath;
 
@@ -18,7 +18,7 @@ namespace Global.Data.CharacterSystem
          }
         private void HandleAbility(Ability ability)
         {
-            OnCharacterEffectAdded?.Invoke(ability.Effects);
+            OnCharacterEffectAdded?.Invoke(ability);
         }
     }
 }

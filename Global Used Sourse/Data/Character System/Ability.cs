@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using Godot;
 using Global.Data.EffectSystem;
 
 namespace Global.Data.CharacterSystem
 {
-    public abstract class Ability : Node
+    public abstract class Ability : NamedEffect
     {
-        public event Action<Ability> OnAbilityActivated; 
-        public List<Effect> Effects = new List<Effect>();
-        
+        public event Action<Ability> OnAbilityActivated;
+
         public virtual void Activate()
         {
             OnAbilityActivated?.Invoke(this);
