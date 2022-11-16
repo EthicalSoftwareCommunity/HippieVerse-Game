@@ -7,23 +7,23 @@ namespace HippieFall.Effects
 {
     public class ChangeLevelSpeed:Effect
     {
-        private readonly float _delta;
-        private readonly bool _isCoefficient = false;
+        public readonly float Delta;
+        public readonly bool IsCoefficient = false;
         public ChangeLevelSpeed(float delta = 0.1f, bool isCoefficient = false)
         {
             Target = EffectsTarget.Level;
-            _delta = delta;
-            _isCoefficient = isCoefficient;
+            Delta = delta;
+            IsCoefficient = isCoefficient;
         }
 
         public override Config Apply(Config config)
         {
             if (config is LevelConfig levelConfig)
             {
-                if(_isCoefficient)
-                    levelConfig.Speed *= _delta;
+                if(IsCoefficient)
+                    levelConfig.Speed *= Delta;
                 else 
-                    levelConfig.Speed += _delta;
+                    levelConfig.Speed += Delta;
                 return levelConfig;
             }
             return config;

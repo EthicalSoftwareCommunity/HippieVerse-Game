@@ -21,20 +21,20 @@ namespace Global.Data.EffectSystem
         
         private float _effectDuration;
 
-        private readonly Effect _effect;
+        public Effect Effect { get; private set; }
         private System.Timers.Timer timer;
         
         public DynamicEffect(Effect effect, float duration)
         {
             Target = effect.Target;
-            _effect = effect;
+            Effect = effect;
             EffectDuration = duration;
         }
         
         public override Config Apply(Config config)
         {
             timer.Start();
-            _effect.Apply(config);
+            Effect.Apply(config);
             return config;
         }
 

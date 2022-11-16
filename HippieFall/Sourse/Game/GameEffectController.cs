@@ -13,6 +13,7 @@ namespace HippieFall
 		public event Action<Effect> OnReceivedCharacterEffect;
 		public event Action<Effect> OnReceivedCollectableEffect;
 		public event Action<Effect> OnReceivedObstaclesEffect;
+		public event Action<NamedEffect> OnReceivedNamedEffect;
 
 		public override void _Ready()
 		{
@@ -27,6 +28,11 @@ namespace HippieFall
 			game.Player.PlayerMovementController.OnMovementEffectAdded += ResendEvent;
 		}
 
+		private void ResendEvent(NamedEffect namedEffect)
+		{
+			ResendEvent(namedEffect.Effects);
+			OnReceivedNamedEffect?.Invoke(namedEffect);
+		}
 		private void ResendEvent(List<Effect> effects)
 		{
 			foreach (var effect in effects)

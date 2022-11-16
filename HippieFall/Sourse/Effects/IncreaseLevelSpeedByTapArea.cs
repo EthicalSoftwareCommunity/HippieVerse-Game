@@ -9,10 +9,10 @@ using Timer = System.Timers.Timer;
 public class IncreaseLevelSpeedByTapArea : Control
 {
     [Export] private float timeToHoldTouch = 1f;
-    public event Action<List<Effect>> OnEffectAdded; 
+    public event Action<NamedEffect> OnEffectAdded; 
     private Timer _timer;
     private bool _timerIsStarted = false;
-    private DynamicEffect increaseLevelSpeedTwice;
+    private LongTapedOnDisplay _longTapedOnDisplay;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -36,7 +36,7 @@ public class IncreaseLevelSpeedByTapArea : Control
             {
                 GD.Print("Stopped");
                 _timer.Stop();
-                increaseLevelSpeedTwice.RemoveEffect();
+                _longTapedOnDisplay.RemoveDynamicsEffects();
             }
         }
       
@@ -45,8 +45,8 @@ public class IncreaseLevelSpeedByTapArea : Control
     private void IncreaseLevelSpeed(object sender, ElapsedEventArgs e)
     {
         GD.Print("Hold");
-        increaseLevelSpeedTwice = new DynamicEffect(new ChangeLevelSpeed(2f, true), 9999);
-        OnEffectAdded?.Invoke(new List<Effect>() { increaseLevelSpeedTwice });
+        _longTapedOnDisplay = new LongTapedOnDisplay();
+        OnEffectAdded?.Invoke(_longTapedOnDisplay);
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

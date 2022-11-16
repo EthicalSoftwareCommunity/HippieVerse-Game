@@ -11,7 +11,6 @@ namespace HippieFall.Collectables
 
         public override void ChangeConfigData(Config config)
         {
-            
         }
     }
 }

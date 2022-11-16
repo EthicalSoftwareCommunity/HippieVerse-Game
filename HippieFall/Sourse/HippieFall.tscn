@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -23,9 +23,10 @@
 [ext_resource path="res://HippieFall/Sourse/Interface/PauseButton.cs" type="Script" id=21]
 [ext_resource path="res://Fonts/Ubuntu-Bold.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://Images/back.png" type="Texture" id=23]
-[ext_resource path="res://HippieFall/Sourse/IncreaseLevelSpeedByTapArea.cs" type="Script" id=24]
+[ext_resource path="res://HippieFall/Sourse/Effects/IncreaseLevelSpeedByTapArea.cs" type="Script" id=24]
 [ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=25]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera.cs" type="Script" id=26]
+[ext_resource path="res://HippieFall/Sourse/GameParticlesController.cs" type="Script" id=27]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
@@ -55,6 +56,73 @@ font_data = ExtResource( 36 )
 
 [sub_resource type="BoxShape" id=6]
 
+[sub_resource type="Gradient" id=24]
+offsets = PoolRealArray( 0, 0.570895, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.466667, 0.466667, 0.466667, 0.737255, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=25]
+gradient = SubResource( 24 )
+
+[sub_resource type="Curve" id=22]
+_data = [ Vector2( 0.00614035, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.434211, 0.0659509 ), 0.399106, 0.399106, 0, 0, Vector2( 1, 0.720859 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=23]
+curve = SubResource( 22 )
+
+[sub_resource type="ParticlesMaterial" id=19]
+lifetime_randomness = 0.19
+emission_shape = 5
+emission_ring_radius = 0.1
+emission_ring_inner_radius = 0.3
+emission_ring_height = 0.3
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_rotate_y = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, -2, 0 )
+scale_curve = SubResource( 23 )
+color_ramp = SubResource( 25 )
+
+[sub_resource type="SpatialMaterial" id=14]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.898039, 0.898039, 0.898039, 1 )
+
+[sub_resource type="CylinderMesh" id=15]
+material = SubResource( 14 )
+top_radius = 0.001
+bottom_radius = 0.003
+height = 0.2
+rings = 1
+
+[sub_resource type="Gradient" id=26]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.0149254, 0.25, 0.447761, 0.679105, 0.891791, 0.996269, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.364706, 0.364706, 0.364706, 1, 0.935885, 0.0263643, 0.0263643, 0.927711, 0, 0.423177, 0.980392, 1, 0.983008, 0.134289, 0.134289, 0.846154, 0.997393, 0.872881, 0.872881, 0, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=27]
+gradient = SubResource( 26 )
+
+[sub_resource type="ParticlesMaterial" id=28]
+lifetime_randomness = 0.19
+emission_shape = 5
+emission_ring_radius = 0.1
+emission_ring_inner_radius = 1.0
+emission_ring_height = 1.5
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_rotate_y = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, -2, 0 )
+scale_curve = SubResource( 23 )
+color_ramp = SubResource( 27 )
+
+[sub_resource type="CylinderMesh" id=29]
+material = SubResource( 14 )
+top_radius = 0.003
+bottom_radius = 0.006
+height = 0.5
+rings = 1
+
 [node name="HippieFall" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -66,10 +134,12 @@ mouse_filter = 1
 script = ExtResource( 17 )
 
 [node name="HoldTapArea" type="Control" parent="Interface"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 304.0
 margin_top = 168.0
-margin_right = 725.0
-margin_bottom = 408.0
+margin_right = -299.0
+margin_bottom = -192.0
 mouse_filter = 1
 script = ExtResource( 24 )
 
@@ -470,6 +540,7 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0863953, 7, 0 )
 
 [node name="GameEffectController" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -478,10 +549,35 @@ script = ExtResource( 2 )
 script = ExtResource( 7 )
 _gameOverScreenPath = NodePath("../Interface/GameOverScreen")
 
+[node name="GameParticlesController" type="Node" parent="."]
+script = ExtResource( 27 )
+_windFallPath = NodePath("../Camera/WindFallParticles")
+_windFallFastPath = NodePath("../Camera/WindFallParticlesFast")
+
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.846, -0.091 )
-fov = 100.0
+current = true
+fov = 90.0
 script = ExtResource( 26 )
+
+[node name="WindFallParticles" type="Particles" parent="Camera"]
+transform = Transform( -1, 1.50996e-07, -6.60024e-15, 0, -4.37114e-08, -1, -1.50996e-07, -1, 4.37114e-08, 0, 0, -1.058 )
+amount = 30
+speed_scale = 0.7
+randomness = 0.5
+draw_order = 2
+process_material = SubResource( 19 )
+draw_pass_1 = SubResource( 15 )
+
+[node name="WindFallParticlesFast" type="Particles" parent="Camera"]
+transform = Transform( -1, 1.50996e-07, -6.60024e-15, 0, -4.37114e-08, -1, -1.50996e-07, -1, 4.37114e-08, 0, 0, -1.058 )
+emitting = false
+amount = 120
+speed_scale = 1.4
+randomness = 0.5
+draw_order = 2
+process_material = SubResource( 28 )
+draw_pass_1 = SubResource( 29 )
 
 [connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]

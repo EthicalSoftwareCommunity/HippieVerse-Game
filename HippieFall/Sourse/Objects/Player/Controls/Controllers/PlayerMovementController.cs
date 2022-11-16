@@ -10,7 +10,7 @@ namespace HippieFall
 {
     public class PlayerMovementController : Node, IEffectable
     {
-        public event Action<List<Effect>> OnMovementEffectAdded; 
+        public event Action<NamedEffect> OnMovementEffectAdded; 
         private Player _player;
         private Joystic _joystick;
         private Vector3 _nextMove;
@@ -23,9 +23,9 @@ namespace HippieFall
             GetTree().Root.GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
         }
         
-        private void AddMovementEffect(List<Effect> obj)
+        private void AddMovementEffect(NamedEffect namedEffect)
         {
-            OnMovementEffectAdded?.Invoke(obj);
+            OnMovementEffectAdded?.Invoke(namedEffect);
         }
 
         public void Init(GameController game)
