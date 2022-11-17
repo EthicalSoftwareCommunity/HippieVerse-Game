@@ -30,6 +30,8 @@ namespace HippieFall.Tunnels
 		{
 			foreach (var direction in _currentPreset.Preset)
 				_laserBarrel[direction.From].LookAtLaserBarrel(_laserBarrel[direction.To], direction.DirectionType);
+			foreach (var direction in _currentPreset.Hideable)
+				_laserBarrel[direction.From].FlashingAtLaserBarrel(_laserBarrel[direction.To], direction.DirectionType);
 		}
 		
 		private void OnAreaEntered(Area area)
