@@ -1,15 +1,18 @@
+using Global;
+using Global.Data;
 using Godot;
+using HippieFall.Game;
 
 namespace HippieFall.Tunnels
 {
     class Gate : Obstacle
     {
         [Export] private NodePath _animationPlayerPath;
-        
-        public float SpeedCoefficient => _speedCoefficient;
-        
+
         private AnimationPlayer _animation;
-        private float _speedCoefficient = 1;
+        private LevelConfig _levelConfig = new LevelConfig();
+        private float _speedDifferenceCoefficient = 0;
+        private GameController _gameController;
 
         public override void _Ready()
         {
@@ -22,7 +25,9 @@ namespace HippieFall.Tunnels
             if (area.GetOwnerOrNull<Player>() is Player)
             {
                 GD.Print("Animation");
-                _animation.GetAnimation("Open Gate").Length = 1*_speedCoefficient;
+                _speedDifferenceCoefficient =
+                    HippieFallUtilities.Game.Level.LevelConfig.Speed / _levelConfig.Speed;
+                _animation.PlaybackSpeed = _speedDifferenceCoefficient;
                 _animation.Play("Open Gate");
             }
         }
