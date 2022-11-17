@@ -14,8 +14,6 @@ namespace HippieFall.Game
 {
     public class LevelController : Spatial, IEffectable, IPauseable
     {
-        [Export] private float _speed;
-        [Export] private float _deepIncrease;
         public event Action<Config> ConfigChanged;
         public event Action<List<Effect>> OnLevelEffectAdded;
         public float Deep { get; set; }
@@ -31,6 +29,8 @@ namespace HippieFall.Game
             get => new LevelConfig(_config);
             set => ChangeConfigData(value);
         }
+
+        public LevelConfig LevelConfig = new LevelConfig();
 
         private EffectsController _effectController;
         public override void _Ready()
@@ -48,12 +48,12 @@ namespace HippieFall.Game
             _effectController.DynamicEffectAdded += ApplyDynamicEffects;
             _effectController.ConstantEffectAdded += ApplyConstantEffect;
 
-            _setConstantEffectTimer = new System.Timers.Timer(1000);
+            _setConstantEffectTimer = new System.Timers.Timer(10000);
             _setConstantEffectTimer.Elapsed += ConstantEffects;
             _setConstantEffectTimer.AutoReset = true;
             _setConstantEffectTimer.Start();
 
-            _deepChangeTimer = new System.Timers.Timer(1000 / _speed);
+            _deepChangeTimer = new System.Timers.Timer(1000 / LevelConfig.Speed);
             _deepChangeTimer.Elapsed += DeepMovementChange;
             _deepChangeTimer.AutoReset = true;
             _deepChangeTimer.Start();
@@ -67,9 +67,9 @@ namespace HippieFall.Game
 
         private void DeepMovementChange(object sender, ElapsedEventArgs e)
         {
-            Deep += _deepIncrease;
+            Deep += LevelConfig.DeepIncrease;
             _interface.GameScore.Text = Deep.ToString(CultureInfo.InvariantCulture);
-            _deepChangeTimer.Interval = 1000 / (_speed/2+1);
+            //_deepChangeTimer.Interval = 1000 / (LevelConfig.Speed/2+1);
         }
 
         private void ConstantEffects(object sender, ElapsedEventArgs e)
@@ -93,7 +93,7 @@ namespace HippieFall.Game
         public override void _Process(float delta)
         {
             foreach (var tunnel in _spawner.Tunnels) 
-                tunnel.Translation += new Vector3(0, _speed * delta, 0);
+                tunnel.Translation += new Vector3(0, LevelConfig.Speed * delta, 0);
         }
 
         public void OnDestroyTunnelTriggerAreaEntered(Area area)
@@ -111,8 +111,8 @@ namespace HippieFall.Game
         public void ChangeConfigData(Config config)
         {
              if (!(config is LevelConfig levelConfig)) return;
-            _deepIncrease = levelConfig.DeepIncrease;
-            _speed = levelConfig.Speed;
+            LevelConfig.DeepIncrease = levelConfig.DeepIncrease;
+            LevelConfig.Speed = levelConfig.Speed;
         }
         
         public void Pause()

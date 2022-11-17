@@ -26,7 +26,7 @@ namespace HippieFall.Items
 		{
 			foreach (var collectable in _collectablesInRange)
 			{
-				if (collectable != null)
+				if(IsInstanceValid(collectable))
 				{
 					_directionTo = collectable.GlobalTranslation.DirectionTo(GlobalTranslation);
 					collectable.GlobalTranslation += delta * _directionTo * (_force+_speedForceCorrection/3);
