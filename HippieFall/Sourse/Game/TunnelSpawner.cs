@@ -9,7 +9,7 @@ using HippieFall.Tunnels;
 
 namespace HippieFall
 {
-	class TunnelSpawner : Spatial
+	public class TunnelSpawner : Spatial
 	{
 		[Export] public NodePath _collectableControllerPath;
 		[Export] public Vector3 TunnelsOffset = new(0, -7.938f * 2, 0); //Change to tunnel Size
@@ -114,7 +114,18 @@ namespace HippieFall
 				tunnel.AddChild(collectable);
 		}
 
-		public void RemoveTunnel(Tunnel getParentOrNull)
+		public void RemoveTunnel(int countAtStart)
+		{
+			for (int i = 0; i < countAtStart; i++)
+			{
+				foreach(Obstacle obstacle in Tunnels[i].GetNode<Spatial>("Obstacles").GetChildren())
+				{
+					obstacle.Destroy();
+				}
+			}
+			
+		}
+		public void CashRemoveTunnel(Tunnel tunnel = null)
 		{
 			_cashTunnels.Add(Tunnels.First());
 			Tunnels.Remove(Tunnels.First());
@@ -122,8 +133,11 @@ namespace HippieFall
 			{
 				foreach (var cash in _cashTunnels)
 				{
+					foreach (Obstacle obstacle in cash.GetNode<Spatial>("Obstacles").GetChildren()  )
+					{
+						obstacle.Destroy();
+					}
 					cash.QueueFree();
-					if (cash is Obstacle obstacle) _obstaclesController.RemoveObstacle(obstacle);
 				}
 				_cashTunnels.Clear();
 			}

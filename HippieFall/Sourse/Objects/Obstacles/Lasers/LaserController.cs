@@ -1,131 +1,77 @@
-using Godot;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Drawing2D;
+using System.Timers;
 using Global;
-using HippieFall.Tunnels;
+using Global.Constants;
+using Godot;
+using Godot.Collections;
+using Array = Godot.Collections.Array;
+using Timer = System.Timers.Timer;
 
 namespace HippieFall.Tunnels
 {
 	class LaserController : Obstacle
 	{
-		[Export] private List<NodePath> _laserBarrelPaths = new List<NodePath>();
-		public enum DirectionType
-		{
-			Duplex,
-			Single
-		}
-		private List<LaserPattern> _presets = new List<LaserPattern>();
-		private List<Laser> _laserBarrel = new List<Laser>();
-		private LaserPattern _currentPreset;
+		public List<LaserController> LasersTargets = new List<LaserController>();
+		public List<Laser> Lasers = new List<Laser>();
+
 		public override void _Ready()
 		{
 			ObstacleType = ObstacleTypes.Controller;
-			InitPresets();
-			InitLasers();
-			_currentPreset = _presets[Utilities.GetRandomNumberInt(0, _presets.Count)];
-			LoadLaserPreset();
 		}
-		private void LoadLaserPreset()
+
+		public void AddLaser()
 		{
-			foreach (var direction in _currentPreset.Preset)
-				_laserBarrel[direction.From].LookAtLaserBarrel(_laserBarrel[direction.To], direction.DirectionType);
-			foreach (var direction in _currentPreset.Hideable)
-				_laserBarrel[direction.From].FlashingAtLaserBarrel(_laserBarrel[direction.To], direction.DirectionType);
+			Laser laser = GD.Load<PackedScene>(C_TunnelObstaclePath.CYBER_LASER).Instance<Laser>();
+			AddChild(laser);
+			Lasers.Add(laser);
 		}
-		
-		private void OnAreaEntered(Area area)
+
+		public void LookAtLaserBarrel(LaserController target, LasersPlatformController.DirectionType directionType)
 		{
-			if (area.GetOwnerOrNull<Player>() != null)
-				HideLaserPreset();
-		}
-		
-		private void HideLaserPreset()
-		{
-			foreach (var direction in _currentPreset.Hideable)
-				_laserBarrel[direction.From].HideAtLaserBarrel(_laserBarrel[direction.To], direction.DirectionType);
-		}
-		private void InitPresets()
-		{ /* Positions
-		 * 0  3
-		 * 1  4
-		 * 2  5
-		 */
-			//hoizonal
-			LaserPattern horizontal = new LaserPattern()
-			{
-				Preset =
-				{
-					new LaserPattern.LaserDirection(0, 3, DirectionType.Duplex),
-					new LaserPattern.LaserDirection(1, 4, DirectionType.Duplex),
-					new LaserPattern.LaserDirection(2, 5, DirectionType.Duplex),
-				},
-			};
-			horizontal.Hideable.Add(horizontal.Preset[new Random().Next(0,horizontal.Preset.Count)]);
-			_presets.Add(horizontal);
+			LasersTargets.Add(target);
+			LookAt(target.GlobalTranslation, Vector3.Up);
+			RotateZ(Mathf.Deg2Rad(90));
+			AddLaser();
 			
-			//crossOver
-			LaserPattern crossOver = new LaserPattern
-			{
-				Preset =
+			if (directionType == LasersPlatformController.DirectionType.Duplex)
+				target.LookAtLaserBarrel(this, LasersPlatformController.DirectionType.Single);
+		}
+		
+		public void HideAtLaserBarrel(LaserController target, LasersPlatformController.DirectionType directionType)
+		{
+			for (int i = 0; i < LasersTargets.Count; i++)
+				if (LasersTargets[i] == target)
 				{
-					new LaserPattern.LaserDirection(0, 5, DirectionType.Duplex),
-					new LaserPattern.LaserDirection(1, 4, DirectionType.Duplex),
-					new LaserPattern.LaserDirection(2, 3, DirectionType.Duplex),
+					if(IsInstanceValid(Lasers[i]))
+					   Lasers[i].QueueFree();
+					break;
 				}
-			};
-			crossOver.Hideable.Add(crossOver.Preset[new Random().Next(0,crossOver.Preset.Count)]);
-			_presets.Add(crossOver);
 			
-			//all
-			/*LaserPattern all = new LaserPattern();
-			all.Preset.Add(new LaserPattern.LaserDirection(0, 3, DirectionType.Duplex));
-			all.Preset.Add(new LaserPattern.LaserDirection(0, 4, DirectionType.Duplex));
-			all.Preset.Add(new LaserPattern.LaserDirection(0, 5, DirectionType.Duplex));
-			/*all.Preset.Add(new LaserPattern.LaserDirection(1, 3, DirectionType.Duplex));
-			all.Preset.Add(new LaserPattern.LaserDirection(1, 4, DirectionType.Duplex));
-			all.Preset.Add(new LaserPattern.LaserDirection(1, 5, DirectionType.Duplex));
-			all.Preset.Add(new LaserPattern.LaserDirection(2, 3, DirectionType.Duplex));
-			all.Preset.Add(new LaserPattern.LaserDirection(2, 4, DirectionType.Duplex));
-			all.Preset.Add(new LaserPattern.LaserDirection(2, 5, DirectionType.Duplex));#1#
-
-			for (int i = 0; i <= all.Preset.Count/2+1; i++)
-			{
-				all.Hideable.Add(all.Preset[Utilities.GetRandomNumberInt(0,all.Preset.Count)]);
-			}*/
-			/*_presets.Add(all);*/
+			if (directionType == LasersPlatformController.DirectionType.Duplex)
+				target.HideAtLaserBarrel(this, LasersPlatformController.DirectionType.Single);
 		}
-
-		private void InitLasers()
+		
+		public void FlashingAtLaserBarrel(LaserController target, LasersPlatformController.DirectionType directionType, float flashTime = 0)
 		{
-			foreach (NodePath laserPath in _laserBarrelPaths)
-				_laserBarrel.Add(GetNode<Laser>(laserPath));
+			for (int i = 0; i < LasersTargets.Count; i++)
+				if (LasersTargets[i] == target)
+				{
+					if (IsInstanceValid(Lasers[i]))
+					{
+						if (flashTime == 0)
+							flashTime = Utilities.GetRandomNumberFloat(0.7f, 2f);
+						//Make laser Material unique for various animation
+						Lasers[i].GetNode<AnimationPlayer>("AnimationPlayer").PlaybackSpeed
+								= flashTime; 
+						
+					}
+					break;
+				}
+			if (directionType == LasersPlatformController.DirectionType.Duplex)
+				target.FlashingAtLaserBarrel(this, LasersPlatformController.DirectionType.Single,flashTime);
+			
 		}
 	}
 	
-	class LaserPattern
-	{
-		public struct LaserDirection
-		{
-			public readonly int From;
-			public readonly int To;
-			public readonly LaserController.DirectionType DirectionType;
-			public LaserDirection(int from, int to, LaserController.DirectionType directionType)
-			{
-				From = from;
-				To = to;
-				DirectionType = directionType;
-			}
-		}
-		
-		public List<LaserDirection> Preset { get; set; }
-		public List<LaserDirection> Hideable{ get; set; }
-
-		public LaserPattern()
-		{
-			Preset = new List<LaserDirection>();
-			Hideable = new List<LaserDirection>();
-		}
-	}
-
 }

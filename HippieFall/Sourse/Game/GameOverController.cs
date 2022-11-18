@@ -51,6 +51,7 @@ namespace HippieFall.Game.Interface
 		{
 			SpendGemCoins();
 			HippieFallUtilities.ResumeGame();
+			HippieFallUtilities.Game.Level.Spawner.RemoveTunnel(2);
 			_gameOverScreen.Hide();
 			paymentGemcoinCount *= 2;
 		}

@@ -1,30 +1,31 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/Lasers/images/laser_txt_Round_corridor_cyberpunk_Traps_v5_BaseColor.png" type="Texture" id=2]
+[ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Lasers/Laser.cs" type="Script" id=3]
 
 [sub_resource type="SpatialMaterial" id=18]
+resource_local_to_scene = true
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
-albedo_color = Color( 1, 1, 1, 0.828084 )
 albedo_texture = ExtResource( 2 )
 
 [sub_resource type="BoxShape" id=15]
-extents = Vector3( 2.18395, 0.199909, 0.214976 )
+extents = Vector3( 1.426, 0.229, 0.196 )
 
 [sub_resource type="Animation" id=16]
 resource_name = "FlashingLaser"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:material:albedo_color")
+tracks/0/path = NodePath("Laser:material:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 0.378929, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -43,20 +44,38 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Laser:material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
-[node name="Laser" type="CSGBox"]
+[node name="Laser" type="Spatial"]
+script = ExtResource( 3 )
+modelPath = NodePath("Laser")
+
+[node name="Laser" type="CSGBox" parent="."]
 transform = Transform( 2.5, 3.39705e-20, 1.94289e-13, 0, 2.5, -4.37114e-07, 0, 4.37114e-07, 2.5, -3.75, 0, 0 )
+operation = 1
+calculate_tangents = false
 width = 3.0
 height = 0.3
 depth = 0.3
 material = SubResource( 18 )
 
-[node name="Area" type="Area" parent="."]
+[node name="Area" type="Area" parent="Laser"]
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( 0.65, 0, -3.38813e-21, 0, 0.5, 1.80753e-08, 0, -1.39041e-08, 0.65, 0, 0, 0 )
+[node name="CollisionShape" type="CollisionShape" parent="Laser/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 2.78082e-08, 0, -2.78082e-08, 1, 0, 0, 0 )
 shape = SubResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

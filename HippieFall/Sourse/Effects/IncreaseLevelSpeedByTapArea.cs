@@ -36,6 +36,7 @@ public class IncreaseLevelSpeedByTapArea : Control
             {
                 GD.Print("Stopped");
                 _timer.Stop();
+                if(_longTapedOnDisplay!=null)
                 _longTapedOnDisplay.RemoveDynamicsEffects();
             }
         }

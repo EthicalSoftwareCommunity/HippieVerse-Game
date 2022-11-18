@@ -2,7 +2,7 @@
 
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/Lasers/Round_corridor_cyberpunk_Traps_v5.material" type="Material" id=1]
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/Lasers/Round_corridor_cyberpunk_mat.material" type="Material" id=2]
-[ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Lasers/Laser.cs" type="Script" id=3]
+[ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Lasers/LasersPlatformController.cs" type="Script" id=3]
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Lasers/LaserController.cs" type="Script" id=4]
 
 [sub_resource type="ArrayMesh" id=13]
@@ -137,7 +137,7 @@ surfaces/0 = {
 extents = Vector3( 2.8125, 1, 1 )
 
 [node name="LasersFasteners" type="Spatial"]
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 _laserBarrelPaths = [ NodePath("Main Fastener/Laser0"), NodePath("Main Fastener/Laser1"), NodePath("Main Fastener/Laser2"), NodePath("Main Fastener/Laser3"), NodePath("Main Fastener/Laser4"), NodePath("Main Fastener/Laser5") ]
 
 [node name="Main Fastener" type="MeshInstance" parent="."]
@@ -148,37 +148,37 @@ mesh = SubResource( 13 )
 transform = Transform( 1, -5.70498e-28, 9.97492e-35, 0, 1, -1.74846e-07, 0, 1.74846e-07, 1, -6.279, 2.351, 0 )
 mesh = SubResource( 11 )
 skeleton = NodePath("../..")
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Laser1" type="MeshInstance" parent="Main Fastener"]
 transform = Transform( 1, -5.70498e-28, -1.43493e-40, 0, 1, 2.55795e-13, 0, -2.55795e-13, 1, -6.838, 0, 0 )
 mesh = SubResource( 11 )
 skeleton = NodePath("../..")
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Laser2" type="MeshInstance" parent="Main Fastener"]
 transform = Transform( 1, -5.70498e-28, -1.43493e-40, 0, 1, 2.55795e-13, 0, -2.55795e-13, 1, -6.569, -3, -0.006 )
 mesh = SubResource( 11 )
 skeleton = NodePath("../..")
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Laser3" type="MeshInstance" parent="Main Fastener"]
 transform = Transform( 1, -5.70498e-28, -1.43493e-40, 0, 1, 2.55795e-13, 0, -2.55795e-13, 1, 6.279, 2.351, -0.006 )
 mesh = SubResource( 11 )
 skeleton = NodePath("../..")
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Laser4" type="MeshInstance" parent="Main Fastener"]
 transform = Transform( 1, -5.70498e-28, -1.43493e-40, 0, 1, 2.55795e-13, 0, -2.55795e-13, 1, 6.851, 0, 0 )
 mesh = SubResource( 11 )
 skeleton = NodePath("../..")
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Laser5" type="MeshInstance" parent="Main Fastener"]
 transform = Transform( 1, -5.70498e-28, 1.37753e-40, 0, 1, -2.41585e-13, 0, 2.41585e-13, 1, 6.526, -3, 0 )
 mesh = SubResource( 11 )
 skeleton = NodePath("../..")
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Fastenings" type="Spatial" parent="Main Fastener"]
 transform = Transform( 2.5, -1.42624e-27, 2.49373e-34, 0, 2.5, -4.37115e-07, 0, 4.37115e-07, 2.5, -0.00260322, -0.0140917, 0.0044191 )
@@ -213,16 +213,12 @@ transform = Transform( 0.375877, 0.136808, 0, -0.136808, 0.375877, -3.55271e-15,
 mesh = SubResource( 6 )
 skeleton = NodePath("../../..")
 
-[node name="Area" type="Area" parent="Main Fastener"]
-transform = Transform( 2.5, -2.68008e-27, 2.49373e-34, 0, 4.6978, -4.37115e-07, 0, 8.21391e-07, 2.5, -0.003, 0, -15.2864 )
-collision_layer = 24
-collision_mask = 24
+[node name="Area" type="Area" parent="."]
+transform = Transform( 0.925, -9.9163e-28, 9.2268e-35, 0, -3.79893e-07, -0.925, 0, 1.73819, -2.02166e-07, -0.00111, 5.65597, 2.4723e-07 )
+collision_layer = 16
+collision_mask = 16
 
-[node name="CollisionShape" type="CollisionShape" parent="Main Fastener/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 14 )
 
-[node name="Camera" type="Camera" parent="Main Fastener"]
-transform = Transform( -2.5, 2.18557e-07, 0, 2.18416e-07, 2.49839, -0.0897778, -7.84863e-09, -0.0897778, -2.49839, 0.692075, -1.56922, -14.93 )
-visible = false
-
-[connection signal="area_entered" from="Main Fastener/Area" to="." method="OnAreaEntered"]
+[connection signal="area_entered" from="Area" to="." method="OnAreaEntered"]
