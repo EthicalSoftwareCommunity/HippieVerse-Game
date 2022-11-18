@@ -515,7 +515,6 @@ scene = 2
 
 [node name="Level" type="Spatial" parent="."]
 script = ExtResource( 4 )
-_speed = 10.0
 
 [node name="TunnelsSpawner" type="Spatial" parent="Level"]
 script = ExtResource( 5 )

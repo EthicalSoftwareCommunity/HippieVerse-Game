@@ -12,9 +12,8 @@
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 1.56232, 2.18686, 0.455022 )
 
-[sub_resource type="CapsuleShape" id=9]
-radius = 1.98403
-height = 9.45804
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 1.87253, 1.6787, 7.16928 )
 
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 0, 0, 0 )
@@ -27,23 +26,23 @@ script = ExtResource( 5 )
 _playerControlsPath = NodePath("PlayerControls")
 _characterPath = NodePath("Character2")
 
-[node name="Area" type="Area" parent="."]
+[node name="PlayerArea" type="Area" parent="."]
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0 )
 collision_layer = 144
 collision_mask = 144
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="PlayerArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113656, -0.357106 )
 shape = SubResource( 8 )
 
-[node name="Destroy" type="Area" parent="."]
+[node name="DestroyPlayerDestroy" type="Area" parent="."]
 transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0 )
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape" type="CollisionShape" parent="Destroy"]
+[node name="CollisionShape" type="CollisionShape" parent="DestroyPlayerDestroy"]
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -0.0631667, 0.101547, -0.187923 )
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [node name="Character2" parent="." instance=ExtResource( 9 )]
 
@@ -75,6 +74,6 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 shape = SubResource( 10 )
 disabled = true
 
-[connection signal="area_entered" from="Area" to="PlayerControls/PlayerCollectableController" method="OnAreaEntered"]
-[connection signal="area_entered" from="Area" to="PlayerControls/PlayerCollectableController/PlayerRewardController" method="OnAreaEntered"]
-[connection signal="area_entered" from="Destroy" to="." method="OnAreaEntered"]
+[connection signal="area_entered" from="PlayerArea" to="PlayerControls/PlayerCollectableController" method="OnAreaEntered"]
+[connection signal="area_entered" from="PlayerArea" to="PlayerControls/PlayerCollectableController/PlayerRewardController" method="OnAreaEntered"]
+[connection signal="area_entered" from="DestroyPlayerDestroy" to="." method="OnAreaEntered"]

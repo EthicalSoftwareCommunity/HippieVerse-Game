@@ -5,7 +5,7 @@ using HippieFall.Tunnels;
 
 namespace HippieFall.Biomes
 {
-    class Biome : Node
+    public class Biome : Node
     {
         public Tunnel Tunnel { get; }
         public List<PackedScene> SpawnObstacles { get; }

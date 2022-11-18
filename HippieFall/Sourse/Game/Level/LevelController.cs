@@ -21,7 +21,7 @@ namespace HippieFall.Game
         private System.Timers.Timer _setConstantEffectTimer;
         private System.Timers.Timer _deepChangeTimer;
         private GameInterface _interface;
-        private TunnelSpawner _spawner;
+        public TunnelSpawner Spawner { get; private set; }
         private Config _config;
 
         public Config Config
@@ -35,7 +35,7 @@ namespace HippieFall.Game
         private EffectsController _effectController;
         public override void _Ready()
         {
-            _spawner = GetNode<TunnelSpawner>("TunnelsSpawner");
+            Spawner = GetNode<TunnelSpawner>("TunnelsSpawner");
             _config = new LevelConfig();
             ChangeConfigData(_config);
             _effectController = new EffectsController(Effect.EffectsTarget.Level);
@@ -92,20 +92,20 @@ namespace HippieFall.Game
 
         public override void _Process(float delta)
         {
-            foreach (var tunnel in _spawner.Tunnels) 
+            foreach (var tunnel in Spawner.Tunnels) 
                 tunnel.Translation += new Vector3(0, LevelConfig.Speed * delta, 0);
         }
 
         public void OnDestroyTunnelTriggerAreaEntered(Area area)
         {
-            _spawner.RemoveTunnel(area.GetParentOrNull<Tunnel>());
+            Spawner.CashRemoveTunnel(area.GetOwnerOrNull<Tunnel>());
             SpawnTunnelAgain();
         }
 
         private void SpawnTunnelAgain()
         {
-            var position = _spawner.Tunnels.Last().Translation + _spawner.TunnelsOffset;
-            _spawner.SpawnTunnel(position);
+            var position = Spawner.Tunnels.Last().Translation + Spawner.TunnelsOffset;
+            Spawner.SpawnTunnel(position);
         }
 
         public void ChangeConfigData(Config config)
