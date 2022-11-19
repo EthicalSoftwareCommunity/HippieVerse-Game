@@ -3,44 +3,37 @@ using Global.Data;
 using Godot;
 using Global.Data.EffectSystem;
 using Global.GameSystem;
+using HippieFall.Game;
 using GameController = HippieFall.Game.GameController;
 
 namespace HippieFall
 {
-	public class PlayerEffectController : Node, IEffectableController
+	public class PlayerEffectController : ObjectEffectController
 	{
-		public event Action<Config> EffectsUpdated; 
-		public EffectsController BonusesEffectController;
-		
-		private Config _config;
-		
-		public Config Config
+		private PlayerConfig _playerConfig;
+		public PlayerEffectController() : base(Effect.EffectsTarget.Player)
 		{
-			get => new PlayerConfig(_config);
-			set => EffectsUpdated?.Invoke(value);
+			
 		}
 		
 		public override void _Ready()
 		{
-			_config = new PlayerConfig();
-			BonusesEffectController = new EffectsController(Effect.EffectsTarget.Player);
-			GetNode("/root").GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
+			_playerConfig = new();
+			Configs.Add(_playerConfig);
+			HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this, nameof(Init));
 		}
-		public void Init(GameController game)
+		protected override void Init()
 		{
-			game.GameEffectController.OnReceivedPlayerEffect += BonusesEffectController.AddEffect;
-			BonusesEffectController.DynamicEffectAdded += ApplyDynamicEffects;
-			BonusesEffectController.ConstantEffectAdded += ApplyConstantEffect;
-		}
-		public void ApplyDynamicEffects()
-		{
-			Config = BonusesEffectController.ApplyEffectsOnConfig(Config);
+			AddNode(HippieFallUtilities.Game.Player.PlayerControls);
+			HippieFallUtilities.Game.GameEffectController.OnReceivedPlayerEffect += EffectController.AddEffect;
 		}
 
-		public void ApplyConstantEffect(Effect effect)
+		protected override Config GetConfigByType(Node node)
 		{
-			_config = effect.Apply(_config);
-			ApplyDynamicEffects();
+			if (node is PlayerControls) 
+				return new PlayerConfig(_playerConfig);
+			return null;
 		}
+
 	}
 }

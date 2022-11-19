@@ -22,33 +22,27 @@ namespace HippieFall.Game
         private System.Timers.Timer _deepChangeTimer;
         private GameInterface _interface;
         public TunnelSpawner Spawner { get; private set; }
-        private Config _config;
 
-        public Config Config
+        public Config _config;
+        public LevelConfig LevelConfig
         {
             get => new LevelConfig(_config);
-            set => ChangeConfigData(value);
+            set => _config = value;
         }
-
-        public LevelConfig LevelConfig = new LevelConfig();
 
         private EffectsController _effectController;
         public override void _Ready()
         {
             Spawner = GetNode<TunnelSpawner>("TunnelsSpawner");
             _config = new LevelConfig();
-            ChangeConfigData(_config);
             _effectController = new EffectsController(Effect.EffectsTarget.Level);
-            GetNode("/root").GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
+            HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
         }
-        public void Init(GameController game)
+        public void Init()
         {
-            _interface = game.GameInterface;
-            game.GameEffectController.OnReceivedLevelEffect += _effectController.AddEffect;
-            _effectController.DynamicEffectAdded += ApplyDynamicEffects;
-            _effectController.ConstantEffectAdded += ApplyConstantEffect;
-
-            _setConstantEffectTimer = new System.Timers.Timer(10000);
+            _interface = HippieFallUtilities.Game.GameInterface;
+            
+            _setConstantEffectTimer = new System.Timers.Timer(1000);
             _setConstantEffectTimer.Elapsed += ConstantEffects;
             _setConstantEffectTimer.AutoReset = true;
             _setConstantEffectTimer.Start();
@@ -68,26 +62,13 @@ namespace HippieFall.Game
         private void DeepMovementChange(object sender, ElapsedEventArgs e)
         {
             Deep += LevelConfig.DeepIncrease;
+            _deepChangeTimer.Interval = (1000 / LevelConfig.Speed);
             _interface.GameScore.Text = Deep.ToString(CultureInfo.InvariantCulture);
-            //_deepChangeTimer.Interval = 1000 / (LevelConfig.Speed/2+1);
         }
 
         private void ConstantEffects(object sender, ElapsedEventArgs e)
         {
-            ApplyConstantEffect(new ChangeLevelSpeed(0.1f));
-        }
-
-        private void ApplyDynamicEffects()
-        {
-            Config = _effectController.ApplyEffectsOnConfig(Config);
-            ConfigChanged?.Invoke(Config);
-        }
-
-        private void ApplyConstantEffect(Effect effect)
-        {
-            _config = effect.Apply(_config);
-            Config = _config;
-            ApplyDynamicEffects();
+            OnLevelEffectAdded?.Invoke(new List<Effect>(){new ChangeLevelSpeed(0.1f)});
         }
 
         public override void _Process(float delta)
@@ -110,11 +91,12 @@ namespace HippieFall.Game
 
         public void ChangeConfigData(Config config)
         {
-             if (!(config is LevelConfig levelConfig)) return;
-            LevelConfig.DeepIncrease = levelConfig.DeepIncrease;
-            LevelConfig.Speed = levelConfig.Speed;
+            if (config is LevelConfig levelConfig)
+            {
+                LevelConfig = levelConfig;
+            }
         }
-        
+
         public void Pause()
         {
             _setConstantEffectTimer.Stop();

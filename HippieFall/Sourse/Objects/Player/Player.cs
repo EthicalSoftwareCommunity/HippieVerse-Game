@@ -1,6 +1,7 @@
 using System;
 using Godot;
 using Global.Data;
+using Global.Data.EffectSystem;
 using HippieFall.Game;
 using HippieFall.Items;
 using HippieFall.Tunnels;
@@ -29,7 +30,6 @@ namespace HippieFall
 			PlayerControls = GetNode<PlayerControls>(_playerControlsPath);
 			Character = GetNode<Character>(_characterPath);
 			GetNode("/root").GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
-			
 		}
 		private void Init(GameController game)
 		{
@@ -48,7 +48,7 @@ namespace HippieFall
 
 		private void UpdateDataByLevelConfig(Config levelConfig)
 		{
-			PlayerEffectController.BonusesEffectController.AddEffect(new LevelDataChanged(levelConfig));
+			PlayerEffectController.EffectController.AddEffect(new LevelDataChanged(levelConfig));
 		}
 	}
 }

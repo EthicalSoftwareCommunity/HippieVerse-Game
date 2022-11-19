@@ -108,7 +108,7 @@ namespace HippieFall
 			if (tunnel.GetType() == typeof(Gate)) return;
 
 			tunnel.ObstacleMesh = obstacle;
-			_obstaclesController.AddObstacle(obstacle);
+			_obstaclesController.AddNode(obstacle);
 			
 			if (CollectableSpawner.GetSpawnCollectable() is Collectable collectable)
 				tunnel.AddChild(collectable);

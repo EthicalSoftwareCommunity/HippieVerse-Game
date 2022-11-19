@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/PerforatedWall/Round_corridor_cyberpunk_Traps_v3_mat.material" type="Material" id=1]
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/PerforatedWall/Round_corridor_cyberpunk_Traps_v3_mat_002.material" type="Material" id=2]
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/Lasers/images/laser_txt_Round_corridor_cyberpunk_Traps_v5_BaseColor.png" type="Texture" id=3]
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/PerforatedWall/images/perforated_wall_txt_BaseColor.png" type="Texture" id=4]
-[ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Lasers/Laser.cs" type="Script" id=5]
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/PerforatedWall/PerforatedWall.cs" type="Script" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
@@ -180,7 +179,6 @@ width = 1.55643
 height = 0.0974047
 depth = 0.129229
 material = SubResource( 14 )
-script = ExtResource( 5 )
 
 [node name="Area" type="Area" parent="Round_corridor_cyberpunk_Traps_v4/Object004/Laser"]
 collision_layer = 8
@@ -261,7 +259,6 @@ width = 1.55643
 height = 0.0974047
 depth = 0.129229
 material = SubResource( 14 )
-script = ExtResource( 5 )
 
 [node name="Area" type="Area" parent="Round_corridor_cyberpunk_Traps_v4/Object008/Laser"]
 collision_layer = 8

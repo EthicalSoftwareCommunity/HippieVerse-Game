@@ -19,5 +19,10 @@ public static class HippieFallUtilities
 	{
 		Utilities.GoToScene(node,path);
 	}
+
+	public static void ConnectFeedbackAfterGameReadiness(Node node, string methodName = "Init")
+	{
+		Game.Connect("ready", node, methodName);
+	}
 }
 

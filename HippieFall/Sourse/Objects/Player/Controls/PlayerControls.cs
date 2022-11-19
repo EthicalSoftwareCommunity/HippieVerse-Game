@@ -23,8 +23,6 @@ namespace HippieFall
 			PlayerMovementController = GetNode<PlayerMovementController>(_playerMovementPath);
 			PlayerEffectController = GetNode<PlayerEffectController>(_playerEffectControllerPath);
 			PlayerItemsController = GetNode<PlayerItemsController>(_playerItemsControllerPath);
-			
-			PlayerEffectController.EffectsUpdated += ChangeConfigData;
 		}
 		
 		public void ChangeConfigData(Config config)

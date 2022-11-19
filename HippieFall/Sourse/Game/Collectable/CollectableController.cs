@@ -12,99 +12,45 @@ using GameController = HippieFall.Game.GameController;
 
 namespace HippieFall
 {
-	public class CollectableController:Node, IEffectableController
+	public class CollectableController : ObjectEffectController
 	{
-		public class CollectableObject
-		{
-			private Config _config;
-			public Config Config
-			{
-				get => _config;
-				set
-				{
-					_config = value;
-					if(Collectable is IEffectable collectable)
-						collectable.ChangeConfigData(value);
-				}
-			}
-
-			public Collectable Collectable { get; set; }
-		}
+	
 		[Export] private NodePath _collectableSpawnerPath;
 		public CollectableSpawner CollectableSpawner { get; private set; }
-		private List<CollectableObject> CollectableObjects { get; set; } = new List<CollectableObject>();
-		private EffectsController _effectController;
-		private Config _config;
-		private List<Config> _configs;
-		private CollectableCoinConfig _coinConfig = new CollectableCoinConfig();
-		private CollectableGemcoinConfig _gemCoinConfig = new CollectableGemcoinConfig();
-		private CollectableChestConfig _chestConfig = new CollectableChestConfig();
+
+		private CollectableCoinConfig _coinConfig = new ();
+		private CollectableGemcoinConfig _gemCoinConfig = new ();
+		private CollectableChestConfig _chestConfig = new ();
+
+		public CollectableController() : base(Effect.EffectsTarget.Collectable)
+		{
+		}
 		public override void _Ready()
 		{
 			CollectableSpawner = GetNode<CollectableSpawner>(_collectableSpawnerPath);
-			CollectableSpawner.OnCollectableCreated += AddCollectable;
-			_configs = new List<Config>()
+			CollectableSpawner.OnCollectableCreated += AddNode;
+			Configs.AddRange(new List<Config>()
 			{
 				_coinConfig,
 				_gemCoinConfig,
 				_chestConfig
-			};
-			_effectController = new EffectsController(Effect.EffectsTarget.Collectable);
-			GetNode("/root").GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
+			});
+			HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this, nameof(Init));
 		}
 
-		private void Init(GameController game)
+		protected override void Init()
 		{
-			game.GameEffectController.OnReceivedCollectableEffect += _effectController.AddEffect;
-			_effectController.DynamicEffectAdded += ApplyDynamicEffects;
-			_effectController.ConstantEffectAdded += ApplyConstantEffect;
+			HippieFallUtilities.Game.GameEffectController.OnReceivedCollectableEffect += EffectController.AddEffect;
 		}
-		public void AddCollectable(Collectable collectable)
+
+		protected override Config GetConfigByType(Node node)
 		{
-			collectable.OnDestroy += RemoveObstacle;
-			CollectableObject obj = new CollectableObject
-			{
-				Collectable = collectable,
-				Config = _effectController.ApplyEffectsOnConfig(GetConfigByType(collectable))
-			};
-			CollectableObjects.Add(obj);
-		}
-		public void RemoveObstacle(Collectable collectable)
-		{
-			foreach (var collectableObject in CollectableObjects)
-			{
-				if (collectableObject.Collectable == collectable)
-				{
-					CollectableObjects.Remove(collectableObject);
-					return;
-				}
-			}
-		}
-		public void ApplyDynamicEffects()
-		{
-			foreach (var collectableObject in CollectableObjects)
-				collectableObject.Config =
-					_effectController.ApplyEffectsOnConfig(GetConfigByType(collectableObject.Collectable));
-			CollectableSpawner.ReloadSetting();
-		}
-		
-		public void ApplyConstantEffect(Effect effect)
-		{
-			foreach (var config in _configs)
-			{
-				_config = config;
-				_config = effect.Apply(_config);
-			}
-			ApplyDynamicEffects();
-		}
-		private Config GetConfigByType(Collectable collectable)
-		{
-			if (collectable is CollectableCoin)
+			if (node is CollectableCoin)
 				return new CollectableCoinConfig(_coinConfig);
-			if (collectable is CollectableGemcoin)
+			if (node is CollectableGemcoin)
 				return new CollectableGemcoinConfig(_gemCoinConfig);
-			if (collectable is CollectableChest)
-				return  new CollectableChestConfig(_chestConfig);
+			if (node is CollectableChest)
+				return new CollectableChestConfig(_chestConfig);
 			return null;
 		}
 

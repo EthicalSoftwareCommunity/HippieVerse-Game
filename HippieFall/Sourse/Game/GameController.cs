@@ -10,13 +10,16 @@ namespace HippieFall.Game
 		public Player Player { get; private set; }
 		public LevelController Level { get; private set; }
 
+		public GameController()
+		{
+			HippieFallUtilities.Game = this;
+		}
 		public override void _Ready()
 		{
 			GameInterface = GetNode<GameInterface>("Interface");
 			Player = GetNode<Player>("Player");
 			Level = GetNode<LevelController>("Level");
 			GameEffectController = GetNode<GameEffectController>("GameEffectController");
-			HippieFallUtilities.Game = this;
 			EmitSignal(nameof(GameIsReady), this);
 		}
 	}
