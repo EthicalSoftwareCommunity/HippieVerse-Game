@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -27,7 +27,6 @@
 [ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=25]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera.cs" type="Script" id=26]
 [ext_resource path="res://HippieFall/Sourse/Game/GameParticlesController.cs" type="Script" id=27]
-[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Bonuses/Magnet/MagnetBonus.tscn" type="PackedScene" id=28]
 [ext_resource path="res://HippieFall/Sourse/Game/Level/LevelEffectController.cs" type="Script" id=29]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
@@ -517,9 +516,6 @@ scene = 2
 
 [node name="Level" type="Spatial" parent="."]
 script = ExtResource( 4 )
-
-[node name="Magnet" parent="Level" instance=ExtResource( 28 )]
-transform = Transform( 0.4, 0, 0, 0, -0.0423113, 0.397756, 0, -0.397756, -0.0423113, 0, 6.66094, 0 )
 
 [node name="TunnelsSpawner" type="Spatial" parent="Level"]
 script = ExtResource( 5 )
