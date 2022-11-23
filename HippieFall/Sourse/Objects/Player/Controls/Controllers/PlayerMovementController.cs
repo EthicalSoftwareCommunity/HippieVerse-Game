@@ -11,8 +11,8 @@ namespace HippieFall
     public class PlayerMovementController : Node, IEffectable
     {
         public event Action<NamedEffect> OnMovementEffectAdded; 
+        public Joystic Joystick { get; private set; }
         private Player _player;
-        private Joystic _joystick;
         private Vector3 _nextMove;
         private Vector3 _move;
         private IncreaseLevelSpeedByTapArea _holdTapArea;
@@ -30,16 +30,17 @@ namespace HippieFall
 
         public void Init()
         {
-            _joystick = HippieFallUtilities.Game.GameInterface.Joystic;
+            Joystick = HippieFallUtilities.Game.GameInterface.Joystic;
             _player = HippieFallUtilities.Game.Player;
             _holdTapArea = HippieFallUtilities.Game.GameInterface.IncreaseLevelSpeedByTapArea;
             _holdTapArea.OnEffectAdded += AddMovementEffect;
+            //HippieFallUtilities.Game.Level.ConfigChanged?.
         }
 
         public override void _PhysicsProcess(float delta)
         {
-            _move.x = _joystick.GetButtonPosition().x;
-            _move.z = _joystick.GetButtonPosition().y;
+            _move.x = Joystick.GetButtonPosition().x;
+            _move.z = Joystick.GetButtonPosition().y;
 
             Vector2 move2d = new Vector2(_move.x, _move.y);
             if (move2d.Length() > 0)

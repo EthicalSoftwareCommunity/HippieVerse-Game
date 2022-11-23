@@ -7,7 +7,7 @@ namespace HippieFall
         private readonly int _boundary = 64;
         private readonly Vector2 _radius = new Vector2(28, 28);
         private readonly float _returnAccel = 20f;
-        private readonly float _threshold = 2;
+        private readonly float _threshold = 5;
         private int _onGoingDrag = -1;
 
         private bool _canDraging = false;
@@ -57,11 +57,12 @@ namespace HippieFall
                 {
                     _onGoingDrag = -1;
                     _canDraging = false;
+                    Position = Vector2.Zero;
                 }
             }
         }
 
-        private Vector2 GetValue()
+        public Vector2 GetValue()
         {
             if (GetButtonPosition().Length() > _threshold)
                 return GetButtonPosition().Normalized();
