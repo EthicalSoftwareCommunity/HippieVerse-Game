@@ -95,6 +95,7 @@ namespace HippieFall.Game
             {
                 LevelConfig = levelConfig;
             }
+            ConfigChanged?.Invoke(LevelConfig);
         }
 
         public void Pause()

@@ -20,7 +20,7 @@ namespace HippieFall
         private MovementConfig _config = new MovementConfig();
         public override void _Ready()
         {
-            GetTree().Root.GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
+            HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
         }
         
         private void AddMovementEffect(NamedEffect namedEffect)
@@ -28,11 +28,11 @@ namespace HippieFall
             OnMovementEffectAdded?.Invoke(namedEffect);
         }
 
-        public void Init(GameController game)
+        public void Init()
         {
-            _joystick = game.GameInterface.Joystic;
-            _player = game.Player;
-            _holdTapArea = game.GameInterface.IncreaseLevelSpeedByTapArea;
+            _joystick = HippieFallUtilities.Game.GameInterface.Joystic;
+            _player = HippieFallUtilities.Game.Player;
+            _holdTapArea = HippieFallUtilities.Game.GameInterface.IncreaseLevelSpeedByTapArea;
             _holdTapArea.OnEffectAdded += AddMovementEffect;
         }
 
