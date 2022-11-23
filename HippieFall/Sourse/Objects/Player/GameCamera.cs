@@ -74,9 +74,6 @@ namespace HippieFall.Game
             {
                 moveAngleZ *= 0;
             }
-
-            GD.Print(move);
-            GD.Print(button.Length());
             
             RotationDegrees = new Vector3(rotateXAngle + (-90), 0, rotateZAngle);
         }
