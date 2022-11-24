@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://import/gemcoin.png-748bf1dbaff07b8c4ad023dd02d4e04d.s3tc.stex"
-path.etc2="res://import/gemcoin.png-748bf1dbaff07b8c4ad023dd02d4e04d.etc2.stex"
+path.s3tc="res://import/star_bright_sparks.png-d4626edf9988db1a327fadd1a4e9d57b.s3tc.stex"
+path.etc2="res://import/star_bright_sparks.png-d4626edf9988db1a327fadd1a4e9d57b.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Images/gemcoin.png"
-dest_files=[ "res://import/gemcoin.png-748bf1dbaff07b8c4ad023dd02d4e04d.s3tc.stex", "res://import/gemcoin.png-748bf1dbaff07b8c4ad023dd02d4e04d.etc2.stex" ]
+source_file="res://Images/star_bright_sparks.png"
+dest_files=[ "res://import/star_bright_sparks.png-d4626edf9988db1a327fadd1a4e9d57b.s3tc.stex", "res://import/star_bright_sparks.png-d4626edf9988db1a327fadd1a4e9d57b.etc2.stex" ]
 
 [params]
 

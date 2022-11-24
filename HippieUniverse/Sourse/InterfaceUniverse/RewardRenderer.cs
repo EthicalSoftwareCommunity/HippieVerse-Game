@@ -5,7 +5,7 @@ using Godot;
 
 namespace HippieUniverse
 {
-	class RewardRenderer : HBoxContainer
+	public class RewardRenderer : HBoxContainer
 	{
 		private Label _coinScore;
 		private Label _gemcoinScore;
