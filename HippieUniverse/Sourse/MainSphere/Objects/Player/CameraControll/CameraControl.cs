@@ -6,7 +6,7 @@ using Array = Godot.Collections.Array;
 
 namespace HippieUniverse
 {
-	class CameraControl : KinematicBody
+	public class CameraControl : KinematicBody
 	{
 		[Export] private float sensitivity = 0.5f;
 		[Export] private float smoothness = 0.5f;
