@@ -22,5 +22,12 @@ namespace HippieFall.Game
 			GameEffectController = GetNode<GameEffectController>("GameEffectController");
 			EmitSignal(nameof(GameIsReady), this);
 		}
+		public override void _Notification(int what)
+		{
+			if (what == MainLoop.NotificationAppPaused || what == MainLoop.NotificationWmFocusOut)
+			{
+				GameInterface.PauseButton.SetPause();
+			}
+		}
 	}
 }

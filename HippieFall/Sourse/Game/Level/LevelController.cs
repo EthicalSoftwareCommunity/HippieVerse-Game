@@ -103,14 +103,14 @@ namespace HippieFall.Game
 
         public void Pause()
         {
-            _setConstantEffectTimer.Stop();
-            _deepChangeTimer.Stop();
+            _setConstantEffectTimer?.Stop();
+            _deepChangeTimer?.Stop();
         }
 
         public void Resume()
         {
-            _setConstantEffectTimer.Start();
-            _deepChangeTimer.Start();
+            _setConstantEffectTimer?.Start();
+            _deepChangeTimer?.Start();
         }
     }
 }
