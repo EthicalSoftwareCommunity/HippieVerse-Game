@@ -14,7 +14,7 @@ namespace HippieFall.Game
 			Connect("pressed", this, nameof(SetPause));
 		}
 
-		private void SetPause()
+		public void SetPause()
 		{	
 			_pauseOverlay.Visible = _isPaused;
 			if (_isPaused)

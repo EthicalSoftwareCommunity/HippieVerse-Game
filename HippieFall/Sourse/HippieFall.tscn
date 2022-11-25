@@ -27,7 +27,7 @@
 [ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=25]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera.cs" type="Script" id=26]
 [ext_resource path="res://HippieFall/Sourse/Game/GameParticlesController.cs" type="Script" id=27]
-[ext_resource path="res://HippieFall/Sourse/StartGameByTap.cs" type="Script" id=28]
+[ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
 [ext_resource path="res://HippieFall/Sourse/Game/Level/LevelEffectController.cs" type="Script" id=29]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
@@ -134,6 +134,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 17 )
+GameScorePath = NodePath("TopUI/HBoxContainer/Score")
+JoysticPath = NodePath("BottomUI/Joystic/TouchScreenButton")
+IncreaseLevelSpeedByTapAreaPath = NodePath("HoldTapArea")
+RewardRendererPath = NodePath("TopUI/HBoxContainer/RewardRender")
+PauseButtonPath = NodePath("TopUI/HBoxContainer/Control/PauseButton")
+BottomUIPath = NodePath("BottomUI")
+TopUIPath = NodePath("TopUI")
 
 [node name="HoldTapArea" type="Control" parent="Interface"]
 anchor_right = 1.0
@@ -172,7 +179,7 @@ script = ExtResource( 21 )
 _pauseOverlayPath = NodePath("../../../../PauseOverlay")
 _isPaused = true
 
-[node name="Label" type="Label" parent="Interface/TopUI/HBoxContainer"]
+[node name="Score" type="Label" parent="Interface/TopUI/HBoxContainer"]
 margin_left = 342.0
 margin_right = 681.0
 margin_bottom = 200.0
