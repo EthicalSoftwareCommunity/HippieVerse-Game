@@ -33,7 +33,8 @@ namespace HippieFall
 		}
 		private void Init(GameController game)
 		{
-			game.Level.ConfigChanged += UpdateDataByLevelConfig;
+			game.Level.ConfigChanged += config => 
+				PlayerEffectController.EffectController.AddEffect(new LevelDataChanged(config));
 		}
 		
 		private void OnAreaEntered(Area area)
@@ -44,11 +45,6 @@ namespace HippieFall
 					return;
 				OnPlayerEndedGame?.Invoke();
 			}
-		}
-
-		private void UpdateDataByLevelConfig(Config levelConfig)
-		{
-			PlayerEffectController.EffectController.AddEffect(new LevelDataChanged(levelConfig));
 		}
 	}
 }
