@@ -6,7 +6,7 @@ using Array = Godot.Collections.Array;
 
 namespace HippieUniverse
 {
-	class CameraControl : KinematicBody
+	public class CameraControl : KinematicBody
 	{
 		[Export] private float sensitivity = 0.5f;
 		[Export] private float smoothness = 0.5f;
@@ -24,7 +24,7 @@ namespace HippieUniverse
 		private float _total_yaw = 0.0f;
 		private float _total_pitch = 0.0f;
 
-		private float _direction = 1;
+		private float _direction = 0;
 		private Vector3 _speed = new Vector3(0.0f, 0.0f, 0.0f);
 
 		private InputController inputController;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://HippieUniverse/Materials/Models/ConvertToSceneModels/sphere.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Settings/gear.fbx" type="PackedScene" id=2]
@@ -6,12 +6,14 @@
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Bonfire/Bonfire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Player/CameraControll/CameraControl.cs" type="Script" id=5]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/HippieGarage/Garage.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/SpawnCrystal/SpawnCrystal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/MainSphere.cs" type="Script" id=8]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Player/CameraControll/InputController/InputController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Images/Coin.png" type="Texture" id=11]
 [ext_resource path="res://Images/gemcoin.png" type="Texture" id=12]
 [ext_resource path="res://HippieUniverse/Sourse/InterfaceUniverse/RewardRenderer.cs" type="Script" id=13]
 [ext_resource path="res://HippieUniverse/Sourse/InterfaceUniverse/GameInterface.cs" type="Script" id=14]
+[ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/GemcoinsSpawner/GemCoinSpawner.cs" type="Script" id=15]
 
 [sub_resource type="PhysicsMaterial" id=11]
 
@@ -186,10 +188,35 @@ max_speed = Vector3( 200, 200, 200 )
 [node name="InputController" parent="World/UniversePlayer" instance=ExtResource( 9 )]
 
 [node name="UniverseCamera" type="Camera" parent="World/UniversePlayer"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+current = true
 
 [node name="CollisionShape" type="CollisionShape" parent="World/UniversePlayer"]
 transform = Transform( 1, -2.98023e-08, -2.98023e-08, -2.98023e-08, 1, 2.98023e-08, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 23 )
+
+[node name="SpawnGemcoinsPoints" type="Node" parent="World"]
+script = ExtResource( 15 )
+_crystal = ExtResource( 7 )
+_spawnPointsPaths = [ NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5"), NodePath("SpawnPoint5") ]
+
+[node name="SpawnPoint" type="Spatial" parent="World/SpawnGemcoinsPoints"]
+transform = Transform( 0.297983, 0.0289843, 0.0191309, -0.00207405, 0.179818, -0.240128, -0.0346667, 0.238381, 0.178809, -0.994321, -7.24079, -6.67072 )
+
+[node name="SpawnPoint2" type="Spatial" parent="World/SpawnGemcoinsPoints"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -9.97737, 0 )
+
+[node name="SpawnPoint3" type="Spatial" parent="World/SpawnGemcoinsPoints"]
+transform = Transform( -0.3, 2.62268e-08, 0, -2.62268e-08, -0.3, 0, 0, 0, 0.3, -0.196249, 9.91212, -0.877272 )
+
+[node name="SpawnPoint4" type="Spatial" parent="World/SpawnGemcoinsPoints"]
+transform = Transform( 0.228105, -0.194854, 0, 0.194854, 0.228105, 0, 0, 0, 0.3, 6.76426, -7.2189, 0.604885 )
+
+[node name="SpawnPoint5" type="Spatial" parent="World/SpawnGemcoinsPoints"]
+transform = Transform( -0.116596, 0.276411, -0.00150237, -0.276345, -0.116602, -0.00610045, -0.0062047, -0.000987059, 0.299934, -9.88982, 0, -0.246149 )
+
+[node name="SpawnPoint6" type="Spatial" parent="World/SpawnGemcoinsPoints"]
+transform = Transform( 0.269369, 0.126896, 0.0365739, 0, -0.0830837, 0.288266, 0.132062, -0.258833, -0.0746006, -0.401899, 0.00797367, 9.84106 )
 
 [node name="BorderBlock" type="CSGSphere" parent="."]
 transform = Transform( 0.976406, -0.0711985, 0.203869, 0.118525, 0.965863, -0.230349, -0.180509, 0.249077, 0.951513, 0, 0, 0 )
