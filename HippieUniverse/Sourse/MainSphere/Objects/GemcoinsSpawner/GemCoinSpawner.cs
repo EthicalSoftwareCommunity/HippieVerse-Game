@@ -2,10 +2,12 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using Global;
+using Global.Constants;
+using HippieUniverse;
 
 public class GemCoinSpawner : Node
 {
-    [Export] private PackedScene _crystal;
+    [Export] private StaticBody _crystal;
     [Export] private List<NodePath> _spawnPointsPaths;
     private List<Spatial> _spawnPoints;
     private bool _isSpawned;
@@ -24,10 +26,10 @@ public class GemCoinSpawner : Node
         {
             int number = Utilities.GetRandomNumberInt(0, 10);
             int checkNumber = Utilities.GetRandomNumberInt(0, 10);
-            Spawn(spawnPoint);
             if (number == checkNumber)
             {
-                
+                _crystal = (StaticBody)GD.Load<PackedScene>(C_ObjectPath.CRYSTAL).Instance<StaticBody>().Duplicate();
+                Spawn(spawnPoint);
                 GD.Print(spawnPoint.Name);
                 _isSpawned = true;
             }
@@ -39,6 +41,6 @@ public class GemCoinSpawner : Node
 
     private void Spawn(Spatial spawnPoint)
     {
-        spawnPoint.AddChild(_crystal.Instance());
+        spawnPoint.AddChild(_crystal);
     }
 }
