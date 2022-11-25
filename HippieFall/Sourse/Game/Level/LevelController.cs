@@ -41,10 +41,7 @@ namespace HippieFall.Game
         public void Init()
         {
             _interface = HippieFallUtilities.Game.GameInterface;
-        }
-
-        public void StartGame()
-        {
+            
             _setConstantEffectTimer = new System.Timers.Timer(1000);
             _setConstantEffectTimer.Elapsed += ConstantEffects;
             _setConstantEffectTimer.AutoReset = true;
@@ -55,7 +52,6 @@ namespace HippieFall.Game
             _deepChangeTimer.AutoReset = true;
             _deepChangeTimer.Start();
             
-            Spawner.StartGame();
         }
         public override void _ExitTree()
         {
@@ -75,7 +71,7 @@ namespace HippieFall.Game
             OnLevelEffectAdded?.Invoke(new List<Effect>(){new ChangeLevelSpeed(0.1f)});
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _Process(float delta)
         {
             foreach (var tunnel in Spawner.Tunnels) 
                 tunnel.Translation += new Vector3(0, LevelConfig.Speed * delta, 0);
@@ -89,7 +85,8 @@ namespace HippieFall.Game
 
         private void SpawnTunnelAgain()
         {
-            Spawner.SpawnTunnel(Spawner.Tunnels.Last().Translation + Spawner.TunnelsOffset);
+            var position = Spawner.Tunnels.Last().Translation + Spawner.TunnelsOffset;
+            Spawner.SpawnTunnel(position);
         }
 
         public void ChangeConfigData(Config config)
@@ -98,7 +95,6 @@ namespace HippieFall.Game
             {
                 LevelConfig = levelConfig;
             }
-            ConfigChanged?.Invoke(LevelConfig);
         }
 
         public void Pause()

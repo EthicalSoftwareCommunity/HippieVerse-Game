@@ -1,25 +1,22 @@
 using Godot;
 using Global.Constants;
 using Global.Data.Reward;
+using HippieUniverse;
 using Newtonsoft.Json;
 
-namespace HippieUniverse
+namespace HappieUniverse
 {
 	public class MainSphere : Spatial
 	{
-		public GameInterface Interface { get; set; }
-		public CameraControl Player { get; set; }
+		private GameInterface Interface;
 		private string _pathToCharacterSave = C_SaveFolderFile.FILE_CHARACTER;
 		private Node _character;
-		
 		public override void _Ready()
 		{
 			_character = GetNode("World/Character");
 			Interface = GetNode<GameInterface>("Interface");
-			Player = GetNode<CameraControl>("World/UniversePlayer");
 			LoadCharacter();
 			LoadRewards();
-			MainSphereUtilites.MainSphere = this;
 		}
 
 		private void LoadCharacter()

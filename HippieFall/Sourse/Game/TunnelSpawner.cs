@@ -16,9 +16,6 @@ namespace HippieFall
 		[Export] private int _cashTunnelsSize = 15;
 		[Export] private int _countTunnels = 10;
 
-		public bool IsNeedToSpawnObstacles { get; set; } = false;
-		public bool IsNeedToSpawnCollectables { get; set; } = false;
-		public int CountSpawnTunnels { get; set; } = 2;
 		private CollectableSpawner CollectableSpawner => _collectableController.CollectableSpawner;
 		private CollectableController _collectableController;
 		private ObstaclesController _obstaclesController;
@@ -28,7 +25,7 @@ namespace HippieFall
 		private List<Spatial> _cashTunnels;
 		private List<PackedScene> _obstacleOrder;
 		private List<PackedScene> _obstacleTemplates;
-		
+
 
 		public Biome CurrentBiome { get; private set; }
 
@@ -49,7 +46,6 @@ namespace HippieFall
 		
 		private void SetNewBiome()
 		{
-			ResetBiome();
 			List<string> uniqueBiomes = new List<string>(C_BiomeTypes.BIOME_NAMES);
 			if(CurrentBiome != null)
 				uniqueBiomes.Remove(CurrentBiome.BiomeName);
@@ -66,29 +62,11 @@ namespace HippieFall
 			FillOrder();
 		}
 
-		private void ResetBiome()
-		{
-			_obstacleTemplates.Clear();
-			_obstacleOrder.Clear();
-		}
-
-		public void StartGame()
-		{
-			IsNeedToSpawnCollectables = true;
-			IsNeedToSpawnObstacles = true;
-			CountSpawnTunnels = _countTunnels;
-			SetNewBiome();
-			StartLevel();
-		}
-		
 		private void StartLevel()
 		{
 			int count = 0;
-			Vector3 position;
-			if (Tunnels.Count != 0)
-				position = Tunnels.Last().Translation + TunnelsOffset;
-			else position = TunnelsOffset;
-				while (count <= CountSpawnTunnels)
+			Vector3 position = TunnelsOffset;
+			while (count < _countTunnels)
 			{
 				SpawnTunnel(position);
 				position += TunnelsOffset;
@@ -99,7 +77,7 @@ namespace HippieFall
 		private void FillOrder()
 		{
 			_obstacleOrder.Add(CurrentBiome.Gate);
-			for (var i = 0; i < CountSpawnTunnels-1; i++)
+			for (var i = 0; i < _countTunnels; i++)
 				_obstacleOrder.Add(_obstacleTemplates[
 					Utilities.GetRandomNumberInt(0, _obstacleTemplates.Count)
 				]);
@@ -113,10 +91,12 @@ namespace HippieFall
 
 		public void SpawnTunnel(Vector3 position)
 		{
-			if (_obstacleOrder.Count == 0) 
-				SetNewBiome();
+			if (_obstacleOrder.Count == 0) SetNewBiome();
 
 			Tunnel tunnel = (Tunnel)CurrentBiome.Tunnel.Duplicate();
+			Obstacle obstacle = (Obstacle)_obstacleOrder.First().Instance();
+			_obstacleOrder.Remove(_obstacleOrder.First());
+
 			Tunnels.Add(tunnel);
 			AddChild(tunnel);
 
@@ -125,20 +105,13 @@ namespace HippieFall
 
 			tunnel.Config = CurrentBiome.TunnelMesh.Instance<TunnelConfig>();
 			
-			if (IsNeedToSpawnObstacles)
-			{
-				Obstacle obstacle = (Obstacle)_obstacleOrder.First().Instance();
-				_obstacleOrder.Remove(_obstacleOrder.First());
-				tunnel.ObstacleMesh = obstacle;
-				_obstaclesController.AddNode(obstacle);
-			}
-			else _obstacleOrder.Remove(_obstacleOrder.First());
+			if (tunnel.GetType() == typeof(Gate)) return;
 
-			if (IsNeedToSpawnCollectables)
-			{
-				if (CollectableSpawner.GetSpawnCollectable() is Collectable collectable)
-					tunnel.AddChild(collectable);
-			}
+			tunnel.ObstacleMesh = obstacle;
+			_obstaclesController.AddNode(obstacle);
+			
+			if (CollectableSpawner.GetSpawnCollectable() is Collectable collectable)
+				tunnel.AddChild(collectable);
 		}
 
 		public void RemoveTunnel(int countAtStart)

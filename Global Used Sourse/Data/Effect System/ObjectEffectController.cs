@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Global.Data;
 using Global.Data.EffectSystem;
 using Godot;
+using Godot.Collections;
 using HippieFall.Tunnels;
-using Array = Godot.Collections.Array;
 
 namespace Global.GameSystem
 {
@@ -26,7 +25,6 @@ namespace Global.GameSystem
             public Node Node  { get; set; }
         }
 
-        public event Action<Config> OnConfigChanged;
         public List<NodeObject> NodeObjects { get; set; } = new();
         public List<Config> Configs { get; private set; } = new();
         public EffectsController EffectController { get; private set; }
@@ -57,7 +55,6 @@ namespace Global.GameSystem
             foreach (var nodeObject in NodeObjects)
                 nodeObject.Config = EffectController.
                     ApplyEffectsOnConfig(GetConfigByType(nodeObject.Node));
-            OnConfigChanged?.Invoke(Config);
         }
 
         private void ApplyConstantEffect(Effect effect)

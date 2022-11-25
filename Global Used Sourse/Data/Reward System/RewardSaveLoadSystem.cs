@@ -1,5 +1,4 @@
-﻿using System;
-using Global.Constants;
+﻿using Global.Constants;
 using Godot;
 using Newtonsoft.Json;
 
@@ -7,8 +6,6 @@ namespace Global.Data.Reward
 {
     public class RewardSaveLoadSystem
     {
-        public event Action OnRewardsSaved;
-        public event Action OnRewardsLoaded;
         private readonly File _file;
 
         public RewardSaveLoadSystem()

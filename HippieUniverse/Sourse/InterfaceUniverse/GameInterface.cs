@@ -2,7 +2,7 @@ using Godot;
 
 namespace HippieUniverse
 {
-	public class GameInterface:Control
+	class GameInterface:Control
 	{
 		public RewardRenderer RewardRenderer;
 
