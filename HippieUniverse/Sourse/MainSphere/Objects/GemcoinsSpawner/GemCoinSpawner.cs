@@ -7,16 +7,16 @@ using HippieUniverse;
 
 public class GemCoinSpawner : Node
 {
-    [Export] private StaticBody _crystal;
     [Export] private List<NodePath> _spawnPointsPaths;
     private List<Spatial> _spawnPoints;
+    private StaticBody _crystal;
     private bool _isSpawned;
     public override void _Ready()
     {
         _spawnPoints = new();
         foreach (var path in _spawnPointsPaths)
             _spawnPoints.Add(GetNode<Spatial>(path));
-        
+        _crystal = GD.Load<PackedScene>(C_ObjectPath.CRYSTAL).Instance<StaticBody>();
         SpawnCrystals();
     }
 
@@ -28,7 +28,6 @@ public class GemCoinSpawner : Node
             int checkNumber = Utilities.GetRandomNumberInt(0, 10);
             if (number == checkNumber)
             {
-                _crystal = (StaticBody)GD.Load<PackedScene>(C_ObjectPath.CRYSTAL).Instance<StaticBody>().Duplicate();
                 Spawn(spawnPoint);
                 GD.Print(spawnPoint.Name);
                 _isSpawned = true;
@@ -41,6 +40,6 @@ public class GemCoinSpawner : Node
 
     private void Spawn(Spatial spawnPoint)
     {
-        spawnPoint.AddChild(_crystal);
+        spawnPoint.AddChild(_crystal.Duplicate());
     }
 }

@@ -8,7 +8,7 @@ using Timer = System.Timers.Timer;
 
 public class IncreaseLevelSpeedByTapArea : Control
 {
-    [Export] private float timeToHoldTouch = 1f;
+    [Export] private float timeToHoldTouch = .7f;
     public event Action<NamedEffect> OnEffectAdded; 
     private Timer _timer;
     private bool _timerIsStarted = false;
