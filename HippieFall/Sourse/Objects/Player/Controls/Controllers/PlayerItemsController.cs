@@ -53,7 +53,6 @@ namespace HippieFall.Items
         {
             _characterModel = game.Player.Character.CharacterModel;
             _itemConfig = new ItemConfig();
-            
             ItemObjects = new List<ItemObject>();
             Item item = GD.Load<PackedScene>(C_PlayerItemsPath.MAGNET).Instance<Magnet>();
             SetObjectModelByType(nameof(Magnet), item);

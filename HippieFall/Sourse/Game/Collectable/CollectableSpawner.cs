@@ -18,8 +18,8 @@ namespace HippieFall
 		private List<float> _weights;
 		private float _voidCollectableWeight = 200f;
 		private float _summaryWeight;
-		
-		public CollectableSpawner()
+
+		public void Init()
 		{
 			_collectableItems = new List<Collectable>
 			{
@@ -30,9 +30,8 @@ namespace HippieFall
 				GD.Load<PackedScene>(C_CollectablePath.DOUBLE_SCORE).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.MAGNET).Instance<Collectable>(),
 			};
-		   ReloadSetting();
+			ReloadSetting();
 		}
-
 		public void ReloadSetting()
 		{
 			_weights = new List<float>();

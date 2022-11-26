@@ -16,30 +16,27 @@ namespace HippieFall.Game
     {
         public event Action<Config> ConfigChanged;
         public event Action<List<Effect>> OnLevelEffectAdded;
+
+        [Export] public NodePath TunnelSpawnerPath;
         public float Deep { get; set; }
         
         private System.Timers.Timer _setConstantEffectTimer;
         private System.Timers.Timer _deepChangeTimer;
         private GameInterface _interface;
         public TunnelSpawner Spawner { get; private set; }
-
-        public Config _config;
-        public LevelConfig LevelConfig
-        {
-            get => new LevelConfig(_config);
-            set => _config = value;
-        }
-
-        private EffectsController _effectController;
+        public LevelConfig LevelConfig { get; set; }
+        private LevelEffectController _effectController;
+        
         public override void _Ready()
         {
             Spawner = GetNode<TunnelSpawner>("TunnelsSpawner");
-            _config = new LevelConfig();
-            _effectController = new EffectsController(Effect.EffectsTarget.Level);
+            LevelConfig = new LevelConfig();
             HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
         }
         public void Init()
         {
+            _effectController = new LevelEffectController();
+            _effectController.Init(this, LevelConfig);
             _interface = HippieFallUtilities.Game.GameInterface;
         }
 

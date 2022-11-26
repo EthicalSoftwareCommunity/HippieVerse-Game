@@ -11,14 +11,10 @@ namespace HippieFall.Game
         {
             
         }
-        public LevelConfig(Config config)
+        public LevelConfig(LevelConfig config)
         {
-            if (config is LevelConfig _config)
-            {
-                Speed = _config.Speed;
-                DeepIncrease = _config.DeepIncrease;
-            }
-           
+                Speed = config.Speed;
+                DeepIncrease = config.DeepIncrease;
         }
     }
 }

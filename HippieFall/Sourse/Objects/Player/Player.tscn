@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/PlayerControls.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerRewardController.cs" type="Script" id=2]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerCollectableController.cs" type="Script" id=3]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Player.cs" type="Script" id=5]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerMovementController.cs" type="Script" id=6]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerEffectController.cs" type="Script" id=7]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Controls/Controllers/PlayerItemsController.cs" type="Script" id=8]
 [ext_resource path="res://HippieFall/Sourse/Characters/Character2/Character2.tscn" type="PackedScene" id=9]
 
@@ -50,7 +49,6 @@ shape = SubResource( 12 )
 script = ExtResource( 1 )
 _playerMovementPath = NodePath("PlayerMovement")
 _playerCollectableControllerPath = NodePath("PlayerCollectableController")
-_playerEffectControllerPath = NodePath("PlayerEffectController")
 _playerItemsControllerPath = NodePath("PlayerItemsController")
 
 [node name="PlayerMovement" type="Node" parent="PlayerControls"]
@@ -62,9 +60,6 @@ PlayerRewardControllerPath = NodePath("PlayerRewardController")
 
 [node name="PlayerRewardController" type="Node" parent="PlayerControls/PlayerCollectableController"]
 script = ExtResource( 2 )
-
-[node name="PlayerEffectController" type="Node" parent="PlayerControls"]
-script = ExtResource( 7 )
 
 [node name="PlayerItemsController" type="Node" parent="PlayerControls"]
 script = ExtResource( 8 )
