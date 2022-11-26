@@ -24,6 +24,8 @@ namespace HippieFall.Game
 		}
 		public override void _Notification(int what)
 		{
+			
+			
 			if (what == MainLoop.NotificationAppPaused || what == MainLoop.NotificationWmFocusOut)
 			{
 				GameInterface.PauseButton.SetPause();

@@ -1,17 +1,19 @@
-using Godot;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using Global;
 using Global.Constants;
+using Godot;
 using HippieFall.Biomes;
 using HippieFall.Collectables;
+using HippieFall.Game;
 using HippieFall.Tunnels;
 
 namespace HippieFall
 {
-	public class TunnelSpawner : Spatial
+	public class TunnelSpawner : Node
 	{
-		[Export] public NodePath _collectableControllerPath;
+		[Export] private NodePath _collectableControllerPath;
+		[Export] private NodePath _obstaclesControllerPath;
 		[Export] public Vector3 TunnelsOffset = new(0, -7.938f * 2, 0); //Change to tunnel Size
 		[Export] private int _cashTunnelsSize = 15;
 		[Export] private int _countTunnels = 10;
@@ -22,14 +24,13 @@ namespace HippieFall
 		private CollectableSpawner CollectableSpawner => _collectableController.CollectableSpawner;
 		private CollectableController _collectableController;
 		private ObstaclesController _obstaclesController;
-		private readonly Biome _cyberBiome = new(C_BiomeTypes.CYBER);
-		private readonly Biome _bikerBiome = null;//= new Biome(C_BiomeTypes.BIKER);
+		private Biome _cyberBiome;
+		private Biome _bikerBiome = null;//= new Biome(C_BiomeTypes.BIKER);
 		private List<Biome> _biomes;
 		private List<Spatial> _cashTunnels;
 		private List<PackedScene> _obstacleOrder;
 		private List<PackedScene> _obstacleTemplates;
 		
-
 		public Biome CurrentBiome { get; private set; }
 
 		public List<Tunnel> Tunnels { get; private set; }
@@ -40,13 +41,20 @@ namespace HippieFall
 			_obstacleTemplates = new List<PackedScene>();
 			_obstacleOrder = new List<PackedScene>();
 			_cashTunnels = new List<Spatial>();
+			_cyberBiome = new(C_BiomeTypes.CYBER);
 			_biomes = new List<Biome> { _cyberBiome, _bikerBiome };
-			_obstaclesController = GetNode<ObstaclesController>("ObstaclesController");
-			_collectableController = GetNode<CollectableController>("CollectableController");
+			_obstaclesController = GetNode<ObstaclesController>(_obstaclesControllerPath);
+			_collectableController = GetNode<CollectableController>(_collectableControllerPath);
 			SetNewBiome();
 			StartLevel();
+			HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
 		}
-		
+
+		private void Init()
+		{
+			_collectableController.Init();
+			_obstaclesController.Init();
+		}
 		private void SetNewBiome()
 		{
 			ResetBiome();

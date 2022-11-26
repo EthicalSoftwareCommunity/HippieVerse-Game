@@ -5,27 +5,22 @@ using Godot;
 
 namespace HippieFall.Game;
 
-public class LevelEffectController : ObjectEffectController
+class LevelEffectController : ObjectEffectController
 {
     private LevelConfig _levelConfig;
     public LevelEffectController() : base(Effect.EffectsTarget.Level)
     {
     }
-
-    public override void _Ready()
+    
+    public override void Init(Node node, Config config)
     {
         _levelConfig = new();
         Configs.Add(_levelConfig);
-        HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
-    }
-
-    protected override void Init()
-    {
-        AddNode(HippieFallUtilities.Game.Level);
+        AddNode(node);
         HippieFallUtilities.Game.GameEffectController.OnReceivedLevelEffect += EffectController.AddEffect;
     }
 
-    protected override Config GetConfigByType(Node node)
+    public override Config GetConfigByType(Node node)
     {
         if (node is LevelController) return new LevelConfig(_levelConfig);
         return null;

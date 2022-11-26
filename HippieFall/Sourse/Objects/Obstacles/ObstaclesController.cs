@@ -18,7 +18,8 @@ namespace HippieFall.Tunnels
 		{
 			
 		}
-		public override void _Ready()
+
+		public override void Init(Node node = null, Config config = null)
 		{
 			_fan = new FanConfig();
 			_saw = new SawConfig();
@@ -26,15 +27,10 @@ namespace HippieFall.Tunnels
 			Configs.Add(_fan);
 			Configs.Add(_saw);
 			Configs.Add(_perforatedWall);
-			HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this, nameof(Init));
-		}
-
-		protected override void Init()
-		{
 			HippieFallUtilities.Game.GameEffectController.OnReceivedObstaclesEffect += EffectController.AddEffect;
 		}
 
-		protected override Config GetConfigByType(Node node)
+		public override Config GetConfigByType(Node node)
 		{
 			if (node is Fan) return new FanConfig(_fan);
 			if (node is Saw) return new SawConfig(_saw);

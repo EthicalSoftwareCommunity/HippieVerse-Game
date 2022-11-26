@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://HippieFall/Sourse/Game/Collectable/CollectableController.cs" type="Script" id=6]
 [ext_resource path="res://HippieFall/Sourse/Game/GameOverController.cs" type="Script" id=7]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://HippieFall/Sourse/Game/Collectable/CollectableSpawner.cs" type="Script" id=9]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Radius.png" type="Texture" id=10]
 [ext_resource path="res://Images/Coin.png" type="Texture" id=11]
 [ext_resource path="res://Images/Pause.png" type="Texture" id=12]
@@ -25,10 +24,9 @@
 [ext_resource path="res://Images/back.png" type="Texture" id=23]
 [ext_resource path="res://HippieFall/Sourse/Effects/IncreaseLevelSpeedByTapArea.cs" type="Script" id=24]
 [ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=25]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera.cs" type="Script" id=26]
+[ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera/GameCamera.cs" type="Script" id=26]
 [ext_resource path="res://HippieFall/Sourse/Game/GameParticlesController.cs" type="Script" id=27]
 [ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
-[ext_resource path="res://HippieFall/Sourse/Game/Level/LevelEffectController.cs" type="Script" id=29]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
@@ -529,31 +527,27 @@ script = ExtResource( 28 )
 
 [node name="Level" type="Spatial" parent="."]
 script = ExtResource( 4 )
+TunnelSpawnerPath = NodePath("TunnelsSpawner")
 
 [node name="TunnelsSpawner" type="Spatial" parent="Level"]
 script = ExtResource( 5 )
+_collectableControllerPath = NodePath("CollectableController")
+_obstaclesControllerPath = NodePath("ObstaclesController")
 
 [node name="ObstaclesController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 3 )
 
 [node name="CollectableController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 6 )
-_collectableSpawnerPath = NodePath("CollectableSpawner")
 
-[node name="CollectableSpawner" type="Node" parent="Level/TunnelsSpawner/CollectableController"]
-script = ExtResource( 9 )
-
-[node name="DestroyTunnelTrigger" type="Area" parent="Level"]
+[node name="DestroyTunnelTrigger" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.3379, 0 )
 collision_layer = 256
 collision_mask = 256
 
-[node name="CollisionShape" type="CollisionShape" parent="Level/DestroyTunnelTrigger"]
+[node name="CollisionShape" type="CollisionShape" parent="DestroyTunnelTrigger"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 shape = SubResource( 6 )
-
-[node name="LevelEffectController" type="Node" parent="Level"]
-script = ExtResource( 29 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0863953, 7, 0 )
@@ -599,4 +593,4 @@ draw_pass_1 = SubResource( 29 )
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
 [connection signal="gui_input" from="Interface/BottomUI/Control" to="Interface/BottomUI/Joystic/TouchScreenButton" method="_on_Control_gui_input"]
 [connection signal="gui_input" from="Interface/TapToStartGameArea" to="Interface/TapToStartGameArea" method="OnTapToStartGameAreaGuiInput"]
-[connection signal="area_entered" from="Level/DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]
+[connection signal="area_entered" from="DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]

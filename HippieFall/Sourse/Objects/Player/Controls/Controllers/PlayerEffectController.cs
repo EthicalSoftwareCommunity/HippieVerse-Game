@@ -15,20 +15,16 @@ namespace HippieFall
 		{
 			
 		}
-		
-		public override void _Ready()
+
+		public  override void Init(Node node, Config config)
 		{
-			_playerConfig = new();
+			_playerConfig = (PlayerConfig)config;
 			Configs.Add(_playerConfig);
-			HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this, nameof(Init));
-		}
-		protected override void Init()
-		{
-			AddNode(HippieFallUtilities.Game.Player.PlayerControls);
+			AddNode(node);
 			HippieFallUtilities.Game.GameEffectController.OnReceivedPlayerEffect += EffectController.AddEffect;
 		}
 
-		protected override Config GetConfigByType(Node node)
+		public override Config GetConfigByType(Node node)
 		{
 			if (node is PlayerControls) 
 				return new PlayerConfig(_playerConfig);

@@ -15,7 +15,6 @@ namespace HippieFall
 	public class CollectableController : ObjectEffectController
 	{
 	
-		[Export] private NodePath _collectableSpawnerPath;
 		public CollectableSpawner CollectableSpawner { get; private set; }
 
 		private CollectableCoinConfig _coinConfig = new ();
@@ -25,9 +24,11 @@ namespace HippieFall
 		public CollectableController() : base(Effect.EffectsTarget.Collectable)
 		{
 		}
-		public override void _Ready()
+		
+		public override void Init(Node node = null, Config config = null)
 		{
-			CollectableSpawner = GetNode<CollectableSpawner>(_collectableSpawnerPath);
+			CollectableSpawner = new CollectableSpawner();
+			CollectableSpawner.Init();
 			CollectableSpawner.OnCollectableCreated += AddNode;
 			Configs.AddRange(new List<Config>()
 			{
@@ -35,15 +36,10 @@ namespace HippieFall
 				_gemCoinConfig,
 				_chestConfig
 			});
-			HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this, nameof(Init));
-		}
-
-		protected override void Init()
-		{
 			HippieFallUtilities.Game.GameEffectController.OnReceivedCollectableEffect += EffectController.AddEffect;
 		}
-
-		protected override Config GetConfigByType(Node node)
+		
+		public override Config GetConfigByType(Node node)
 		{
 			if (node is CollectableCoin)
 				return new CollectableCoinConfig(_coinConfig);
