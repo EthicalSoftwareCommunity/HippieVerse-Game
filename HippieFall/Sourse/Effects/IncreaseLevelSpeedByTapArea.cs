@@ -14,6 +14,7 @@ public class IncreaseLevelSpeedByTapArea : Control
     private bool _timerIsStarted = false;
     private LongTapedOnDisplay _longTapedOnDisplay;
 
+    private int touchIndex;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -28,21 +29,37 @@ public class IncreaseLevelSpeedByTapArea : Control
             if (inputEvent.Pressed)
             {
                 GD.Print("Started");
-               
+                touchIndex = inputEvent.Index;
                 _timer.Start();
                 
             }
             else if(inputEvent.Pressed == false)
             {
-                GD.Print("Stopped");
-                _timer.Stop();
-                if(_longTapedOnDisplay!=null)
-                _longTapedOnDisplay.RemoveDynamicsEffects();
+                ReduceEffect();
             }
         }
-      
     }
 
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventScreenTouch inputEvent)
+        {
+            if (inputEvent.Pressed == false)
+            {
+                if(touchIndex == inputEvent.Index)
+                    ReduceEffect();
+            }
+        }
+    }
+
+    private void ReduceEffect()
+    {
+        GD.Print("Stopped");
+        _timer.Stop();
+        if(_longTapedOnDisplay!=null)
+            _longTapedOnDisplay.RemoveDynamicsEffects();
+        touchIndex = -1;
+    }
     private void IncreaseLevelSpeed(object sender, ElapsedEventArgs e)
     {
         GD.Print("Hold");
