@@ -143,10 +143,9 @@ TopUIPath = NodePath("TopUI")
 [node name="HoldTapArea" type="Control" parent="Interface"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 304.0
-margin_top = 168.0
-margin_right = -299.0
-margin_bottom = -192.0
+margin_left = -2.0
+margin_right = 2.0
+margin_bottom = -2.0
 mouse_filter = 1
 script = ExtResource( 24 )
 
@@ -523,6 +522,7 @@ scene = 2
 [node name="TapToStartGameArea" type="Control" parent="Interface"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 28 )
 
 [node name="Level" type="Spatial" parent="."]
@@ -592,5 +592,4 @@ draw_pass_1 = SubResource( 29 )
 [connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
 [connection signal="gui_input" from="Interface/BottomUI/Control" to="Interface/BottomUI/Joystic/TouchScreenButton" method="_on_Control_gui_input"]
-[connection signal="gui_input" from="Interface/TapToStartGameArea" to="Interface/TapToStartGameArea" method="OnTapToStartGameAreaGuiInput"]
 [connection signal="area_entered" from="DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]
