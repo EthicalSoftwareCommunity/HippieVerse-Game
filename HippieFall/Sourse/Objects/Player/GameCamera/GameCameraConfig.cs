@@ -11,7 +11,7 @@ namespace HippieFall.Game
         public float Size;
         public float MaxAngleX = 5;
         public float MaxAngleZ = 7.5f;
-        public float DistanceKoef = 0.01f;
+        public float MinDistanceKoef = 0.01f;
         public float MaxDistanceKoef = 0.5f;
         public GameCameraConfig(GameCameraConfig config)
         {
@@ -21,7 +21,7 @@ namespace HippieFall.Game
             Size = config.Size;
             MaxAngleX = config.MaxAngleX;
             MaxAngleZ = config.MaxAngleZ;
-            DistanceKoef = config.DistanceKoef;
+            MinDistanceKoef = config.MinDistanceKoef;
             MaxDistanceKoef = config.MaxDistanceKoef;
         }
 
