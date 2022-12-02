@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://HippieFall/Sourse/Game/Collectable/CollectableController.cs" type="Script" id=6]
 [ext_resource path="res://HippieFall/Sourse/Game/GameOverController.cs" type="Script" id=7]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://HippieFall/Materials/Models/NeedToTapFingerAnimation.tscn" type="PackedScene" id=9]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Radius.png" type="Texture" id=10]
 [ext_resource path="res://Images/Coin.png" type="Texture" id=11]
 [ext_resource path="res://Images/Pause.png" type="Texture" id=12]
@@ -53,6 +54,74 @@ font_data = ExtResource( 22 )
 [sub_resource type="DynamicFont" id=12]
 size = 150
 font_data = ExtResource( 36 )
+
+[sub_resource type="Animation" id=30]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("NeedToTapFingerAnimation:texture:pause")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NeedToTapFingerAnimation:texture:oneshot")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NeedToTapFingerAnimation:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "TapToStartFingerPrintAnimation"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("NeedToTapFingerAnimation:texture:oneshot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NeedToTapFingerAnimation:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.4, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.345098 ), Color( 1, 1, 1, 0.721569 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="BoxShape" id=6]
 
@@ -143,10 +212,9 @@ TopUIPath = NodePath("TopUI")
 [node name="HoldTapArea" type="Control" parent="Interface"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 304.0
-margin_top = 168.0
-margin_right = -299.0
-margin_bottom = -192.0
+margin_left = -2.0
+margin_right = 2.0
+margin_bottom = -2.0
 mouse_filter = 1
 script = ExtResource( 24 )
 
@@ -523,7 +591,16 @@ scene = 2
 [node name="TapToStartGameArea" type="Control" parent="Interface"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 28 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interface/TapToStartGameArea"]
+autoplay = "TapToStartFingerPrintAnimation"
+anims/RESET = SubResource( 30 )
+anims/TapToStartFingerPrintAnimation = SubResource( 31 )
+
+[node name="NeedToTapFingerAnimation" parent="Interface/TapToStartGameArea" instance=ExtResource( 9 )]
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="Level" type="Spatial" parent="."]
 script = ExtResource( 4 )
@@ -592,5 +669,4 @@ draw_pass_1 = SubResource( 29 )
 [connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
 [connection signal="gui_input" from="Interface/BottomUI/Control" to="Interface/BottomUI/Joystic/TouchScreenButton" method="_on_Control_gui_input"]
-[connection signal="gui_input" from="Interface/TapToStartGameArea" to="Interface/TapToStartGameArea" method="OnTapToStartGameAreaGuiInput"]
 [connection signal="area_entered" from="DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]

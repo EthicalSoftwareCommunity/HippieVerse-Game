@@ -1,9 +1,14 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Drawing.Imaging;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Timers;
 using Global.Data;
 using Global.Data.EffectSystem;
 using Global.GameSystem;
+using Timer = System.Timers.Timer;
 
 namespace HippieFall.Game
 {
@@ -21,12 +26,38 @@ namespace HippieFall.Game
         private float NearDelta;
         private float SizeDelta;
         private float FarDelta;
-        public GameCameraConfig Config;
+        private float MaxDistanceCoefDelta;
+        private GameCameraConfig _gameCameraConfig;
+        private GameCameraConfig _smoothlyChangedGameCameraConfig;
+        public GameCameraConfig Config
+        {
+            get => _gameCameraConfig;
+            set
+            {
+                MaxDistanceCoefDelta = Mathf.Abs(Config.MaxDistanceKoef - value.MaxDistanceKoef) / (0.4f / PhysicsDelta);
+                if (Config.MaxDistanceKoef > value.MaxDistanceKoef) MaxDistanceCoefDelta *= -1;
+                
+                FovDelta = Mathf.Abs(Fov - Config.Fov) / (0.4f/ PhysicsDelta);
+                if (Fov > Config.Fov) FovDelta *= -1;
+
+                NearDelta = Mathf.Abs(Near - Config.Near) / (0.4f/PhysicsDelta);
+                if (Near > Config.Near) NearDelta *= -1;
+
+                FarDelta = Mathf.Abs(Far - Config.Far) / (0.4f / PhysicsDelta);
+                if (Far > Config.Far) FarDelta *= -1;
+
+                SizeDelta = Mathf.Abs(Size - Config.Size) / (0.4f / PhysicsDelta);
+                if (Size > Config.Size) SizeDelta *= -1;
+                
+                _smoothlyChangedGameCameraConfig = value;
+            }
+        }
 
         private GameCameraEffectController _effectController;
         
         public override void _Ready()
         {
+            _gameCameraConfig = new GameCameraConfig(this);
             Config = new GameCameraConfig(this);
             HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
         }
@@ -50,14 +81,14 @@ namespace HippieFall.Game
         {
             Vector2 button = _player.PlayerMovementController.Joystick.GetButtonPosition();
 
-            if(Config.DistanceKoef - Config.MaxDistanceKoef*button.Length()/64 > 0)
-                Config.DistanceKoef -= PhysicsDelta;
-            else Config.DistanceKoef += PhysicsDelta/2;
+            if(Config.MinDistanceKoef - Config.MaxDistanceKoef*button.Length()/64 > 0)
+                Config.MinDistanceKoef -= PhysicsDelta;
+            else Config.MinDistanceKoef += PhysicsDelta/2;
                 
-            Config.DistanceKoef = Mathf.Clamp(Config.DistanceKoef, 0.01f, Config.MaxDistanceKoef);
+            Config.MinDistanceKoef = Mathf.Clamp(Config.MinDistanceKoef, 0.01f, Config.MaxDistanceKoef);
             Translation = new Vector3(
                 _player.Translation.x * _speedProportion,
-                _player.Translation.y + Config.DistanceKoef + yBackPosition - _player.Translation.y,
+                _player.Translation.y + Config.MinDistanceKoef + yBackPosition - _player.Translation.y,
                 _player.Translation.z * _speedProportion);
         }
 
@@ -99,25 +130,22 @@ namespace HippieFall.Game
                 Fov += FovDelta;
                 Near += NearDelta;
                 Size += SizeDelta;
+                _gameCameraConfig.MaxDistanceKoef += MaxDistanceCoefDelta;
             }
+            else _gameCameraConfig = _smoothlyChangedGameCameraConfig;
+
         }
+        async Task<bool> WaitAsync()
+        {
+            await Task.Delay((int)(PhysicsDelta*1000));
+            return true;
+        }
+
         public void ChangeConfigData(Config config)
         {
             if (config is GameCameraConfig gameCameraConfig)
             {
                 Config = gameCameraConfig;
-                
-                FovDelta = Mathf.Abs(Fov - Config.Fov) / (0.4f/ PhysicsDelta);
-                if (Fov > Config.Fov) FovDelta *= -1;
-
-                NearDelta = Mathf.Abs(Near - Config.Near) / (0.4f/PhysicsDelta);
-                if (Near > Config.Near) NearDelta *= -1;
-
-                FarDelta = Mathf.Abs(Far - Config.Far) / (0.4f / PhysicsDelta);
-                if (Far > Config.Far) FarDelta *= -1;
-
-                SizeDelta = Mathf.Abs(Size - Config.Size) / (0.4f / PhysicsDelta);
-                if (Size > Config.Size) SizeDelta *= -1;
             }
         }
     }
