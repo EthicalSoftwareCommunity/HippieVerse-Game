@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://HippieFall/Sourse/Game/Collectable/CollectableController.cs" type="Script" id=6]
 [ext_resource path="res://HippieFall/Sourse/Game/GameOverController.cs" type="Script" id=7]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/NeedToTapFingerAnimation.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HippieFall/Materials/Models/NeedToTapFingerAnimation.tscn" type="PackedScene" id=9]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Radius.png" type="Texture" id=10]
 [ext_resource path="res://Images/Coin.png" type="Texture" id=11]
 [ext_resource path="res://Images/Pause.png" type="Texture" id=12]
@@ -117,19 +117,11 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 1.4, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1.4, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.345098 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.345098 ), Color( 1, 1, 1, 0.721569 ), Color( 1, 1, 1, 1 ) ]
 }
-
-[sub_resource type="SpriteFrames" id=32]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [sub_resource type="BoxShape" id=6]
 
@@ -603,22 +595,12 @@ mouse_filter = 2
 script = ExtResource( 28 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Interface/TapToStartGameArea"]
+autoplay = "TapToStartFingerPrintAnimation"
 anims/RESET = SubResource( 30 )
 anims/TapToStartFingerPrintAnimation = SubResource( 31 )
 
 [node name="NeedToTapFingerAnimation" parent="Interface/TapToStartGameArea" instance=ExtResource( 9 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -91.5
-margin_top = 4.5
-margin_right = 91.5
-margin_bottom = 187.5
-rect_pivot_offset = Vector2( 0, 0 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Interface/TapToStartGameArea"]
-frames = SubResource( 32 )
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="Level" type="Spatial" parent="."]
 script = ExtResource( 4 )

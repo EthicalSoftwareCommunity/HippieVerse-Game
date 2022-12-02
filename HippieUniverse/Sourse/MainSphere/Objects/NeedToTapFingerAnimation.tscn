@@ -47,7 +47,8 @@
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
 frames = 44
-fps = 22.0
+oneshot = true
+fps = 44.0
 frame_0/texture = ExtResource( 18 )
 frame_1/texture = ExtResource( 17 )
 frame_1/delay_sec = 0.0
@@ -133,7 +134,7 @@ frame_41/delay_sec = 0.0
 frame_42/texture = ExtResource( 42 )
 frame_42/delay_sec = 0.0
 frame_43/texture = ExtResource( 43 )
-frame_43/delay_sec = 0.5
+frame_43/delay_sec = 0.0
 
 [node name="NeedToTapFingerAnimation" type="TextureRect"]
 margin_left = 493.0
