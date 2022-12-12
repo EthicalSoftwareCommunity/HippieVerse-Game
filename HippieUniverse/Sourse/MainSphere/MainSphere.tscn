@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://HippieUniverse/Materials/Models/ConvertToSceneModels/sphere.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Settings/gear.fbx" type="PackedScene" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Bonfire/Bonfire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Player/CameraControll/CameraControl.cs" type="Script" id=5]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/HippieGarage/Garage.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Settings/Settings UI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/MainSphere.cs" type="Script" id=8]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Player/CameraControll/InputController/InputController.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HippieUniverse/Sourse/MainSphere/SettingsInteract.cs" type="Script" id=10]
 [ext_resource path="res://Images/Coin.png" type="Texture" id=11]
 [ext_resource path="res://Images/gemcoin.png" type="Texture" id=12]
 [ext_resource path="res://HippieUniverse/Sourse/InterfaceUniverse/RewardRenderer.cs" type="Script" id=13]
@@ -32,22 +34,29 @@ extents = Vector3( 0.234564, 1, 0.202749 )
 [node name="MainSphere" type="Spatial"]
 script = ExtResource( 8 )
 
+[node name="SettingsUI" parent="." instance=ExtResource( 7 )]
+visible = false
+
 [node name="Interface" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 14 )
 
 [node name="TopUI" type="Control" parent="Interface"]
 anchor_right = 1.0
 margin_bottom = 200.0
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/TopUI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="Control" type="Control" parent="Interface/TopUI/HBoxContainer"]
 margin_right = 338.0
 margin_bottom = 200.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Interface/TopUI/HBoxContainer"]
@@ -63,6 +72,7 @@ valign = 1
 margin_left = 685.0
 margin_right = 1024.0
 margin_bottom = 200.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 13 )
@@ -77,6 +87,7 @@ size_flags_vertical = 3
 margin_top = 6.0
 margin_right = 60.0
 margin_bottom = 66.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 11 )
@@ -104,6 +115,7 @@ size_flags_vertical = 3
 margin_top = 8.0
 margin_right = 60.0
 margin_bottom = 68.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 12 )
@@ -169,6 +181,9 @@ transform = Transform( 0.386281, 0.303248, 0.093955, -0.065648, 0.221076, -0.443
 [node name="CollisionShape" type="CollisionShape" parent="World/Settings"]
 transform = Transform( 3.73, 0, 0, 0, 0.759, 0, 0, 0, 4.408, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="InteractionController" type="Node" parent="World/Settings"]
+script = ExtResource( 10 )
 
 [node name="Bonfire" parent="World" instance=ExtResource( 4 )]
 
