@@ -11,5 +11,6 @@ namespace Global.Constants
         public const string CYBER_FAN =             "res://HippieFall/Sourse/Biome/Cyber/Obstacle/Fan.tscn";
         public const string CYBER_LASER_FASTENERS = "res://HippieFall/Sourse/Biome/Cyber/Obstacle/LasersFasteners.tscn";
         public const string CYBER_LASER =           "res://HippieFall/Sourse/Biome/Cyber/Obstacle/Laser.tscn";
+        public const string CYBER_HIDDEN_TRAP =      "res://HippieFall/Sourse/Biome/Cyber/Obstacle/HiddenTrap.tscn";
     }
 }

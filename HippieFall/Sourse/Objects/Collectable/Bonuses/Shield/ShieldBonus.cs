@@ -10,7 +10,7 @@ namespace HippieFall.Collectables
         {
             Config = new CollectableConfig()
             {
-                SpawnWeight = 300f
+                SpawnWeight = 30f
             };
             Effects.Add(new DynamicEffect(new Shield(), 20f));
         }
