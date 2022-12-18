@@ -41,10 +41,12 @@ namespace HippieFall.Items
 
         private CharacterModel _characterModel;
         private MagnetConfig _magnet;
+        private ShieldConfig _shield;
 
         public override void _Ready()
         {
             _magnet = new MagnetConfig();
+            _shield = new ShieldConfig();
             GetNode("/root").GetChild(0).Connect(
                 nameof(GameController.GameIsReady), this,nameof(Init));
         }
@@ -54,9 +56,12 @@ namespace HippieFall.Items
             _characterModel = game.Player.Character.CharacterModel;
             _itemConfig = new ItemConfig();
             ItemObjects = new List<ItemObject>();
-            Item item = GD.Load<PackedScene>(C_PlayerItemsPath.MAGNET).Instance<Magnet>();
-            SetObjectModelByType(nameof(Magnet), item);
-            ItemObjects.Add(new ItemObject(item, GetConfigByType(item)));
+            Item magnet = GD.Load<PackedScene>(C_PlayerItemsPath.MAGNET).Instance<Magnet>();
+            Item shield = GD.Load<PackedScene>(C_PlayerItemsPath.SHIELD).Instance<Shield>();
+            SetObjectModelByType(nameof(Magnet), magnet);
+            SetObjectModelByType(nameof(Shield), shield);
+            ItemObjects.Add(new ItemObject(magnet, GetConfigByType(magnet)));
+            ItemObjects.Add(new ItemObject(shield, GetConfigByType(shield)));
         }
 
         public void ChangeConfigData(Config config)
@@ -71,6 +76,8 @@ namespace HippieFall.Items
             Config config = null;
             if (item is Magnet)
                 config = new MagnetConfig(_magnet);
+            if (item is Shield)
+                config = new ShieldConfig(_shield);
             return config;
         }
 
@@ -79,6 +86,7 @@ namespace HippieFall.Items
             switch (type)
             {
               case nameof(Magnet) : _characterModel.Magnet = obj; break;
+              case nameof(Shield) : _characterModel.Shield = obj; break;
             }
         }
     }

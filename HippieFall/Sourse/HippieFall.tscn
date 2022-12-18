@@ -627,7 +627,6 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0863953, 7, 0 )
 
 [node name="GameEffectController" type="Node" parent="."]
 script = ExtResource( 2 )

@@ -14,5 +14,6 @@ namespace Global.Constants
 		public const string SLOW_OBSTACLES = PATH_TO_BONUSES + "SlowObstacles/SlowObstacles.tscn";
 		public const string DOUBLE_SCORE = PATH_TO_BONUSES + "DoubleScore/DoubleScore.tscn";
 		public const string MAGNET = PATH_TO_BONUSES + "Magnet/MagnetBonus.tscn";
+		public const string SHIELD = PATH_TO_BONUSES + "Shield/ShieldBonus.tscn";
 	}
 }
