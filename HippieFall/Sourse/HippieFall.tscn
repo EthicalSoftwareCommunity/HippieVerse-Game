@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -191,6 +191,9 @@ top_radius = 0.003
 bottom_radius = 0.006
 height = 0.5
 rings = 1
+
+[sub_resource type="Animation" id=32]
+resource_name = "ChangeCharacteristics"
 
 [node name="HippieFall" type="Spatial"]
 script = ExtResource( 1 )
@@ -664,6 +667,9 @@ randomness = 0.5
 draw_order = 2
 process_material = SubResource( 28 )
 draw_pass_1 = SubResource( 29 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
+anims/ChangeCharacteristics = SubResource( 32 )
 
 [connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]

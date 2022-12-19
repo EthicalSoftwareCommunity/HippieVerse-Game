@@ -35,21 +35,27 @@ namespace HippieFall.Game
             set
             {
                 MaxDistanceCoefDelta = Mathf.Abs(Config.MaxDistanceKoef - value.MaxDistanceKoef) / (0.4f / PhysicsDelta);
-                if (Config.MaxDistanceKoef > value.MaxDistanceKoef) MaxDistanceCoefDelta *= -1;
+                if ( Config.MaxDistanceKoef > value.MaxDistanceKoef ) MaxDistanceCoefDelta *= -1;
                 
-                FovDelta = Mathf.Abs(Fov - Config.Fov) / (0.4f/ PhysicsDelta);
-                if (Fov > Config.Fov) FovDelta *= -1;
+                FovDelta = Mathf.Abs(Fov - value.Fov) / (0.4f/ PhysicsDelta);
+                if (Fov > Config.Fov) 
+                    FovDelta *= -1;
 
-                NearDelta = Mathf.Abs(Near - Config.Near) / (0.4f/PhysicsDelta);
-                if (Near > Config.Near) NearDelta *= -1;
+                NearDelta = Mathf.Abs(Near - value.Near) / (0.4f/PhysicsDelta);
+                if (Near > Config.Near) 
+                    NearDelta *= -1;
 
-                FarDelta = Mathf.Abs(Far - Config.Far) / (0.4f / PhysicsDelta);
-                if (Far > Config.Far) FarDelta *= -1;
+                FarDelta = Mathf.Abs(Far - value.Far) / (0.4f / PhysicsDelta);
+                if (Far > Config.Far) 
+                    FarDelta *= -1;
 
-                SizeDelta = Mathf.Abs(Size - Config.Size) / (0.4f / PhysicsDelta);
-                if (Size > Config.Size) SizeDelta *= -1;
+                SizeDelta = Mathf.Abs(Size - value.Size) / (0.4f / PhysicsDelta);
+                if (Size > Config.Size) 
+                    SizeDelta *= -1;
                 
                 _smoothlyChangedGameCameraConfig = value;
+                GD.Print(MaxDistanceCoefDelta + " " + FovDelta);
+                FovDelta = 0.1f;
             }
         }
 
@@ -58,7 +64,6 @@ namespace HippieFall.Game
         public override void _Ready()
         {
             _gameCameraConfig = new GameCameraConfig(this);
-            Config = new GameCameraConfig(this);
             HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
         }
 
@@ -124,21 +129,16 @@ namespace HippieFall.Game
 
         private void SmoothChangeCameraCharacteristics()
         {
-            if (Mathf.Abs(Fov - Config.Fov) > 0.01f)
+            if (Mathf.Abs(_gameCameraConfig.MaxDistanceKoef - _smoothlyChangedGameCameraConfig.MaxDistanceKoef) > 0.01f)
             {
-                Far += FarDelta;
-                Fov += FovDelta;
-                Near += NearDelta;
-                Size += SizeDelta;
-                _gameCameraConfig.MaxDistanceKoef += MaxDistanceCoefDelta;
+                Far = Mathf.Lerp(Far, _smoothlyChangedGameCameraConfig.Far ,FarDelta);
+                Fov = Mathf.Lerp(Fov, _smoothlyChangedGameCameraConfig.Fov ,FovDelta);
+                Near = Mathf.Lerp(Near, _smoothlyChangedGameCameraConfig.Near ,NearDelta);
+                Size = Mathf.Lerp(Size, _smoothlyChangedGameCameraConfig.Size ,SizeDelta);
+                _gameCameraConfig.MaxDistanceKoef = Mathf.Lerp(_gameCameraConfig.MaxDistanceKoef, _smoothlyChangedGameCameraConfig.Size ,MaxDistanceCoefDelta);
             }
             else _gameCameraConfig = _smoothlyChangedGameCameraConfig;
 
-        }
-        async Task<bool> WaitAsync()
-        {
-            await Task.Delay((int)(PhysicsDelta*1000));
-            return true;
         }
 
         public void ChangeConfigData(Config config)

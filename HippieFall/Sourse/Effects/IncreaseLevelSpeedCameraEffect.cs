@@ -15,7 +15,7 @@ public class IncreaseLevelSpeedCameraEffect : Effect
     {
         if (config is GameCameraConfig gameCameraConfig)
         {
-            gameCameraConfig.Fov += 10;
+            gameCameraConfig.Fov += 20;
             gameCameraConfig.MaxDistanceKoef += 0.2f;
             return gameCameraConfig;
         }
