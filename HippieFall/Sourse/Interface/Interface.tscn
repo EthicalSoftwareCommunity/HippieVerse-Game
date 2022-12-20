@@ -35,6 +35,11 @@ pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
+JoysticPath = NodePath("BottomUI/Joystic")
+RewardRendererPath = NodePath("TopUI/HBoxContainer/RewardRender")
+PauseButtonPath = NodePath("TopUI/HBoxContainer/Control/PauseButton")
+BottomUIPath = NodePath("BottomUI")
+TopUIPath = NodePath("TopUI")
 
 [node name="TopUI" type="Control" parent="."]
 pause_mode = 2
@@ -62,7 +67,7 @@ script = ExtResource( 9 )
 _pauseOverlayPath = NodePath("../../../../PauseOverlay")
 _isPaused = true
 
-[node name="Label" type="Label" parent="TopUI/HBoxContainer"]
+[node name="Score" type="Label" parent="TopUI/HBoxContainer"]
 margin_left = 342.0
 margin_right = 681.0
 margin_bottom = 200.0

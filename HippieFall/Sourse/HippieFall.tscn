@@ -208,6 +208,7 @@ RewardRendererPath = NodePath("TopUI/HBoxContainer/RewardRender")
 PauseButtonPath = NodePath("TopUI/HBoxContainer/Control/PauseButton")
 BottomUIPath = NodePath("BottomUI")
 TopUIPath = NodePath("TopUI")
+RightPositionForJoystickPath = NodePath("BottomUI/Joystic/RightPositionForJoystick")
 
 [node name="HoldTapArea" type="Control" parent="Interface"]
 anchor_right = 1.0
@@ -353,6 +354,9 @@ __meta__ = {
 position = Vector2( -26, -28 )
 normal = ExtResource( 16 )
 script = ExtResource( 20 )
+
+[node name="RightPositionForJoystick" type="Node2D" parent="Interface/BottomUI/Joystic"]
+position = Vector2( 450, 0 )
 
 [node name="GameOverScreen" type="Control" parent="Interface"]
 visible = false

@@ -1,8 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://new_theme.tres" type="Theme" id=1]
 [ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Settings/SettingsUI.cs" type="Script" id=2]
 [ext_resource path="res://Images/cross.png" type="Texture" id=3]
+[ext_resource path="res://Images/UIFromTheInternet/U2_1.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Fonts/Ubuntu-BoldItalic.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/Ubuntu-MediumItalic.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=28]
+size = 25
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=29]
+font_data = ExtResource( 5 )
 
 [sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 0.0470588, 1, 0, 1 )
@@ -14,6 +25,73 @@ corner_radius_top_right = 398
 corner_radius_bottom_right = 609
 corner_radius_bottom_left = 103
 anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id=31]
+
+[sub_resource type="StyleBoxEmpty" id=32]
+
+[sub_resource type="DynamicFont" id=30]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=33]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=34]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=43]
+size = 14
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=44]
+size = 14
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=35]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=41]
+size = 14
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=42]
+size = 14
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=36]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=39]
+size = 14
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=40]
+size = 14
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=38]
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=27]
+TabContainer/colors/font_color_bg = Color( 0.69, 0.69, 0.69, 1 )
+TabContainer/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+TabContainer/colors/font_color_fg = Color( 0.94, 0.94, 0.94, 1 )
+TabContainer/constants/hseparation = 8
+TabContainer/constants/label_valign_bg = 2
+TabContainer/constants/label_valign_fg = 0
+TabContainer/constants/side_margin = -1
+TabContainer/constants/top_margin = 24
+TabContainer/fonts/font = null
+TabContainer/icons/decrement = null
+TabContainer/icons/decrement_highlight = null
+TabContainer/icons/increment = null
+TabContainer/icons/increment_highlight = null
+TabContainer/icons/menu = null
+TabContainer/icons/menu_highlight = null
+TabContainer/styles/panel = null
+TabContainer/styles/tab_bg = null
+TabContainer/styles/tab_disabled = null
+TabContainer/styles/tab_fg = null
 
 [sub_resource type="StyleBoxFlat" id=25]
 bg_color = Color( 0.00392157, 0.223529, 1, 1 )
@@ -42,13 +120,28 @@ _musicCheckButtonPath = NodePath("VBoxContainer/Music and sound/Music/HBoxContai
 _soundsCheckButtonPath = NodePath("VBoxContainer/Music and sound/Sounds/HBoxContainer/CheckButton")
 _saveSettingsButtonPath = NodePath("VBoxContainer/Control2/SaveButton")
 _closeSettingsButtonPath = NodePath("VBoxContainer/Control/CloseButton")
+_moveJoyStickToRightButtonPath = NodePath("VBoxContainer/Controls/JoystickToRIght/HBoxContainer/CheckButton")
+_PathToInterfacePath = NodePath("")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0.882353, 1, 1 )
+margin_left = -37.0
+margin_top = -76.0
+margin_right = 40.0
+margin_bottom = 75.0
+color = Color( 0.458824, 0.756863, 0.796078, 0.47451 )
+
+[node name="rounded ColorRect" type="TextureProgress" parent="."]
+margin_left = 371.0
+margin_top = -95.0
+margin_right = 962.0
+margin_bottom = 328.0
+rect_rotation = 89.9798
+texture_under = ExtResource( 4 )
 
 [node name="VScrollBar" type="VScrollBar" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 0.997
@@ -60,10 +153,10 @@ value = 5.0
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 0.95
 anchor_bottom = 1.0
-margin_right = 4.0
 
 [node name="Control" type="Control" parent="VBoxContainer"]
-margin_right = 289.0
+margin_right = 285.0
+size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="CloseButton" type="Button" parent="VBoxContainer/Control"]
@@ -81,42 +174,46 @@ expand_icon = true
 
 [node name="Settings" type="Control" parent="VBoxContainer"]
 margin_top = 4.0
-margin_right = 289.0
-margin_bottom = 46.0
+margin_right = 285.0
+margin_bottom = 39.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="SettingText" type="Label" parent="VBoxContainer/Settings"]
-margin_right = 300.0
-margin_bottom = 90.0
+margin_left = -4.0
+margin_top = -25.0
+margin_right = 296.0
+margin_bottom = 65.0
 theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 28 )
 text = "Settings"
 align = 1
 valign = 1
 uppercase = true
 
 [node name="Music and sound" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 50.0
-margin_right = 289.0
-margin_bottom = 192.0
-size_flags_horizontal = 3
+margin_top = 43.0
+margin_bottom = 119.0
+size_flags_horizontal = 0
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.63
+alignment = 1
 
 [node name="Music" type="Control" parent="VBoxContainer/Music and sound"]
-margin_right = 289.0
-margin_bottom = 69.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MusicText" type="Label" parent="VBoxContainer/Music and sound/Music"]
 margin_left = 20.0
-margin_top = 20.0
+margin_top = 17.0
 margin_right = 100.0
-margin_bottom = 24.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 29 )
 text = "Music"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Music and sound/Music"]
@@ -133,8 +230,8 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/slider = SubResource( 24 )
-custom_styles/grabber_area_highlight = SubResource( 25 )
-custom_styles/grabber_area = SubResource( 26 )
+custom_styles/grabber_area_highlight = SubResource( 31 )
+custom_styles/grabber_area = SubResource( 32 )
 value = 50.0
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/Music and sound/Music/HBoxContainer"]
@@ -145,22 +242,21 @@ align = 1
 icon_align = 1
 
 [node name="Sounds" type="Control" parent="VBoxContainer/Music and sound"]
-margin_top = 73.0
-margin_right = 289.0
-margin_bottom = 142.0
+margin_top = 40.0
+margin_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SoundsText" type="Label" parent="VBoxContainer/Music and sound/Sounds"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 100.0
-margin_bottom = 24.0
+margin_right = 143.0
+margin_bottom = 61.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme = ExtResource( 1 )
-text = "Sounds
-"
+custom_fonts/font = SubResource( 30 )
+text = "Sounds"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Music and sound/Sounds"]
 margin_left = 20.0
@@ -183,14 +279,16 @@ align = 2
 icon_align = 2
 
 [node name="Controls" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 196.0
-margin_right = 289.0
-margin_bottom = 339.0
+margin_top = 123.0
+margin_right = 285.0
+margin_bottom = 348.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.63
+custom_constants/separation = 45
 
 [node name="Control" type="Control" parent="VBoxContainer/Controls"]
-margin_right = 289.0
+margin_right = 285.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 size_flags_stretch_ratio = 0.3
@@ -201,21 +299,22 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -34.5
-margin_top = -7.0
+margin_top = 24.0
 margin_right = 34.5
-margin_bottom = 7.0
+margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 33 )
 text = "Controls"
 align = 1
 valign = 1
 uppercase = true
 
 [node name="Sensitivity" type="Control" parent="VBoxContainer/Controls"]
-margin_top = 21.0
-margin_right = 289.0
-margin_bottom = 80.0
+margin_top = 45.0
+margin_right = 285.0
+margin_bottom = 45.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -230,16 +329,17 @@ size_flags_vertical = 3
 
 [node name="SensitivityText" type="Label" parent="VBoxContainer/Controls/Sensitivity/HBoxContainer"]
 margin_right = 98.0
-margin_bottom = 16.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 34 )
 text = "Sensitivity"
 
 [node name="HSlider" type="HSlider" parent="VBoxContainer/Controls/Sensitivity/HBoxContainer"]
 margin_left = 102.0
 margin_right = 249.0
-margin_bottom = 16.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
@@ -253,27 +353,31 @@ size_flags_vertical = 3
 
 [node name="SlowerText" type="Label" parent="VBoxContainer/Controls/Sensitivity/HBoxContainer/HSlider/HBoxContainer"]
 margin_right = 71.0
-margin_bottom = 31.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 43 )
 text = "Slower"
 
 [node name="FasterText" type="Label" parent="VBoxContainer/Controls/Sensitivity/HBoxContainer/HSlider/HBoxContainer"]
 margin_left = 75.0
 margin_right = 147.0
-margin_bottom = 31.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 44 )
 text = "Faster
 "
 align = 2
 
 [node name="Speed" type="Control" parent="VBoxContainer/Controls"]
-margin_top = 84.0
-margin_right = 289.0
-margin_bottom = 143.0
+margin_top = 90.0
+margin_right = 285.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -286,9 +390,10 @@ margin_bottom = 31.0
 
 [node name="SpeedText" type="Label" parent="VBoxContainer/Controls/Speed/HBoxContainer"]
 margin_right = 98.0
-margin_bottom = 31.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 35 )
 text = "Speed
 "
 
@@ -308,26 +413,155 @@ size_flags_vertical = 3
 
 [node name="SlowerText" type="Label" parent="VBoxContainer/Controls/Speed/HBoxContainer/HSlider/HBoxContainer"]
 margin_right = 71.0
-margin_bottom = 31.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 41 )
 text = "Slower"
 
 [node name="FasterText" type="Label" parent="VBoxContainer/Controls/Speed/HBoxContainer/HSlider/HBoxContainer"]
 margin_left = 75.0
 margin_right = 147.0
-margin_bottom = 31.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 42 )
 text = "Faster
 "
 align = 2
 
+[node name="Gyroscope" type="Control" parent="VBoxContainer/Controls"]
+margin_top = 135.0
+margin_right = 285.0
+margin_bottom = 135.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Controls/Gyroscope"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -124.5
+margin_right = 124.5
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GyroscopeText" type="Label" parent="VBoxContainer/Controls/Gyroscope/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 36 )
+text = "Gyroscope"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Controls/Gyroscope/HBoxContainer"]
+margin_left = 102.0
+margin_right = 249.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Controls/Gyroscope/HBoxContainer/HSlider"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ThinnerText" type="Label" parent="VBoxContainer/Controls/Gyroscope/HBoxContainer/HSlider/HBoxContainer"]
+margin_right = 71.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 39 )
+text = "Thinner"
+
+[node name="WiderText" type="Label" parent="VBoxContainer/Controls/Gyroscope/HBoxContainer/HSlider/HBoxContainer"]
+margin_left = 75.0
+margin_right = 147.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 40 )
+text = "Wider
+"
+align = 2
+
+[node name="JoystickToRIght" type="Control" parent="VBoxContainer/Controls"]
+margin_top = 180.0
+margin_right = 285.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Controls/JoystickToRIght"]
+anchor_right = 0.737
+margin_left = 18.0
+margin_right = 74.955
+margin_bottom = 41.0
+
+[node name="PositionText" type="Label" parent="VBoxContainer/Controls/JoystickToRIght/HBoxContainer"]
+margin_top = 11.0
+margin_right = 187.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 38 )
+text = "JoyStick Position To Right"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/Controls/JoystickToRIght/HBoxContainer"]
+margin_left = 191.0
+margin_right = 267.0
+margin_bottom = 41.0
+align = 2
+icon_align = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="FingerControl" type="Control" parent="VBoxContainer/Controls"]
+margin_top = 225.0
+margin_right = 285.0
+margin_bottom = 225.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Controls/FingerControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -124.5
+margin_top = -4.0
+margin_right = 143.5
+margin_bottom = 36.0
+
+[node name="FingerControlText" type="Label" parent="VBoxContainer/Controls/FingerControl/HBoxContainer"]
+margin_top = 10.0
+margin_right = 188.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 38 )
+text = "Finger control (swipes)"
+
+[node name="CheckButton2" type="CheckButton" parent="VBoxContainer/Controls/FingerControl/HBoxContainer"]
+margin_left = 192.0
+margin_right = 268.0
+margin_bottom = 40.0
+align = 2
+icon_align = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="Control2" type="Control" parent="VBoxContainer"]
-margin_top = 343.0
-margin_right = 289.0
+margin_top = 352.0
+margin_right = 285.0
 margin_bottom = 400.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -340,11 +574,266 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -50.0
-margin_top = -20.0
+margin_top = 29.0
 margin_right = 50.0
-margin_bottom = 20.0
+margin_bottom = 69.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.3
 text = "Save"
 icon_align = 1
+
+[node name="SettingTabs" type="TabContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 27 )
+tab_align = 0
+
+[node name="Gereral" type="Tabs" parent="SettingTabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+drag_to_rearrange_enabled = true
+
+[node name="Music and sound" type="VBoxContainer" parent="SettingTabs/Gereral"]
+margin_left = 7.0
+margin_top = 15.0
+margin_right = 249.0
+margin_bottom = 329.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Music" type="Control" parent="SettingTabs/Gereral/Music and sound"]
+margin_right = 242.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MusicText" type="Label" parent="SettingTabs/Gereral/Music and sound/Music"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 100.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Music"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingTabs/Gereral/Music and sound/Music"]
+margin_left = 20.0
+margin_top = 25.0
+margin_right = 289.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSlider" type="HSlider" parent="SettingTabs/Gereral/Music and sound/Music/HBoxContainer"]
+margin_right = 189.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/slider = SubResource( 24 )
+custom_styles/grabber_area_highlight = SubResource( 25 )
+custom_styles/grabber_area = SubResource( 26 )
+value = 50.0
+
+[node name="CheckButton" type="CheckButton" parent="SettingTabs/Gereral/Music and sound/Music/HBoxContainer"]
+margin_left = 193.0
+margin_right = 269.0
+margin_bottom = 40.0
+align = 1
+icon_align = 1
+
+[node name="Sounds" type="Control" parent="SettingTabs/Gereral/Music and sound"]
+margin_top = 159.0
+margin_right = 242.0
+margin_bottom = 314.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SoundsText" type="Label" parent="SettingTabs/Gereral/Music and sound/Sounds"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 100.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 1 )
+text = "Sounds
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingTabs/Gereral/Music and sound/Sounds"]
+margin_left = 20.0
+margin_top = 25.0
+margin_right = 289.0
+margin_bottom = 57.0
+
+[node name="HSlider" type="HSlider" parent="SettingTabs/Gereral/Music and sound/Sounds/HBoxContainer"]
+margin_right = 189.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+value = 50.0
+
+[node name="CheckButton" type="CheckButton" parent="SettingTabs/Gereral/Music and sound/Sounds/HBoxContainer"]
+margin_left = 193.0
+margin_right = 269.0
+margin_bottom = 40.0
+align = 2
+icon_align = 2
+
+[node name="Control" type="Tabs" parent="SettingTabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Controls" type="VBoxContainer" parent="SettingTabs/Control"]
+margin_top = 5.0
+margin_right = 289.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="SettingTabs/Control/Controls"]
+margin_right = 289.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.3
+
+[node name="Label" type="Label" parent="SettingTabs/Control/Controls/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.5
+margin_top = -7.0
+margin_right = 34.5
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+text = "Controls"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Sensitivity" type="Control" parent="SettingTabs/Control/Controls"]
+margin_top = 21.0
+margin_right = 289.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingTabs/Control/Controls/Sensitivity"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -124.5
+margin_right = 124.5
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SensitivityText" type="Label" parent="SettingTabs/Control/Controls/Sensitivity/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Sensitivity"
+
+[node name="HSlider" type="HSlider" parent="SettingTabs/Control/Controls/Sensitivity/HBoxContainer"]
+margin_left = 102.0
+margin_right = 249.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingTabs/Control/Controls/Sensitivity/HBoxContainer/HSlider"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlowerText" type="Label" parent="SettingTabs/Control/Controls/Sensitivity/HBoxContainer/HSlider/HBoxContainer"]
+margin_right = 71.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Slower"
+
+[node name="FasterText" type="Label" parent="SettingTabs/Control/Controls/Sensitivity/HBoxContainer/HSlider/HBoxContainer"]
+margin_left = 75.0
+margin_right = 147.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Faster
+"
+align = 2
+
+[node name="Speed" type="Control" parent="SettingTabs/Control/Controls"]
+margin_top = 84.0
+margin_right = 289.0
+margin_bottom = 143.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingTabs/Control/Controls/Speed"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -124.5
+margin_right = 124.5
+margin_bottom = 31.0
+
+[node name="SpeedText" type="Label" parent="SettingTabs/Control/Controls/Speed/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Speed
+"
+
+[node name="HSlider" type="HSlider" parent="SettingTabs/Control/Controls/Speed/HBoxContainer"]
+margin_left = 102.0
+margin_right = 249.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingTabs/Control/Controls/Speed/HBoxContainer/HSlider"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlowerText" type="Label" parent="SettingTabs/Control/Controls/Speed/HBoxContainer/HSlider/HBoxContainer"]
+margin_right = 71.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Slower"
+
+[node name="FasterText" type="Label" parent="SettingTabs/Control/Controls/Speed/HBoxContainer/HSlider/HBoxContainer"]
+margin_left = 75.0
+margin_right = 147.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Faster
+"
+align = 2

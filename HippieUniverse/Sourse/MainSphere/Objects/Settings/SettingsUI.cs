@@ -5,6 +5,7 @@ using Godot.Collections;
 using HippieUniverse.Objects.Settings;
 using Newtonsoft.Json;
 using Array = Godot.Collections.Array;
+using HippieFall;
 
 public class SettingsUI : Control
 {
@@ -16,6 +17,12 @@ public class SettingsUI : Control
     [Export] private NodePath _soundsCheckButtonPath;
     [Export] private NodePath _saveSettingsButtonPath;
     [Export] private NodePath _closeSettingsButtonPath;
+    [Export] private NodePath _moveJoyStickToRightButtonPath;
+    [Export] private NodePath _PathToInterfacePath;
+
+    
+
+    public GameInterface Interface { get; set; }
 
     private HSlider _musicSlider;
     private HSlider _soundsSlider;
@@ -25,6 +32,7 @@ public class SettingsUI : Control
     private CheckButton _soundsCheckButton;
     private Button _saveSettingsButton;
     private Button _closeSettingsButton;
+    private CheckButton _moveJoyStickToRightButton;
 
     private SettingsUIConfig _config;
     private File _file;
@@ -54,16 +62,22 @@ public class SettingsUI : Control
         _soundsCheckButton = GetNode<CheckButton>(_soundsCheckButtonPath);
         _saveSettingsButton = GetNode<Button>(_saveSettingsButtonPath);
         _closeSettingsButton = GetNode<Button>(_closeSettingsButtonPath);
+        _moveJoyStickToRightButton = GetNode<CheckButton>(_moveJoyStickToRightButtonPath);
 
+        Interface = GetNode<GameInterface>(_PathToInterfacePath);
+
+        _moveJoyStickToRightButton.Connect("toggled", this,
+                   nameof(MoveJoystickToRight));
         _musicCheckButton.Connect("toggled", this,
             nameof(ChangeSliderValue), new Array(_musicSlider));
         _soundsCheckButton.Connect("toggled", this,
             nameof(ChangeSliderValue), new Array(_soundsSlider));
         _saveSettingsButton.Connect("pressed", this, nameof(SaveSettings));
         _closeSettingsButton.Connect("pressed", this, nameof(OpenSettings), new Array(false));
-        
+
         _config = LoadSettings();
         SetSettingsValues();
+
     }
 
     private void ChangeSliderValue(bool buttonPressed, HSlider slider)
@@ -91,14 +105,14 @@ public class SettingsUI : Control
         _config.SpeedSliderValue = (float)_speedSlider.Value;
         _config.MusicCheckButtonValue = _musicCheckButton.Pressed;
         _config.SoundsCheckButtonValue = _soundsCheckButton.Pressed;
-        
+
         _file.Open(C_SaveFolderFile.FILE_HIPPIE_UNIVERSE_SETTINGS, File.ModeFlags.Write);
         _file.StoreString(JsonConvert.SerializeObject(_config));
         _file.Close();
     }
 
     public void OpenSettings(bool isOpen)
-    {
+    {   
         Visible = isOpen;
     }
     public SettingsUIConfig LoadSettings()
@@ -117,5 +131,18 @@ public class SettingsUI : Control
         _speedSlider.Value = _config.SpeedSliderValue;
         _musicCheckButton.Pressed = _config.MusicCheckButtonValue;
         _soundsCheckButton.Pressed = _config.SoundsCheckButtonValue;
+    }
+
+    [Obsolete]
+    private void MoveJoystickToRight(bool buttonPressed)
+    {
+        GD.Print("====================================");
+        // GD.Print(Interface.RightPositionForJoystick.GetPosition);
+        GD.Print("====================================");
+    }
+
+    private Vector2 Vector2(int v1, int v2)
+    {
+        throw new NotImplementedException();
     }
 }
