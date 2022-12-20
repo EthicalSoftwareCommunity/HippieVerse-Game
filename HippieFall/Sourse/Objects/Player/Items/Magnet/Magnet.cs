@@ -11,11 +11,11 @@ namespace HippieFall.Items
 	{
 		private List<Collectable> _collectablesInRange;
 		private Vector3 _directionTo;
-		private float _force;
-		private float _speedForceCorrection;
+		private MagnetConfig _config;
 
 		public override void _Ready()
 		{
+			_config = new MagnetConfig();
 			_collectablesInRange = new List<Collectable>();
 			Visible = false;
 			SetPhysicsProcess(false);
@@ -29,7 +29,7 @@ namespace HippieFall.Items
 				if(IsInstanceValid(collectable))
 				{
 					_directionTo = collectable.GlobalTranslation.DirectionTo(GlobalTranslation);
-					collectable.GlobalTranslation += delta * _directionTo * (_force+_speedForceCorrection/3);
+					collectable.GlobalTranslation += delta * _directionTo * (_config.Force+_config.SpeedForceCorrection/3);
 				}
 			}
 		}
@@ -47,12 +47,10 @@ namespace HippieFall.Items
 
 		public void ChangeConfigData(Config config)
 		{
-			MagnetConfig magnetConfig = ((ItemConfig)config).MagnetConfig;
-			_force = magnetConfig.Force;
-			_speedForceCorrection = magnetConfig.SpeedForceCorrection;
-			Visible = magnetConfig.IsMagnetActivated;
-			SetPhysicsProcess(magnetConfig.IsMagnetActivated);
-			SetBlockSignals(magnetConfig.IsMagnetActivated);
+			_config = new(((ItemConfig)config).MagnetConfig);
+			Visible = _config.IsMagnetActivated;
+			SetPhysicsProcess(_config.IsMagnetActivated);
+			SetBlockSignals(_config.IsMagnetActivated);
 		}
 	}
 

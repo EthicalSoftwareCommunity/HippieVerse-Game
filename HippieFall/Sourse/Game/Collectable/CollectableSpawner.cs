@@ -29,6 +29,7 @@ namespace HippieFall
 				GD.Load<PackedScene>(C_CollectablePath.SLOW_OBSTACLES).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.DOUBLE_SCORE).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.MAGNET).Instance<Collectable>(),
+				GD.Load<PackedScene>(C_CollectablePath.SHIELD).Instance<Collectable>(),
 			};
 			ReloadSetting();
 		}

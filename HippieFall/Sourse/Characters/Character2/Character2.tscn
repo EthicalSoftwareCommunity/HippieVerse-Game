@@ -22,10 +22,13 @@ _characterModelPath = NodePath("hippie_girl")
 [node name="Magnet" type="Spatial" parent="."]
 transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0.645556, 0.07095, -0.59612 )
 
+[node name="Shield" type="Spatial" parent="."]
+
 [node name="hippie_girl" parent="." instance=ExtResource( 10 )]
 transform = Transform( -1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0, 0, 0.888 )
 script = ExtResource( 8 )
 MagnetPath = NodePath("../Magnet")
+ShieldPath = NodePath("../Shield")
 
 [node name="CharacterInterface" type="Control" parent="."]
 anchor_left = 0.912
@@ -74,7 +77,6 @@ shape = SubResource( 1 )
 
 [node name="DestroyObstaclesAbility" type="Node" parent="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton"]
 script = ExtResource( 5 )
-_destroyAreaPath = NodePath("../Area/CollisionShape")
 
 [node name="Label" type="Label" parent="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton"]
 margin_left = 3.0
