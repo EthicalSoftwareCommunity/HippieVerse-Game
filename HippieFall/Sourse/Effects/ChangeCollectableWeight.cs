@@ -22,7 +22,7 @@ namespace HippieFall.Effects
             {
                 if (_config is CollectableCoinConfig && collectableConfig is CollectableCoinConfig coinConfig)
                     ApplyEffect(coinConfig);
-                if (_config is CollectableGemcoinConfig && collectableConfig is CollectableGemcoinConfig gemcoinConfig)
+                if (_config is CollectableCrystalConfig && collectableConfig is CollectableCrystalConfig gemcoinConfig)
                     ApplyEffect(gemcoinConfig);
                 if (_config is CollectableChestConfig && collectableConfig is CollectableChestConfig chestConfig)
                     ApplyEffect(chestConfig);
@@ -38,7 +38,7 @@ namespace HippieFall.Effects
                 coinConfig.SpawnWeight = _config.SpawnWeight;
         }
 
-        private void ApplyEffect(CollectableGemcoinConfig gemcoinConfig)
+        private void ApplyEffect(CollectableCrystalConfig gemcoinConfig)
         {
             
         }
