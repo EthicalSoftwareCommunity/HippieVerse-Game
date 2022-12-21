@@ -17,9 +17,9 @@ namespace HippieFall
 	
 		public CollectableSpawner CollectableSpawner { get; private set; }
 
-		private CollectableCoinConfig _coinConfig = new ();
-		private CollectableGemcoinConfig _gemCoinConfig = new ();
-		private CollectableChestConfig _chestConfig = new ();
+		[Export] private CollectableCoinConfig _coinConfig;
+		[Export] private CollectableCrystalConfig _crystalConfig;
+		[Export] private CollectableChestConfig _chestConfig;
 
 		public CollectableController() : base(Effect.EffectsTarget.Collectable)
 		{
@@ -33,7 +33,7 @@ namespace HippieFall
 			Configs.AddRange(new List<Config>()
 			{
 				_coinConfig,
-				_gemCoinConfig,
+				_crystalConfig,
 				_chestConfig
 			});
 			HippieFallUtilities.Game.GameEffectController.OnReceivedCollectableEffect += EffectController.AddEffect;
@@ -43,8 +43,8 @@ namespace HippieFall
 		{
 			if (node is CollectableCoin)
 				return new CollectableCoinConfig(_coinConfig);
-			if (node is CollectableGemcoin)
-				return new CollectableGemcoinConfig(_gemCoinConfig);
+			if (node is CollectableCrystal)
+				return new CollectableCrystalConfig(_crystalConfig);
 			if (node is CollectableChest)
 				return new CollectableChestConfig(_chestConfig);
 			return null;
