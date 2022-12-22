@@ -13,7 +13,6 @@ namespace HippieFall
         [Export] NodePath _parentJoysticNodePath;
         [Export] NodePath _parentJoysticNodeControlAreaPath;
         [Export] NodePath _rightPositionForJoystickPath;
-        [Export] NodePath _bottomUIPath;
 
         private readonly int _boundary = 64;
         private readonly Vector2 _radius = new Vector2(28, 28);
@@ -26,7 +25,6 @@ namespace HippieFall
         private GameInterface _Interface { get; set; }
         private Sprite _parentJoysticNode;
         private Control _parentJoysticNodeControlArea;
-        private Control _bottomUI;
         private Node2D _rightPositionForJoystick;
         private Node2D LeftPositionForAbilitiesButtons;
         public CharacterInterface _characterInterface;
@@ -57,8 +55,7 @@ namespace HippieFall
             _parentJoysticNode = GetNode<Sprite>(_parentJoysticNodePath);
             _parentJoysticNodeControlArea = GetNode<Control>(_parentJoysticNodeControlAreaPath);
             _rightPositionForJoystick = GetNode<Node2D>(_rightPositionForJoystickPath);
-            _bottomUI = GetNode<Control>(_bottomUIPath);
-
+            
         }
 
         [Obsolete]
@@ -90,7 +87,7 @@ namespace HippieFall
                     _canDraging = true;
             }
         }
-        
+
         public override void _Input(InputEvent @event)
         {
             if (_canDraging)
@@ -146,9 +143,9 @@ namespace HippieFall
         [Obsolete]
         private void ChangeAbilityButtonsPosition()
         {
-            _characterInterface = _bottomUI.GetNode<CharacterInterface>("CharacterInterface");
-            LeftPositionForAbilitiesButtons = _characterInterface.GetNode<Node2D>("LeftPositionForAbilitiesButtons");
-            AbilityButtonsController = _characterInterface.GetNode<AbilityButtonsController>("AbilitiesButtonsController");
+            _characterInterface = HippieFallUtilities.Game.GameInterface.CharacterInterface;
+            LeftPositionForAbilitiesButtons = _characterInterface.LeftPositionForAbilitiesButtons;
+            AbilityButtonsController = _characterInterface.AbilityButtonsController;
             AbilityButtonsController.SetGlobalPosition(LeftPositionForAbilitiesButtons.GetGlobalPosition());
         }
 
