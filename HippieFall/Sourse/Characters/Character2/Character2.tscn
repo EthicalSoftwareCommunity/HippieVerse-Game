@@ -38,6 +38,9 @@ mouse_filter = 2
 script = ExtResource( 7 )
 AbilityButtonsControllerPath = NodePath("AbilitiesButtonsController")
 
+[node name="LeftPositionForAbilitiesButtons" type="Node2D" parent="CharacterInterface"]
+position = Vector2( -703, 23 )
+
 [node name="AbilitiesButtonsController" type="Control" parent="CharacterInterface"]
 anchor_left = 1.0
 anchor_top = 1.0

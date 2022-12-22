@@ -4,6 +4,7 @@ using HippieUniverse.Objects.Settings;
 using Newtonsoft.Json;
 using HippieFall.Game;
 using Global.Data.CharacterSystem;
+using System;
 
 namespace HippieFall
 {
@@ -12,6 +13,7 @@ namespace HippieFall
         [Export] NodePath _parentJoysticNodePath;
         [Export] NodePath _parentJoysticNodeControlAreaPath;
         [Export] NodePath _rightPositionForJoystickPath;
+        [Export] NodePath _bottomUIPath;
 
         private readonly int _boundary = 64;
         private readonly Vector2 _radius = new Vector2(28, 28);
@@ -24,8 +26,12 @@ namespace HippieFall
         private GameInterface _Interface { get; set; }
         private Sprite _parentJoysticNode;
         private Control _parentJoysticNodeControlArea;
+        private Control _bottomUI;
+        private Node2D _rightPositionForJoystick;
+        private Node2D LeftPositionForAbilitiesButtons;
         public CharacterInterface _characterInterface;
         public AbilityButtonsController AbilityButtonsController { get; private set; }
+
 
         public Joystic()
         {
@@ -43,27 +49,28 @@ namespace HippieFall
 
         }
 
-
         public override void _Ready()
         {
             _config = LoadSettings();
 
+            HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
             _parentJoysticNode = GetNode<Sprite>(_parentJoysticNodePath);
             _parentJoysticNodeControlArea = GetNode<Control>(_parentJoysticNodeControlAreaPath);
-
-
-            _parentJoysticNode.Position = new Vector2(900, 200);
-            _parentJoysticNodeControlArea.SetPosition(new Vector2(900, 200));
-
-            _characterInterface.Connect("Ready", this, "Init");
+            _rightPositionForJoystick = GetNode<Node2D>(_rightPositionForJoystickPath);
+            _bottomUI = GetNode<Control>(_bottomUIPath);
 
         }
-        private void Init()
+
+        [Obsolete]
+        public void Init()
         {
-            AbilityButtonsController = _characterInterface.AbilityButtonsController;
-            AbilityButtonsController.SetPosition(new Vector2(20, 200));
-        }
+            if (_config.JoystickPositionButton == SettingsUIConfig.JoystickPositions.right)
+            {
+                ChangeAbilityButtonsPosition();
+                ChangeJoystickPosition(_rightPositionForJoystick.GetGlobalPosition(), _rightPositionForJoystick.GetPosition() + new Vector2(_parentJoysticNodeControlArea.GetSize().x, 0));
+            }
 
+        }
 
         public override void _Process(float delta)
         {
@@ -83,6 +90,7 @@ namespace HippieFall
                     _canDraging = true;
             }
         }
+        
         public override void _Input(InputEvent @event)
         {
             if (_canDraging)
@@ -133,6 +141,21 @@ namespace HippieFall
             SettingsUIConfig data = JsonConvert.DeserializeObject<SettingsUIConfig>(_file.GetAsText());
             _file.Close();
             return data ?? new SettingsUIConfig();
+        }
+
+        [Obsolete]
+        private void ChangeAbilityButtonsPosition()
+        {
+            _characterInterface = _bottomUI.GetNode<CharacterInterface>("CharacterInterface");
+            LeftPositionForAbilitiesButtons = _characterInterface.GetNode<Node2D>("LeftPositionForAbilitiesButtons");
+            AbilityButtonsController = _characterInterface.GetNode<AbilityButtonsController>("AbilitiesButtonsController");
+            AbilityButtonsController.SetGlobalPosition(LeftPositionForAbilitiesButtons.GetGlobalPosition());
+        }
+
+        private void ChangeJoystickPosition(Vector2 positionForNode, Vector2 positionForArea)
+        {
+            _parentJoysticNode.GlobalPosition = positionForNode;
+            _parentJoysticNodeControlArea.SetPosition(positionForArea);
         }
 
     }

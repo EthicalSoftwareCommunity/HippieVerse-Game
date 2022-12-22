@@ -337,10 +337,14 @@ margin_top = -300.0
 mouse_filter = 2
 
 [node name="Control" type="Control" parent="Interface/BottomUI"]
-margin_left = 16.0
-margin_top = 43.0
-margin_right = 301.0
-margin_bottom = 311.0
+anchor_left = 0.155
+anchor_top = 0.59
+anchor_right = 0.155
+anchor_bottom = 0.59
+margin_left = -142.72
+margin_top = -134.0
+margin_right = 142.28
+margin_bottom = 134.0
 
 [node name="Joystic" type="Sprite" parent="Interface/BottomUI"]
 position = Vector2( 156, 175 )
@@ -356,6 +360,8 @@ normal = ExtResource( 16 )
 script = ExtResource( 20 )
 _parentJoysticNodePath = NodePath("..")
 _parentJoysticNodeControlAreaPath = NodePath("../../Control")
+_rightPositionForJoystickPath = NodePath("../RightPositionForJoystick")
+_bottomUIPath = NodePath("../..")
 
 [node name="RightPositionForJoystick" type="Node2D" parent="Interface/BottomUI/Joystic"]
 position = Vector2( 450, 0 )
