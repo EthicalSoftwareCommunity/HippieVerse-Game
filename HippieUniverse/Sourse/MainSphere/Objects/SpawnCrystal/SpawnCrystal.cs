@@ -9,7 +9,7 @@ namespace HippieUniverse
     public class SpawnCrystal : InteractionController
     {
         [Export] private NodePath _spawnCoinIconPath;
-        private SpawnCrystalIcon _spawnCountIcon;
+        private SpawnGemCoinIcon _spawnCountIcon;
         private int _maxCrystalCount = 10;
         private int _minCrystalCount = 2;
         private int _crystalCount;
@@ -18,15 +18,15 @@ namespace HippieUniverse
         {
             _crystalCount = Utilities.GetRandomNumberInt(_minCrystalCount, _maxCrystalCount);
             _animationPlayer = GetNode<AnimationPlayer>("../AnimationPlayer");
-            _spawnCountIcon = GetNode<SpawnCrystalIcon>(_spawnCoinIconPath);
+            _spawnCountIcon = GetNode<SpawnGemCoinIcon>(_spawnCoinIconPath);
         }
 
         private void CollectCrystal()
         {
-            _spawnCountIcon.Render(new SpawnCrystalIconModel(_crystalCount.ToString()));
+            _spawnCountIcon.Render(new SpawnGemCoinIconModel(_crystalCount.ToString()));
             RewardData data = new RewardData()
             {
-                Crystal = { Count = _crystalCount }
+                Gemcoin = { Count = _crystalCount }
                 
             };
             new RewardController().RewardSaveLoadSystem.SaveRewards(data);

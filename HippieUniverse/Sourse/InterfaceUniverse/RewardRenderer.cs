@@ -13,13 +13,13 @@ namespace HippieUniverse
 		public override void _Ready()
 		{
 			_coinScore = GetNode<Label>("Coin/TextureRect/Label");
-			_gemcoinScore = GetNode<Label>("Crystal/TextureRect2/Label");
+			_gemcoinScore = GetNode<Label>("Gemcoin/TextureRect2/Label");
 		}
 
 		public void Render(RewardData data)
 		{
 			_coinScore.Text = data.Coin.Count.ToString();
-			_gemcoinScore.Text = data.Crystal.Count.ToString();
+			_gemcoinScore.Text = data.Gemcoin.Count.ToString();
 		}
 	}
 }

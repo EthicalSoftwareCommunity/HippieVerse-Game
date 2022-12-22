@@ -3,22 +3,22 @@ using Newtonsoft.Json;
 
 namespace Global.Data.Reward
 {
-    public class RewardCrystal : Reward
+    public class RewardGemcoin : Reward
     {
         [JsonProperty] public int Count { get; set; }
         [JsonConstructor]
-        public RewardCrystal(int count = 0)
+        public RewardGemcoin(int count = 0)
         {
             Count = count;
         }
 
-        public RewardCrystal(CollectableCrystalConfig config)
+        public RewardGemcoin(CollectableGemcoinConfig config)
         {
             Count = config.Value;
         }
-        public static RewardCrystal operator +(RewardCrystal left, RewardCrystal right)
+        public static RewardGemcoin operator +(RewardGemcoin left, RewardGemcoin right)
         {
-            return new RewardCrystal
+            return new RewardGemcoin
             {
                 Count = left.Count + right.Count
             };
