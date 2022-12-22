@@ -14,7 +14,7 @@
 [ext_resource path="res://Images/gemcoin.png" type="Texture" id=12]
 [ext_resource path="res://HippieUniverse/Sourse/InterfaceUniverse/RewardRenderer.cs" type="Script" id=13]
 [ext_resource path="res://HippieUniverse/Sourse/InterfaceUniverse/GameInterface.cs" type="Script" id=14]
-[ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/CrystalsSpawner/CrystalSpawner.cs" type="Script" id=15]
+[ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/GemcoinsSpawner/GemCoinSpawner.cs" type="Script" id=15]
 
 [sub_resource type="PhysicsMaterial" id=11]
 
@@ -104,14 +104,14 @@ text = "1000"
 align = 1
 valign = 1
 
-[node name="Crystal" type="NinePatchRect" parent="Interface/TopUI/HBoxContainer/RewardRender"]
+[node name="Gemcoin" type="NinePatchRect" parent="Interface/TopUI/HBoxContainer/RewardRender"]
 margin_left = 171.0
 margin_right = 339.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect2" type="TextureRect" parent="Interface/TopUI/HBoxContainer/RewardRender/Crystal"]
+[node name="TextureRect2" type="TextureRect" parent="Interface/TopUI/HBoxContainer/RewardRender/Gemcoin"]
 margin_top = 8.0
 margin_right = 60.0
 margin_bottom = 68.0
@@ -122,7 +122,7 @@ texture = ExtResource( 12 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="Interface/TopUI/HBoxContainer/RewardRender/Crystal/TextureRect2"]
+[node name="Label" type="Label" parent="Interface/TopUI/HBoxContainer/RewardRender/Gemcoin/TextureRect2"]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -211,7 +211,7 @@ shape = SubResource( 23 )
 
 [node name="SpawnGemcoinsPoints" type="Node" parent="World"]
 script = ExtResource( 15 )
-_spawnPointsPaths = [ NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5"), NodePath("SpawnPoint6") ]
+_spawnPointsPaths = [ NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5"), NodePath("SpawnPoint5") ]
 
 [node name="SpawnPoint" type="Spatial" parent="World/SpawnGemcoinsPoints"]
 transform = Transform( 0.297983, 0.0289843, 0.0191309, -0.00207405, 0.179818, -0.240128, -0.0346667, 0.238381, 0.178809, -0.994321, -7.24079, -6.67072 )

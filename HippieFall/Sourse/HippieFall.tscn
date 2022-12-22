@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -28,7 +28,6 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera/GameCamera.cs" type="Script" id=26]
 [ext_resource path="res://HippieFall/Sourse/Game/GameParticlesController.cs" type="Script" id=27]
 [ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
-[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalData.tres" type="Resource" id=29]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
@@ -302,14 +301,14 @@ text = "1000"
 align = 1
 valign = 1
 
-[node name="Crystal" type="NinePatchRect" parent="Interface/TopUI/HBoxContainer/RewardRender"]
+[node name="Gemcoin" type="NinePatchRect" parent="Interface/TopUI/HBoxContainer/RewardRender"]
 margin_left = 228.0
 margin_right = 339.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect2" type="TextureRect" parent="Interface/TopUI/HBoxContainer/RewardRender/Crystal"]
+[node name="TextureRect2" type="TextureRect" parent="Interface/TopUI/HBoxContainer/RewardRender/Gemcoin"]
 anchor_left = -0.973
 anchor_right = -0.973
 margin_left = 39.003
@@ -322,7 +321,7 @@ texture = ExtResource( 14 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="Interface/TopUI/HBoxContainer/RewardRender/Crystal/TextureRect2"]
+[node name="Label" type="Label" parent="Interface/TopUI/HBoxContainer/RewardRender/Gemcoin/TextureRect2"]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -620,7 +619,6 @@ script = ExtResource( 3 )
 
 [node name="CollectableController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 6 )
-_crystalConfig = ExtResource( 29 )
 
 [node name="DestroyTunnelTrigger" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.3379, 0 )

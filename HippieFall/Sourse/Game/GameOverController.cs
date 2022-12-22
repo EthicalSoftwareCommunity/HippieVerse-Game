@@ -21,7 +21,7 @@ namespace HippieFall.Game.Interface
 		private Player _player;
 
 		private RewardData _rewardData = new RewardController().RewardSaveLoadSystem.LoadRewards();
-		private int paymentCrystalCount = 1;
+		private int paymentGemcoinCount = 1;
 
 		public override void _Ready()
 		{
@@ -44,16 +44,16 @@ namespace HippieFall.Game.Interface
 		private void ShowGameOverScreen()
 		{
 			HippieFallUtilities.PauseGame();
-			_gameOverScreen.Show(_rewardData, paymentCrystalCount, _levelController.Deep, CheckForHighScore());
+			_gameOverScreen.Show(_rewardData, paymentGemcoinCount, _levelController.Deep, CheckForHighScore());
 		}
 
 		private void ContinueGame()
 		{
-			SpendCrystals();
+			SpendGemCoins();
 			HippieFallUtilities.ResumeGame();
 			HippieFallUtilities.Game.Level.Spawner.RemoveTunnel(2);
 			_gameOverScreen.Hide();
-			paymentCrystalCount *= 2;
+			paymentGemcoinCount *= 2;
 		}
 
 		private bool CheckForHighScore()
@@ -83,9 +83,9 @@ namespace HippieFall.Game.Interface
 		{
 			new RewardController().RewardSaveLoadSystem.SaveRewards(_player.PlayerRewardController.RewardController.RewardData);
 		}
-		private void SpendCrystals()
+		private void SpendGemCoins()
 		{
-			_rewardData.Crystal.Count -= paymentCrystalCount;
+			_rewardData.Gemcoin.Count -= paymentGemcoinCount;
 			new RewardController().RewardSaveLoadSystem.SaveRewards(_rewardData, true);
 		}
 		private void ReplayGame()

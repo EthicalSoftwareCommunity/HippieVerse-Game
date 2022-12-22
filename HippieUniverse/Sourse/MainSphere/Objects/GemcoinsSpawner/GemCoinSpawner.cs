@@ -5,7 +5,7 @@ using Global;
 using Global.Constants;
 using HippieUniverse;
 
-public class CrystalSpawner : Node
+public class GemCoinSpawner : Node
 {
     [Export] private List<NodePath> _spawnPointsPaths;
     private List<Spatial> _spawnPoints;

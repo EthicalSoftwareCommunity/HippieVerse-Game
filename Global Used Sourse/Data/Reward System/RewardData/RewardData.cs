@@ -10,14 +10,14 @@ namespace Global.Data.Reward
         public RewardData()
         {
             Coin = new RewardCoin();
-            Crystal = new RewardCrystal();
+            Gemcoin = new RewardGemcoin();
             Chests = new List<RewardChest>();
         }
 
         public RewardData(RewardData data)
         {
             Coin = data.Coin;
-            Crystal = data.Crystal;
+            Gemcoin = data.Gemcoin;
             Chests = data.Chests;
         }
 
@@ -25,7 +25,7 @@ namespace Global.Data.Reward
 
         [JsonProperty] public RewardCoin Coin { get; private set; }
 
-        [JsonProperty] public RewardCrystal Crystal { get; private set; }
+        [JsonProperty] public RewardGemcoin Gemcoin { get; private set; }
 
         public void AddChest(RewardChest chest)
         {
@@ -37,9 +37,9 @@ namespace Global.Data.Reward
             Coin.Count += coin.Count;
         }
 
-        public void AddCrystal(RewardCrystal crystal)
+        public void AddGemcoin(RewardGemcoin gemcoin)
         {
-            Crystal.Count += crystal.Count;
+            Gemcoin.Count += gemcoin.Count;
         }
 
         public static RewardData operator +(RewardData left, RewardData right)
@@ -48,7 +48,7 @@ namespace Global.Data.Reward
             return new RewardData
             {
                 Coin = left.Coin + right.Coin,
-                Crystal = left.Crystal + right.Crystal,
+                Gemcoin = left.Gemcoin + right.Gemcoin,
                 Chests = left.Chests
             };
         }
