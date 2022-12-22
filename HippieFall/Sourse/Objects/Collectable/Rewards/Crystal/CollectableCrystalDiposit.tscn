@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://HippieFall/Materials/Models/ConvertedToSceneModels/Crystal/MoreCrystals.tscn" type="PackedScene" id=1]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystal.cs" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.5, 1, 0.5 )
+
+[node name="CollectableCrystalDeposit" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="CrystalsDeposit" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149267, -0.514724, -0.207264 )
+
+[node name="Area" type="Area" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )
+
+[connection signal="area_entered" from="Area" to="." method="OnAreaEntered"]
