@@ -41,7 +41,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/CustomResourceRegister/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [global]
 
