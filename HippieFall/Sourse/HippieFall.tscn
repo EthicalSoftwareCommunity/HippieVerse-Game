@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -28,7 +28,6 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera/GameCamera.cs" type="Script" id=26]
 [ext_resource path="res://HippieFall/Sourse/Game/GameParticlesController.cs" type="Script" id=27]
 [ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
-[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalData.tres" type="Resource" id=29]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
@@ -620,7 +619,6 @@ script = ExtResource( 3 )
 
 [node name="CollectableController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 6 )
-_crystalConfig = ExtResource( 29 )
 
 [node name="DestroyTunnelTrigger" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.3379, 0 )
@@ -672,6 +670,16 @@ draw_pass_1 = SubResource( 29 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
 anims/ChangeCharacteristics = SubResource( 32 )
+
+[node name="OmniLight" type="OmniLight" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5332e-07, -5.53704 )
+light_color = Color( 0.662745, 0.662745, 0.662745, 1 )
+light_energy = 5.159
+light_indirect_energy = 4.453
+light_size = 0.525
+light_bake_mode = 2
+omni_range = 6.948
+omni_attenuation = 2.46229
 
 [connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
