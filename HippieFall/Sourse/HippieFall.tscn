@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -122,6 +122,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.345098 ), Color( 1, 1, 1, 0.721569 ), Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="SpatialMaterial" id=33]
+albedo_color = Color( 0, 1, 0.184314, 1 )
 
 [sub_resource type="BoxShape" id=6]
 
@@ -613,6 +616,12 @@ TunnelSpawnerPath = NodePath("TunnelsSpawner")
 script = ExtResource( 5 )
 _collectableControllerPath = NodePath("CollectableController")
 _obstaclesControllerPath = NodePath("ObstaclesController")
+
+[node name="GreenSpatial" type="CSGBox" parent="Level/TunnelsSpawner"]
+transform = Transform( 4.07435, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01344, 0 )
+material_override = SubResource( 33 )
+height = 0.226697
+depth = 6.86114
 
 [node name="ObstaclesController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 3 )
