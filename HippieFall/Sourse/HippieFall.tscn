@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -28,10 +28,13 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera/GameCamera.cs" type="Script" id=26]
 [ext_resource path="res://HippieFall/Sourse/Game/GameParticlesController.cs" type="Script" id=27]
 [ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
+[ext_resource path="res://HippieFall/Sourse/SwipeControl.cs" type="Script" id=29]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
 [ext_resource path="res://Fonts/Ubuntu-BoldItalic.ttf" type="DynamicFontData" id=37]
+
+[sub_resource type="RectangleShape2D" id=32]
 
 [sub_resource type="Theme" id=1]
 
@@ -209,6 +212,7 @@ PauseButtonPath = NodePath("TopUI/HBoxContainer/Control/PauseButton")
 BottomUIPath = NodePath("BottomUI")
 TopUIPath = NodePath("TopUI")
 RightPositionForJoystickPath = NodePath("BottomUI/Joystic/RightPositionForJoystick")
+SwipeControlPath = NodePath("SwipeControl")
 
 [node name="HoldTapArea" type="Control" parent="Interface"]
 anchor_right = 1.0
@@ -218,6 +222,12 @@ margin_right = 2.0
 margin_bottom = -2.0
 mouse_filter = 1
 script = ExtResource( 24 )
+
+[node name="SwipeControl" type="TouchScreenButton" parent="Interface"]
+position = Vector2( 98, 96 )
+scale = Vector2( 40.9348, 20.2319 )
+shape = SubResource( 32 )
+script = ExtResource( 29 )
 
 [node name="TopUI" type="Control" parent="Interface"]
 pause_mode = 2
@@ -361,7 +371,6 @@ script = ExtResource( 20 )
 _parentJoysticNodePath = NodePath("..")
 _parentJoysticNodeControlAreaPath = NodePath("../../Control")
 _rightPositionForJoystickPath = NodePath("../RightPositionForJoystick")
-_bottomUIPath = NodePath("../..")
 
 [node name="RightPositionForJoystick" type="Node2D" parent="Interface/BottomUI/Joystic"]
 position = Vector2( 450, 0 )

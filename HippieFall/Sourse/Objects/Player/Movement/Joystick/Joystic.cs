@@ -55,17 +55,26 @@ namespace HippieFall
             _parentJoysticNode = GetNode<Sprite>(_parentJoysticNodePath);
             _parentJoysticNodeControlArea = GetNode<Control>(_parentJoysticNodeControlAreaPath);
             _rightPositionForJoystick = GetNode<Node2D>(_rightPositionForJoystickPath);
-            
+
         }
 
         [Obsolete]
         public void Init()
         {
+            if(!_config.SwipeControlButtonValue)
+            DisableSwipeControl();
+
             if (_config.JoystickPositionButton == SettingsUIConfig.JoystickPositions.right)
             {
                 ChangeAbilityButtonsPosition();
                 ChangeJoystickPosition(_rightPositionForJoystick.GetGlobalPosition(), _rightPositionForJoystick.GetPosition() + new Vector2(_parentJoysticNodeControlArea.GetSize().x, 0));
             }
+
+        }
+
+        private void DisableSwipeControl()
+        {
+            HippieFallUtilities.Game.GameInterface.SwipeControl.Visible = false;
 
         }
 

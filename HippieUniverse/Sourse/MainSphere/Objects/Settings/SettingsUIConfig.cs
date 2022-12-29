@@ -17,6 +17,8 @@ public class SettingsUIConfig : Config
     public bool MusicCheckButtonValue = false;
 
     public bool SoundsCheckButtonValue = false;
+    public bool SwipeControlButtonValue = false;
+
     
 
     public SettingsUIConfig()
@@ -31,6 +33,7 @@ public class SettingsUIConfig : Config
         MusicCheckButtonValue = config.MusicCheckButtonValue;
         SoundsCheckButtonValue = config.SoundsCheckButtonValue;
         JoystickPositionButton = config.JoystickPositionButton;
+        SwipeControlButtonValue = config.SwipeControlButtonValue;
  
     }
 }

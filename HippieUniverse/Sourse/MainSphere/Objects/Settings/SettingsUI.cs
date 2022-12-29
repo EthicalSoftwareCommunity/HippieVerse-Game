@@ -15,6 +15,8 @@ public class SettingsUI : Control
     [Export] private NodePath _saveSettingsButtonPath;
     [Export] private NodePath _closeSettingsButtonPath;
     [Export] private NodePath _JoystickPositionButtonPath;
+    [Export] private NodePath _SwipeControlButtonPath;
+
 
     private HSlider _musicSlider;
     private HSlider _soundsSlider;
@@ -25,6 +27,8 @@ public class SettingsUI : Control
     private Button _saveSettingsButton;
     private Button _closeSettingsButton;
     private CheckButton _JoystickPositionButton;
+    private CheckButton _SwipeControlButton;
+
 
     private SettingsUIConfig _config;
     private File _file;
@@ -55,6 +59,7 @@ public class SettingsUI : Control
         _saveSettingsButton = GetNode<Button>(_saveSettingsButtonPath);
         _closeSettingsButton = GetNode<Button>(_closeSettingsButtonPath);
         _JoystickPositionButton = GetNode<CheckButton>(_JoystickPositionButtonPath);
+        _SwipeControlButton = GetNode<CheckButton>(_SwipeControlButtonPath);
 
         _musicCheckButton.Connect("toggled", this,
             nameof(ChangeSliderValue), new Array(_musicSlider));
@@ -94,7 +99,8 @@ public class SettingsUI : Control
         _config.MusicCheckButtonValue = _musicCheckButton.Pressed;
         _config.SoundsCheckButtonValue = _soundsCheckButton.Pressed;
         _config.JoystickPositionButton = _JoystickPositionButton.Pressed ? SettingsUIConfig.JoystickPositions.right : SettingsUIConfig.JoystickPositions.left;
-    
+        _config.SwipeControlButtonValue = _SwipeControlButton.Pressed;
+
         _file.Open(C_SaveFolderFile.FILE_HIPPIE_UNIVERSE_SETTINGS, File.ModeFlags.Write);
         _file.StoreString(JsonConvert.SerializeObject(_config));
         _file.Close();
@@ -121,6 +127,7 @@ public class SettingsUI : Control
         _musicCheckButton.Pressed = _config.MusicCheckButtonValue;
         _soundsCheckButton.Pressed = _config.SoundsCheckButtonValue;
         _JoystickPositionButton.Pressed = _config.JoystickPositionButton == SettingsUIConfig.JoystickPositions.right ? true : false;
+        _SwipeControlButton.Pressed = _config.SwipeControlButtonValue;
     }
 
 }

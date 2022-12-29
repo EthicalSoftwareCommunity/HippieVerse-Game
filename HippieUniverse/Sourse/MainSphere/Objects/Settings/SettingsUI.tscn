@@ -91,6 +91,7 @@ _soundsCheckButtonPath = NodePath("VBoxContainer/Music and sound/Sounds/HBoxCont
 _saveSettingsButtonPath = NodePath("VBoxContainer/Control2/SaveButton")
 _closeSettingsButtonPath = NodePath("VBoxContainer/Control/CloseButton")
 _JoystickPositionButtonPath = NodePath("VBoxContainer/Controls/JoystickToRIght/HBoxContainer/CheckButton")
+_SwipeControlButtonPath = NodePath("VBoxContainer/Controls/FingerControl/HBoxContainer/CheckButton2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0

@@ -15,6 +15,8 @@ namespace HippieFall
         [Export] private NodePath BottomUIPath;
         [Export] private NodePath TopUIPath;
         [Export] private NodePath RightPositionForJoystickPath;
+        [Export] private NodePath SwipeControlPath;
+
 
         public Label GameScore;
         public Joystic Joystic;
@@ -25,6 +27,7 @@ namespace HippieFall
         public Control BottomUI;
         public Control TopUI;
         public Node2D RightPositionForJoystick;
+        public SwipeControl SwipeControl;
 
 
         public override void _Ready()
@@ -37,6 +40,7 @@ namespace HippieFall
             RewardRenderer = GetNode<RewardRenderer>(RewardRendererPath);
             PauseButton = GetNode<PauseButton>(PauseButtonPath);
             GameScore = GetNode<Label>(GameScorePath);
+            SwipeControl = GetNode<SwipeControl>(SwipeControlPath);
             GameScore.Text = "0";
         }
 
