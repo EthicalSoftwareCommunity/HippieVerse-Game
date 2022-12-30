@@ -7,5 +7,5 @@ script = ExtResource( 1 )
 SpawnOffsetX = 2.0
 SpawnOffsetZ = 2.0
 SpawnOffsetY = 0.0
-SpawnWeight = 30.0
-Value = 1
+SpawnWeight = 3000.0
+Value = 1000
