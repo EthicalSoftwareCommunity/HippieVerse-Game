@@ -1,15 +1,16 @@
 using System;
 using Global.Data;
 using Global.Data.EffectSystem;
+using Godot;
 
 namespace HippieFall.Collectables
 {
 	public class CollectableConfig : Config, IEffectable
 	{
-		public float SpawnOffsetX { get; set; } = 0;
-		public float SpawnOffsetZ { get; set; } = 0;
-		public float SpawnOffsetY { get; set; } = 0;
-		public float SpawnWeight { get; set; } = 10;
+		[Export] public float SpawnOffsetX { get; set; } = 0;
+		[Export] public float SpawnOffsetZ { get; set; } = 0;
+		[Export] public float SpawnOffsetY { get; set; } = 0;
+		[Export] public float SpawnWeight { get; set; } = 10;
 
 		public CollectableConfig()
 		{

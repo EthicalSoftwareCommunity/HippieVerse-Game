@@ -2,7 +2,7 @@
 
 [ext_resource path="res://HippieFall/Materials/Models/ConvertedToSceneModels/Crystal/Crystals.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystal.cs" type="Script" id=2]
-[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalData.tres" type="Resource" id=3]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalConfigData.tres" type="Resource" id=3]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.5, 1, 0.5 )

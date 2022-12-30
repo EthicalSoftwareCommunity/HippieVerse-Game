@@ -12,11 +12,6 @@ namespace HippieFall.Collectables
         {
             SetAnimationSettings();
         }
-
-        public CollectableCoin()
-        {
-            Config = new CollectableCoinConfig();
-        }
         
         public override void ChangeConfigData(Config config)
         {

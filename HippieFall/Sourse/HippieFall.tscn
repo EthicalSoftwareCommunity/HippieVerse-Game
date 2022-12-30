@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -28,6 +28,10 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera/GameCamera.cs" type="Script" id=26]
 [ext_resource path="res://HippieFall/Sourse/Game/GameParticlesController.cs" type="Script" id=27]
 [ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
+[ext_resource path="res://HippieFall/Sourse/Objects/Tunnel/StartGreenPlane.cs" type="Script" id=29]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Chest/CollectableChestConfigData.tres" type="Resource" id=30]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalConfigData.tres" type="Resource" id=31]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Coin/CollectableCoinConfigData.tres" type="Resource" id=32]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
@@ -124,7 +128,12 @@ tracks/1/keys = {
 }
 
 [sub_resource type="SpatialMaterial" id=33]
-albedo_color = Color( 0, 1, 0.184314, 1 )
+flags_disable_ambient_light = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SpatialMaterial" id=34]
+flags_vertex_lighting = true
+albedo_color = Color( 0, 0.501961, 1, 1 )
 
 [sub_resource type="BoxShape" id=6]
 
@@ -612,22 +621,42 @@ modulate = Color( 1, 1, 1, 1 )
 script = ExtResource( 4 )
 TunnelSpawnerPath = NodePath("TunnelsSpawner")
 
+[node name="StartGreenPlane" type="CSGBox" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.1438, 0 )
+material_override = SubResource( 33 )
+width = 48.4563
+height = 4.82915
+depth = 51.1591
+script = ExtResource( 29 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Level/StartGreenPlane"]
+operation = 1
+radius = 2.9
+height = 10.2566
+sides = 64
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="Level/StartGreenPlane"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 4.64839, 0 )
+material_override = SubResource( 34 )
+invert_faces = true
+radius = 8.91969
+height = 12.3314
+sides = 64
+cone = true
+
 [node name="TunnelsSpawner" type="Spatial" parent="Level"]
 script = ExtResource( 5 )
 _collectableControllerPath = NodePath("CollectableController")
 _obstaclesControllerPath = NodePath("ObstaclesController")
-
-[node name="GreenSpatial" type="CSGBox" parent="Level/TunnelsSpawner"]
-transform = Transform( 4.07435, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01344, 0 )
-material_override = SubResource( 33 )
-height = 0.226697
-depth = 6.86114
 
 [node name="ObstaclesController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 3 )
 
 [node name="CollectableController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 6 )
+_coinConfig = ExtResource( 31 )
+_crystalConfig = ExtResource( 32 )
+_chestConfig = ExtResource( 30 )
 
 [node name="DestroyTunnelTrigger" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.3379, 0 )
@@ -682,12 +711,13 @@ anims/ChangeCharacteristics = SubResource( 32 )
 
 [node name="OmniLight" type="OmniLight" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5332e-07, -5.53704 )
-light_color = Color( 0.662745, 0.662745, 0.662745, 1 )
-light_energy = 5.159
+light_color = Color( 0.211765, 0.627451, 0.00784314, 1 )
+light_energy = 8.636
 light_indirect_energy = 4.453
 light_size = 0.525
 light_bake_mode = 2
-omni_range = 6.948
+shadow_enabled = true
+omni_range = 11.508
 omni_attenuation = 2.46229
 
 [connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
