@@ -4,7 +4,8 @@ namespace Global.Constants
     {
         public const string CYBER = "Cyber";
         public const string BIKER = "Biker";
+        public const string HIPPIE = "Hippie";
 
-        public static readonly string[] BIOME_NAMES = { CYBER, BIKER };
+        public static readonly string[] BIOME_NAMES = { CYBER, BIKER, HIPPIE};
     }
 }
