@@ -26,6 +26,7 @@ namespace HippieFall
 		private ObstaclesController _obstaclesController;
 		private Biome _cyberBiome;
 		private Biome _bikerBiome = null;//= new Biome(C_BiomeTypes.BIKER);
+		private Biome _hippieBiome;
 		private List<Biome> _biomes;
 		private List<Spatial> _cashTunnels;
 		private List<PackedScene> _obstacleOrder;
@@ -42,7 +43,8 @@ namespace HippieFall
 			_obstacleOrder = new List<PackedScene>();
 			_cashTunnels = new List<Spatial>();
 			_cyberBiome = new(C_BiomeTypes.CYBER);
-			_biomes = new List<Biome> { _cyberBiome, _bikerBiome };
+			_hippieBiome = new(C_BiomeTypes.HIPPIE);
+			_biomes = new List<Biome> { _cyberBiome, _bikerBiome, _hippieBiome };
 			_obstaclesController = GetNode<ObstaclesController>(_obstaclesControllerPath);
 			_collectableController = GetNode<CollectableController>(_collectableControllerPath);
 			SetNewBiome();
@@ -65,11 +67,11 @@ namespace HippieFall
 			
 			switch (biomeName)
 			{
-				case C_BiomeTypes.BIKER: CurrentBiome = _bikerBiome; break;
 				case C_BiomeTypes.CYBER: CurrentBiome = _cyberBiome; break;
+				case C_BiomeTypes.HIPPIE: CurrentBiome = _hippieBiome; break;
+				default: CurrentBiome = _hippieBiome; break;
 			}
-
-			CurrentBiome = _cyberBiome; //Debug
+			
 			LoadObstacles();
 			FillOrder();
 		}
