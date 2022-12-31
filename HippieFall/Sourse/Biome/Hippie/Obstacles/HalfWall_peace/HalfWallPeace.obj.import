@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://import/HalfWallPeace.obj-fdaa07b6d8014bd55e255c9f3282df80.mesh"
+
+[deps]
+
+files=[ "res://import/HalfWallPeace.obj-fdaa07b6d8014bd55e255c9f3282df80.mesh" ]
+
+source_file="res://HippieFall/Sourse/Biome/Hippie/Obstacles/HalfWall_peace/HalfWallPeace.obj"
+dest_files=[ "res://import/HalfWallPeace.obj-fdaa07b6d8014bd55e255c9f3282df80.mesh", "res://import/HalfWallPeace.obj-fdaa07b6d8014bd55e255c9f3282df80.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

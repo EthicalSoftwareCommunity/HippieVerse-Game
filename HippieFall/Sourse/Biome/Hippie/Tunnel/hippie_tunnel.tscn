@@ -476,7 +476,7 @@ surfaces/0 = {
 }
 
 [node name="hippie_tunnel" type="Spatial"]
-transform = Transform( 3.5, 0, 0, 0, 8.2, 0, 0, 0, 3.5, 0, 0, 0 )
+transform = Transform( 4.4, 0, 0, 0, 8.331, 0, 0, 0, 4.4, 0, 0, 0 )
 script = ExtResource( 6 )
 SpawnPointsPaths = [ NodePath("SpawnObstaclesPoints/Point1"), NodePath("SpawnObstaclesPoints/Point2") ]
 
@@ -565,6 +565,7 @@ mesh = SubResource( 37 )
 mesh = SubResource( 38 )
 
 [node name="Cylinder001" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.02, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 34 )
 
 [node name="SpawnObstaclesPoints" type="Spatial" parent="."]
