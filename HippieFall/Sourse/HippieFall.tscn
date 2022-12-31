@@ -666,8 +666,8 @@ script = ExtResource( 3 )
 
 [node name="CollectableController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 6 )
-_coinConfig = ExtResource( 31 )
-_crystalConfig = ExtResource( 32 )
+_coinConfig = ExtResource( 32 )
+_crystalConfig = ExtResource( 31 )
 _chestConfig = ExtResource( 30 )
 
 [node name="DestroyTunnelTrigger" type="Area" parent="."]

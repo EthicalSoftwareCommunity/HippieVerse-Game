@@ -1,10 +1,11 @@
 ﻿using Global.Data;
+using Godot;
 
 namespace HippieFall.Collectables
 {
     public class CollectableCoinConfig : CollectableConfig
     {
-        public int Value { get; set; } = 1;
+        [Export] public int Value { get; set; } = 1;
         public CollectableCoinConfig()
         {
             SpawnWeight = 800f;

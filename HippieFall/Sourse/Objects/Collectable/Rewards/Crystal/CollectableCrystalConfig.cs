@@ -5,7 +5,7 @@ namespace HippieFall.Collectables
 {
     public class CollectableCrystalConfig : CollectableConfig
     {
-        [Export] public int Value { get; set; }= 1;
+        [Export] public int Value { get; set; } = 1;
 
         public CollectableCrystalConfig()
         {
