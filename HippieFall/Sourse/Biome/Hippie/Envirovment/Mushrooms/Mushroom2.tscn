@@ -23,7 +23,7 @@ surfaces/0 = {
 extents = Vector3( 0.117388, 0.128162, 0.132173 )
 
 [node name="Mushroom2" type="MeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0985703, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0538568, 0 )
 mesh = SubResource( 2 )
 script = ExtResource( 2 )
 
