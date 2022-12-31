@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://import/PerforatedWall.obj-1c351fa035e5f85ecc59a43bfa7c1656.mesh"
+
+[deps]
+
+files=[ "res://import/PerforatedWall.obj-1c351fa035e5f85ecc59a43bfa7c1656.mesh" ]
+
+source_file="res://HippieFall/Sourse/Biome/Hippie/Obstacles/PerforatedWall3Types/version_2/PerforatedWall.obj"
+dest_files=[ "res://import/PerforatedWall.obj-1c351fa035e5f85ecc59a43bfa7c1656.mesh", "res://import/PerforatedWall.obj-1c351fa035e5f85ecc59a43bfa7c1656.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

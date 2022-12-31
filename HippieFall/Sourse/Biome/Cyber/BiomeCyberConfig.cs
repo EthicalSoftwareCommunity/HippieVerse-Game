@@ -9,7 +9,7 @@ namespace HippieFall.Biomes
         {       
             TunnelsObstacle = new List<string>
             {
-                C_TunnelObstaclePath.CYBER_CIRCLE_MOVING,
+                C_TunnelObstaclePath.CYBER_SAW,
                 C_TunnelObstaclePath.CYBER_PERFORATED_WALL,
                 C_TunnelObstaclePath.CYBER_HALF_WALL,
                 C_TunnelObstaclePath.CYBER_FAN,
