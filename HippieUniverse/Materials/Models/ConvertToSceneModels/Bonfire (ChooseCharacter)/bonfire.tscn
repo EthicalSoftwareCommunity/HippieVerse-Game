@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://HippieUniverse/Materials/Models/ConvertToSceneModels/Bonfire (ChooseCharacter)/lambert1_002.material" type="Material" id=1]
 [ext_resource path="res://HippieUniverse/Materials/Models/ConvertToSceneModels/Bonfire (ChooseCharacter)/smoke_04.png" type="Texture" id=2]
 [ext_resource path="res://HippieUniverse/Materials/Models/ConvertToSceneModels/Bonfire (ChooseCharacter)/flame_01.png" type="Texture" id=3]
 [ext_resource path="res://HippieUniverse/Materials/Models/ConvertToSceneModels/Bonfire (ChooseCharacter)/hogueraLP_sueloSG_BaseColor.png" type="Texture" id=4]
@@ -17,7 +16,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 8184,
-"material": ExtResource( 1 ),
+"material": SubResource( 13 ),
 "name": "lambert1.002",
 "primitive": 4,
 "skeleton_aabb": [  ],
@@ -98,7 +97,6 @@ color_ramp = SubResource( 11 )
 [node name="bonfire" type="Spatial"]
 
 [node name="palo1" type="MeshInstance" parent="."]
-material_override = SubResource( 13 )
 mesh = SubResource( 1 )
 
 [node name="Point002" type="OmniLight" parent="."]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://HippieUniverse/Materials/Models/ImportedModels/Material_001.material" type="Material" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Coin/CollectableCoin.cs" type="Script" id=2]
 [ext_resource path="res://HippieFall/Materials/Models/ConvertedToSceneModels/Coin/Coin_Texture.png" type="Texture" id=3]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Coin/CollectableCoinConfigData.tres" type="Resource" id=4]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 3 )
@@ -72,6 +73,7 @@ extents = Vector3( 1, 1, 0.578 )
 
 [node name="CollectableCoin" type="Spatial"]
 script = ExtResource( 2 )
+Config = ExtResource( 4 )
 
 [node name="coin" type="MeshInstance" parent="."]
 transform = Transform( 0.510146, 0.192051, 0.838372, 0.838372, -0.32869, -0.434851, 0.192051, 0.924705, -0.32869, 0, 0, 0 )

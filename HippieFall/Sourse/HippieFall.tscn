@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://HippieFall/Sourse/Game/Collectable/CollectableController.cs" type="Script" id=6]
 [ext_resource path="res://HippieFall/Sourse/Game/GameOverController.cs" type="Script" id=7]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://HippieFall/Sourse/Game/Collectable/CollectableSpawner.cs" type="Script" id=9]
+[ext_resource path="res://HippieFall/Materials/Models/NeedToTapFingerAnimation.tscn" type="PackedScene" id=9]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/Movement/Joystick/Radius.png" type="Texture" id=10]
 [ext_resource path="res://Images/Coin.png" type="Texture" id=11]
 [ext_resource path="res://Images/Pause.png" type="Texture" id=12]
@@ -25,10 +25,13 @@
 [ext_resource path="res://Images/back.png" type="Texture" id=23]
 [ext_resource path="res://HippieFall/Sourse/Effects/IncreaseLevelSpeedByTapArea.cs" type="Script" id=24]
 [ext_resource path="res://HippieFall/Sourse/Interface/GameOverScreen.cs" type="Script" id=25]
-[ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera.cs" type="Script" id=26]
+[ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera/GameCamera.cs" type="Script" id=26]
 [ext_resource path="res://HippieFall/Sourse/Game/GameParticlesController.cs" type="Script" id=27]
 [ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
-[ext_resource path="res://HippieFall/Sourse/Game/Level/LevelEffectController.cs" type="Script" id=29]
+[ext_resource path="res://HippieFall/Sourse/Objects/Tunnel/StartGreenPlane.cs" type="Script" id=29]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Chest/CollectableChestConfigData.tres" type="Resource" id=30]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalConfigData.tres" type="Resource" id=31]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Coin/CollectableCoinConfigData.tres" type="Resource" id=32]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
@@ -55,6 +58,82 @@ font_data = ExtResource( 22 )
 [sub_resource type="DynamicFont" id=12]
 size = 150
 font_data = ExtResource( 36 )
+
+[sub_resource type="Animation" id=30]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("NeedToTapFingerAnimation:texture:pause")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NeedToTapFingerAnimation:texture:oneshot")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NeedToTapFingerAnimation:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "TapToStartFingerPrintAnimation"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("NeedToTapFingerAnimation:texture:oneshot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NeedToTapFingerAnimation:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.4, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.345098 ), Color( 1, 1, 1, 0.721569 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="SpatialMaterial" id=33]
+flags_disable_ambient_light = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SpatialMaterial" id=34]
+flags_vertex_lighting = true
+albedo_color = Color( 0, 0.501961, 1, 1 )
 
 [sub_resource type="BoxShape" id=6]
 
@@ -125,6 +204,9 @@ bottom_radius = 0.006
 height = 0.5
 rings = 1
 
+[sub_resource type="Animation" id=32]
+resource_name = "ChangeCharacteristics"
+
 [node name="HippieFall" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -145,10 +227,9 @@ TopUIPath = NodePath("TopUI")
 [node name="HoldTapArea" type="Control" parent="Interface"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 304.0
-margin_top = 168.0
-margin_right = -299.0
-margin_bottom = -192.0
+margin_left = -2.0
+margin_right = 2.0
+margin_bottom = -2.0
 mouse_filter = 1
 script = ExtResource( 24 )
 
@@ -232,14 +313,14 @@ text = "1000"
 align = 1
 valign = 1
 
-[node name="Gemcoin" type="NinePatchRect" parent="Interface/TopUI/HBoxContainer/RewardRender"]
+[node name="Crystal" type="NinePatchRect" parent="Interface/TopUI/HBoxContainer/RewardRender"]
 margin_left = 228.0
 margin_right = 339.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect2" type="TextureRect" parent="Interface/TopUI/HBoxContainer/RewardRender/Gemcoin"]
+[node name="TextureRect2" type="TextureRect" parent="Interface/TopUI/HBoxContainer/RewardRender/Crystal"]
 anchor_left = -0.973
 anchor_right = -0.973
 margin_left = 39.003
@@ -252,7 +333,7 @@ texture = ExtResource( 14 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="Interface/TopUI/HBoxContainer/RewardRender/Gemcoin/TextureRect2"]
+[node name="Label" type="Label" parent="Interface/TopUI/HBoxContainer/RewardRender/Crystal/TextureRect2"]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -525,38 +606,92 @@ scene = 2
 [node name="TapToStartGameArea" type="Control" parent="Interface"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 28 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Interface/TapToStartGameArea"]
+autoplay = "TapToStartFingerPrintAnimation"
+anims/RESET = SubResource( 30 )
+anims/TapToStartFingerPrintAnimation = SubResource( 31 )
+
+[node name="NeedToTapFingerAnimation" parent="Interface/TapToStartGameArea" instance=ExtResource( 9 )]
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="Level" type="Spatial" parent="."]
 script = ExtResource( 4 )
+TunnelSpawnerPath = NodePath("TunnelsSpawner")
+
+[node name="StartGreenPlane" type="CSGBox" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.1438, 0 )
+material_override = SubResource( 33 )
+width = 48.4563
+height = 4.82915
+depth = 51.1591
+script = ExtResource( 29 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Level/StartGreenPlane"]
+operation = 1
+radius = 2.9
+height = 10.2566
+sides = 64
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="Level/StartGreenPlane"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 4.64839, 0 )
+material_override = SubResource( 34 )
+invert_faces = true
+radius = 8.91969
+height = 12.3314
+sides = 64
+cone = true
+
+[node name="OmniLight" type="OmniLight" parent="Level/StartGreenPlane"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.40575, 0 )
+light_color = Color( 0.054902, 0.00784314, 0.627451, 1 )
+light_energy = 8.636
+light_indirect_energy = 4.453
+light_size = 0.525
+light_bake_mode = 2
+shadow_enabled = true
+omni_range = 11.508
+omni_attenuation = 2.46229
 
 [node name="TunnelsSpawner" type="Spatial" parent="Level"]
 script = ExtResource( 5 )
+_collectableControllerPath = NodePath("CollectableController")
+_obstaclesControllerPath = NodePath("ObstaclesController")
+TunnelsOffset = Vector3( 0, -15.852, 0 )
 
 [node name="ObstaclesController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 3 )
 
 [node name="CollectableController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 6 )
-_collectableSpawnerPath = NodePath("CollectableSpawner")
+_coinConfig = ExtResource( 32 )
+_crystalConfig = ExtResource( 31 )
+_chestConfig = ExtResource( 30 )
 
-[node name="CollectableSpawner" type="Node" parent="Level/TunnelsSpawner/CollectableController"]
-script = ExtResource( 9 )
-
-[node name="DestroyTunnelTrigger" type="Area" parent="Level"]
+[node name="DestroyTunnelTrigger" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.3379, 0 )
 collision_layer = 256
 collision_mask = 256
 
-[node name="CollisionShape" type="CollisionShape" parent="Level/DestroyTunnelTrigger"]
+[node name="CollisionShape" type="CollisionShape" parent="DestroyTunnelTrigger"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 shape = SubResource( 6 )
 
-[node name="LevelEffectController" type="Node" parent="Level"]
-script = ExtResource( 29 )
-
 [node name="Player" parent="." instance=ExtResource( 8 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0863953, 7, 0 )
+
+[node name="OmniLight" type="OmniLight" parent="Player"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.12009, 0 )
+light_color = Color( 0.211765, 0.627451, 0.00784314, 1 )
+light_energy = 6.589
+light_indirect_energy = 4.453
+light_size = 0.525
+light_bake_mode = 2
+shadow_enabled = true
+shadow_contact = 0.519
+omni_range = 11.508
+omni_shadow_mode = 0
 
 [node name="GameEffectController" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -595,8 +730,10 @@ draw_order = 2
 process_material = SubResource( 28 )
 draw_pass_1 = SubResource( 29 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
+anims/ChangeCharacteristics = SubResource( 32 )
+
 [connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
 [connection signal="gui_input" from="Interface/BottomUI/Control" to="Interface/BottomUI/Joystic/TouchScreenButton" method="_on_Control_gui_input"]
-[connection signal="gui_input" from="Interface/TapToStartGameArea" to="Interface/TapToStartGameArea" method="OnTapToStartGameAreaGuiInput"]
-[connection signal="area_entered" from="Level/DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]
+[connection signal="area_entered" from="DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]

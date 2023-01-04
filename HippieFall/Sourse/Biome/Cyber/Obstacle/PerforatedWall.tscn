@@ -46,8 +46,8 @@ surfaces/0 = {
 
 [sub_resource type="SpatialMaterial" id=16]
 resource_name = "Round_corridor_cyberpunk_Traps_v3_mat.002"
-flags_unshaded = true
 params_cull_mode = 2
+albedo_color = Color( 0, 0.768627, 0.870588, 1 )
 albedo_texture = ExtResource( 4 )
 
 [sub_resource type="ArrayMesh" id=7]

@@ -25,11 +25,6 @@ namespace HippieFall.Biomes
             Tunnel = GD.Load<PackedScene>(C_ObjectPath.TUNNEL).Instance<Tunnel>();
         }
 
-        public Biome()
-        {
-            
-        }
-        
         private void InitConfig()
         {
             _config = GetConfigByBiome();
@@ -46,8 +41,9 @@ namespace HippieFall.Biomes
                     return new BiomeCyberConfig();
                 case C_BiomeTypes.BIKER:
                     return new BiomeBikerConfig();
+                case C_BiomeTypes.HIPPIE:
+                    return new BiomeHippieConfig();
             }
-
             return null;
         }
 

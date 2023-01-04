@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://HippieFall/Sourse/Biome/Hippie/Obstacles/HalfWall_peace/HalfWallPeace.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/HalfWall/HalfWall.cs" type="Script" id=2]
+[ext_resource path="res://HippieFall/Sourse/Biome/Hippie/Obstacles/HalfWall_peace/base.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 7.16849, 4.27915, 0.329787 )
+
+[node name="HalfWall" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 2.3, 0, 0, 0, -8.74228e-08, -2.3, 0, 2, -1.00536e-07, 0, -1.71771, -7.50835e-08 )
+mesh = ExtResource( 1 )
+material = SubResource( 1 )
+
+[node name="Area" type="Area" parent="CSGMesh"]
+transform = Transform( 0.173913, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.173913, -7.60198e-09, 0, 3.71547e-08, 0.0220783 )
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="CSGMesh/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0, 0, 0 )
+shape = SubResource( 2 )

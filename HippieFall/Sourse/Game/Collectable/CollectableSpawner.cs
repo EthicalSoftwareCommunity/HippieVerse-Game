@@ -18,21 +18,21 @@ namespace HippieFall
 		private List<float> _weights;
 		private float _voidCollectableWeight = 200f;
 		private float _summaryWeight;
-		
-		public CollectableSpawner()
+
+		public void Init()
 		{
 			_collectableItems = new List<Collectable>
 			{
 				GD.Load<PackedScene>(C_CollectablePath.COIN).Instance<Collectable>(),
-				GD.Load<PackedScene>(C_CollectablePath.GEMCOIN).Instance<Collectable>(),
+				GD.Load<PackedScene>(C_CollectablePath.CRYSTAL).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.CHEST).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.SLOW_OBSTACLES).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.DOUBLE_SCORE).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.MAGNET).Instance<Collectable>(),
+				GD.Load<PackedScene>(C_CollectablePath.SHIELD).Instance<Collectable>(),
 			};
-		   ReloadSetting();
+			ReloadSetting();
 		}
-
 		public void ReloadSetting()
 		{
 			_weights = new List<float>();

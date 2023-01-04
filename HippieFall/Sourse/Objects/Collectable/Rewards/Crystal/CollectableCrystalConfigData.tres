@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalConfig.cs" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+SpawnOffsetX = 1.5
+SpawnOffsetZ = 1.5
+SpawnOffsetY = 1.0
+SpawnWeight = 100.0
+Value = 1

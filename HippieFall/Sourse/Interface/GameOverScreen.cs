@@ -42,14 +42,14 @@ public class GameOverScreen : Control
 	{
 		Visible = true;
 		_continueForFeeButton.Visible = true;
-		_gameCoinsCountLabel.Text = rewardData.Gemcoin.Count.ToString();
+		_gameCoinsCountLabel.Text = rewardData.Crystal.Count.ToString();
 		_paymentGameCoinsCount.Text = paymentCount.ToString();
 		_levelScoreLabel.Text = levelControllerDeep.ToString(CultureInfo.InvariantCulture);
 		if (isHighScore)
 		{
 			_highScoreTextLabel.Visible = true;
 		}
-		if (rewardData.Gemcoin.Count < paymentCount)
+		if (rewardData.Crystal.Count < paymentCount)
 		{
 			_continueForFeeButton.Visible = false;
 		}

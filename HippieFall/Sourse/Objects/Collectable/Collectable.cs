@@ -7,9 +7,8 @@ namespace HippieFall.Collectables
 {
 	public abstract class Collectable : Spatial, IEffectable
 	{
-		public event Action<Collectable> OnDestroy; 
-		protected CollectableConfig _config;
-		public virtual CollectableConfig Config { get; set; }
+		public event Action<Collectable> OnDestroy;
+		[Export] public virtual CollectableConfig Config { get; set; }
 		
 		protected virtual void OnAreaEntered(Area area)
 		{

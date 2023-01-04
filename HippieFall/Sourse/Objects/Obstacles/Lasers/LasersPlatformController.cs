@@ -20,6 +20,7 @@ namespace HippieFall.Tunnels
 		private LaserPattern _currentPreset;
 		public override void _Ready()
 		{
+			RotateY(Utilities.GetRandomNumberFloat(-10,10));
 			ObstacleType = ObstacleTypes.Controller;
 			InitPresets();
 			InitLasers();

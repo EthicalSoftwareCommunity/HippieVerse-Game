@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=2]
+
+[resource]
+Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/colors/font_outline_modulate = Color( 0.0313726, 0, 1, 1 )

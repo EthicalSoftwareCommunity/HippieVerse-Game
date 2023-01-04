@@ -1,0 +1,2349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+<asset>
+	<contributor>
+		<author>Anonymous</author>
+		<authoring_tool>Collada Exporter for Blender 2.6+, by Juan Linietsky (juan@codenix.com)</authoring_tool>
+	</contributor>
+	<created>2022-12-31T01:36:36Z</created>
+	<modified>2022-12-31T01:36:36Z</modified>
+	<unit meter="1.0" name="meter"/>
+	<up_axis>Z_UP</up_axis>
+</asset>
+<library_images>
+	<image id="id-image-3" name="Map #2">
+		<init_from>D:\Downloads\Hippie_Biome\..\new_biom\new_biom_Material__3_BaseColor.png</init_from>
+	</image>
+	<image id="id-image-10" name="Map #0">
+		<init_from>D:\Downloads\Hippie_Biome\..\new\leaves_wire_177088027_BaseColor.png</init_from>
+	</image>
+	<image id="id-image-47" name="Map #6">
+		<init_from>D:\Downloads\Hippie_Biome\..\2\leaves2_wire_177088027_BaseColor.png</init_from>
+	</image>
+</library_images>
+<library_effects>
+	<effect id="id-fx-2" name="Material #3-fx">
+		<profile_COMMON>
+			<newparam sid="id-fx_surf-4">
+				<surface type="2D">
+					<init_from>id-image-3</init_from>
+					<format>A8R8G8B8</format>
+				</surface>
+			</newparam>
+			<newparam sid="id-fx_sampler-5">
+				<sampler2D>
+					<source>id-fx_surf-4</source>
+				</sampler2D>
+			</newparam>
+			<technique sid="common">
+				<blinn>
+					<emission>
+						<color>  0.5 0.5 0.5 1.0 </color>
+					</emission>
+					<ambient>
+						<color>  0.0 0.0 0.0 1.0 </color>
+					</ambient>
+					<diffuse>
+						<texture texture="id-fx_sampler-5" texcoord="CHANNEL1"/>
+					</diffuse>
+					<specular>
+						<color>  1.0 1.0 1.0 1.0 </color>
+					</specular>
+					<shininess>
+						<float>50</float>
+					</shininess>
+					<reflective>
+						<color>  0.5 0.5 0.5 1.0 </color>
+					</reflective>
+					<index_of_refraction>
+						<float>1.2</float>
+					</index_of_refraction>
+				</blinn>
+				<extra>
+					<technique profile="FCOLLADA">
+					</technique>
+					<technique profile="GOOGLEEARTH">
+						<double_sided>1</double_sided>
+					</technique>
+				</extra>
+			</technique>
+		</profile_COMMON>
+	</effect>
+	<effect id="id-fx-9" name="Material #2-fx">
+		<profile_COMMON>
+			<newparam sid="id-fx_surf-11">
+				<surface type="2D">
+					<init_from>id-image-10</init_from>
+					<format>A8R8G8B8</format>
+				</surface>
+			</newparam>
+			<newparam sid="id-fx_sampler-12">
+				<sampler2D>
+					<source>id-fx_surf-11</source>
+				</sampler2D>
+			</newparam>
+			<technique sid="common">
+				<blinn>
+					<emission>
+						<color>  0.5 0.5 0.5 1.0 </color>
+					</emission>
+					<ambient>
+						<color>  0.0 0.0 0.0 1.0 </color>
+					</ambient>
+					<diffuse>
+						<texture texture="id-fx_sampler-12" texcoord="CHANNEL1"/>
+					</diffuse>
+					<specular>
+						<color>  0.0 0.0 0.0 1.0 </color>
+					</specular>
+					<shininess>
+						<float>50</float>
+					</shininess>
+					<reflective>
+						<color>  0.5 0.5 0.5 1.0 </color>
+					</reflective>
+					<index_of_refraction>
+						<float>1.2</float>
+					</index_of_refraction>
+				</blinn>
+				<extra>
+					<technique profile="FCOLLADA">
+					</technique>
+					<technique profile="GOOGLEEARTH">
+						<double_sided>1</double_sided>
+					</technique>
+				</extra>
+			</technique>
+		</profile_COMMON>
+	</effect>
+	<effect id="id-fx-46" name="Material #6-fx">
+		<profile_COMMON>
+			<newparam sid="id-fx_surf-48">
+				<surface type="2D">
+					<init_from>id-image-47</init_from>
+					<format>A8R8G8B8</format>
+				</surface>
+			</newparam>
+			<newparam sid="id-fx_sampler-49">
+				<sampler2D>
+					<source>id-fx_surf-48</source>
+				</sampler2D>
+			</newparam>
+			<technique sid="common">
+				<blinn>
+					<emission>
+						<color>  0.5 0.5 0.5 1.0 </color>
+					</emission>
+					<ambient>
+						<color>  0.0 0.0 0.0 1.0 </color>
+					</ambient>
+					<diffuse>
+						<texture texture="id-fx_sampler-49" texcoord="CHANNEL1"/>
+					</diffuse>
+					<specular>
+						<color>  0.0 0.0 0.0 1.0 </color>
+					</specular>
+					<shininess>
+						<float>50</float>
+					</shininess>
+					<reflective>
+						<color>  0.5 0.5 0.5 1.0 </color>
+					</reflective>
+					<index_of_refraction>
+						<float>1.2</float>
+					</index_of_refraction>
+				</blinn>
+				<extra>
+					<technique profile="FCOLLADA">
+					</technique>
+					<technique profile="GOOGLEEARTH">
+						<double_sided>1</double_sided>
+					</technique>
+				</extra>
+			</technique>
+		</profile_COMMON>
+	</effect>
+</library_effects>
+<library_materials>
+	<material id="id-material-6" name="Material #3">
+		<instance_effect url="#id-fx-2"/>
+	</material>
+	<material id="id-material-13" name="Material #2">
+		<instance_effect url="#id-fx-9"/>
+	</material>
+	<material id="id-material-50" name="Material #6">
+		<instance_effect url="#id-fx-46"/>
+	</material>
+</library_materials>
+<library_geometries>
+	<geometry id="id-mesh-7" name="Меш.024">
+		<mesh>
+			<source id="id-mesh-7-positions">
+				<float_array id="id-mesh-7-positions-array" count="120"> 0.6351421475410461 0.29861998558044434 0.9526983499526978 0.49283507466316223 0.49710214138031006 -0.9311478137969971 0.6351421475410461 0.29861998558044434 -0.9311478137969971 0.49283507466316223 0.49710214138031006 0.9526983499526978 0.29122522473335266 0.6349424719810486 -0.9311478137969971 0.29122528433799744 0.6349424719810486 0.9526983499526978 0.05462981387972832 0.6955153942108154 -0.9311478137969971 0.05462981387972832 0.6955153942108154 0.9526983499526978 -0.1884143203496933 0.6715149283409119 -0.9311478137969971 -0.1884143203496933 0.6715149283409119 0.9526983499526978 -0.40859243273735046 0.5658358335494995 -0.9311478137969971 -0.40859243273735046 0.5658358335494995 0.9526983499526978 -0.5793477892875671 0.39122474193573 -0.9311478137969971 -0.40859243273735046 0.5658358335494995 -0.9311478137969971 -0.5793477892875671 0.39122474193573 0.9526983499526978 -0.6800848245620728 0.16874215006828308 -0.9311478137969971 -0.680084764957428 0.16874216496944427 0.9526983499526978 -0.6986531615257263 -0.07477719336748123 -0.9311478137969971 -0.6986531615257263 -0.07477719336748123 0.9526983499526978 -0.6328132152557373 -0.3099612295627594 -0.9311478137969971 -0.6328132152557373 -0.3099612295627594 0.9526983499526978 -0.49050620198249817 -0.5084433555603027 -0.9311478137969971 -0.49050620198249817 -0.5084433555603027 0.9526983499526978 -0.28889647126197815 -0.646283745765686 -0.9311478137969971 -0.28889647126197815 -0.646283745765686 0.9526983499526978 -0.05230112746357918 -0.7068567276000977 -0.9311478137969971 -0.05230112746357918 -0.7068567276000977 0.9526983499526978 0.19074292480945587 -0.6828563809394836 -0.9311478137969971 0.19074292480945587 -0.6828563809394836 0.9526983499526978 0.41092100739479065 -0.5771774053573608 -0.9311478137969971 0.19074292480945587 -0.6828563809394836 -0.9311478137969971 0.41092100739479065 -0.5771774053573608 0.9526983499526978 0.5816765427589417 -0.40256643295288086 -0.9311478137969971 0.5816765427589417 -0.40256643295288086 0.9526983499526978 0.6824136972427368 -0.18008390069007874 -0.9311478137969971 0.6824137568473816 -0.18008388578891754 0.9526983499526978 0.7009821534156799 0.06343541294336319 -0.9311478137969971 0.7009821534156799 0.06343541294336319 0.9526983499526978 -0.40859243273735046 0.5658358335494995 0.9526983499526978 0.19074292480945587 -0.6828563809394836 0.9526983499526978</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-7-positions-array" count="40" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-7-normals">
+				<float_array id="id-mesh-7-normals-array" count="120"> -0.9015334248542786 -0.43270939588546753 0.0 -0.699168860912323 -0.714956521987915 0.0 -0.9015335440635681 -0.43270930647850037 0.0 -0.6991688013076782 -0.7149565815925598 1.6294707805286635e-08 -0.41247424483299255 -0.9109692573547363 1.456972098523579e-09 -0.41247424483299255 -0.9109692573547363 1.7751681014033238e-08 -0.07602918893098831 -0.9971056580543518 0.0 -0.07602915167808533 -0.9971055388450623 0.0 0.2695862650871277 -0.9629762172698975 0.0 0.2695862650871277 -0.9629762172698975 0.0 0.5826854109764099 -0.8126977682113647 0.0 0.5826855301856995 -0.8126977682113647 0.0 0.8255041837692261 -0.56439608335495 0.0 0.5826854109764099 -0.8126977682113647 0.0 0.8255041837692261 -0.5643960237503052 -1.3585665037396666e-08 0.9687550067901611 -0.24801966547966003 -1.701616447746801e-08 0.9687549471855164 -0.24801991879940033 -1.609731370422196e-08 0.9951596260070801 0.09827128052711487 -1.4504514034285876e-08 0.9951596856117249 0.09827128797769547 0.0 0.9015334248542786 0.43270939588546753 0.0 0.9015333652496338 0.4327094852924347 0.0 0.6991690397262573 0.7149563431739807 0.0 0.6991690397262573 0.7149563431739807 0.0 0.4124746024608612 0.9109691381454468 0.0 0.41247451305389404 0.910969078540802 0.0 0.07602959126234055 0.9971055388450623 0.0 0.07602956146001816 0.9971055388450623 0.0 -0.26958581805229187 0.9629763960838318 0.0 -0.26958584785461426 0.9629763960838318 0.0 -0.5826848745346069 0.8126981258392334 0.0 -0.26958581805229187 0.9629763960838318 0.0 -0.5826850533485413 0.8126980662345886 0.0 -0.8255035877227783 0.564396858215332 0.0 -0.825503945350647 0.5643963813781738 1.2216115230501146e-08 -0.968754768371582 0.24802064895629883 1.676524163940485e-08 -0.9687549471855164 0.2480199933052063 1.4594763619868445e-08 -0.9951597452163696 -0.09827075153589249 1.438659236185913e-08 -0.9951596856117249 -0.09827098250389099 0.0 0.5826855301856995 -0.8126977682113647 0.0 -0.26958584785461426 0.9629763960838318 0.0</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-7-normals-array" count="40" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-7-tangents">
+				<float_array id="id-mesh-7-tangents-array" count="120"> -0.4326223134994507 0.901352047920227 -0.020058730617165565 -0.7149545550346375 0.6991668343544006 -0.0023881213273853064 -0.43270930647850037 0.9015334844589233 -0.00014502792328130454 -0.7149470448493958 0.699159562587738 -0.005172216333448887 -0.9109683036804199 0.4124738276004791 0.0013765422627329826 -0.9107623100280762 0.41238054633140564 0.02131577581167221 -0.9971055388450623 0.07602917402982712 -0.00037509165122173727 -0.9971054792404175 0.07602915167808533 -0.00043227485730312765 -0.9629762172698975 -0.2695862352848053 -0.00037015529233030975 -0.9629761576652527 -0.2695862352848053 -0.00040492828702554107 -0.8126977682113647 -0.5826854109764099 -0.0003691623278427869 -0.81269770860672 -0.5826855301856995 0.00012156839511590078 -0.56439608335495 -0.8255041241645813 0.00010805110650835559 -0.8126977682113647 -0.5826853513717651 0.00010794957779580727 -0.5643959641456604 -0.8255042433738708 0.00012492676614783704 -0.24801968038082123 -0.9687550067901611 0.00010833779379026964 -0.24801991879940033 -0.9687549471855164 0.00012908979260828346 0.09827129542827606 -0.9951596856117249 0.00011212362005608156 0.09827128797769547 -0.9951596856117249 0.000134399306261912 0.4323593080043793 -0.9008039236068726 -0.040220316499471664 0.4326721727848053 -0.9014555811882019 0.013138452544808388 0.7138969302177429 -0.6981329321861267 -0.05442085862159729 0.7141333818435669 -0.6983642578125 0.04796616733074188 0.9100038409233093 -0.41203752160072327 0.04602254927158356 0.91094571352005 -0.4124639332294464 -0.007169157266616821 0.9957762956619263 -0.0759282335639 0.05161865055561066 0.995827317237854 -0.0759320855140686 -0.05061881244182587 0.9629763960838318 0.2695857882499695 0.00013664473954122514 0.9623969197273254 0.26942363381385803 0.034687139093875885 0.8121350407600403 0.5822812914848328 -0.03721792250871658 0.9607670307159424 0.26896730065345764 -0.06770049035549164 0.8125338554382324 0.5825673341751099 0.020100992172956467 0.5640650987625122 0.8250182271003723 0.03428705409169197 0.5642572045326233 0.8253004550933838 -0.022201986983418465 0.24786080420017242 0.9681304693222046 0.03589563071727753 0.2479618936777115 0.9685279130935669 -0.021644586697220802 -0.09827075153589249 0.9951597452163696 4.594243364408612e-05 -0.09826789796352386 0.9951283931732178 0.00793676171451807 -0.8126975893974304 -0.5826854109764099 -0.0003867131599690765 0.962976336479187 0.26958584785461426 0.00015744402480777353</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-7-tangents-array" count="40" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-7-bitangents">
+				<float_array id="id-mesh-7-bitangents-array" count="120"> 0.008679601363837719 -0.018083615228533745 -0.9997987747192383 0.001707402872852981 -0.0016697000246495008 -0.9999971389770508 6.275493069551885e-05 -0.00013074753223918378 -1.0 0.003697898704558611 -0.003616263857111335 -0.9999866485595703 -0.0012539882445707917 0.0005677869194187224 -0.9999989867210388 -0.01941802352666855 0.008792192675173283 -0.9997727870941162 0.0003740060201380402 -2.8517913960968144e-05 -1.0 0.0004310236545279622 -3.2865489629330114e-05 -0.9999998807907104 0.0003564507351256907 9.978878370020539e-05 -1.0 0.0003899363218806684 0.00010916310566244647 -0.9999998807907104 0.00030001738923601806 0.00021510550868697464 -0.9999999403953552 -9.879836579784751e-05 -7.083614764269441e-05 -1.0 -6.098362064221874e-05 -8.919664105633274e-05 -1.0 -8.773038280196488e-05 -6.29006462986581e-05 -0.9999998807907104 -7.051938155200332e-05 -0.00010311989899491891 -1.0 -2.688638778636232e-05 -0.00010494855814613402 -1.0 -3.2032436138251796e-05 -0.00012505239283200353 -1.0 1.1004097359545995e-05 -0.00011158232518937439 -1.0 1.320759292866569e-05 -0.00013374877744354308 -1.0 -0.017403708770871162 0.036259960383176804 -0.9991907477378845 0.0056851329281926155 -0.011844753287732601 -0.9999136328697205 -0.03890853747725487 0.03804938122630119 -0.9985180497169495 0.03429371491074562 -0.033536460250616074 -0.9988487958908081 0.04192512109875679 -0.018983133137226105 -0.9989404082298279 -0.0065308804623782635 0.002957094693556428 -0.999974250793457 0.05146924406290054 -0.0039245449006557465 -0.9986668229103088 -0.05047229677438736 0.0038485261611640453 -0.9987180233001709 0.0001315856643486768 3.683748218463734e-05 -1.0 0.03340289741754532 0.009351162239909172 -0.9993982911109924 -0.030246935784816742 -0.02168632112443447 -0.9993071556091309 -0.06519397348165512 -0.018251091241836548 -0.9977057576179504 0.01633603684604168 0.011712547391653061 -0.9997979998588562 0.019351504743099213 0.02830408699810505 -0.9994120597839355 -0.012530731037259102 -0.018327821046113968 -0.999753475189209 0.008902842178940773 0.034774068742990494 -0.9993556141853333 -0.005368304438889027 -0.020968297496438026 -0.9997657537460327 -4.529114448814653e-06 4.571864701574668e-05 -1.0 -0.0007799533777870238 0.007898345589637756 -0.9999685883522034 0.00031428091460838914 0.00022533215815201402 -0.9999998807907104 0.00015161487681325525 4.244468073011376e-05 -1.0</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-7-bitangents-array" count="40" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-7-texcoord-0">
+				<float_array id="id-mesh-7-texcoord-0-array" count="80"> 0.4772736132144928 0.001032799482345581 0.5921819806098938 0.4987727403640747 0.49358198046684265 0.4987976849079132 0.5909110307693481 -0.0021614215802401304 0.6907828450202942 0.4987483024597168 0.6907002925872803 0.0005798728670924902 0.789384126663208 0.4987243413925171 0.789303719997406 0.0005516053643077612 0.8879863619804382 0.49870091676712036 0.8879088759422302 0.0005245937500149012 0.9865887761116028 0.4986775517463684 0.0005221630563028157 0.49945634603500366 0.09910111874341965 0.9976304769515991 0.0004999998491257429 0.99762362241745 0.0991242304444313 0.49946415424346924 0.19770203530788422 0.9976372718811035 0.1977260708808899 0.49947234988212585 0.29630252718925476 0.9976441264152527 0.29632771015167236 0.4994806945323944 0.3949025571346283 0.9976513981819153 0.39492902159690857 0.49948957562446594 0.4790990352630615 0.9925153255462646 0.4811035990715027 0.5017158389091492 0.5844923257827759 0.9901522397994995 0.6222841739654541 0.5059927701950073 0.6907011270523071 0.9976760149002075 0.6907306909561157 0.49951907992362976 0.7893003225326538 0.9976845979690552 0.0004999998491257429 0.0007801414467394352 0.10606188327074051 0.49461233615875244 0.0005923568969592452 0.4989279806613922 0.04211876168847084 0.003521127160638571 0.18360300362110138 0.49362754821777344 0.18698136508464813 0.00337031576782465 0.2963833212852478 0.49884840846061707 0.30449187755584717 -8.277944289147854e-06 0.3949821889400482 0.4988228976726532 0.39489662647247314 0.0006655255565419793 0.9865150451660156 0.0004999973461963236 0.7893304228782654 0.499529093503952</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-7-texcoord-0-array" count="40" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-7-vertices">
+				<input semantic="POSITION" source="#id-mesh-7-positions"/>
+			</vertices>
+			<triangles count="36" material="id-trimat-8">
+				<input semantic="VERTEX" source="#id-mesh-7-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-7-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-7-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-7-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-7-bitangents" offset="0"/>
+				<p> 0 1 2 3 4 1 5 6 4 7 8 6 9 10 8 11 12 13 14 15 12 16 17 15 18 19 17 20 21 19 22 23 21 24 25 23 26 27 25 28 29 30 31 32 29 33 34 32 35 36 34 37 2 36 0 3 1 3 5 4 5 7 6 7 9 8 9 38 10 11 14 12 14 16 15 16 18 17 18 20 19 20 22 21 22 24 23 24 26 25 26 39 27 28 31 29 31 33 32 33 35 34 35 37 36 37 0 2 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-14" name="Меш.001">
+		<mesh>
+			<source id="id-mesh-14-positions">
+				<float_array id="id-mesh-14-positions-array" count="12"> 0.46943604946136475 0.1446746587753296 -0.9326862096786499 0.6209746599197388 -0.4364497661590576 -0.7907580137252808 0.7342926263809204 0.03555627167224884 -1.0245945453643799 0.3561181128025055 -0.3273313641548157 -0.6988496780395508</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-14-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-14-normals">
+				<float_array id="id-mesh-14-normals-array" count="12"> 0.42504867911338806 0.317832887172699 0.8475351333618164 0.4250487685203552 0.3178327977657318 0.8475351333618164 0.4250485897064209 0.31783294677734375 0.8475351929664612 0.42504891753196716 0.3178327977657318 0.8475351929664612</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-14-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-14-tangents">
+				<float_array id="id-mesh-14-tangents-array" count="12"> -0.2103133350610733 -0.8760250210762024 0.4339914321899414 -0.21031320095062256 -0.8760250210762024 0.4339912235736847 -0.21031342446804047 -0.8760249018669128 0.4339914619922638 -0.21031306684017181 -0.8760250806808472 0.4339912235736847</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-14-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-14-bitangents">
+				<float_array id="id-mesh-14-bitangents-array" count="12"> 0.8803987503051758 -0.3627154231071472 -0.3055087924003601 0.8803986310958862 -0.3627152442932129 -0.30550891160964966 0.880398690700531 -0.362715482711792 -0.3055086135864258 0.8803987503051758 -0.3627152144908905 -0.30550915002822876</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-14-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-14-texcoord-0">
+				<float_array id="id-mesh-14-texcoord-0-array" count="8"> 0.023798495531082153 0.49369901418685913 0.43957197666168213 0.7228690385818481 0.023798495531082153 0.7228691577911377 0.43957197666168213 0.49369871616363525</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-14-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-14-vertices">
+				<input semantic="POSITION" source="#id-mesh-14-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-15">
+				<input semantic="VERTEX" source="#id-mesh-14-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-14-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-14-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-14-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-14-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-16" name="Меш.002">
+		<mesh>
+			<source id="id-mesh-16-positions">
+				<float_array id="id-mesh-16-positions-array" count="12"> -0.42872154712677 0.21044722199440002 0.16406607627868652 -0.7117277383804321 -0.23030519485473633 -0.16221179068088531 -0.42871546745300293 -0.2746870815753937 -0.07035712897777557 -0.7117338180541992 0.2548291087150574 0.07221139222383499</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-16-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-16-normals">
+				<float_array id="id-mesh-16-normals-array" count="12"> -0.3391033113002777 -0.40930548310279846 0.8470407128334045 -0.3391033113002777 -0.4093053936958313 0.8470407724380493 -0.3391032814979553 -0.40930524468421936 0.8470407724380493 -0.3391033113002777 -0.409305602312088 0.8470406532287598</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-16-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-16-tangents">
+				<float_array id="id-mesh-16-tangents-array" count="12"> -1.1766221177822445e-05 0.9003913998603821 0.43508076667785645 -1.185641303891316e-05 0.9003915190696716 0.4350806772708893 -1.1936405826418195e-05 0.9003915786743164 0.43508052825927734 -1.1696334695443511e-05 0.9003913402557373 0.43508094549179077</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-16-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-16-bitangents">
+				<float_array id="id-mesh-16-bitangents-array" count="12"> -0.9407491683959961 0.14752736687660217 -0.3053305447101593 -0.9407491683959961 0.14752724766731262 -0.3053306043148041 -0.9407491087913513 0.14752711355686188 -0.30533063411712646 -0.9407491683959961 0.14752748608589172 -0.3053304851055145</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-16-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-16-texcoord-0">
+				<float_array id="id-mesh-16-texcoord-0-array" count="8"> 0.43957197666168213 0.49369871616363525 0.023798495531082153 0.7228691577911377 0.023798495531082153 0.49369901418685913 0.43957197666168213 0.7228690385818481</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-16-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-16-vertices">
+				<input semantic="POSITION" source="#id-mesh-16-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-17">
+				<input semantic="VERTEX" source="#id-mesh-16-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-16-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-16-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-16-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-16-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-18" name="Меш.003">
+		<mesh>
+			<source id="id-mesh-18-positions">
+				<float_array id="id-mesh-18-positions-array" count="12"> 0.4591023325920105 -0.12148125469684601 1.0264509916305542 0.6313085556030273 0.37353867292404175 0.7007017135620117 0.3457808494567871 0.35052070021629333 0.7926095128059387 0.7446300387382507 -0.09846329689025879 0.934543251991272</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-18-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-18-normals">
+				<float_array id="id-mesh-18-normals-array" count="12"> 0.234422966837883 0.4761697053909302 0.8475306630134583 0.23442323505878448 0.4761696755886078 0.8475306034088135 0.23442348837852478 0.4761696755886078 0.8475306034088135 0.2344227135181427 0.4761697053909302 0.847530722618103</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-18-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-18-tangents">
+				<float_array id="id-mesh-18-tangents-array" count="12"> 0.21032090485095978 -0.8760182857513428 0.43400120735168457 0.21032105386257172 -0.8760182857513428 0.434001088142395 0.21032123267650604 -0.8760183453559875 0.43400102853775024 0.21032077074050903 -0.8760183453559875 0.43400129675865173</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-18-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-18-bitangents">
+				<float_array id="id-mesh-18-bitangents-array" count="12"> 0.9491106271743774 0.07651355862617493 -0.30550724267959595 0.9491105079650879 0.07651359587907791 -0.3055075407028198 0.9491105079650879 0.07651364803314209 -0.3055078685283661 0.949110746383667 0.07651354372501373 -0.30550697445869446</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-18-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-18-texcoord-0">
+				<float_array id="id-mesh-18-texcoord-0-array" count="8"> 0.43957197666168213 0.49369871616363525 0.023798495531082153 0.7228691577911377 0.023798495531082153 0.49369901418685913 0.43957197666168213 0.7228690385818481</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-18-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-18-vertices">
+				<input semantic="POSITION" source="#id-mesh-18-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-19">
+				<input semantic="VERTEX" source="#id-mesh-18-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-18-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-18-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-18-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-18-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-20" name="Меш.004">
+		<mesh>
+			<source id="id-mesh-20-positions">
+				<float_array id="id-mesh-20-positions-array" count="12"> 0.11569803953170776 -0.46532824635505676 -0.5212604403495789 0.6349474191665649 -0.3940334916114807 -0.8470049500465393 0.48481297492980957 -0.15007558465003967 -0.7550966739654541 0.26583248376846313 -0.7092862129211426 -0.6131687760353088</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-20-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-20-normals">
+				<float_array id="id-mesh-20-normals-array" count="12"> 0.5306891798973083 0.007292988244444132 0.8475350737571716 0.5306891798973083 0.007293069735169411 0.8475351333618164 0.5306890606880188 0.007293143775314093 0.8475351333618164 0.5306892395019531 0.007292913272976875 0.8475350737571716</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-20-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-20-tangents">
+				<float_array id="id-mesh-20-tangents-array" count="12"> -0.6850637793540955 -0.5850974321365356 0.4339914917945862 -0.6850637793540955 -0.5850974321365356 0.43399155139923096 -0.6850638389587402 -0.5850973725318909 0.43399152159690857 -0.6850637197494507 -0.5850974917411804 0.4339914619922638</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-20-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-20-bitangents">
+				<float_array id="id-mesh-20-bitangents-array" count="12"> 0.4990556836128235 -0.8109301328659058 -0.30550873279571533 0.49905574321746826 -0.8109302520751953 -0.30550867319107056 0.49905574321746826 -0.8109302520751953 -0.30550849437713623 0.4990557134151459 -0.8109301328659058 -0.3055088222026825</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-20-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-20-texcoord-0">
+				<float_array id="id-mesh-20-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.023798495531082153 0.7244458198547363 0.43957191705703735 0.9536163806915283</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-20-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-20-vertices">
+				<input semantic="POSITION" source="#id-mesh-20-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-21">
+				<input semantic="VERTEX" source="#id-mesh-20-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-20-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-20-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-20-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-20-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-22" name="Меш.028">
+		<mesh>
+			<source id="id-mesh-22-positions">
+				<float_array id="id-mesh-22-positions-array" count="12"> -0.4566080570220947 -0.1312977373600006 -0.05540160834789276 -0.3853152394294739 -0.6505454778671265 -0.3811492323875427 -0.14135676622390747 -0.5004117488861084 -0.2892411947250366 -0.7005665302276611 -0.2814314365386963 -0.14730963110923767</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-22-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-22-normals">
+				<float_array id="id-mesh-22-normals-array" count="12"> 0.007296332623809576 -0.5306935906410217 0.847532331943512 0.007296252064406872 -0.530693531036377 0.8475323915481567 0.007296176627278328 -0.530693531036377 0.8475323915481567 0.007296406663954258 -0.530693531036377 0.8475322723388672</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-22-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-22-tangents">
+				<float_array id="id-mesh-22-tangents-array" count="12"> -0.5850948095321655 0.6850621104240417 0.4339977502822876 -0.5850948095321655 0.6850621104240417 0.43399760127067566 -0.5850948691368103 0.6850621700286865 0.43399760127067566 -0.5850947499275208 0.6850621104240417 0.43399778008461</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-22-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-22-bitangents">
+				<float_array id="id-mesh-22-bitangents-array" count="12"> -0.8109321594238281 -0.49905335903167725 -0.305507630109787 -0.8109320402145386 -0.49905335903167725 -0.305507630109787 -0.8109320998191833 -0.49905338883399963 -0.30550774931907654 -0.8109320402145386 -0.49905329942703247 -0.30550748109817505</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-22-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-22-texcoord-0">
+				<float_array id="id-mesh-22-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.023798495531082153 0.7244458198547363 0.43957191705703735 0.9536163806915283</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-22-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-22-vertices">
+				<input semantic="POSITION" source="#id-mesh-22-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-23">
+				<input semantic="VERTEX" source="#id-mesh-22-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-22-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-22-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-22-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-22-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-24" name="Меш.006">
+		<mesh>
+			<source id="id-mesh-24-positions">
+				<float_array id="id-mesh-24-positions-array" count="12"> -0.12703895568847656 0.4413599967956543 0.41045713424682617 -0.6462850570678711 0.3700674772262573 0.08470682799816132 -0.49615129828453064 0.12610894441604614 0.17661458253860474 -0.277172714471817 0.6853185892105103 0.31854939460754395</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-24-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-24-normals">
+				<float_array id="id-mesh-24-normals-array" count="12"> -0.5306975245475769 -0.007300622295588255 0.8475298881530762 -0.5306975245475769 -0.007300510536879301 0.8475298881530762 -0.5306974649429321 -0.007300406228750944 0.8475297689437866 -0.5306974649429321 -0.007300725672394037 0.8475298881530762</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-24-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-24-tangents">
+				<float_array id="id-mesh-24-tangents-array" count="12"> 0.6850589513778687 0.5850943922996521 0.43400317430496216 0.6850590109825134 0.5850943922996521 0.4340030550956726 0.6850590705871582 0.5850944519042969 0.4340030550956726 0.6850588917732239 0.5850944519042969 0.43400314450263977</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-24-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-24-bitangents">
+				<float_array id="id-mesh-24-bitangents-array" count="12"> -0.4990534782409668 0.8109323978424072 -0.30550676584243774 -0.499053418636322 0.8109323382377625 -0.3055068552494049 -0.49905335903167725 0.8109322786331177 -0.3055069148540497 -0.49905356764793396 0.8109322786331177 -0.30550670623779297</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-24-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-24-texcoord-0">
+				<float_array id="id-mesh-24-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.023798495531082153 0.7244458198547363 0.43957191705703735 0.9536163806915283</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-24-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-24-vertices">
+				<input semantic="POSITION" source="#id-mesh-24-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-25">
+				<input semantic="VERTEX" source="#id-mesh-24-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-24-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-24-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-24-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-24-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-26" name="Меш.027">
+		<mesh>
+			<source id="id-mesh-26-positions">
+				<float_array id="id-mesh-26-positions-array" count="12"> 0.4459719657897949 0.11624771356582642 0.876309871673584 0.3746769428253174 0.6354995369911194 0.5505692958831787 0.13071909546852112 0.4853653013706207 0.6424780488014221 0.6899298429489136 0.2663819491863251 0.7844011783599854</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-26-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-26-normals">
+				<float_array id="id-mesh-26-normals-array" count="12"> -0.007286168169230223 0.5306834578514099 0.8475387692451477 -0.007286330219358206 0.5306833982467651 0.8475388884544373 -0.00728647829964757 0.5306833386421204 0.8475388288497925 -0.007286018691956997 0.5306834578514099 0.8475387096405029</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-26-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-26-tangents">
+				<float_array id="id-mesh-26-tangents-array" count="12"> 0.5850977897644043 -0.685068666934967 0.43398335576057434 0.5850977301597595 -0.685068666934967 0.43398332595825195 0.5850977897644043 -0.6850686073303223 0.4339834153652191 0.5850977897644043 -0.685068666934967 0.4339832663536072</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-26-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-26-bitangents">
+				<float_array id="id-mesh-26-bitangents-array" count="12"> 0.8109300136566162 0.4990551471710205 -0.30551019310951233 0.810930073261261 0.49905523657798767 -0.305510014295578 0.8109300136566162 0.49905529618263245 -0.30550989508628845 0.8109299540519714 0.49905502796173096 -0.3055103123188019</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-26-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-26-texcoord-0">
+				<float_array id="id-mesh-26-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.023798495531082153 0.7244458198547363 0.43957191705703735 0.9536163806915283</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-26-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-26-vertices">
+				<input semantic="POSITION" source="#id-mesh-26-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-27">
+				<input semantic="VERTEX" source="#id-mesh-26-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-26-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-26-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-26-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-26-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-28" name="Меш.018">
+		<mesh>
+			<source id="id-mesh-28-positions">
+				<float_array id="id-mesh-28-positions-array" count="12"> -0.08678458631038666 -0.465565025806427 -0.38958442211151123 0.4082399308681488 -0.6377721428871155 -0.7153263092041016 0.3852216899394989 -0.35224467515945435 -0.6234177350997925 -0.06376637518405914 -0.7510924935340881 -0.4814929962158203</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-28-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-28-normals">
+				<float_array id="id-mesh-28-normals-array" count="12"> 0.4761546850204468 -0.23442837595939636 0.8475376963615417 0.47615477442741394 -0.23442836105823517 0.847537636756897 0.47615480422973633 -0.23442833125591278 0.8475375771522522 0.4761545956134796 -0.23442836105823517 0.8475376963615417</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-28-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-28-tangents">
+				<float_array id="id-mesh-28-tangents-array" count="12"> -0.8760263919830322 -0.21031871438026428 0.4339858889579773 -0.8760263323783875 -0.21031874418258667 0.43398600816726685 -0.8760263919830322 -0.21031872928142548 0.4339860677719116 -0.876026451587677 -0.21031874418258667 0.4339858889579773</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-28-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-28-bitangents">
+				<float_array id="id-mesh-28-bitangents-array" count="12"> 0.07651443034410477 -0.9491097927093506 -0.30550968647003174 0.07651442289352417 -0.9491097927093506 -0.30550968647003174 0.07651439309120178 -0.9491097927093506 -0.30550968647003174 0.07651446759700775 -0.9491097927093506 -0.30550968647003174</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-28-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-28-texcoord-0">
+				<float_array id="id-mesh-28-texcoord-0-array" count="8"> 0.4395718574523926 0.2629513144493103 0.023798495531082153 0.4921219050884247 0.023798495531082153 0.26295143365859985 0.4395718574523926 0.49212175607681274</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-28-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-28-vertices">
+				<input semantic="POSITION" source="#id-mesh-28-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-29">
+				<input semantic="VERTEX" source="#id-mesh-28-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-28-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-28-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-28-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-28-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-30" name="Меш.009">
+		<mesh>
+			<source id="id-mesh-30-positions">
+				<float_array id="id-mesh-30-positions-array" count="12"> -0.30999815464019775 0.35633355379104614 0.2808491885662079 -0.7402869462966919 0.05707308650016785 -0.04489155858755112 -0.495761513710022 -0.09213495254516602 0.04701711982488632 -0.5545236468315125 0.5055415630340576 0.18894051015377045</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-30-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-30-normals">
+				<float_array id="id-mesh-30-normals-array" count="12"> -0.4695339500904083 -0.24741873145103455 0.8475387096405029 -0.4695339798927307 -0.24741870164871216 0.8475386500358582 -0.4695340394973755 -0.24741870164871216 0.8475385904312134 -0.46953392028808594 -0.24741874635219574 0.8475387692451477</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-30-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-30-tangents">
+				<float_array id="id-mesh-30-tangents-array" count="12"> 0.344769686460495 0.8323413133621216 0.43398362398147583 0.34476974606513977 0.8323413133621216 0.4339836835861206 0.34476974606513977 0.8323412537574768 0.433983713388443 0.344769686460495 0.8323413729667664 0.43398359417915344</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-30-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-30-bitangents">
+				<float_array id="id-mesh-30-bitangents-array" count="12"> -0.8128171563148499 0.49597570300102234 -0.3055100440979004 -0.8128170967102051 0.4959757924079895 -0.3055100440979004 -0.8128170371055603 0.4959757924079895 -0.3055100739002228 -0.8128172755241394 0.49597567319869995 -0.3055100440979004</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-30-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-30-texcoord-0">
+				<float_array id="id-mesh-30-texcoord-0-array" count="8"> 0.4395718574523926 0.2629513144493103 0.023798495531082153 0.4921219050884247 0.023798495531082153 0.26295143365859985 0.4395718574523926 0.49212175607681274</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-30-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-30-vertices">
+				<input semantic="POSITION" source="#id-mesh-30-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-31">
+				<input semantic="VERTEX" source="#id-mesh-30-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-30-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-30-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-30-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-30-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-32" name="Меш.023">
+		<mesh>
+			<source id="id-mesh-32-positions">
+				<float_array id="id-mesh-32-positions-array" count="12"> -0.2938619554042816 -0.375746488571167 -0.2447473108768463 0.06902405619621277 -0.7539215087890625 -0.5704922676086426 0.17814314365386963 -0.4890652298927307 -0.478583961725235 -0.4029810428619385 -0.6406027674674988 -0.3366556465625763</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-32-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-32-normals">
+				<float_array id="id-mesh-32-normals-array" count="12"> 0.31783244013786316 -0.42504972219467163 0.8475348353385925 0.3178325295448303 -0.42504966259002686 0.8475347757339478 0.3178326189517975 -0.42504972219467163 0.8475347757339478 0.3178323209285736 -0.42504966259002686 0.8475348353385925</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-32-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-32-tangents">
+				<float_array id="id-mesh-32-tangents-array" count="12"> -0.8760241270065308 0.21031546592712402 0.43399208784103394 -0.8760241866111755 0.21031543612480164 0.4339922070503235 -0.8760240077972412 0.21031534671783447 0.43399226665496826 -0.8760241866111755 0.2103154957294464 0.43399202823638916</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-32-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-32-bitangents">
+				<float_array id="id-mesh-32-bitangents-array" count="12"> -0.3627178966999054 -0.8803977370262146 -0.30550873279571533 -0.362717866897583 -0.8803977966308594 -0.30550870299339294 -0.362717866897583 -0.8803976774215698 -0.30550867319107056 -0.362717866897583 -0.8803977370262146 -0.30550873279571533</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-32-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-32-texcoord-0">
+				<float_array id="id-mesh-32-texcoord-0-array" count="8"> 0.8569217920303345 0.26295143365859985 0.44114845991134644 0.4921219050884247 0.44114845991134644 0.26295143365859985 0.8569217920303345 0.4921219050884247</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-32-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-32-vertices">
+				<input semantic="POSITION" source="#id-mesh-32-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-33">
+				<input semantic="VERTEX" source="#id-mesh-32-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-32-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-32-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-32-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-32-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-34" name="Меш.011">
+		<mesh>
+			<source id="id-mesh-34-positions">
+				<float_array id="id-mesh-34-positions-array" count="12"> 0.3683741092681885 0.2826390266418457 0.5678201913833618 -0.013786882162094116 0.765478253364563 0.5274270176887512 -0.12839531898498535 0.4873274266719818 0.5274194478988647 0.4829825460910797 0.5607898235321045 0.5678277611732483</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-34-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-34-normals">
+				<float_array id="id-mesh-34-normals-array" count="12"> -0.06933749467134476 0.028542442247271538 0.9971849322319031 -0.06933746486902237 0.028542442247271538 0.9971849322319031 -0.06933742761611938 0.028542442247271538 0.9971848130226135 -0.06933751702308655 0.02854243852198124 0.9971848130226135</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-34-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-34-tangents">
+				<float_array id="id-mesh-34-tangents-array" count="12"> 0.9219858646392822 -0.3798941969871521 0.07498238235712051 0.9219858646392822 -0.3798941969871521 0.07498236000537872 0.9219858646392822 -0.3798941969871521 0.07498232275247574 0.9219859838485718 -0.3798942565917969 0.0749824121594429</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-34-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-34-bitangents">
+				<float_array id="id-mesh-34-bitangents-array" count="12"> 0.3809649646282196 0.9245895147323608 2.518296241760254e-05 0.3809649646282196 0.9245895147323608 2.5171786546707153e-05 0.38096487522125244 0.9245893955230713 2.5158748030662537e-05 0.3809649646282196 0.9245895147323608 2.5196000933647156e-05</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-34-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-34-texcoord-0">
+				<float_array id="id-mesh-34-texcoord-0-array" count="8"> 0.8569217920303345 0.26295143365859985 0.44114845991134644 0.4921219050884247 0.44114845991134644 0.26295143365859985 0.8569217920303345 0.4921219050884247</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-34-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-34-vertices">
+				<input semantic="POSITION" source="#id-mesh-34-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-35">
+				<input semantic="VERTEX" source="#id-mesh-34-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-34-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-34-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-34-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-34-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-36" name="Меш.022">
+		<mesh>
+			<source id="id-mesh-36-positions">
+				<float_array id="id-mesh-36-positions-array" count="12"> -0.38355913758277893 -0.27363330125808716 -0.1564270555973053 -0.15529540181159973 -0.7454380989074707 -0.48216956853866577 0.030327796936035156 -0.5272642970085144 -0.3902610242366791 -0.5691823363304138 -0.49180710315704346 -0.248335599899292</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-36-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-36-normals">
+				<float_array id="id-mesh-36-normals-array" count="12"> 0.17092496156692505 -0.5024597644805908 0.8475369811058044 0.17092493176460266 -0.502459704875946 0.8475369811058044 0.17092488706111908 -0.5024595856666565 0.8475370407104492 0.17092500627040863 -0.5024598240852356 0.8475369215011597</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-36-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-36-tangents">
+				<float_array id="id-mesh-36-tangents-array" count="12"> -0.7681593298912048 0.4707294702529907 0.43398723006248474 -0.7681594491004944 0.47072944045066833 0.43398720026016235 -0.7681595683097839 0.47072944045066833 0.4339870512485504 -0.7681592106819153 0.4707295596599579 0.43398740887641907</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-36-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-36-bitangents">
+				<float_array id="id-mesh-36-bitangents-array" count="12"> -0.6170217394828796 -0.725222647190094 -0.3055097460746765 -0.6170216798782349 -0.7252227663993835 -0.3055097460746765 -0.6170216202735901 -0.7252228856086731 -0.3055097460746765 -0.617021918296814 -0.7252225875854492 -0.30550968647003174</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-36-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-36-texcoord-0">
+				<float_array id="id-mesh-36-texcoord-0-array" count="8"> 0.43957197666168213 0.49369871616363525 0.023798495531082153 0.7228691577911377 0.023798495531082153 0.49369901418685913 0.43957197666168213 0.7228690385818481</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-36-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-36-vertices">
+				<input semantic="POSITION" source="#id-mesh-36-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-37">
+				<input semantic="VERTEX" source="#id-mesh-36-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-36-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-36-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-36-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-36-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-38" name="Меш.013">
+		<mesh>
+			<source id="id-mesh-38-positions">
+				<float_array id="id-mesh-38-positions-array" count="12"> 0.18329381942749023 0.48038530349731445 0.5011542439460754 -0.3921414911746979 0.6132782697677612 0.32219594717025757 -0.3301142454147339 0.33674609661102295 0.4231194257736206 0.12126656621694565 0.7569174766540527 0.4002308249473572</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-38-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-38-normals">
+				<float_array id="id-mesh-38-normals-array" count="12"> -0.22256293892860413 0.28980180621147156 0.9308494925498962 -0.22256295382976532 0.2898019254207611 0.9308493733406067 -0.2225629687309265 0.28980207443237305 0.9308493733406067 -0.22256290912628174 0.2898016571998596 0.9308494329452515</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-38-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-38-tangents">
+				<float_array id="id-mesh-38-tangents-array" count="12"> 0.9528664350509644 0.26658952236175537 0.14482969045639038 0.9528663754463196 0.2665896713733673 0.1448296308517456 0.9528663158416748 0.26658982038497925 0.14482955634593964 0.9528664946556091 0.26658937335014343 0.14482975006103516</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-38-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-38-bitangents">
+				<float_array id="id-mesh-38-bitangents-array" count="12"> -0.2061828076839447 0.9192089438438416 -0.335475355386734 -0.20618292689323425 0.9192087650299072 -0.33547550439834595 -0.206183061003685 0.9192087054252625 -0.3354756534099579 -0.20618265867233276 0.9192089438438416 -0.33547520637512207</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-38-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-38-texcoord-0">
+				<float_array id="id-mesh-38-texcoord-0-array" count="8"> 0.43957197666168213 0.49369871616363525 0.023798495531082153 0.7228691577911377 0.023798495531082153 0.49369901418685913 0.43957197666168213 0.7228690385818481</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-38-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-38-vertices">
+				<input semantic="POSITION" source="#id-mesh-38-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-39">
+				<input semantic="VERTEX" source="#id-mesh-38-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-38-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-38-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-38-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-38-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-40" name="Меш.020">
+		<mesh>
+			<source id="id-mesh-40-positions">
+				<float_array id="id-mesh-40-positions-array" count="12"> -0.4594193994998932 0.06334346532821655 0.07196022570133209 -0.6251744031906128 -0.43377286195755005 -0.2539430856704712 -0.3399637043476105 -0.4070591926574707 -0.16205066442489624 -0.7446300983428955 0.03662978112697601 -0.019932180643081665</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-40-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-40-normals">
+				<float_array id="id-mesh-40-normals-array" count="12"> -0.2281118631362915 -0.4794771373271942 0.8473880887031555 -0.2281118780374527 -0.47947707772254944 0.8473880887031555 -0.2281118780374527 -0.4794769883155823 0.8473881483078003 -0.2281118482351303 -0.4794772267341614 0.8473880290985107</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-40-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-40-tangents">
+				<float_array id="id-mesh-40-tangents-array" count="12"> -0.22170540690422058 0.8730501532554626 0.43431568145751953 -0.22170540690422058 0.8730502128601074 0.43431562185287476 -0.2217053771018982 0.8730502128601074 0.43431559205055237 -0.22170545160770416 0.8730501532554626 0.43431583046913147</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-40-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-40-bitangents">
+				<float_array id="id-mesh-40-bitangents-array" count="12"> -0.9480567574501038 -0.08879795670509338 -0.3054557740688324 -0.9480567574501038 -0.08879796415567398 -0.3054558038711548 -0.948056697845459 -0.08879795670509338 -0.30545574426651 -0.9480568170547485 -0.08879795670509338 -0.3054558038711548</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-40-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-40-texcoord-0">
+				<float_array id="id-mesh-40-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.023798495531082153 0.7244458198547363 0.43957191705703735 0.9536163806915283</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-40-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-40-vertices">
+				<input semantic="POSITION" source="#id-mesh-40-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-41">
+				<input semantic="VERTEX" source="#id-mesh-40-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-40-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-40-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-40-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-40-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-42" name="Меш">
+		<mesh>
+			<source id="id-mesh-42-positions">
+				<float_array id="id-mesh-42-positions-array" count="12"> 0.0014936625957489014 0.45048588514328003 0.49507561326026917 -0.514372706413269 0.5431390404701233 0.1693309098482132 -0.44697442650794983 0.2647269666194916 0.26123926043510437 -0.06590461730957031 0.7288979887962341 0.4031672775745392</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-42-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-42-normals">
+				<float_array id="id-mesh-42-normals-array" count="12"> -0.5069687366485596 0.15705744922161102 0.8475350141525269 -0.5069686770439148 0.157057523727417 0.8475350737571716 -0.5069686770439148 0.15705758333206177 0.8475351333618164 -0.5069687962532043 0.15705740451812744 0.8475349545478821</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-42-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-42-tangents">
+				<float_array id="id-mesh-42-tangents-array" count="12"> 0.8323403000831604 0.34476205706596375 0.43399155139923096 0.8323403000831604 0.3447619676589966 0.43399152159690857 0.83234041929245 0.3447619676589966 0.4339914917945862 0.8323402404785156 0.34476208686828613 0.4339916408061981</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-42-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-42-bitangents">
+				<float_array id="id-mesh-42-bitangents-array" count="12"> -0.224036306142807 0.9254577159881592 -0.3055088520050049 -0.22403621673583984 0.9254577159881592 -0.3055088222026825 -0.22403623163700104 0.9254578351974487 -0.30550888180732727 -0.224036306142807 0.9254576563835144 -0.3055088222026825</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-42-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-42-texcoord-0">
+				<float_array id="id-mesh-42-texcoord-0-array" count="8"> 0.4395718574523926 0.2629513144493103 0.023798495531082153 0.4921219050884247 0.023798495531082153 0.26295143365859985 0.4395718574523926 0.49212175607681274</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-42-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-42-vertices">
+				<input semantic="POSITION" source="#id-mesh-42-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-43">
+				<input semantic="VERTEX" source="#id-mesh-42-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-42-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-42-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-42-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-42-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-44" name="Меш.016">
+		<mesh>
+			<source id="id-mesh-44-positions">
+				<float_array id="id-mesh-44-positions-array" count="12"> 0.2497580647468567 -0.4076554775238037 -0.6139587163925171 0.7215617895126343 -0.17939260601997375 -0.9397033452987671 0.5033880472183228 0.006230771541595459 -0.8477950692176819 0.4679318070411682 -0.5932788252830505 -0.7058669924736023</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-44-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-44-normals">
+				<float_array id="id-mesh-44-normals-array" count="12"> 0.5024613738059998 0.17092908918857574 0.8475350737571716 0.5024614334106445 0.17092911899089813 0.8475350737571716 0.5024614334106445 0.17092913389205933 0.8475350737571716 0.5024613738059998 0.17092910408973694 0.8475351333618164</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-44-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-44-tangents">
+				<float_array id="id-mesh-44-tangents-array" count="12"> -0.4707280397415161 -0.7681577801704407 0.4339916408061981 -0.47072798013687134 -0.7681577205657959 0.4339916706085205 -0.47072795033454895 -0.7681577205657959 0.4339917004108429 -0.4707280695438385 -0.7681577801704407 0.4339917004108429</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-44-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-44-bitangents">
+				<float_array id="id-mesh-44-bitangents-array" count="12"> 0.7252224683761597 -0.6170225739479065 -0.30550849437713623 0.7252224087715149 -0.6170225143432617 -0.3055085241794586 0.7252224683761597 -0.6170225143432617 -0.3055085241794586 0.7252225279808044 -0.6170226335525513 -0.30550849437713623</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-44-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-44-texcoord-0">
+				<float_array id="id-mesh-44-texcoord-0-array" count="8"> 0.8569217920303345 0.26295143365859985 0.44114845991134644 0.4921219050884247 0.44114845991134644 0.26295143365859985 0.8569217920303345 0.4921219050884247</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-44-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-44-vertices">
+				<input semantic="POSITION" source="#id-mesh-44-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-45">
+				<input semantic="VERTEX" source="#id-mesh-44-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-44-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-44-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-44-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-44-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-51" name="Меш.005">
+		<mesh>
+			<source id="id-mesh-51-positions">
+				<float_array id="id-mesh-51-positions-array" count="12"> 0.6835235357284546 -0.22514380514621735 -0.5648633241653442 0.46010062098503113 0.19233275949954987 -0.9606004953384399 0.49354153871536255 -0.31433984637260437 -0.7803949117660522 0.6500827074050903 0.2815288305282593 -0.7450689077377319</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-51-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-51-normals">
+				<float_array id="id-mesh-51-normals-array" count="12"> -0.7728787660598755 0.16674625873565674 0.6122534275054932 -0.7728787064552307 0.16674621403217316 0.6122533082962036 -0.7728787064552307 0.16674625873565674 0.6122533679008484 -0.7728787660598755 0.16674619913101196 0.6122533679008484</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-51-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-51-tangents">
+				<float_array id="id-mesh-51-tangents-array" count="12"> 0.06206504628062248 -0.940365731716156 0.3344550132751465 0.06206502020359039 -0.940365731716156 0.3344549536705017 0.06206506863236427 -0.9403657913208008 0.33445510268211365 0.06206502765417099 -0.9403657913208008 0.3344549536705017</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-51-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-51-bitangents">
+				<float_array id="id-mesh-51-bitangents-array" count="12"> -0.6315112709999084 -0.29649272561073303 -0.7164396047592163 -0.6315110921859741 -0.29649263620376587 -0.7164395451545715 -0.6315112709999084 -0.2964927554130554 -0.7164396047592163 -0.6315112113952637 -0.29649263620376587 -0.7164396643638611</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-51-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-51-texcoord-0">
+				<float_array id="id-mesh-51-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-51-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-51-vertices">
+				<input semantic="POSITION" source="#id-mesh-51-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-52">
+				<input semantic="VERTEX" source="#id-mesh-51-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-51-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-51-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-51-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-51-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-53" name="Меш.007">
+		<mesh>
+			<source id="id-mesh-53-positions">
+				<float_array id="id-mesh-53-positions-array" count="12"> 0.40913352370262146 -0.5652753710746765 -0.3911170959472656 0.521226167678833 -0.1242254376411438 -0.807917594909668 0.20013833045959473 -0.5027205944061279 -0.5982664823532104 0.7302213907241821 -0.18678022921085358 -0.6007682085037231</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-53-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-53-normals">
+				<float_array id="id-mesh-53-normals-array" count="12"> -0.40279749035835266 0.6806573271751404 0.6119312047958374 -0.40279752016067505 0.6806573271751404 0.6119312047958374 -0.40279752016067505 0.6806573271751404 0.6119312047958374 -0.40279754996299744 0.6806573271751404 0.6119312047958374</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-53-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-53-tangents">
+				<float_array id="id-mesh-53-tangents-array" count="12"> -0.5959272384643555 -0.7024729251861572 0.38910481333732605 -0.5959272384643555 -0.7024729251861572 0.38910478353500366 -0.5959272384643555 -0.7024729251861572 0.38910481333732605 -0.5959272384643555 -0.7024729251861572 0.3891047537326813</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-53-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-53-bitangents">
+				<float_array id="id-mesh-53-bitangents-array" count="12"> -0.6947121620178223 0.20793601870536804 -0.6885765790939331 -0.6947121024131775 0.20793601870536804 -0.6885765790939331 -0.6947121620178223 0.20793600380420685 -0.6885765790939331 -0.6947121024131775 0.20793601870536804 -0.6885765790939331</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-53-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-53-texcoord-0">
+				<float_array id="id-mesh-53-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-53-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-53-vertices">
+				<input semantic="POSITION" source="#id-mesh-53-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-54">
+				<input semantic="VERTEX" source="#id-mesh-53-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-53-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-53-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-53-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-53-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-55" name="Меш.026">
+		<mesh>
+			<source id="id-mesh-55-positions">
+				<float_array id="id-mesh-55-positions-array" count="12"> 0.006885111331939697 -0.7513027787208557 -0.22404927015304565 0.35546621680259705 -0.39888566732406616 -0.5916165113449097 -0.127003014087677 -0.5672436356544495 -0.4207702577114105 0.48935434222221375 -0.5829448103904724 -0.3948955237865448</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-55-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-55-normals">
+				<float_array id="id-mesh-55-normals-array" count="12"> -0.010325783863663673 0.7266614437103271 0.6869180798530579 -0.010325783863663673 0.7266614437103271 0.6869180202484131 -0.010325784794986248 0.7266614437103271 0.6869181394577026 -0.010325784794986248 0.7266615629196167 0.6869180202484131</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-55-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-55-tangents">
+				<float_array id="id-mesh-55-tangents-array" count="12"> -0.8954453468322754 -0.31246626377105713 0.3170844316482544 -0.8954453468322754 -0.31246626377105713 0.3170844316482544 -0.8954452872276306 -0.3124662935733795 0.317084401845932 -0.8954452872276306 -0.31246623396873474 0.3170844316482544</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-55-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-55-bitangents">
+				<float_array id="id-mesh-55-bitangents-array" count="12"> -0.44505175948143005 0.6118234395980835 -0.6539120674133301 -0.44505172967910767 0.6118233799934387 -0.6539120674133301 -0.44505178928375244 0.6118234395980835 -0.6539120078086853 -0.44505172967910767 0.6118233799934387 -0.6539121270179749</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-55-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-55-texcoord-0">
+				<float_array id="id-mesh-55-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-55-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-55-vertices">
+				<input semantic="POSITION" source="#id-mesh-55-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-56">
+				<input semantic="VERTEX" source="#id-mesh-55-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-55-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-55-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-55-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-55-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-57" name="Меш.025">
+		<mesh>
+			<source id="id-mesh-57-positions">
+				<float_array id="id-mesh-57-positions-array" count="12"> -0.40027666091918945 -0.6155655980110168 -0.007416069507598877 0.03458087146282196 -0.5394597053527832 -0.43859946727752686 -0.4268099069595337 -0.3895471394062042 -0.20417633652687073 0.0611141175031662 -0.7654781341552734 -0.2418392300605774</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-57-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-57-normals">
+				<float_array id="id-mesh-57-normals-array" count="12"> 0.508851170539856 0.5984458327293396 0.6188157200813293 0.5088512301445007 0.5984459519386292 0.6188157796859741 0.5088511109352112 0.5984458327293396 0.6188158392906189 0.5088512897491455 0.5984459519386292 0.6188156604766846</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-57-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-57-tangents">
+				<float_array id="id-mesh-57-tangents-array" count="12"> -0.8563244342803955 0.2782321870326996 0.43508073687553406 -0.8563244342803955 0.278232216835022 0.43508079648017883 -0.8563245534896851 0.2782321572303772 0.4350806474685669 -0.8563244938850403 0.2782321870326996 0.4350808262825012</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-57-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-57-bitangents">
+				<float_array id="id-mesh-57-bitangents-array" count="12"> -0.08819779753684998 0.7512983679771423 -0.6540426015853882 -0.08819785714149475 0.7512984275817871 -0.654042661190033 -0.088197723031044 0.7512984871864319 -0.6540426015853882 -0.08819793164730072 0.7512984275817871 -0.6540427207946777</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-57-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-57-texcoord-0">
+				<float_array id="id-mesh-57-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-57-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-57-vertices">
+				<input semantic="POSITION" source="#id-mesh-57-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-58">
+				<input semantic="VERTEX" source="#id-mesh-57-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-57-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-57-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-57-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-57-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-59" name="Меш.021">
+		<mesh>
+			<source id="id-mesh-59-positions">
+				<float_array id="id-mesh-59-positions-array" count="12"> -0.6530980467796326 -0.23225566744804382 0.15916100144386292 -0.23637211322784424 -0.42208388447761536 -0.2545020580291748 -0.5215279459953308 -0.029605627059936523 -0.020074155181646347 -0.367942214012146 -0.6247339248657227 -0.07526689767837524</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-59-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-59-normals">
+				<float_array id="id-mesh-59-normals-array" count="12"> 0.7270724177360535 0.12502919137477875 0.675080418586731 0.7270723581314087 0.1250292956829071 0.6750804781913757 0.7270723581314087 0.1250290870666504 0.6750802993774414 0.7270722389221191 0.12502939999103546 0.6750804781913757</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-59-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-59-tangents">
+				<float_array id="id-mesh-59-tangents-array" count="12"> -0.529238760471344 0.7284253239631653 0.4350895881652832 -0.5292388796806335 0.7284253239631653 0.4350895881652832 -0.5292387008666992 0.7284253835678101 0.43508967757225037 -0.5292389392852783 0.7284252643585205 0.43508949875831604</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-59-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-59-bitangents">
+				<float_array id="id-mesh-59-bitangents-array" count="12"> 0.43734678626060486 0.673620343208313 -0.5957882404327393 0.43734675645828247 0.6736204624176025 -0.5957882404327393 0.43734675645828247 0.6736202836036682 -0.5957881808280945 0.4373466968536377 0.673620343208313 -0.5957882404327393</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-59-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-59-texcoord-0">
+				<float_array id="id-mesh-59-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-59-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-59-vertices">
+				<input semantic="POSITION" source="#id-mesh-59-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-60">
+				<input semantic="VERTEX" source="#id-mesh-59-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-59-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-59-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-59-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-59-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-61" name="Меш.015">
+		<mesh>
+			<source id="id-mesh-61-positions">
+				<float_array id="id-mesh-61-positions-array" count="12"> -0.6451979875564575 0.17399893701076508 0.31754040718078613 -0.4850994050502777 -0.2003173530101776 -0.14621402323246002 -0.4851056933403015 0.2848169207572937 0.08820922672748566 -0.6451917290687561 -0.31113529205322266 0.08311715722084045</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-61-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-61-normals">
+				<float_array id="id-mesh-61-normals-array" count="12"> 0.8466461300849915 -0.23152217268943787 0.4791530668735504 0.846646249294281 -0.23152224719524384 0.4791530966758728 0.846646249294281 -0.2315221130847931 0.4791530668735504 0.8466461300849915 -0.23152229189872742 0.4791530966758728</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-61-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-61-tangents">
+				<float_array id="id-mesh-61-tangents-array" count="12"> -1.1609447938099038e-05 0.9003912806510925 0.43508094549179077 -1.1547055692062713e-05 0.9003913998603821 0.43508097529411316 -1.1650433407339733e-05 0.9003913402557373 0.4350809156894684 -1.1514594916661736e-05 0.9003913402557373 0.43508097529411316</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-61-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-61-bitangents">
+				<float_array id="id-mesh-61-bitangents-array" count="12"> 0.5321561098098755 0.36836516857147217 -0.7623100876808167 0.532156229019165 0.36836522817611694 -0.7623103260993958 0.5321561098098755 0.36836519837379456 -0.762310266494751 0.532156229019165 0.3683651387691498 -0.7623101472854614</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-61-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-61-texcoord-0">
+				<float_array id="id-mesh-61-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-61-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-61-vertices">
+				<input semantic="POSITION" source="#id-mesh-61-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-62">
+				<input semantic="VERTEX" source="#id-mesh-61-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-61-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-61-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-61-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-61-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-63" name="Меш.012">
+		<mesh>
+			<source id="id-mesh-63-positions">
+				<float_array id="id-mesh-63-positions-array" count="12"> -0.47932037711143494 0.5457603931427002 0.4691084027290344 -0.4643440842628479 0.07741114497184753 0.06756505370140076 -0.22173263132572174 0.48243632912635803 0.3271874487400055 -0.7219318151473999 0.1407352089881897 0.20948603749275208</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-63-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-63-normals">
+				<float_array id="id-mesh-63-normals-array" count="12"> 0.2531967759132385 -0.624997615814209 0.7384235858917236 0.2531968951225281 -0.624997615814209 0.7384234666824341 0.253196656703949 -0.6249976754188538 0.7384236454963684 0.2531970143318176 -0.624997615814209 0.7384234070777893</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-63-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-63-tangents">
+				<float_array id="id-mesh-63-tangents-array" count="12"> 0.45027798414230347 0.7517118453979492 0.48184967041015625 0.45027801394462585 0.7517118453979492 0.48184967041015625 0.4502779543399811 0.7517117857933044 0.481849730014801 0.45027801394462585 0.7517118453979492 0.48184970021247864</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-63-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-63-bitangents">
+				<float_array id="id-mesh-63-bitangents-array" count="12"> 0.8562366962432861 -0.21049311757087708 -0.47175368666648865 0.8562365770339966 -0.21049299836158752 -0.4717537760734558 0.8562367558479309 -0.21049314737319946 -0.4717535972595215 0.8562365174293518 -0.21049293875694275 -0.471753865480423</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-63-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-63-texcoord-0">
+				<float_array id="id-mesh-63-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-63-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-63-vertices">
+				<input semantic="POSITION" source="#id-mesh-63-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-64">
+				<input semantic="VERTEX" source="#id-mesh-63-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-63-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-63-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-63-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-63-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-65" name="Меш.010">
+		<mesh>
+			<source id="id-mesh-65-positions">
+				<float_array id="id-mesh-65-positions-array" count="12"> -0.037779271602630615 0.6873741149902344 0.6685423851013184 -0.34448596835136414 0.3503440022468567 0.2524246573448181 0.11622193455696106 0.5060474872589111 0.48440325260162354 -0.4984871745109558 0.5316706895828247 0.4365638196468353</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-65-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-65-normals">
+				<float_array id="id-mesh-65-normals-array" count="12"> -0.08262460678815842 -0.7437705993652344 0.6633087396621704 -0.08262467384338379 -0.7437704801559448 0.66330885887146 -0.08262453973293304 -0.7437707185745239 0.6633085608482361 -0.08262472599744797 -0.7437703013420105 0.6633089184761047</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-65-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-65-tangents">
+				<float_array id="id-mesh-65-tangents-array" count="12"> 0.8550570607185364 0.2889799177646637 0.4305438697338104 0.8550570607185364 0.2889798879623413 0.43054383993148804 0.8550570607185364 0.2889798879623413 0.4305439293384552 0.8550571799278259 0.2889798879623413 0.43054381012916565</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-65-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-65-bitangents">
+				<float_array id="id-mesh-65-bitangents-array" count="12"> 0.511908769607544 -0.6027403473854065 -0.6120894551277161 0.5119087100028992 -0.602740466594696 -0.6120893359184265 0.511908769607544 -0.6027401685714722 -0.6120895743370056 0.5119086503982544 -0.6027405858039856 -0.612089216709137</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-65-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-65-texcoord-0">
+				<float_array id="id-mesh-65-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-65-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-65-vertices">
+				<input semantic="POSITION" source="#id-mesh-65-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-66">
+				<input semantic="VERTEX" source="#id-mesh-65-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-65-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-65-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-65-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-65-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-67" name="Меш.008">
+		<mesh>
+			<source id="id-mesh-67-positions">
+				<float_array id="id-mesh-67-positions-array" count="12"> 0.38290274143218994 0.6052083969116211 0.8537570238113403 -0.07389615476131439 0.505889356136322 0.45091357827186584 0.38749492168426514 0.3559769093990326 0.6853362917900085 -0.07848833501338959 0.7551208138465881 0.61933434009552</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-67-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-67-normals">
+				<float_array id="id-mesh-67-normals-array" count="12"> -0.5162116885185242 -0.48604652285575867 0.7051839232444763 -0.5162118077278137 -0.48604655265808105 0.7051836848258972 -0.5162115097045898 -0.4860464036464691 0.7051841020584106 -0.5162119269371033 -0.4860466718673706 0.7051835060119629</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-67-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-67-tangents">
+				<float_array id="id-mesh-67-tangents-array" count="12"> 0.8563250303268433 -0.2782319486141205 0.4350798428058624 0.8563249111175537 -0.27823203802108765 0.435079962015152 0.8563251495361328 -0.27823182940483093 0.4350796937942505 0.8563248515129089 -0.2782320976257324 0.43508008122444153</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-67-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-67-bitangents">
+				<float_array id="id-mesh-67-bitangents-array" count="12"> 0.015264347195625305 -0.8284599184989929 -0.5598403811454773 0.015264421701431274 -0.8284597396850586 -0.5598404407501221 0.015264257788658142 -0.8284600377082825 -0.559840202331543 0.015264526009559631 -0.8284596800804138 -0.5598405599594116</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-67-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-67-texcoord-0">
+				<float_array id="id-mesh-67-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-67-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-67-vertices">
+				<input semantic="POSITION" source="#id-mesh-67-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-68">
+				<input semantic="VERTEX" source="#id-mesh-67-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-67-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-67-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-67-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-67-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-69" name="Меш.019">
+		<mesh>
+			<source id="id-mesh-69-positions">
+				<float_array id="id-mesh-69-positions-array" count="12"> 0.626007080078125 0.2660561203956604 0.998977541923523 0.23144122958183289 0.4605664014816284 0.5662006139755249 0.5165999531745911 0.06809008121490479 0.8006282448768616 0.3408484160900116 0.658532440662384 0.7645499110221863</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-69-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-69-normals">
+				<float_array id="id-mesh-69-normals-array" count="12"> -0.7665771245956421 -0.19071230292320251 0.6131789684295654 -0.7665770053863525 -0.1907123327255249 0.6131789088249207 -0.7665771245956421 -0.19071228802204132 0.6131789088249207 -0.7665770053863525 -0.1907123476266861 0.6131790280342102</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-69-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-69-tangents">
+				<float_array id="id-mesh-69-tangents-array" count="12"> 0.5292441844940186 -0.7284217476844788 0.435089111328125 0.5292441844940186 -0.728421688079834 0.43508902192115784 0.5292441248893738 -0.7284216284751892 0.4350890815258026 0.5292441844940186 -0.7284215688705444 0.43508896231651306</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-69-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-69-bitangents">
+				<float_array id="id-mesh-69-bitangents-array" count="12"> -0.3636760413646698 -0.6580507755279541 -0.6593248248100281 -0.363675981760025 -0.6580505967140198 -0.6593247056007385 -0.36367595195770264 -0.6580506563186646 -0.6593247056007385 -0.363675981760025 -0.6580506563186646 -0.6593246459960938</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-69-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-69-texcoord-0">
+				<float_array id="id-mesh-69-texcoord-0-array" count="8"> 0.43957191705703735 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-69-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-69-vertices">
+				<input semantic="POSITION" source="#id-mesh-69-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-70">
+				<input semantic="VERTEX" source="#id-mesh-69-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-69-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-69-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-69-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-69-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-71" name="Меш.014">
+		<mesh>
+			<source id="id-mesh-71-positions">
+				<float_array id="id-mesh-71-positions-array" count="12"> 0.5001453757286072 -0.28664717078208923 0.9486101269721985 0.6782631278038025 0.3022865355014801 0.995977520942688 0.4818694591522217 0.2252614051103592 0.7815022468566895 0.6965389847755432 -0.2096220701932907 1.1630854606628418</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-71-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-71-normals">
+				<float_array id="id-mesh-71-normals-array" count="12"> -0.7567498683929443 0.17828884720802307 0.6289218664169312 -0.7567499279975891 0.17828872799873352 0.6289216876029968 -0.7567501068115234 0.17828865349292755 0.628921627998352 -0.7567497491836548 0.17828892171382904 0.6289220452308655</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-71-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-71-tangents">
+				<float_array id="id-mesh-71-tangents-array" count="12"> 0.03391930088400841 -0.9500836133956909 0.3101462423801422 0.03391934558749199 -0.9500836133956909 0.31014615297317505 0.03391938656568527 -0.9500835537910461 0.31014615297317505 0.033919285982847214 -0.9500836133956909 0.3101462423801422</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-71-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-71-bitangents">
+				<float_array id="id-mesh-71-bitangents-array" count="12"> -0.6528239250183105 -0.256035715341568 -0.7129282355308533 -0.652823805809021 -0.2560356855392456 -0.712928295135498 -0.6528236269950867 -0.25603577494621277 -0.7129284143447876 -0.6528241634368896 -0.2560356855392456 -0.7129281163215637</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-71-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-71-texcoord-0">
+				<float_array id="id-mesh-71-texcoord-0-array" count="8"> 0.43957191705703735 0.9536163806915283 0.023798495531082153 0.7244458198547363 0.023798495531082153 0.9536163806915283 0.43957191705703735 0.7244458198547363</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-71-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-71-vertices">
+				<input semantic="POSITION" source="#id-mesh-71-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-72">
+				<input semantic="VERTEX" source="#id-mesh-71-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-71-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-71-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-71-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-71-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+	<geometry id="id-mesh-73" name="Меш.017">
+		<mesh>
+			<source id="id-mesh-73-positions">
+				<float_array id="id-mesh-73-positions-array" count="12"> 0.4591023325920105 -0.12148125469684601 -0.837336003780365 0.6313085556030273 0.37353867292404175 -1.1630853414535522 0.3457808494567871 0.35052070021629333 -1.0711774826049805 0.7446300387382507 -0.09846329689025879 -0.929243803024292</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-73-positions-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-73-normals">
+				<float_array id="id-mesh-73-normals-array" count="12"> 0.23442260921001434 0.47616976499557495 0.847530722618103 0.2344224601984024 0.47616976499557495 0.8475308418273926 0.23442232608795166 0.47616973519325256 0.847530722618103 0.2344227135181427 0.4761697053909302 0.847530722618103</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-73-normals-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-73-tangents">
+				<float_array id="id-mesh-73-tangents-array" count="12"> 0.21032096445560455 -0.8760183453559875 0.4340013265609741 0.2103210985660553 -0.876018226146698 0.43400120735168457 0.21032129228115082 -0.876018226146698 0.43400123715400696 0.21032077074050903 -0.8760183453559875 0.43400123715400696</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-73-tangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-73-bitangents">
+				<float_array id="id-mesh-73-bitangents-array" count="12"> 0.949110746383667 0.07651374489068985 -0.30550700426101685 0.9491106867790222 0.07651399075984955 -0.3055068850517273 0.9491106271743774 0.07651417702436447 -0.3055068850517273 0.9491106867790222 0.07651355862617493 -0.30550697445869446</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-73-bitangents-array" count="4" stride="3">
+					<param name="X" type="float"/>
+					<param name="Y" type="float"/>
+					<param name="Z" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<source id="id-mesh-73-texcoord-0">
+				<float_array id="id-mesh-73-texcoord-0-array" count="8"> 0.43957197666168213 0.49369871616363525 0.023798495531082153 0.7228691577911377 0.023798495531082153 0.49369901418685913 0.43957197666168213 0.7228690385818481</float_array>
+				<technique_common>
+				<accessor source="#id-mesh-73-texcoord-0-array" count="4" stride="2">
+					<param name="S" type="float"/>
+					<param name="T" type="float"/>
+				</accessor>
+				</technique_common>
+			</source>
+			<vertices id="id-mesh-73-vertices">
+				<input semantic="POSITION" source="#id-mesh-73-positions"/>
+			</vertices>
+			<triangles count="2" material="id-trimat-74">
+				<input semantic="VERTEX" source="#id-mesh-73-vertices" offset="0"/>
+				<input semantic="NORMAL" source="#id-mesh-73-normals" offset="0"/>
+				<input semantic="TEXCOORD" source="#id-mesh-73-texcoord-0" offset="0" set="0"/>
+				<input semantic="TEXTANGENT" source="#id-mesh-73-tangents" offset="0"/>
+				<input semantic="TEXBINORMAL" source="#id-mesh-73-bitangents" offset="0"/>
+				<p> 0 1 2 0 3 1 </p>
+			</triangles>
+		</mesh>
+	</geometry>
+</library_geometries>
+<library_visual_scenes>
+	<visual_scene id="id-scene-1" name="scene">
+		<node id="hippie_biom" name="hippie_biom" type="NODE">
+			<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<extra>
+					<technique profile="GODOT">
+						<empty_draw_type>PLAIN_AXES</empty_draw_type>
+					</technique>
+				</extra>
+			<node id="Cylinder001" name="Cylinder001" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-7">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-8" target="#id-material-6"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Helix001" name="Helix001" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<extra>
+					<technique profile="GODOT">
+						<empty_draw_type>PLAIN_AXES</empty_draw_type>
+					</technique>
+				</extra>
+			</node>
+			<node id="Plane018" name="Plane018" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-14">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-15" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane019" name="Plane019" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-16">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-17" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane020" name="Plane020" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-18">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-19" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane021" name="Plane021" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-20">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-21" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane022" name="Plane022" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-22">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-23" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane023" name="Plane023" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-24">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-25" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane024" name="Plane024" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-26">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-27" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane025" name="Plane025" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-28">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-29" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane026" name="Plane026" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-30">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-31" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane027" name="Plane027" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-32">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-33" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane029" name="Plane029" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-34">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-35" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane030" name="Plane030" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-36">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-37" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane031" name="Plane031" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-38">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-39" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane032" name="Plane032" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-40">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-41" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane033" name="Plane033" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-42">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-43" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane034" name="Plane034" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-44">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-45" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane140" name="Plane140" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-51">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-52" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane141" name="Plane141" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-53">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-54" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane142" name="Plane142" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-55">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-56" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane143" name="Plane143" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-57">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-58" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane144" name="Plane144" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-59">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-60" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane145" name="Plane145" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-61">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-62" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane146" name="Plane146" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-63">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-64" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane147" name="Plane147" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-65">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-66" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane148" name="Plane148" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-67">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-68" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane149" name="Plane149" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-69">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-70" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane150" name="Plane150" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-71">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-72" target="#id-material-50"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+			<node id="Plane153" name="Plane153" type="NODE">
+				<matrix sid="transform"> 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0  </matrix>
+				<instance_geometry url="#id-mesh-73">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="id-trimat-74" target="#id-material-13"/>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+		</node>
+	</visual_scene>
+</library_visual_scenes>
+<scene>
+	<instance_visual_scene url="#id-scene-1" />
+</scene>
+</COLLADA>

@@ -13,6 +13,7 @@ namespace HippieFall
 		public event Action<Effect> OnReceivedCharacterEffect;
 		public event Action<Effect> OnReceivedCollectableEffect;
 		public event Action<Effect> OnReceivedObstaclesEffect;
+		public event Action<Effect> OnReceivedGameCameraEffect;
 		public event Action<NamedEffect> OnReceivedNamedEffect;
 
 		public override void _Ready()
@@ -44,6 +45,7 @@ namespace HippieFall
 					case Effect.EffectsTarget.Collectable:  OnReceivedCollectableEffect?.Invoke(effect); break;
 					case Effect.EffectsTarget.Obstacles:  OnReceivedObstaclesEffect?.Invoke(effect); break;
 					case Effect.EffectsTarget.Character:  OnReceivedCharacterEffect?.Invoke(effect); break;
+					case Effect.EffectsTarget.GameCamera: OnReceivedGameCameraEffect?.Invoke(effect); break;
 				}
 			}
 		}

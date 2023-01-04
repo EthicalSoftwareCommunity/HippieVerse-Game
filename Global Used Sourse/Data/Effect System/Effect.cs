@@ -10,7 +10,9 @@ namespace Global.Data.EffectSystem
             Obstacles,
             Player,
             Collectable,
-            Character
+            Character,
+            GameCamera,
+            
         }
         
         public EffectsTarget Target;

@@ -9,6 +9,7 @@ namespace HippieUniverse
 	{
 		public GameInterface Interface { get; set; }
 		public CameraControl Player { get; set; }
+		public SettingsUI Settings { get; set; }
 		private string _pathToCharacterSave = C_SaveFolderFile.FILE_CHARACTER;
 		private Node _character;
 		
@@ -17,6 +18,7 @@ namespace HippieUniverse
 			_character = GetNode("World/Character");
 			Interface = GetNode<GameInterface>("Interface");
 			Player = GetNode<CameraControl>("World/UniversePlayer");
+			Settings = GetNode<SettingsUI>("SettingsUI");
 			LoadCharacter();
 			LoadRewards();
 			MainSphereUtilites.MainSphere = this;

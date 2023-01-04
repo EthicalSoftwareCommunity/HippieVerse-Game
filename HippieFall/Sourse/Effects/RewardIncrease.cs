@@ -19,7 +19,7 @@ namespace HippieFall.Effects
                 ApplyEffect(chest);
             if (config is CollectableCoinConfig coin)
                 ApplyEffect(coin);
-            if (config is CollectableGemcoinConfig gemcoin)
+            if (config is CollectableCrystalConfig gemcoin)
                 ApplyEffect(gemcoin);
             return config;
         }
@@ -35,7 +35,7 @@ namespace HippieFall.Effects
             coin.Value = (int)(coin.Value*_coefficient);
         }
 
-        private void ApplyEffect(CollectableGemcoinConfig gemcoin)
+        private void ApplyEffect(CollectableCrystalConfig gemcoin)
         {
             gemcoin.Value = (int)(gemcoin.Value*_coefficient);
         }

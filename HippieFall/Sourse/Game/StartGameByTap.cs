@@ -4,8 +4,7 @@ using HippieFall.Game;
 
 public class StartGameByTap : Control
 {
-    
-    private void OnTapToStartGameAreaGuiInput(InputEvent @event)
+    public override void _Input(InputEvent @event)
     {
         if (@event is InputEventScreenTouch inputEvent)
         {

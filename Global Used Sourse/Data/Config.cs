@@ -1,6 +1,8 @@
+using Godot;
+
 namespace Global.Data
 {
-	public class Config
+	public class Config : Resource
 	{
 		
 	}

@@ -8,6 +8,11 @@
 
 config_version=4
 
+[CustomResourceRegister]
+
+ScriptsFolder="res://"
+ClassPrefix=""
+
 [application]
 
 config/name="HippieUniverse"
@@ -33,6 +38,10 @@ window/vsync/use_vsync=false
 window/energy_saving/keep_screen_on=false
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/CustomResourceRegister/plugin.cfg" )
 
 [global]
 

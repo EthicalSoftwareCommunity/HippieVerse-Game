@@ -7,9 +7,9 @@
 [ext_resource path="res://HippieFall/Sourse/Characters/Character2/Abilities/DestroyObstaclesAbility.cs" type="Script" id=5]
 [ext_resource path="res://HippieFall/Sourse/Characters/Character2/Abilities/DoubleRewardIncreaseAbility.cs" type="Script" id=6]
 [ext_resource path="res://Global Used Sourse/Data/Character System/CharacterInterface.cs" type="Script" id=7]
-[ext_resource path="res://HippieFall/Sourse/Characters/CharacterModel.cs" type="Script" id=8]
+[ext_resource path="res://HippieFall/Sourse/Characters/Character2/Model/HippieGuy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Global Used Sourse/Data/Character System/AbilityButton.cs" type="Script" id=9]
-[ext_resource path="res://HippieFall/Sourse/Characters/Character2/hippie_girl.tscn" type="PackedScene" id=10]
+[ext_resource path="res://HippieFall/Sourse/Characters/CharacterModel.cs" type="Script" id=10]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 30, 75, 30 )
@@ -17,15 +17,18 @@ extents = Vector3( 30, 75, 30 )
 [node name="Character2" type="Spatial"]
 script = ExtResource( 3 )
 _characterInterfacePath = NodePath("CharacterInterface")
-_characterModelPath = NodePath("hippie_girl")
+_characterModelPath = NodePath("HippieGuy")
 
 [node name="Magnet" type="Spatial" parent="."]
 transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0.645556, 0.07095, -0.59612 )
 
-[node name="hippie_girl" parent="." instance=ExtResource( 10 )]
-transform = Transform( -1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0, 0, 0.888 )
-script = ExtResource( 8 )
+[node name="Shield" type="Spatial" parent="."]
+
+[node name="HippieGuy" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 1.446, -0.566 )
+script = ExtResource( 10 )
 MagnetPath = NodePath("../Magnet")
+ShieldPath = NodePath("../Shield")
 
 [node name="CharacterInterface" type="Control" parent="."]
 anchor_left = 0.912
@@ -74,7 +77,6 @@ shape = SubResource( 1 )
 
 [node name="DestroyObstaclesAbility" type="Node" parent="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton"]
 script = ExtResource( 5 )
-_destroyAreaPath = NodePath("../Area/CollisionShape")
 
 [node name="Label" type="Label" parent="CharacterInterface/AbilitiesButtonsController/DestroyObstaclesButton"]
 margin_left = 3.0

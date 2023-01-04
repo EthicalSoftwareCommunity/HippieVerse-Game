@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://import/hippie_saw.obj-1a0d05b7319372cebbbc76af0f4923bd.mesh"
+
+[deps]
+
+files=[ "res://import/hippie_saw.obj-1a0d05b7319372cebbbc76af0f4923bd.mesh" ]
+
+source_file="res://HippieFall/Sourse/Biome/Hippie/Obstacles/HippieSaw/hippie_saw.obj"
+dest_files=[ "res://import/hippie_saw.obj-1a0d05b7319372cebbbc76af0f4923bd.mesh", "res://import/hippie_saw.obj-1a0d05b7319372cebbbc76af0f4923bd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

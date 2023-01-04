@@ -46,11 +46,11 @@ namespace Global.GameSystem
 
         //Add dependencies from GameController
         //Connect events
-        protected abstract void Init();
+        public abstract void Init(Node node = null, Config config = null);
         
         //Set if checking node for needle *Class* 
         //Return new *Class*Config()
-        protected abstract Config GetConfigByType(Node node);
+        public abstract Config GetConfigByType(Node node);
 
         private void ApplyDynamicEffects()
         {

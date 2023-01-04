@@ -34,7 +34,6 @@ namespace HippieFall
             _player = HippieFallUtilities.Game.Player;
             _holdTapArea = HippieFallUtilities.Game.GameInterface.IncreaseLevelSpeedByTapArea;
             _holdTapArea.OnEffectAdded += AddMovementEffect;
-            //HippieFallUtilities.Game.Level.ConfigChanged?.
         }
 
         public override void _PhysicsProcess(float delta)

@@ -8,15 +8,11 @@ namespace HippieFall.Characters
 {
     public class DestroyObstaclesAbility : ActiveAbility
     {
-        [Export] private NodePath _destroyAreaPath;
-        private CollisionShape _destroyArea;
         private List<Obstacle> _obstacles;
-        private Timer _timer;
 
         public override void _Ready()
         {
-            _obstacles = new List<Obstacle>();  
-            _destroyArea = GetNode<CollisionShape>(_destroyAreaPath);
+            _obstacles = new List<Obstacle>();
         }
 
         private void OnAreaEntered(Area area)

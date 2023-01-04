@@ -1,12 +1,13 @@
 ﻿using Global.Data;
+using Godot;
 
 namespace HippieFall.Collectables
 {
     public class CollectableChestConfig : CollectableConfig
     {
-        public int Value { get; set; }= 1;
-        public string ChestRarity { get; set; } = "Rare";
-        public string ChestType { get; set; } = "Common";
+        [Export] public int Value { get; set; }= 1;
+        [Export] public string ChestRarity { get; set; } = "Rare";
+        [Export] public string ChestType { get; set; } = "Common";
         public CollectableChestConfig() 
         {
             SpawnWeight = 100f;

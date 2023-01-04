@@ -41,6 +41,5 @@ namespace Global.Data.Reward
             _file.StoreString(JsonConvert.SerializeObject(data));
             _file.Close();
         }
-        
     }
 }

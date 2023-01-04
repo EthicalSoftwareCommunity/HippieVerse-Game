@@ -1,0 +1,350 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://HippieUniverse/Sourse/MainSphere/Objects/Settings/SettingsUI.cs" type="Script" id=2]
+[ext_resource path="res://Images/cross.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.0470588, 1, 0, 1 )
+border_width_left = 75
+border_width_top = 13
+border_color = Color( 1, 0.380392, 0, 1 )
+border_blend = true
+corner_radius_top_right = 398
+corner_radius_bottom_right = 609
+corner_radius_bottom_left = 103
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.00392157, 0.223529, 1, 1 )
+corner_radius_top_left = 62
+corner_radius_top_right = 58
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxLine" id=26]
+color = Color( 1, 0, 0.886275, 1 )
+
+[node name="Settings UI" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -200.0
+margin_right = 150.0
+margin_bottom = 200.0
+script = ExtResource( 2 )
+_musicSliderPath = NodePath("VBoxContainer/Music and sound/Music/HBoxContainer/HSlider")
+_soundSliderPath = NodePath("VBoxContainer/Music and sound/Sounds/HBoxContainer/HSlider")
+_sensitivitySliderPath = NodePath("VBoxContainer/Controls/Sensitivity/HBoxContainer/HSlider")
+_speedSliderPath = NodePath("VBoxContainer/Controls/Speed/HBoxContainer/HSlider")
+_musicCheckButtonPath = NodePath("VBoxContainer/Music and sound/Music/HBoxContainer/CheckButton")
+_soundsCheckButtonPath = NodePath("VBoxContainer/Music and sound/Sounds/HBoxContainer/CheckButton")
+_saveSettingsButtonPath = NodePath("VBoxContainer/Control2/SaveButton")
+_closeSettingsButtonPath = NodePath("VBoxContainer/Control/CloseButton")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.882353, 1, 1 )
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.997
+margin_left = -12.0
+margin_bottom = 0.199982
+step = 1.0
+value = 5.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 0.95
+anchor_bottom = 1.0
+margin_right = 4.0
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_right = 289.0
+size_flags_vertical = 0
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/Control"]
+modulate = Color( 0.00784314, 1, 0.588235, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 40.0
+icon = ExtResource( 3 )
+align = 2
+icon_align = 2
+expand_icon = true
+
+[node name="Settings" type="Control" parent="VBoxContainer"]
+margin_top = 4.0
+margin_right = 289.0
+margin_bottom = 46.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="SettingText" type="Label" parent="VBoxContainer/Settings"]
+margin_right = 300.0
+margin_bottom = 90.0
+theme = ExtResource( 1 )
+text = "Settings"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Music and sound" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 50.0
+margin_right = 289.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Music" type="Control" parent="VBoxContainer/Music and sound"]
+margin_right = 289.0
+margin_bottom = 69.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MusicText" type="Label" parent="VBoxContainer/Music and sound/Music"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 100.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Music"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Music and sound/Music"]
+margin_left = 20.0
+margin_top = 25.0
+margin_right = 289.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Music and sound/Music/HBoxContainer"]
+margin_right = 189.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/slider = SubResource( 24 )
+custom_styles/grabber_area_highlight = SubResource( 25 )
+custom_styles/grabber_area = SubResource( 26 )
+value = 50.0
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/Music and sound/Music/HBoxContainer"]
+margin_left = 193.0
+margin_right = 269.0
+margin_bottom = 40.0
+align = 1
+icon_align = 1
+
+[node name="Sounds" type="Control" parent="VBoxContainer/Music and sound"]
+margin_top = 73.0
+margin_right = 289.0
+margin_bottom = 142.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SoundsText" type="Label" parent="VBoxContainer/Music and sound/Sounds"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 100.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 1 )
+text = "Sounds
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Music and sound/Sounds"]
+margin_left = 20.0
+margin_top = 25.0
+margin_right = 289.0
+margin_bottom = 57.0
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Music and sound/Sounds/HBoxContainer"]
+margin_right = 189.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+value = 50.0
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/Music and sound/Sounds/HBoxContainer"]
+margin_left = 193.0
+margin_right = 269.0
+margin_bottom = 40.0
+align = 2
+icon_align = 2
+
+[node name="Controls" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 196.0
+margin_right = 289.0
+margin_bottom = 339.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/Controls"]
+margin_right = 289.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.3
+
+[node name="Label" type="Label" parent="VBoxContainer/Controls/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.5
+margin_top = -7.0
+margin_right = 34.5
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+text = "Controls"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Sensitivity" type="Control" parent="VBoxContainer/Controls"]
+margin_top = 21.0
+margin_right = 289.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Controls/Sensitivity"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -124.5
+margin_right = 124.5
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SensitivityText" type="Label" parent="VBoxContainer/Controls/Sensitivity/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Sensitivity"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Controls/Sensitivity/HBoxContainer"]
+margin_left = 102.0
+margin_right = 249.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Controls/Sensitivity/HBoxContainer/HSlider"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlowerText" type="Label" parent="VBoxContainer/Controls/Sensitivity/HBoxContainer/HSlider/HBoxContainer"]
+margin_right = 71.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Slower"
+
+[node name="FasterText" type="Label" parent="VBoxContainer/Controls/Sensitivity/HBoxContainer/HSlider/HBoxContainer"]
+margin_left = 75.0
+margin_right = 147.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Faster
+"
+align = 2
+
+[node name="Speed" type="Control" parent="VBoxContainer/Controls"]
+margin_top = 84.0
+margin_right = 289.0
+margin_bottom = 143.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Controls/Speed"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -124.5
+margin_right = 124.5
+margin_bottom = 31.0
+
+[node name="SpeedText" type="Label" parent="VBoxContainer/Controls/Speed/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Speed
+"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Controls/Speed/HBoxContainer"]
+margin_left = 102.0
+margin_right = 249.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Controls/Speed/HBoxContainer/HSlider"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlowerText" type="Label" parent="VBoxContainer/Controls/Speed/HBoxContainer/HSlider/HBoxContainer"]
+margin_right = 71.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Slower"
+
+[node name="FasterText" type="Label" parent="VBoxContainer/Controls/Speed/HBoxContainer/HSlider/HBoxContainer"]
+margin_left = 75.0
+margin_right = 147.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+text = "Faster
+"
+align = 2
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+margin_top = 343.0
+margin_right = 289.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/Control2"]
+modulate = Color( 0, 1, 0.0196078, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -20.0
+margin_right = 50.0
+margin_bottom = 20.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.3
+text = "Save"
+icon_align = 1

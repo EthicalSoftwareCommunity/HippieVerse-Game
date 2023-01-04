@@ -17,6 +17,7 @@ namespace HippieFall.Tunnels
 
 		public override void _Ready()
 		{
+			RotateY(Utilities.GetRandomNumberFloat(-10,10));
 			ObstacleType = ObstacleTypes.Controller;
 		}
 
