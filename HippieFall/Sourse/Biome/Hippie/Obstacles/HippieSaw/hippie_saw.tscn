@@ -51,7 +51,6 @@ radius = 2.55179
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 2 )
 _movingObstaclePath = NodePath("Gears")
-_radius = 3.0
 _speed = 2.0
 
 [node name="Round_corridor_hippie_Traps_v1" type="MeshInstance" parent="."]
@@ -59,7 +58,7 @@ transform = Transform( 38, 0, 0, 0, -1.66103e-06, 38, 0, -38, -1.66103e-06, 0, 0
 mesh = SubResource( 1 )
 
 [node name="Gears" type="MeshInstance" parent="."]
-transform = Transform( 70, 0, 0, 0, -3.0598e-06, 70, 0, -70, -3.0598e-06, 0, 0, 0 )
+transform = Transform( 40, 0, 0, 0, -1.74846e-06, 40, 0, -40, -1.74846e-06, 0, 1.69379, -7.40381e-08 )
 mesh = SubResource( 2 )
 
 [node name="Area" type="Area" parent="Gears"]
