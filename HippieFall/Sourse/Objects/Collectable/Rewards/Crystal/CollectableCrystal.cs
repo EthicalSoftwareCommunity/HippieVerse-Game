@@ -5,7 +5,7 @@ using Godot;
 
 namespace HippieFall.Collectables
 {
-    internal class CollectableCrystal : Collectable, IEffectable
+    public class CollectableCrystal : Collectable, IEffectable
     {
         public override void ChangeConfigData(Config config)
         {

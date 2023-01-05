@@ -25,8 +25,6 @@ namespace HippieFall
 				else if (reward is CollectableCrystal)
 					RewardController.RewardData.AddCrystal(new RewardCrystal(reward.Config as CollectableCrystalConfig));
 				else if (reward is CollectableChest)
-					//var chest = (reward as CollectableChest).CastToRewardChest();
-					//RewardController.RewardData.add_chest(RewardChest.new(chest.chest_type, chest.chest_rarity))
 					RewardController.RewardData.AddChest(new RewardChest(reward.Config as CollectableChestConfig));
 
 				OnRewardsDataChanged?.Invoke(RewardController.RewardData);

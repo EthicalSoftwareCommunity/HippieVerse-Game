@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -32,10 +32,12 @@
 [ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Chest/CollectableChestConfigData.tres" type="Resource" id=30]
 [ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalConfigData.tres" type="Resource" id=31]
 [ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Coin/CollectableCoinConfigData.tres" type="Resource" id=32]
+[ext_resource path="res://HippieFall/Sourse/Biome/Cyber/Tunnel/tunnel_cyber.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
 [ext_resource path="res://Fonts/Ubuntu-BoldItalic.ttf" type="DynamicFontData" id=37]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalDepositConfigData.tres" type="Resource" id=38]
 
 [sub_resource type="Theme" id=1]
 
@@ -128,12 +130,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="SpatialMaterial" id=33]
-flags_disable_ambient_light = true
-vertex_color_use_as_albedo = true
-
-[sub_resource type="SpatialMaterial" id=34]
-flags_vertex_lighting = true
-albedo_color = Color( 0, 0.501961, 1, 1 )
+albedo_color = Color( 0.0156863, 0.658824, 0, 1 )
 
 [sub_resource type="BoxShape" id=6]
 
@@ -606,6 +603,8 @@ scene = 2
 [node name="TapToStartGameArea" type="Control" parent="Interface"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -27.0
+margin_bottom = -27.0
 mouse_filter = 2
 script = ExtResource( 28 )
 
@@ -621,39 +620,21 @@ modulate = Color( 1, 1, 1, 1 )
 script = ExtResource( 4 )
 TunnelSpawnerPath = NodePath("TunnelsSpawner")
 
-[node name="StartGreenPlane" type="CSGBox" parent="Level"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.1438, 0 )
-material_override = SubResource( 33 )
-width = 48.4563
-height = 4.82915
-depth = 51.1591
+[node name="CSGBox" type="CSGBox" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.9, 0 )
+width = 108.058
+height = 0.001
+depth = 121.978
+material = SubResource( 33 )
 script = ExtResource( 29 )
 
-[node name="CSGCylinder" type="CSGCylinder" parent="Level/StartGreenPlane"]
-operation = 1
-radius = 2.9
-height = 10.2566
+[node name="CSGCylinder" type="CSGCylinder" parent="Level/CSGBox"]
+operation = 2
+snap = 0.0001
+calculate_tangents = false
+radius = 3.15
+height = 4.77962
 sides = 64
-
-[node name="CSGCylinder2" type="CSGCylinder" parent="Level/StartGreenPlane"]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 4.64839, 0 )
-material_override = SubResource( 34 )
-invert_faces = true
-radius = 8.91969
-height = 12.3314
-sides = 64
-cone = true
-
-[node name="OmniLight" type="OmniLight" parent="Level/StartGreenPlane"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.40575, 0 )
-light_color = Color( 0.054902, 0.00784314, 0.627451, 1 )
-light_energy = 8.636
-light_indirect_energy = 4.453
-light_size = 0.525
-light_bake_mode = 2
-shadow_enabled = true
-omni_range = 11.508
-omni_attenuation = 2.46229
 
 [node name="TunnelsSpawner" type="Spatial" parent="Level"]
 script = ExtResource( 5 )
@@ -668,7 +649,12 @@ script = ExtResource( 3 )
 script = ExtResource( 6 )
 _coinConfig = ExtResource( 32 )
 _crystalConfig = ExtResource( 31 )
+_crystalDepositConfig = ExtResource( 38 )
 _chestConfig = ExtResource( 30 )
+
+[node name="tunnel_cyber" parent="Level" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.575, 0 )
+visible = false
 
 [node name="DestroyTunnelTrigger" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.3379, 0 )
@@ -680,18 +666,6 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-
-[node name="OmniLight" type="OmniLight" parent="Player"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.12009, 0 )
-light_color = Color( 0.211765, 0.627451, 0.00784314, 1 )
-light_energy = 6.589
-light_indirect_energy = 4.453
-light_size = 0.525
-light_bake_mode = 2
-shadow_enabled = true
-shadow_contact = 0.519
-omni_range = 11.508
-omni_shadow_mode = 0
 
 [node name="GameEffectController" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -732,6 +706,38 @@ draw_pass_1 = SubResource( 29 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
 anims/ChangeCharacteristics = SubResource( 32 )
+
+[node name="OmniLight" type="SpotLight" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 0.999992, 0.00411891, 0, -0.00411891, 0.999992, 0, -3.94881e-07, 0 )
+light_color = Color( 1, 0.968627, 0.815686, 1 )
+light_energy = 2.2
+light_indirect_energy = 3.016
+light_size = 0.585
+shadow_enabled = true
+shadow_bias = 0.139
+shadow_contact = 0.519
+spot_range = 30.0
+spot_angle = 89.0
+
+[node name="OmniLight2" type="SpotLight" parent="Camera"]
+transform = Transform( 0.805235, 2.59189e-08, -0.592955, -2.59189e-08, 1, 8.51343e-09, 0.592955, 8.51343e-09, 0.805235, -2.13907, -7.07805e-07, -1.60515 )
+light_energy = 0.3
+light_size = 0.585
+shadow_enabled = true
+shadow_bias = 0.139
+shadow_contact = 0.519
+spot_range = 30.0
+spot_angle = 50.0
+
+[node name="OmniLight3" type="SpotLight" parent="Camera"]
+transform = Transform( 0.89971, -1.90795e-08, 0.436488, 1.90795e-08, 1, 4.3838e-09, -0.436488, 4.38381e-09, 0.89971, 1.68846, -7.07805e-07, -1.87118 )
+light_energy = 0.3
+light_size = 0.585
+shadow_enabled = true
+shadow_bias = 0.139
+shadow_contact = 0.519
+spot_range = 30.0
+spot_angle = 50.0
 
 [connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]

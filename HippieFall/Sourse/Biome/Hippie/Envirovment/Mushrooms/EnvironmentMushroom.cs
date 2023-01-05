@@ -15,7 +15,7 @@ namespace HippieFall.Biomes
         private bool IsFalling = false;
         private void OnAreaEntered(Area area)
         {
-            if (area.GetOwnerOrNull<Player>() != null)
+            if (area.GetOwnerOrNull<Player>() != null && IsFalling == false)
             {
                 _fallSpeed = HippieFallUtilities.Game.Level.LevelConfig.Speed *
                              Mathf.Log(HippieFallUtilities.Game.Level.LevelConfig.Speed);

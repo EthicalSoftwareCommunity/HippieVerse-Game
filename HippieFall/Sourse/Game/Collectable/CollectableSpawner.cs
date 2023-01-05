@@ -25,6 +25,7 @@ namespace HippieFall
 			{
 				GD.Load<PackedScene>(C_CollectablePath.COIN).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.CRYSTAL).Instance<Collectable>(),
+				GD.Load<PackedScene>(C_CollectablePath.CRYSTAL_DEPOSIT).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.CHEST).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.SLOW_OBSTACLES).Instance<Collectable>(),
 				GD.Load<PackedScene>(C_CollectablePath.DOUBLE_SCORE).Instance<Collectable>(),
