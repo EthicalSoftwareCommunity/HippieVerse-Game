@@ -1,0 +1,940 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://HippieFall/Materials/Models/ConvertedToSceneModels/Crystal/MoreCrystals.tscn" type="PackedScene" id=1]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalDepositConfigData.tres" type="Resource" id=3]
+[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalDeposit.cs" type="Script" id=4]
+[ext_resource path="res://Images/star_bright_sparks.png" type="Texture" id=5]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.5, 1, 0.5 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CrystalsDeposit/Cylinder004:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CrystalsDeposit/Cylinder004:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CrystalsDeposit/Cylinder004:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CrystalsDeposit/Cylinder004002:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CrystalsDeposit/Cylinder004002:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CrystalsDeposit/Cylinder004002:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CrystalsDeposit/Cylinder004003:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CrystalsDeposit/Cylinder004003:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CrystalsDeposit/Cylinder004003:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CrystalsDeposit/Cylinder004004:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CrystalsDeposit/Cylinder004004:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CrystalsDeposit/Cylinder004004:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CrystalsDeposit/Cylinder004005:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CrystalsDeposit/Cylinder004005:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CrystalsDeposit/Cylinder004005:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("CrystalsDeposit/Cylinder004006:translation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("CrystalsDeposit/Cylinder004006:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("CrystalsDeposit/Cylinder004006:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("CrystalsDeposit:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("StarsParticles/Particles:emitting")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("StarsParticles/Particles:amount")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("StarsParticles/Particles:one_shot")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("StarsParticles/Particles2:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("StarsParticles/Particles2:amount")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 20 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("StarsParticles/Particles2:one_shot")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("CrystalsDeposit:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("StarsParticles/Particles2:speed_scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("StarsParticles/Particles:speed_scale")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("StarsParticles/Particles2:lifetime")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("StarsParticles/Particles:lifetime")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath(".:rotation_degrees")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath(".:translation")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Rotate"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CrystalsDeposit:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -10 ), Vector3( 0, 180, 10 ), Vector3( 0, 360, -10 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "To different sides"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CrystalsDeposit/Cylinder004:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ), Vector3( 0.908985, 1.07712, 0.496472 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CrystalsDeposit/Cylinder004:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ), Vector3( 18.9263, 6.9994, 11.4065 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CrystalsDeposit/Cylinder004:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ), Vector3( 0.001, 0.001, 0.001 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CrystalsDeposit/Cylinder004002:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ), Vector3( -0.63309, 1.2565, 0.496472 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CrystalsDeposit/Cylinder004002:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ), Vector3( 10.9454, -17.0042, -67.4906 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CrystalsDeposit/Cylinder004002:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ), Vector3( 0.001, 0.001, 0.001 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CrystalsDeposit/Cylinder004003:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ), Vector3( 0.289155, 1.13423, 0.496472 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CrystalsDeposit/Cylinder004003:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ), Vector3( 19.6451, -4.50202, -22.5074 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CrystalsDeposit/Cylinder004003:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ), Vector3( 0.001, 0.001, 0.001 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CrystalsDeposit/Cylinder004004:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ), Vector3( -0.13109, 1.55842, 0.496472 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CrystalsDeposit/Cylinder004004:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ), Vector3( 10.977, -16.9842, -67.3854 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CrystalsDeposit/Cylinder004004:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ), Vector3( 0.001, 0.001, 0.001 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CrystalsDeposit/Cylinder004005:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ), Vector3( 0.289155, 1.58568, 0.496472 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CrystalsDeposit/Cylinder004005:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CrystalsDeposit/Cylinder004005:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ), Vector3( 0.001, 0.001, 0.001 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("CrystalsDeposit/Cylinder004006:translation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.289155, 0.134214, 0.496472 ), Vector3( 0.976414, 1.44554, 0.496472 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("CrystalsDeposit/Cylinder004006:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 18.8127, -7.30859, -31.0149 ), Vector3( 20.0695, 1.65085, -4.52541 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("CrystalsDeposit/Cylinder004006:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.0124959, 0.0123841, 0.012337 ), Vector3( 0.001, 0.001, 0.001 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("CrystalsDeposit:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("StarsParticles/Particles:emitting")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("StarsParticles/Particles:amount")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 10, 100 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("StarsParticles/Particles:one_shot")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("StarsParticles/Particles2:emitting")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 6.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("StarsParticles/Particles2:amount")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 20, 200, 100 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("StarsParticles/Particles2:one_shot")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/25/type = "method"
+tracks/25/path = NodePath(".")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("StarsParticles/Particles2:speed_scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.0 ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("StarsParticles/Particles:speed_scale")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.0 ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("StarsParticles/Particles2:lifetime")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("StarsParticles/Particles:lifetime")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath(".:rotation_degrees")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -90, 0, 0 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath(".:translation")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -7, 0 ) ]
+}
+
+[sub_resource type="Gradient" id=6]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0.00371747, 0.527881, 0.825279, 1 )
+colors = PoolColorArray( 1, 1, 0, 1, 0.962891, 1, 0, 0.77482, 0, 0.0325222, 0.979492, 0.647059, 0, 0, 1, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+resource_local_to_scene = true
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0.0201049, 0.58589 ), 0.0, -3.22156, 0, 0, Vector2( 0.70542, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+resource_local_to_scene = true
+lifetime_randomness = 0.63
+direction = Vector3( 0, 5, 0 )
+spread = 46.18
+flatness = 0.27
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 3.0
+initial_velocity_random = 0.5
+angular_velocity = 435.79
+angular_velocity_random = 0.11
+radial_accel = 1.0
+angle = 45.0
+angle_random = 0.57
+scale = 0.3
+scale_random = 0.51
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+
+[sub_resource type="SpatialMaterial" id=11]
+resource_local_to_scene = true
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="QuadMesh" id=12]
+resource_local_to_scene = true
+material = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+resource_local_to_scene = true
+lifetime_randomness = 0.63
+direction = Vector3( 0, 5, 0 )
+spread = 90.0
+flatness = 0.27
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.5
+angular_velocity = 435.79
+angular_velocity_random = 0.11
+radial_accel = 1.0
+angle = 45.0
+angle_random = 0.57
+scale = 0.3
+scale_random = 0.51
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+
+[sub_resource type="QuadMesh" id=14]
+resource_local_to_scene = true
+material = SubResource( 11 )
+
+[node name="CollectableCrystalDeposit" type="Spatial"]
+script = ExtResource( 4 )
+Config = ExtResource( 3 )
+
+[node name="CrystalsDeposit" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149267, -0.514724, -0.207264 )
+
+[node name="Cylinder004" parent="CrystalsDeposit" index="0"]
+transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+
+[node name="Cylinder004002" parent="CrystalsDeposit" index="1"]
+transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+
+[node name="Cylinder004003" parent="CrystalsDeposit" index="2"]
+transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+
+[node name="Cylinder004004" parent="CrystalsDeposit" index="3"]
+transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+
+[node name="Cylinder004005" parent="CrystalsDeposit" index="4"]
+transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+
+[node name="Cylinder004006" parent="CrystalsDeposit" index="5"]
+transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+
+[node name="Area" type="Area" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Rotate"
+playback_speed = 2.0
+anims/RESET = SubResource( 4 )
+anims/Rotate = SubResource( 15 )
+"anims/To different sides" = SubResource( 5 )
+
+[node name="StarsParticles" type="Spatial" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.423946, -0.0544789 )
+
+[node name="Particles" type="Particles" parent="StarsParticles"]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+amount = 10
+lifetime = 2.0
+speed_scale = 2.0
+randomness = 0.35
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="Particles2" type="Particles" parent="StarsParticles"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+amount = 20
+lifetime = 2.0
+speed_scale = 2.0
+randomness = 0.35
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 14 )
+
+[connection signal="area_entered" from="Area" to="." method="OnAreaEntered"]
+
+[editable path="CrystalsDeposit"]

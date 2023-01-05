@@ -8,6 +8,7 @@ namespace Global.Constants
 		//Rewards
 		public const string COIN = PATH_TO_REWARDS + "Coin/CollectableCoin.tscn";
 		public const string CRYSTAL = PATH_TO_REWARDS + "Crystal/CollectableCrystal.tscn";
+		public const string CRYSTAL_DEPOSIT = PATH_TO_REWARDS + "Crystal/CollectableCrystalDeposit.tscn";
 		public const string CHEST = PATH_TO_REWARDS + "Chest/CollectableChest.tscn";
 
 		//Bonuses

@@ -12,11 +12,11 @@ namespace HippieFall.Collectables
 		
 		protected virtual void OnAreaEntered(Area area)
 		{
-			if (area.GetParentOrNull<Player>() != null) Destroy();
+			if (area.GetParentOrNull<Player>() != null) 
+				Destroy();
 		}
-		public void Destroy()
+		public virtual void Destroy()
 		{
-			OnDestroy?.Invoke(this);
 			QueueFree();
 		}
 		public abstract void ChangeConfigData(Config config);

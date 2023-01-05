@@ -121,15 +121,3 @@ tracks/9/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/10/type = "value"
-tracks/10/path = NodePath("Green_Crystal:material/0:albedo_color")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 1, 0.772549, 1 ), Color( 0, 1, 0.772549, 0 ) ]
-}
