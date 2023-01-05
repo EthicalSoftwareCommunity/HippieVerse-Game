@@ -51,6 +51,7 @@ radius = 2.55179
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 2 )
 _movingObstaclePath = NodePath("Gears")
+_radius = 1.7
 _speed = 2.0
 
 [node name="Round_corridor_hippie_Traps_v1" type="MeshInstance" parent="."]
@@ -69,3 +70,6 @@ collision_mask = 8
 [node name="CollisionShape" type="CollisionShape" parent="Gears/Area"]
 transform = Transform( 1, -6.57785e-36, 8.47033e-22, 6.57785e-36, 1, 0, -8.47033e-22, 0, 1, 0, 0, 0 )
 shape = SubResource( 4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70144e-07, 3.89245 )
