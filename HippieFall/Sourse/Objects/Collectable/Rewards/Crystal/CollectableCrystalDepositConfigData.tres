@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-SpawnOffsetX = 0.0
-SpawnOffsetZ = 0.0
-SpawnOffsetY = 0.0
-SpawnWeight = 10000.0
+SpawnOffsetX = 1.0
+SpawnOffsetZ = 1.0
+SpawnOffsetY = 3.0
+SpawnWeight = 20.0
+_value = 1
 MaxValue = 10
 MinValue = 4

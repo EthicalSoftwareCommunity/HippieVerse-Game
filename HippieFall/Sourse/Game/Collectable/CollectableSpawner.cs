@@ -72,8 +72,9 @@ namespace HippieFall
 				Utilities.GetRandomNumberFloat(-collectable.Config.SpawnOffsetX, collectable.Config.SpawnOffsetX);
 			float offsetZ =
 				Utilities.GetRandomNumberFloat(-collectable.Config.SpawnOffsetZ, collectable.Config.SpawnOffsetZ);
+			
 
-			Vector3 position = new Vector3(offsetX, 0, offsetZ);
+			Vector3 position = new Vector3(offsetX, 1, offsetZ);
 
 			collectable.RotateX(Mathf.Deg2Rad(-90));
 			collectable.ScaleObjectLocal(new Vector3(0.5f, 0.5f, 0.5f));

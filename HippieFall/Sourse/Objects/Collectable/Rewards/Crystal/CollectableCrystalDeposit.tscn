@@ -777,30 +777,6 @@ tracks/29/keys = {
 "update": 0,
 "values": [ 2.0 ]
 }
-tracks/30/type = "value"
-tracks/30/path = NodePath(".:rotation_degrees")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( -90, 0, 0 ) ]
-}
-tracks/31/type = "value"
-tracks/31/path = NodePath(".:translation")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -7, 0 ) ]
-}
 
 [sub_resource type="Gradient" id=6]
 resource_local_to_scene = true
@@ -883,22 +859,22 @@ Config = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149267, -0.514724, -0.207264 )
 
 [node name="Cylinder004" parent="CrystalsDeposit" index="0"]
-transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+transform = Transform( 0.0108865, 0.0058938, -0.00148559, -0.00609468, 0.0100466, -0.00397838, -0.000697059, 0.00420657, 0.0115831, 0.289155, 0.134214, 0.496472 )
 
 [node name="Cylinder004002" parent="CrystalsDeposit" index="1"]
-transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+transform = Transform( 0.0108865, 0.0058938, -0.00148559, -0.00609468, 0.0100466, -0.00397838, -0.000697059, 0.00420657, 0.0115831, 0.289155, 0.134214, 0.496472 )
 
 [node name="Cylinder004003" parent="CrystalsDeposit" index="2"]
-transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+transform = Transform( 0.0108865, 0.0058938, -0.00148559, -0.00609468, 0.0100466, -0.00397838, -0.000697059, 0.00420657, 0.0115831, 0.289155, 0.134214, 0.496472 )
 
 [node name="Cylinder004004" parent="CrystalsDeposit" index="3"]
-transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+transform = Transform( 0.0108865, 0.0058938, -0.00148559, -0.00609468, 0.0100466, -0.00397838, -0.000697059, 0.00420657, 0.0115831, 0.289155, 0.134214, 0.496472 )
 
 [node name="Cylinder004005" parent="CrystalsDeposit" index="4"]
-transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+transform = Transform( 0.0108865, 0.0058938, -0.00148559, -0.00609468, 0.0100466, -0.00397838, -0.000697059, 0.00420657, 0.0115831, 0.289155, 0.134214, 0.496472 )
 
 [node name="Cylinder004006" parent="CrystalsDeposit" index="5"]
-transform = Transform( 0.0108865, 0.00589381, -0.00148558, -0.00609467, 0.0100466, -0.00397837, -0.000697063, 0.00420658, 0.011583, 0.289155, 0.134214, 0.496472 )
+transform = Transform( 0.0108865, 0.0058938, -0.00148559, -0.00609468, 0.0100466, -0.00397838, -0.000697059, 0.00420657, 0.0115831, 0.289155, 0.134214, 0.496472 )
 
 [node name="Area" type="Area" parent="."]
 collision_layer = 128
