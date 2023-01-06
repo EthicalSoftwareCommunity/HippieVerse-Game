@@ -19,13 +19,13 @@ namespace HippieFall.Biomes
             {
                 _fallSpeed = HippieFallUtilities.Game.Level.LevelConfig.Speed *
                              Mathf.Log(HippieFallUtilities.Game.Level.LevelConfig.Speed);
+                Mathf.Clamp(_fallSpeed, 1, 100);
                 _rotationSpeed = new Vector3(Utilities.GetRandomNumberFloat(0.1f, 4), Utilities.GetRandomNumberFloat(0.1f, 4),
                     Utilities.GetRandomNumberFloat(0.1f, 4));
                 IsFalling = true;
-                Timer timer = new Timer(7000);
+                Timer timer = new Timer(10000);
                 timer.Elapsed += DestroyPlane;
                 timer.Start();
-                
             }
         }
         private void DestroyPlane(object sender, ElapsedEventArgs e)

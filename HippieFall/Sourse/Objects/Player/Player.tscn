@@ -14,8 +14,9 @@ extents = Vector3( 1.56232, 2.18686, 0.455022 )
 [sub_resource type="BoxShape" id=12]
 extents = Vector3( 1.33166, 1.6787, 5.2747 )
 
-[sub_resource type="BoxShape" id=10]
-extents = Vector3( 0, 0, 0 )
+[sub_resource type="CapsuleShape" id=13]
+radius = 0.461838
+height = 2.51863
 
 [node name="Player" type="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 7, 0 )
@@ -66,8 +67,7 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-shape = SubResource( 10 )
-disabled = true
+shape = SubResource( 13 )
 
 [connection signal="area_entered" from="PlayerArea" to="PlayerControls/PlayerCollectableController" method="OnAreaEntered"]
 [connection signal="area_entered" from="PlayerArea" to="PlayerControls/PlayerCollectableController/PlayerRewardController" method="OnAreaEntered"]

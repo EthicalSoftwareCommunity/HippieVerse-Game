@@ -30,7 +30,7 @@
 [ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
 [ext_resource path="res://HippieFall/Sourse/Objects/Tunnel/StartGreenPlane.cs" type="Script" id=29]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera/GameCameraConfigData.tres" type="Resource" id=30]
-[ext_resource path="res://HippieFall/Sourse/Biome/Cyber/Tunnel/tunnel_cyber.tscn" type="PackedScene" id=33]
+[ext_resource path="res://HippieFall/Sourse/BiomeController.cs" type="Script" id=31]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
@@ -645,9 +645,8 @@ script = ExtResource( 3 )
 [node name="CollectableController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 6 )
 
-[node name="tunnel_cyber" parent="Level" instance=ExtResource( 33 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.575, 0 )
-visible = false
+[node name="BiomeController" type="Node" parent="Level/TunnelsSpawner"]
+script = ExtResource( 31 )
 
 [node name="DestroyTunnelTrigger" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.3379, 0 )
@@ -737,3 +736,5 @@ spot_angle = 50.0
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
 [connection signal="gui_input" from="Interface/BottomUI/Control" to="Interface/BottomUI/Joystic/TouchScreenButton" method="_on_Control_gui_input"]
 [connection signal="area_entered" from="DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]
+
+[editable path="Player"]
