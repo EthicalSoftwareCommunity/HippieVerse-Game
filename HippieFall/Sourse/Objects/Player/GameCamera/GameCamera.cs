@@ -27,7 +27,7 @@ namespace HippieFall.Game
         private float SizeDelta;
         private float FarDelta;
         private float MaxDistanceCoefDelta;
-        private GameCameraConfig _gameCameraConfig;
+        [Export] private GameCameraConfig _gameCameraConfig;
         private GameCameraConfig _smoothlyChangedGameCameraConfig;
         public GameCameraConfig Config
         {
@@ -63,7 +63,6 @@ namespace HippieFall.Game
         
         public override void _Ready()
         {
-            _gameCameraConfig = new GameCameraConfig(this);
             HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
         }
 
@@ -71,7 +70,7 @@ namespace HippieFall.Game
         {
             _player = HippieFallUtilities.Game.Player;
             _effectController = new GameCameraEffectController();
-            _effectController.Init(this, Config);
+            _effectController.Init(this, _gameCameraConfig);
         }
 
         public override void _PhysicsProcess(float delta)

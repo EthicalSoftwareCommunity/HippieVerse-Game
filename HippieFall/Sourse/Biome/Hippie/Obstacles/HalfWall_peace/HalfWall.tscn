@@ -13,6 +13,7 @@ extents = Vector3( 7.16849, 4.27915, 0.329787 )
 [node name="HalfWall" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 2 )
+Config = null
 
 [node name="CSGMesh" type="CSGMesh" parent="."]
 transform = Transform( 2.3, 0, 0, 0, -8.74228e-08, -2.3, 0, 2, -1.00536e-07, 0, -1.71771, -7.50835e-08 )

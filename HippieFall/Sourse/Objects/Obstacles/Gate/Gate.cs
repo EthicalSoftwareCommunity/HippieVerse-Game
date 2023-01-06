@@ -5,12 +5,12 @@ using HippieFall.Game;
 
 namespace HippieFall.Tunnels
 {
-    class Gate : Obstacle
+    public class Gate : Obstacle
     {
         [Export] private NodePath _animationPlayerPath;
 
         private AnimationPlayer _animation;
-        private LevelConfig _levelConfig = new LevelConfig();
+        private LevelConfig _levelConfig;
         private float _speedDifferenceCoefficient = 0;
         private GameController _gameController;
 
@@ -18,6 +18,8 @@ namespace HippieFall.Tunnels
         {
             _animation = GetNode<AnimationPlayer>(_animationPlayerPath);
             ObstacleType = ObstacleTypes.Controller;
+            _levelConfig = HippieFallUtilities.Game.Level.LevelConfig;
+            Config = new Config();
         }
 
         private void OnOpenGateTriggerAreaEntered(Area area)

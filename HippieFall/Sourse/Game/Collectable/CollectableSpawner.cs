@@ -11,7 +11,7 @@ namespace HippieFall
 {
 	public class CollectableSpawner : Node, IEffectable
 	{
-		public event Action<Collectable> OnCollectableCreated; 
+		public event Action<Collectable, Config> OnCollectableCreated; 
 		public List<Collectable> CollectableItems => _collectableItems;
 		
 		private List<Collectable> _collectableItems;
@@ -79,7 +79,7 @@ namespace HippieFall
 			collectable.RotateX(Mathf.Deg2Rad(-90));
 			collectable.ScaleObjectLocal(new Vector3(0.5f, 0.5f, 0.5f));
 			collectable.Translation += position;
-			OnCollectableCreated?.Invoke(collectable);
+			OnCollectableCreated?.Invoke(collectable, collectable.Config);
 			return collectable;
 		}
 

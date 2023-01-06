@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/Fan/Round_corridor_cyberpunk_Traps_v2_mat_002.material" type="Material" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Fan/Fan.cs" type="Script" id=2]
+[ext_resource path="res://HippieFall/Sourse/Biome/Cyber/Obstacle/CyberFanConfigData.tres" type="Resource" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Mesh.003"
@@ -26,6 +27,7 @@ data = PoolVector3Array( 1.1771, 0.6796, 0.1951, 1.3904, 0.8027, 0, 1.6055, 0, 0
 [node name="Fan" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 2 )
+Config = ExtResource( 3 )
 
 [node name="FanMesh" type="MeshInstance" parent="."]
 transform = Transform( 0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, 4.27501e-06, 2.90537e-05, 1.26998e-12 )

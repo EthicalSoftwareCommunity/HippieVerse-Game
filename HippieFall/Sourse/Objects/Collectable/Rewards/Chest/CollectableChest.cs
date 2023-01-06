@@ -4,7 +4,7 @@ using Godot;
 
 namespace HippieFall.Collectables
 {
-    class CollectableChest : Collectable,IEffectable
+    class CollectableChest : Collectable, IEffectable
     {
         public override void ChangeConfigData(Config config)
         {

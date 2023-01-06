@@ -19,17 +19,8 @@ namespace HippieFall
 		public  override void Init(Node node, Config config)
 		{
 			_playerConfig = (PlayerConfig)config;
-			Configs.Add(_playerConfig);
-			AddNode(node);
+			AddNode(node, _playerConfig);
 			HippieFallUtilities.Game.GameEffectController.OnReceivedPlayerEffect += EffectController.AddEffect;
 		}
-
-		public override Config GetConfigByType(Node node)
-		{
-			if (node is PlayerControls) 
-				return new PlayerConfig(_playerConfig);
-			return null;
-		}
-
 	}
 }

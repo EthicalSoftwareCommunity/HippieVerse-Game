@@ -71,7 +71,7 @@ namespace HippieFall
 				case C_BiomeTypes.HIPPIE: CurrentBiome = _hippieBiome; break;
 				default: CurrentBiome = _hippieBiome; break;
 			}
-			
+			CurrentBiome = _hippieBiome; 
 			LoadObstacles();
 			FillOrder();
 		}
@@ -140,7 +140,7 @@ namespace HippieFall
 				Obstacle obstacle = (Obstacle)_obstacleOrder.First().Instance();
 				_obstacleOrder.Remove(_obstacleOrder.First());
 				tunnel.ObstacleMesh = obstacle;
-				_obstaclesController.AddNode(obstacle);
+				_obstaclesController.AddNode(obstacle, obstacle.Config);
 			}
 			else _obstacleOrder.Remove(_obstacleOrder.First());
 

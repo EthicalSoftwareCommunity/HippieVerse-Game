@@ -5,7 +5,7 @@ using HippieFall.Biomes;
 
 namespace HippieFall.Tunnels
 {
-	public class Tunnel:Spatial
+	public class Tunnel: Spatial
 	{
 		[Export] private NodePath _tunnelPath;
 		[Export] private NodePath _obstaclePath;
