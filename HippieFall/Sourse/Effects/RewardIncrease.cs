@@ -31,7 +31,6 @@ namespace HippieFall.Effects
 
         private void ApplyEffect(CollectableCoinConfig coin)
         {
-            
             coin.Value = (int)(coin.Value*_coefficient);
         }
 

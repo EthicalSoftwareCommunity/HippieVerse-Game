@@ -27,6 +27,7 @@ formats/zstd/long_distance_matching=true
 
 [debug]
 
+settings/fps/force_fps=120
 settings/stdout/print_fps=true
 settings/gdscript/max_call_stack=4096
 

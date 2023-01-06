@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Biome/Hippie/Obstacles/HippieSaw/Round_corridor_cyberpunk_Traps_v1_mat.material" type="Material" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Saw/Saw.cs" type="Script" id=2]
 [ext_resource path="res://HippieFall/Sourse/Biome/Hippie/Obstacles/HippieSaw/hippiesaw_rough.png" type="Texture" id=3]
 [ext_resource path="res://HippieFall/Sourse/Biome/Hippie/Obstacles/HippieSaw/hippiesaw_base.png" type="Texture" id=4]
+[ext_resource path="res://HippieFall/Sourse/Biome/Hippie/Obstacles/HippieSaw/HippieSawConfigData.tres" type="Resource" id=5]
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 4 )
@@ -50,9 +51,8 @@ radius = 2.55179
 [node name="hippie_saw" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 2 )
+Config = ExtResource( 5 )
 _movingObstaclePath = NodePath("Gears")
-_radius = 1.7
-_speed = 2.0
 
 [node name="Round_corridor_hippie_Traps_v1" type="MeshInstance" parent="."]
 transform = Transform( 38, 0, 0, 0, -1.66103e-06, 38, 0, -38, -1.66103e-06, 0, 0, 0 )

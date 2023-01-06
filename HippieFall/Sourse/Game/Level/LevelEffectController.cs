@@ -15,14 +15,7 @@ class LevelEffectController : ObjectEffectController
     public override void Init(Node node, Config config)
     {
         _levelConfig = new();
-        Configs.Add(_levelConfig);
-        AddNode(node);
+        AddNode(node, _levelConfig);
         HippieFallUtilities.Game.GameEffectController.OnReceivedLevelEffect += EffectController.AddEffect;
-    }
-
-    public override Config GetConfigByType(Node node)
-    {
-        if (node is LevelController) return new LevelConfig(_levelConfig);
-        return null;
     }
 }

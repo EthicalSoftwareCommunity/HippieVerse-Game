@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Global.Data;
 using Global.Data.EffectSystem;
 using Godot;
+using HippieFall.Collectables;
 using HippieFall.Tunnels;
 using Array = Godot.Collections.Array;
 
@@ -15,22 +16,23 @@ namespace Global.GameSystem
             private Config _config;
             public Config Config
             {
-                get => _config;
+                get => _config.Duplicate() as Config;
+                set => _config = value;
+            }
+            
+            public Config DynamicConfig
+            {
                 set
-                {
-                    _config = value;
+                { 
                     if(Node is IEffectable node)
                         node.ChangeConfigData(value);
                 }
             }
             public Node Node  { get; set; }
         }
-
-        public event Action<Config> OnConfigChanged;
+        
         public List<NodeObject> NodeObjects { get; set; } = new();
-        public List<Config> Configs { get; private set; } = new();
         public EffectsController EffectController { get; private set; }
-        public Config Config { get; set; }
 
         public ObjectEffectController(Effect.EffectsTarget effectsTarget)
         {
@@ -50,31 +52,28 @@ namespace Global.GameSystem
         
         //Set if checking node for needle *Class* 
         //Return new *Class*Config()
-        public abstract Config GetConfigByType(Node node);
 
         private void ApplyDynamicEffects()
         {
             foreach (var nodeObject in NodeObjects)
-                nodeObject.Config = EffectController.
-                    ApplyEffectsOnConfig(GetConfigByType(nodeObject.Node));
-            OnConfigChanged?.Invoke(Config);
+                nodeObject.DynamicConfig = EffectController.
+                    ApplyEffectsOnConfig(nodeObject.Config);
         }
 
         private void ApplyConstantEffect(Effect effect)
         {
-            foreach (var config in Configs)
-                effect.Apply(config);
+            foreach (var nodeObject in NodeObjects)
+                effect.Apply(nodeObject.Config);
             ApplyDynamicEffects();
         }
         
-        public void AddNode(Node node)
+        public void AddNode(Node node, Config config)
         {
             node.Connect("tree_exited", this, nameof(RemoveObstacle), new Array(node));
-            NodeObject nodeObject = new NodeObject
-            {
-                Node = node,
-                Config = EffectController.ApplyEffectsOnConfig(GetConfigByType(node))
-            };
+            NodeObject nodeObject = new NodeObject();
+            nodeObject.Node = node;
+            nodeObject.Config = config ?? new Config();
+            nodeObject.DynamicConfig = EffectController.ApplyEffectsOnConfig(nodeObject.Config);
             NodeObjects.Add(nodeObject);
         }
         

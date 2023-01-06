@@ -15,6 +15,7 @@ namespace HippieFall.Collectables
 			if (area.GetParentOrNull<Player>() != null) 
 				Destroy();
 		}
+
 		public virtual void Destroy()
 		{
 			QueueFree();

@@ -59,6 +59,7 @@ tracks/3/keys = {
 
 [node name="Gate" type="Spatial"]
 script = ExtResource( 1 )
+Config = null
 _animationPlayerPath = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

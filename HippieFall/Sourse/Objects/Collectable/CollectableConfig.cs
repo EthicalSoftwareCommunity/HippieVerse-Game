@@ -14,6 +14,7 @@ namespace HippieFall.Collectables
 
 		public CollectableConfig()
 		{
+
 		}
 
 		public CollectableConfig(Config config)

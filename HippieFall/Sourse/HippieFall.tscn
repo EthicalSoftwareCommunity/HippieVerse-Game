@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -29,15 +29,12 @@
 [ext_resource path="res://HippieFall/Sourse/Game/GameParticlesController.cs" type="Script" id=27]
 [ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
 [ext_resource path="res://HippieFall/Sourse/Objects/Tunnel/StartGreenPlane.cs" type="Script" id=29]
-[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Chest/CollectableChestConfigData.tres" type="Resource" id=30]
-[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalConfigData.tres" type="Resource" id=31]
-[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Coin/CollectableCoinConfigData.tres" type="Resource" id=32]
-[ext_resource path="res://HippieFall/Sourse/Biome/Cyber/Tunnel/tunnel_cyber.tscn" type="PackedScene" id=33]
+[ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera/GameCameraConfigData.tres" type="Resource" id=30]
+[ext_resource path="res://HippieFall/Sourse/BiomeController.cs" type="Script" id=31]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
 [ext_resource path="res://Fonts/Ubuntu-BoldItalic.ttf" type="DynamicFontData" id=37]
-[ext_resource path="res://HippieFall/Sourse/Objects/Collectable/Rewards/Crystal/CollectableCrystalDepositConfigData.tres" type="Resource" id=38]
 
 [sub_resource type="Theme" id=1]
 
@@ -647,14 +644,9 @@ script = ExtResource( 3 )
 
 [node name="CollectableController" type="Node" parent="Level/TunnelsSpawner"]
 script = ExtResource( 6 )
-_coinConfig = ExtResource( 32 )
-_crystalConfig = ExtResource( 31 )
-_crystalDepositConfig = ExtResource( 38 )
-_chestConfig = ExtResource( 30 )
 
-[node name="tunnel_cyber" parent="Level" instance=ExtResource( 33 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.575, 0 )
-visible = false
+[node name="BiomeController" type="Node" parent="Level/TunnelsSpawner"]
+script = ExtResource( 31 )
 
 [node name="DestroyTunnelTrigger" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.3379, 0 )
@@ -684,6 +676,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.84
 current = true
 fov = 90.0
 script = ExtResource( 26 )
+_gameCameraConfig = ExtResource( 30 )
 
 [node name="WindFallParticles" type="Particles" parent="Camera"]
 transform = Transform( -1, 1.50996e-07, -6.60024e-15, 0, -4.37114e-08, -1, -1.50996e-07, -1, 4.37114e-08, 0, 0, -1.058 )
@@ -743,3 +736,5 @@ spot_angle = 50.0
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]
 [connection signal="gui_input" from="Interface/BottomUI/Control" to="Interface/BottomUI/Joystic/TouchScreenButton" method="_on_Control_gui_input"]
 [connection signal="area_entered" from="DestroyTunnelTrigger" to="Level" method="OnDestroyTunnelTriggerAreaEntered"]
+
+[editable path="Player"]

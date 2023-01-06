@@ -10,10 +10,6 @@ namespace HippieFall.Tunnels
 {
 	public class ObstaclesController : ObjectEffectController
 	{
-		private FanConfig _fan;
-		private SawConfig _saw;
-		private PerforatedWallConfig _perforatedWall;
-
 		public ObstaclesController():base(Effect.EffectsTarget.Obstacles)
 		{
 			
@@ -21,21 +17,7 @@ namespace HippieFall.Tunnels
 
 		public override void Init(Node node = null, Config config = null)
 		{
-			_fan = new FanConfig();
-			_saw = new SawConfig();
-			_perforatedWall = new PerforatedWallConfig();
-			Configs.Add(_fan);
-			Configs.Add(_saw);
-			Configs.Add(_perforatedWall);
 			HippieFallUtilities.Game.GameEffectController.OnReceivedObstaclesEffect += EffectController.AddEffect;
-		}
-
-		public override Config GetConfigByType(Node node)
-		{
-			if (node is Fan) return new FanConfig(_fan);
-			if (node is Saw) return new SawConfig(_saw);
-			if (node is PerforatedWall) return  new PerforatedWallConfig(_perforatedWall);
-			return null;
 		}
 	}
 }

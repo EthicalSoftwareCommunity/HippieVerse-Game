@@ -9,7 +9,6 @@ namespace HippieFall.Tunnels
 	class PerforatedWall : Obstacle, IEffectable
 	{
 		[Export] private List<NodePath> _lasersPath;
-		private float _rotationSpeed;
 		public override void _Ready()
 		{
 			ChangeConfigData(new PerforatedWallConfig());
@@ -28,14 +27,14 @@ namespace HippieFall.Tunnels
 
 		public override void _PhysicsProcess(float delta)
 		{
-			RotateY(_rotationSpeed*delta);
+			RotateY(((PerforatedWallConfig)Config).RotationSpeed*delta);
 		}
 
 		public void ChangeConfigData(Config config)
 		{
 			if (config is PerforatedWallConfig perforatedWallConfig)
 			{
-				_rotationSpeed = perforatedWallConfig.RotationSpeed;
+				Config = new PerforatedWallConfig(perforatedWallConfig);
 			}
 		}
 	}
