@@ -10,6 +10,7 @@ namespace HippieFall.Biomes
             TunnelsObstacle = new List<string> { C_TunnelObstaclePath.CIRCLE_MOVING_BIKER };
             Gate = "res://HippieFall/Sourse/Biome/Biker/Gate/Gate.tscn";
             Tunnel = "res://HippieFall/Sourse/Biome/Biker/Tunnel/tunnel_biker.tscn";
+            DoubleTunnel = "res://HippieFall/Sourse/Objects/Tunnel/DoubleTunnel.tscn";
         }
     }
 }

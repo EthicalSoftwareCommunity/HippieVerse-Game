@@ -10,7 +10,7 @@ using HippieFall.Tunnels;
 
 namespace HippieFall
 {
-	public class TunnelSpawner : Node
+	public class TunnelSpawner : Spatial
 	{
 		[Export] private NodePath _collectableControllerPath;
 		[Export] private NodePath _obstaclesControllerPath;
@@ -31,10 +31,15 @@ namespace HippieFall
 		private List<Biome> _biomes;
 		private List<Spatial> _cashTunnels;
 		private List<PackedScene> _obstacleOrder;
+		public List<PackedScene> ObstacleOrder
+		{
+			get => _obstacleOrder;
+		}
 		private List<PackedScene> _obstacleTemplates;
-		public bool IsNeedToSpawnTunnels = true;  
+		public bool IsNeedToSpawnTunnels = true;
+		public bool IsDoubleTunnelPrevious = true; 
 		
-		public Biome CurrentBiome { get; private set; }
+		public Biome CurrentBiome { get; set; }
 
 		public List<Tunnel> Tunnels { get; private set; }
 
@@ -56,39 +61,43 @@ namespace HippieFall
 
 		private void SpawnDoubleTunnel()
 		{
-			IsNeedToSpawnTunnels = false;
+			Tunnel doubleTunnel = CurrentBiome.DoubleTunnelMesh.Instance<Tunnel>();
+			doubleTunnel.Translation += Tunnels.Last().Translation + TunnelsOffset;
+			IsNeedToSpawnTunnels = true;
+			AddChild(doubleTunnel);
+			Tunnels.Add(doubleTunnel);
 		}
 		private void Init()
 		{
 			_collectableController.Init();
 			_obstaclesController.Init();
 		}
-		private void SetNewBiome()
+		public void SetNewBiome()
 		{
-			if (Utilities.GetRandomNumberInt(1,3) == 1)
+			if(Utilities.GetRandomNumberInt(1,3)==1 && IsDoubleTunnelPrevious == false)
 			{
-				SpawnDoubleTunnel();
-			}
-			else
-			{
+				IsDoubleTunnelPrevious = true;
 				ResetBiome();
-				List<string> uniqueBiomes = new List<string>(C_BiomeTypes.BIOME_NAMES);
-				if(CurrentBiome != null)
-					uniqueBiomes.Remove(CurrentBiome.BiomeName);
-				string biomeName = uniqueBiomes[Utilities.GetRandomNumberInt(0, uniqueBiomes.Count)];
-			
-				switch (biomeName)
-				{
-					case C_BiomeTypes.CYBER: CurrentBiome = _cyberBiome; break;
-					case C_BiomeTypes.HIPPIE: CurrentBiome = _hippieBiome; break;
-					default: CurrentBiome = _hippieBiome; break;
-				}
-				LoadObstacles();
-				FillOrder();
+				SpawnDoubleTunnel();
+				return;
 			}
+			ResetBiome();
+			List<string> uniqueBiomes = new List<string>(C_BiomeTypes.BIOME_NAMES);
+			if(CurrentBiome != null)
+				uniqueBiomes.Remove(CurrentBiome.BiomeName);
+			string biomeName = uniqueBiomes[Utilities.GetRandomNumberInt(0, uniqueBiomes.Count)];
+		
+			switch (biomeName)
+			{
+				case C_BiomeTypes.CYBER: CurrentBiome = _cyberBiome; break;
+				case C_BiomeTypes.HIPPIE: CurrentBiome = _hippieBiome; break;
+				default: CurrentBiome = _hippieBiome; break;
+			}
+			LoadObstacles();
+			FillOrder();
 		}
 
-		private void ResetBiome()
+		public void ResetBiome()
 		{
 			_obstacleTemplates.Clear();
 			_obstacleOrder.Clear();
@@ -101,9 +110,10 @@ namespace HippieFall
 			CountSpawnTunnels = _countTunnels;
 			SetNewBiome();
 			StartLevel();
+			IsDoubleTunnelPrevious = false;
 		}
 		
-		private void StartLevel()
+		public void StartLevel()
 		{
 			int count = 0;
 			Vector3 position;
@@ -113,13 +123,19 @@ namespace HippieFall
 				position = TunnelsOffset + xOffset;
 			while (count <= CountSpawnTunnels)
 			{
-				SpawnTunnel(position);
+				SpawnTunnel(position, 
+					CurrentBiome, 
+					_obstacleOrder.Count != 0 ? (Obstacle)_obstacleOrder.First().Instance() : null);
+				
+				if (_obstacleOrder.Count != 0)
+					_obstacleOrder.Remove(_obstacleOrder.First());
+				
 				position += TunnelsOffset;
 				count += 1;
 			}
 		}
 		
-		private void FillOrder()
+		public void FillOrder()
 		{
 			_obstacleOrder.Add(CurrentBiome.Gate);
 			for (var i = 0; i < CountSpawnTunnels-1; i++)
@@ -128,42 +144,36 @@ namespace HippieFall
 				]);
 		}
 
-		private void LoadObstacles()
+		public void LoadObstacles()
 		{
 			_obstacleTemplates.Clear();
 			_obstacleTemplates.AddRange(CurrentBiome.SpawnObstacles);
 		}
 
-		public void SpawnTunnel(Vector3 position)
+		public void SpawnTunnel(Vector3 position, Biome biome, Obstacle obstacle = null)
 		{
-			if(IsNeedToSpawnTunnels == false)
-				return;
-			Tunnel tunnel = (Tunnel)CurrentBiome.Tunnel.Duplicate();
+		
+			Tunnel tunnel = (Tunnel)biome.Tunnel.Duplicate();
 			Tunnels.Add(tunnel);
 			AddChild(tunnel);
 
 			//settings tunnel
 			tunnel.Translation = position;
 
-			tunnel.Config = CurrentBiome.TunnelMesh.Instance<TunnelConfig>();
+			tunnel.Config = biome.TunnelMesh.Instance<TunnelConfig>();
 			
-			if (IsNeedToSpawnObstacles)
+			if (obstacle != null && IsNeedToSpawnObstacles)
 			{
-				Obstacle obstacle = (Obstacle)_obstacleOrder.First().Instance();
-				_obstacleOrder.Remove(_obstacleOrder.First());
 				tunnel.ObstacleMesh = obstacle;
 				_obstaclesController.AddNode(obstacle, obstacle.Config);
 			}
-			else _obstacleOrder.Remove(_obstacleOrder.First());
 
 			if (IsNeedToSpawnCollectables)
 			{
 				if (CollectableSpawner.GetSpawnCollectable() is Collectable collectable)
 					tunnel.AddChild(collectable);
 			}
-			
-			if (_obstacleOrder.Count == 0) 
-				SetNewBiome();
+	
 		}
 
 		public void RemoveTunnel(int countAtStart)
@@ -192,6 +202,20 @@ namespace HippieFall
 				}
 				_cashTunnels.Clear();
 			}
+		}
+
+		public void SpawnTunnelAgain()
+		{
+			if(IsDoubleTunnelPrevious==false)
+			SpawnTunnel( Tunnels.Last().Translation + TunnelsOffset, 
+				CurrentBiome, 
+				_obstacleOrder.Count != 0 ? (Obstacle)_obstacleOrder.First().Instance() : null);
+				
+			if (_obstacleOrder.Count != 0)
+				_obstacleOrder.Remove(_obstacleOrder.First());
+			
+			if (_obstacleOrder.Count == 0 && IsDoubleTunnelPrevious == false) 
+				SetNewBiome();
 		}
 	}
 }

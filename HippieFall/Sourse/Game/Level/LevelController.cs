@@ -81,12 +81,7 @@ namespace HippieFall.Game
         public void OnDestroyTunnelTriggerAreaEntered(Area area)
         {
             Spawner.CashRemoveTunnel(area.GetOwnerOrNull<Tunnel>());
-            SpawnTunnelAgain();
-        }
-
-        private void SpawnTunnelAgain()
-        {
-            Spawner.SpawnTunnel(Spawner.Tunnels.Last().Translation + Spawner.TunnelsOffset);
+            Spawner.SpawnTunnelAgain();
         }
 
         public void ChangeConfigData(Config config)

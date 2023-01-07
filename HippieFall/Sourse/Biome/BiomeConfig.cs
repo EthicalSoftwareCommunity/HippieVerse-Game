@@ -9,5 +9,6 @@ namespace HippieFall.Biomes
         public List<string> TunnelsObstacle { get; protected set; }
         public string Gate { get; protected set; }
         public string Tunnel { get; protected set; }
+        public string DoubleTunnel { get; protected set; }
     }
 }
