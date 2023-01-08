@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Game/GameController.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Sourse/Game/GameEffectController.cs" type="Script" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://HippieFall/Sourse/Game/StartGameByTap.cs" type="Script" id=28]
 [ext_resource path="res://HippieFall/Sourse/Objects/Tunnel/StartGreenPlane.cs" type="Script" id=29]
 [ext_resource path="res://HippieFall/Sourse/Objects/Player/GameCamera/GameCameraConfigData.tres" type="Resource" id=30]
+[ext_resource path="res://HippieFall/Sourse/Objects/Bot/Bot.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Images/AD.png" type="Texture" id=34]
 [ext_resource path="res://Images/replay.png" type="Texture" id=35]
 [ext_resource path="res://Fonts/Ubuntu-LightItalic.ttf" type="DynamicFontData" id=36]
@@ -202,6 +203,7 @@ resource_name = "ChangeCharacteristics"
 
 [node name="HippieFall" type="Spatial"]
 script = ExtResource( 1 )
+_botPath = NodePath("Bot")
 
 [node name="Interface" type="Control" parent="."]
 pause_mode = 2
@@ -645,7 +647,7 @@ script = ExtResource( 3 )
 script = ExtResource( 6 )
 
 [node name="DestroyTunnelTrigger" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.3379, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.537, 0 )
 collision_layer = 256
 collision_mask = 256
 
@@ -664,9 +666,9 @@ light_bake_mode = 0
 shadow_enabled = true
 shadow_bias = 3.505
 shadow_contact = 0.903
-spot_range = 28.371
+spot_range = 47.665
 spot_attenuation = 0.933032
-spot_angle = 60.05
+spot_angle = 67.59
 spot_angle_attenuation = 0.707107
 
 [node name="GameEffectController" type="Node" parent="."]
@@ -689,9 +691,8 @@ script = ExtResource( 26 )
 _gameCameraConfig = ExtResource( 30 )
 
 [node name="SpotLight" type="SpotLight" parent="GameCamera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525058, -0.318087, -9.80388 )
-light_color = Color( 0.976471, 0.937255, 0.74902, 1 )
-light_energy = 1.915
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525058, -0.318087, -17.3936 )
+light_energy = 1.5
 light_indirect_energy = 0.0
 light_negative = true
 light_bake_mode = 0
@@ -755,6 +756,9 @@ shadow_bias = 0.139
 shadow_contact = 0.519
 spot_range = 30.0
 spot_angle = 50.0
+
+[node name="Bot" parent="." instance=ExtResource( 31 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.35514, 0 )
 
 [connection signal="gui_input" from="Interface/HoldTapArea" to="Interface/HoldTapArea" method="_on_Control_gui_input"]
 [connection signal="child_entered_tree" from="Interface/BottomUI" to="Interface" method="OnBottomUIChildEnteredTree"]

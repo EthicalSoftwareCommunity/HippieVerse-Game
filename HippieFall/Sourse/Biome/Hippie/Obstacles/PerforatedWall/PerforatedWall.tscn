@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Biome/Hippie/Obstacles/PerforatedWall/Material_#28.material" type="Material" id=1]
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/HalfWall/HalfWall.cs" type="Script" id=2]
 [ext_resource path="res://HippieFall/Sourse/Biome/Hippie/Obstacles/PerforatedWall/base.png" type="Texture" id=3]
 [ext_resource path="res://HippieFall/Sourse/Biome/Hippie/Obstacles/PerforatedWall3Types/version_2/1_base.png" type="Texture" id=4]
+[ext_resource path="res://HippieFall/Sourse/Objects/Bot/BotMarker.cs" type="Script" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Blue_flower"
@@ -166,3 +167,40 @@ shape = SubResource( 8 )
 transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0 )
 visible = false
 mesh = SubResource( 10 )
+
+[node name="BotMarkers" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+script = ExtResource( 5 )
+possibleMarkers = [ NodePath("Marker"), NodePath("Marker2"), NodePath("Marker3"), NodePath("Marker4") ]
+
+[node name="Marker" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39198, 0.0630779, 2.75701e-09 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker2" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.863714, 1.23895, 5.4156e-08 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker2"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker3" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50902, -0.0200651, -8.76912e-10 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker3"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker4" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.799864, 1.08234, 4.73104e-08 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker4"]
+width = 0.2
+height = 0.2
+depth = 0.2

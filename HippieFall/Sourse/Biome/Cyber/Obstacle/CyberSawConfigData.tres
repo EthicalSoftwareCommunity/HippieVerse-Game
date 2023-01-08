@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource( 1 )
 Speed = 1.5
-Radius = 3.2
+Radius = 2.5

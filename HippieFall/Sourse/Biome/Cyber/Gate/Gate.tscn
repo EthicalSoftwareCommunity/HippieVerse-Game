@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Gate/Gate.cs" type="Script" id=1]
 [ext_resource path="res://HippieFall/Materials/Models/ConvertedToSceneModels/Gate/common_gate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Gate/Open Gate.tres" type="Animation" id=3]
+[ext_resource path="res://HippieFall/Sourse/Objects/Bot/BotMarker.cs" type="Script" id=4]
 
 [sub_resource type="Animation" id=8]
 length = 0.001
@@ -79,5 +80,34 @@ collision_mask = 16
 [node name="CollisionShape" type="CollisionShape" parent="OpenGateTrigger"]
 transform = Transform( 2.8, 0, 0, 0, 1, 0, 0, 0, 2.8, 0, 0, 0 )
 shape = SubResource( 6 )
+
+[node name="BotMarkers" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+script = ExtResource( 4 )
+possibleMarkers = [ NodePath("Marker"), NodePath("Marker2"), NodePath("Marker3") ]
+
+[node name="Marker" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016852, 1.7301, 7.56251e-08 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker2" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46834, -0.813949, -3.55789e-08 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker2"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker3" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76232, -1.22181, -5.34072e-08 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker3"]
+width = 0.2
+height = 0.2
+depth = 0.2
 
 [connection signal="area_entered" from="OpenGateTrigger" to="." method="OnOpenGateTriggerAreaEntered"]

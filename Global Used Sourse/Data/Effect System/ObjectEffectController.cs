@@ -11,7 +11,7 @@ namespace Global.GameSystem
 {
     public abstract class ObjectEffectController : Node
     {
-        public class NodeObject
+        public class NodeObject : Node
         {
             private Config _config;
             public Config Config
