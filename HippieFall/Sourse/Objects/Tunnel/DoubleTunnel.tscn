@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/tunnel_hippie.material" type="Material" id=1]
 [ext_resource path="res://Images/fog.png" type="Texture" id=2]
 [ext_resource path="res://HippieFall/Sourse/Objects/Tunnel/DoubleTunnel.cs" type="Script" id=3]
+[ext_resource path="res://HippieFall/Sourse/Objects/Bot/BotMarker.cs" type="Script" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "tunell_hippie.006"
@@ -78,7 +79,7 @@ mesh = SubResource( 1 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2.25005, 18.9276, 0 )
 
 [node name="Particles" type="Particles" parent="Spatial"]
-amount = 512
+amount = 256
 lifetime = 2.0
 speed_scale = 0.5
 randomness = 0.5
@@ -89,7 +90,7 @@ draw_pass_1 = SubResource( 7 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2.32476, 18.9276, 0 )
 
 [node name="Particles" type="Particles" parent="Spatial2"]
-amount = 512
+amount = 256
 lifetime = 2.0
 speed_scale = 0.5
 randomness = 0.5
@@ -135,6 +136,48 @@ shape = SubResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1.08, 0, 0, 0, 0.488, 1.75954e-07, 0, -7.95053e-08, 1.08, 0, 20.1309, -3.37508e-14 )
 shape = SubResource( 2 )
+
+[node name="BotMarkers" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11.7384, 1.91928 )
+script = ExtResource( 4 )
+possibleMarkers = [ NodePath("Marker"), NodePath("Marker3") ]
+
+[node name="Marker" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9957, 1.43659, -0.0317879 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker3" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64522, 1.13592, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker3"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="BotMarkers2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -4.55166, 1.91928 )
+script = ExtResource( 4 )
+possibleMarkers = [ NodePath("Marker"), NodePath("Marker3") ]
+
+[node name="Marker" type="Spatial" parent="BotMarkers2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9957, 1.43659, -0.0317879 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers2/Marker"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker3" type="Spatial" parent="BotMarkers2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64522, 1.13592, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers2/Marker3"]
+width = 0.2
+height = 0.2
+depth = 0.2
 
 [connection signal="area_entered" from="LeftTunnel" to="." method="OnTunnelAreaEntered" binds= [ "Left" ]]
 [connection signal="area_entered" from="RightTunnel" to="." method="OnTunnelAreaEntered" binds= [ "Right" ]]

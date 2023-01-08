@@ -17,7 +17,6 @@ namespace HippieFall
 		[Export] public Vector3 TunnelsOffset = new(0, -7.938f * 2, 0); //Change to tunnel Size
 		[Export] private int _cashTunnelsSize = 15;
 		[Export] private int _countTunnels = 10;
-		[Export] public Vector3 xOffset = new(0, 0, 0); //Change to tunnel Size
 
 		public bool IsNeedToSpawnObstacles { get; set; } = false;
 		public bool IsNeedToSpawnCollectables { get; set; } = false;
@@ -25,6 +24,7 @@ namespace HippieFall
 		private CollectableSpawner CollectableSpawner => _collectableController.CollectableSpawner;
 		private CollectableController _collectableController;
 		private ObstaclesController _obstaclesController;
+		public ObstaclesController ObstaclesController => _obstaclesController;
 		private Biome _cyberBiome;
 		private Biome _bikerBiome = null;//= new Biome(C_BiomeTypes.BIKER);
 		private Biome _hippieBiome;
@@ -93,6 +93,7 @@ namespace HippieFall
 				case C_BiomeTypes.HIPPIE: CurrentBiome = _hippieBiome; break;
 				default: CurrentBiome = _hippieBiome; break;
 			}
+			CurrentBiome = _cyberBiome;
 			LoadObstacles();
 			FillOrder();
 		}
@@ -119,8 +120,8 @@ namespace HippieFall
 			Vector3 position;
 			if (Tunnels.Count != 0)
 				position = Tunnels.Last().Translation + TunnelsOffset;
-			else 
-				position = TunnelsOffset + xOffset;
+			else
+				position = TunnelsOffset;
 			while (count <= CountSpawnTunnels)
 			{
 				SpawnTunnel(position, 

@@ -29,11 +29,11 @@ namespace HippieFall
 		{
 			PlayerControls = GetNode<PlayerControls>(_playerControlsPath);
 			Character = GetNode<Character>(_characterPath);
-			GetNode("/root").GetChild(0).Connect(nameof(GameController.GameIsReady), this, nameof(Init));
+			HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
 		}
-		private void Init(GameController game)
+		private void Init()
 		{
-			game.Level.ConfigChanged += config => 
+			HippieFallUtilities.Game.Level.ConfigChanged += config => 
 				PlayerEffectController.EffectController.AddEffect(new LevelDataChanged(config));
 		}
 		

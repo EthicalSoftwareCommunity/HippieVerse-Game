@@ -40,8 +40,7 @@ namespace HippieFall
         {
             _move.x = Joystick.GetButtonPosition().x;
             _move.z = Joystick.GetButtonPosition().y;
-
-            Vector2 move2d = new Vector2(_move.x, _move.y);
+            Vector2 move2d = new Vector2(_move.x, _move.z);
             if (move2d.Length() > 0)
             {
                 _move *= +_config.Speed * delta * GetMovementCoefficient(move2d.Normalized().Length());
@@ -53,13 +52,7 @@ namespace HippieFall
         {
             return Mathf.Log(x*5) / 200;
         }
-
-        private bool CheckMoveOnBorderRadiusOut()
-        {
-            _nextMove = _player.Translation + _move;
-            return _config.Radius * _config.Radius - _nextMove.x * _nextMove.x > _nextMove.z * _nextMove.z;
-        }
-
+        
         public void ChangeConfigData(Config config)
         {
             _config = ((PlayerConfig)config).MovementConfig;
