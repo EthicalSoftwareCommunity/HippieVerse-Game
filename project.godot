@@ -16,7 +16,7 @@ ClassPrefix=""
 [application]
 
 config/name="HippieUniverse"
-run/main_scene="res://HippieUniverse/Sourse/MainSphere/MainSphere.tscn"
+run/main_scene="res://HippieFall/Sourse/HippieFall.tscn"
 config/use_hidden_project_data_directory=false
 config/icon="res://icon.png"
 config/auto_accept_quit=false

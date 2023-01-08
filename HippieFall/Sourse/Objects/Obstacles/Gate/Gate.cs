@@ -18,8 +18,15 @@ namespace HippieFall.Tunnels
         {
             _animation = GetNode<AnimationPlayer>(_animationPlayerPath);
             ObstacleType = ObstacleTypes.Controller;
-            _levelConfig = HippieFallUtilities.Game.Level.LevelConfig;
+            if(HippieFallUtilities.Game.IsGameIsReady) _levelConfig = HippieFallUtilities.Game.Level.LevelConfig;
+            else HippieFallUtilities.ConnectFeedbackAfterGameReadiness(this);
+
             Config = new Config();
+        }
+
+        private void Init()
+        {
+            _levelConfig = HippieFallUtilities.Game.Level.LevelConfig;
         }
 
         private void OnOpenGateTriggerAreaEntered(Area area)

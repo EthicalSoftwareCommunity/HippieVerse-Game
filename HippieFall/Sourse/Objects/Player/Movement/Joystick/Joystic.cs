@@ -4,7 +4,7 @@ namespace HippieFall
 {
     public class Joystic : TouchScreenButton
     {
-        private readonly int _boundary = 64;
+        public readonly int Boundary = 64;
         private readonly Vector2 _radius = new Vector2(28, 28);
         private readonly float _returnAccel = 20f;
         private readonly float _threshold = 5;
@@ -42,12 +42,12 @@ namespace HippieFall
                         GetParent<Node2D>().Position.y);
                     float eventDistantionFromCenter = (eventDrag.Position - parentGlobalPosition).Length();
 
-                    if (eventDistantionFromCenter >= _boundary * GlobalScale.x || eventDrag.Index == _onGoingDrag)
+                    if (eventDistantionFromCenter >= Boundary * GlobalScale.x || eventDrag.Index == _onGoingDrag)
                     {
                         GlobalPosition = eventDrag.Position - _radius * GlobalScale;
 
-                        if (GetButtonPosition().Length() > _boundary)
-                            Position = GetButtonPosition().Normalized() * _boundary - _radius;
+                        if (GetButtonPosition().Length() > Boundary)
+                            Position = GetButtonPosition().Normalized() * Boundary - _radius;
                         _onGoingDrag = eventDrag.Index;
                     }
                 }

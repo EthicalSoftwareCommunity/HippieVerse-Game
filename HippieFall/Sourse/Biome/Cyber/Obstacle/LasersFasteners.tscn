@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/Lasers/Round_corridor_cyberpunk_Traps_v5.material" type="Material" id=1]
 [ext_resource path="res://HippieFall/Materials/Models/ImportedModels/Cyber_Biome/Traps/Lasers/Round_corridor_cyberpunk_mat.material" type="Material" id=2]
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Lasers/LasersPlatformController.cs" type="Script" id=3]
 [ext_resource path="res://HippieFall/Sourse/Objects/Obstacles/Lasers/LaserController.cs" type="Script" id=4]
+[ext_resource path="res://HippieFall/Sourse/Objects/Bot/BotMarker.cs" type="Script" id=5]
 
 [sub_resource type="ArrayMesh" id=13]
 resource_name = "Mesh"
@@ -220,5 +221,59 @@ collision_mask = 16
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 14 )
+
+[node name="BotMarkers" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.26659 )
+script = ExtResource( 5 )
+possibleMarkers = [ NodePath("Marker"), NodePath("Marker2"), NodePath("Marker3"), NodePath("Marker4"), NodePath("Marker5"), NodePath("Marker6") ]
+
+[node name="Marker" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0162041, -0.676358, -0.706928 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker2" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.936246, -0.519776, 2.72051 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker2"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker3" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43626, -0.602715, 2.93595 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker3"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker4" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.976883, -0.508855, -0.654253 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker4"]
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker5" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2298, -0.620524, -0.711196 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0459558 )
+width = 0.2
+height = 0.2
+depth = 0.2
+
+[node name="Marker6" type="Spatial" parent="BotMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0162041, -0.687525, 2.90138 )
+
+[node name="CSGBox" type="CSGBox" parent="BotMarkers/Marker6"]
+width = 0.2
+height = 0.2
+depth = 0.2
 
 [connection signal="area_entered" from="Area" to="." method="OnAreaEntered"]

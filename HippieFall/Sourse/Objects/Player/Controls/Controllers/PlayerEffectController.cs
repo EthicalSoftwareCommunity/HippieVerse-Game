@@ -10,7 +10,6 @@ namespace HippieFall
 {
 	public class PlayerEffectController : ObjectEffectController
 	{
-		private PlayerConfig _playerConfig;
 		public PlayerEffectController() : base(Effect.EffectsTarget.Player)
 		{
 			
@@ -18,8 +17,7 @@ namespace HippieFall
 
 		public  override void Init(Node node, Config config)
 		{
-			_playerConfig = (PlayerConfig)config;
-			AddNode(node, _playerConfig);
+			AddNode(node, (PlayerConfig)config);
 			HippieFallUtilities.Game.GameEffectController.OnReceivedPlayerEffect += EffectController.AddEffect;
 		}
 	}

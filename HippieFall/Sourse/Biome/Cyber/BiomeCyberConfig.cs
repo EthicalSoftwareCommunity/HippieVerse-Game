@@ -18,6 +18,7 @@ namespace HippieFall.Biomes
             };  
             Gate = "res://HippieFall/Sourse/Biome/Cyber/Gate/Gate.tscn";
             Tunnel = "res://HippieFall/Sourse/Biome/Cyber/Tunnel/tunnel_cyber.tscn";
+            DoubleTunnel = "res://HippieFall/Sourse/Objects/Tunnel/DoubleTunnel.tscn";
         }
     }
 }

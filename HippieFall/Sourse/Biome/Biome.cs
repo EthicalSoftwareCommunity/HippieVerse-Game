@@ -11,6 +11,7 @@ namespace HippieFall.Biomes
         public List<PackedScene> SpawnObstacles { get; }
         public PackedScene Gate { get; private set; }
         public PackedScene TunnelMesh { get; private set; }
+        public PackedScene DoubleTunnelMesh { get; private set; }
         public string BiomeName { get; set; }
 
         private BiomeConfig _config;
@@ -31,6 +32,7 @@ namespace HippieFall.Biomes
             _spawnObstaclesConfig = _config.TunnelsObstacle;
             Gate = GD.Load<PackedScene>(_config.Gate);
             TunnelMesh = GD.Load<PackedScene>(_config.Tunnel);
+            DoubleTunnelMesh = GD.Load<PackedScene>(_config.DoubleTunnel);
         }
 
         private BiomeConfig GetConfigByBiome()
